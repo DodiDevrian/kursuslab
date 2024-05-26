@@ -6,13 +6,13 @@
 				
 				<!-- Home Slider Item -->
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url(<?= base_url() ?>assets/frontend/images/home_slider_1.jpg)"></div>
+					<div class="home_slider_background" style="background-image:url(<?= base_url() ?>assets/img/gambar1.jpg)"></div>
 					<div class="home_slider_content">
 						<div class="container">
 							<div class="row">
 								<div class="col text-center">
-									<div class="home_slider_title">The Premium System Education</div>
-									<div class="home_slider_subtitle">Future Of Education Technology</div>
+									<div class="home_slider_title">Foto Slider</div>
+									<div class="home_slider_subtitle">Slogan or Keterangan Slider</div>
 								</div>
 							</div>
 						</div>
@@ -21,13 +21,13 @@
 
 				<!-- Home Slider Item -->
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url(<?= base_url() ?>assets/frontend/images/home_slider_1.jpg)"></div>
+					<div class="home_slider_background" style="background-image:url(<?= base_url() ?>assets/img/gambar2.jpg)"></div>
 					<div class="home_slider_content">
 						<div class="container">
 							<div class="row">
 								<div class="col text-center">
-									<div class="home_slider_title">The Premium System Education</div>
-									<div class="home_slider_subtitle">Future Of Education Technology</div>
+									<div class="home_slider_title">Foto Slider</div>
+									<div class="home_slider_subtitle">Slogan or Keterangan Slider</div>
 								</div>
 							</div>
 						</div>
@@ -36,13 +36,13 @@
 
 				<!-- Home Slider Item -->
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url(<?= base_url() ?>assets/frontend/images/home_slider_1.jpg)"></div>
+					<div class="home_slider_background" style="background-image:url(<?= base_url() ?>assets/img/gambar3.jpg)"></div>
 					<div class="home_slider_content">
 						<div class="container">
 							<div class="row">
 								<div class="col text-center">
-									<div class="home_slider_title">The Premium System Education</div>
-									<div class="home_slider_subtitle">Future Of Education Technology</div>
+									<div class="home_slider_title">Foto Slider</div>
+									<div class="home_slider_subtitle">Slogan or Keterangan Slider</div>
 								</div>
 							</div>
 						</div>
@@ -72,7 +72,6 @@
 			</div>
 			<div class="row features_row">
 				
-				<!-- Features Item -->
 				<div class="col-lg-3 feature_col">
 					<div class="feature text-center trans_400">
 						<div class="feature_icon"><img src="<?= base_url() ?>assets/frontend/images/icon_1.png" alt=""></div>
@@ -81,7 +80,6 @@
 					</div>
 				</div>
 
-				<!-- Features Item -->
 				<div class="col-lg-3 feature_col">
 					<div class="feature text-center trans_400">
 						<div class="feature_icon"><img src="<?= base_url() ?>assets/frontend/images/icon_2.png" alt=""></div>
@@ -90,7 +88,6 @@
 					</div>
 				</div>
 
-				<!-- Features Item -->
 				<div class="col-lg-3 feature_col">
 					<div class="feature text-center trans_400">
 						<div class="feature_icon"><img src="<?= base_url() ?>assets/frontend/images/icon_3.png" alt=""></div>
@@ -99,7 +96,6 @@
 					</div>
 				</div>
 
-				<!-- Features Item -->
 				<div class="col-lg-3 feature_col">
 					<div class="feature text-center trans_400">
 						<div class="feature_icon"><img src="<?= base_url() ?>assets/frontend/images/icon_4.png" alt=""></div>
@@ -111,8 +107,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- Popular Courses -->
 
 	<div class="courses">
 		<div class="section_background parallax-window" data-parallax="scroll" data-image-src="<?= base_url() ?>assets/frontend/images/courses_background.jpg" data-speed="0.8"></div>
@@ -127,7 +121,6 @@
 			</div>
 			<div class="row courses_row">
 				
-				<!-- Course -->
 				<?php foreach ($kursus_terakhir as $key => $value) { ?>
 				<div class="col-lg-4 course_col">
 					<div class="course">
@@ -152,13 +145,11 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					<div class="courses_button trans_200"><a href="<?= base_url('kursus') ?>">view all courses</a></div>
+					<div class="courses_button trans_200"><a href="<?= base_url('kursus') ?>">lihat semua kursus</a></div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<!-- Team -->
 
 	<div class="team">
 		<div class="team_background parallax-window" data-parallax="scroll" data-image-src="" data-speed="0.8"></div>
@@ -166,85 +157,81 @@
 			<div class="row">
 				<div class="col">
 					<div class="section_title_container text-center">
-						<h2 class="section_title">The Best Tutors in Town</h2>
-						<div class="section_subtitle"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel gravida arcu. Vestibulum feugiat, sapien ultrices fermentum congue, quam velit venenatis sem</p></div>
+						<h2 class="section_title">Asisten Praktikum</h2>
 					</div>
 				</div>
 			</div>
+
 			<div class="row team_row">
-				
-				<!-- Team Item -->
 				<div class="col-lg-3 col-md-6 team_col">
 					<div class="team_item">
-						<div class="team_image"><img src="<?= base_url() ?>assets/frontend/images/team_1.jpg" alt=""></div>
+						<div class="team_image"><img src="<?= base_url() ?>assets/img/profil.png" alt=""></div>
 						<div class="team_body">
 							<div class="team_title"><a href="#">Jacke Masito</a></div>
 							<div class="team_subtitle">Marketing & Management</div>
 							<div class="social_list">
 								<ul>
-									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<!-- Team Item -->
 				<div class="col-lg-3 col-md-6 team_col">
 					<div class="team_item">
-						<div class="team_image"><img src="<?= base_url() ?>assets/frontend/images/team_2.jpg" alt=""></div>
+						<div class="team_image"><img src="<?= base_url() ?>assets/img/profil.png" alt=""></div>
 						<div class="team_body">
 							<div class="team_title"><a href="#">William James</a></div>
 							<div class="team_subtitle">Designer & Website</div>
 							<div class="social_list">
 								<ul>
-									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<!-- Team Item -->
 				<div class="col-lg-3 col-md-6 team_col">
 					<div class="team_item">
-						<div class="team_image"><img src="<?= base_url() ?>assets/frontend/images/team_3.jpg" alt=""></div>
+						<div class="team_image"><img src="<?= base_url() ?>assets/img/profil.png" alt=""></div>
 						<div class="team_body">
 							<div class="team_title"><a href="#">John Tyler</a></div>
 							<div class="team_subtitle">Quantum mechanics</div>
 							<div class="social_list">
 								<ul>
-									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<!-- Team Item -->
 				<div class="col-lg-3 col-md-6 team_col">
 					<div class="team_item">
-						<div class="team_image"><img src="<?= base_url() ?>assets/frontend/images/team_4.jpg" alt=""></div>
+						<div class="team_image"><img src="<?= base_url() ?>assets/img/profil.png" alt=""></div>
 						<div class="team_body">
 							<div class="team_title"><a href="#">Veronica Vahn</a></div>
 							<div class="team_subtitle">Math & Physics</div>
 							<div class="social_list">
 								<ul>
-									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
 
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="courses_button trans_200"><a href="<?= base_url('kursus') ?>">lihat semua asisten praktikum</a></div>
+				</div>
 			</div>
 		</div>
 	</div>
