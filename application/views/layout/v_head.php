@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title><?= $title ?> - <?= $title2 ?></title>
-    <link rel="shortcut icon" href="<?= base_url() ?>assets/frontend/images/logoif.png">
+    <link rel="shortcut icon" href="<?= base_url() ?>assets/img/logoif.png">
     
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,5 +15,8 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/plugins/OwlCarousel2-2.2.1/animate.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/styles/main_styles.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/styles/responsive.css">
+
+    <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     
 </head>

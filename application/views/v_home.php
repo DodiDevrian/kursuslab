@@ -167,8 +167,8 @@
 					<div class="team_item">
 						<div class="team_image"><img src="<?= base_url() ?>assets/img/profil.png" alt=""></div>
 						<div class="team_body">
-							<div class="team_title"><a href="#">Jacke Masito</a></div>
-							<div class="team_subtitle">Marketing & Management</div>
+							<div class="team_title"><a href="#">Dodi Devian</a></div>
+							<div class="team_subtitle">Pemrograman Web</div>
 							<div class="social_list">
 								<ul>
 									<li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
@@ -183,8 +183,8 @@
 					<div class="team_item">
 						<div class="team_image"><img src="<?= base_url() ?>assets/img/profil.png" alt=""></div>
 						<div class="team_body">
-							<div class="team_title"><a href="#">William James</a></div>
-							<div class="team_subtitle">Designer & Website</div>
+							<div class="team_title"><a href="#">Ahmad Akbar</a></div>
+							<div class="team_subtitle">Sistem Tertanam</div>
 							<div class="social_list">
 								<ul>
 									<li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
@@ -199,8 +199,8 @@
 					<div class="team_item">
 						<div class="team_image"><img src="<?= base_url() ?>assets/img/profil.png" alt=""></div>
 						<div class="team_body">
-							<div class="team_title"><a href="#">John Tyler</a></div>
-							<div class="team_subtitle">Quantum mechanics</div>
+							<div class="team_title"><a href="#">Wili Jonatan</a></div>
+							<div class="team_subtitle">Mechine Leaning</div>
 							<div class="social_list">
 								<ul>
 									<li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
@@ -215,8 +215,8 @@
 					<div class="team_item">
 						<div class="team_image"><img src="<?= base_url() ?>assets/img/profil.png" alt=""></div>
 						<div class="team_body">
-							<div class="team_title"><a href="#">Veronica Vahn</a></div>
-							<div class="team_subtitle">Math & Physics</div>
+							<div class="team_title"><a href="#">Freya Jayawardana</a></div>
+							<div class="team_subtitle">Algoritma Pemrograman</div>
 							<div class="social_list">
 								<ul>
 									<li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>

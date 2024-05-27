@@ -66,7 +66,7 @@
 								if ($value->id_kursus == $id) {
 									?>
 									<?php if ($no == 1) { $no++; ?>
-								<a href="<?= base_url('kursus/detail_materi/' . $value->id_kursus . '/' . $value->id_materi) ?>" class="btn btn-primary">Mulai Belajar</a>
+								<a href="<?= base_url('kursus/detail_materi/' . $value->id_materi) ?>" class="btn btn-primary">Mulai Belajar</a>
 								<?php }}} ?>
 							</div>
 							</div>

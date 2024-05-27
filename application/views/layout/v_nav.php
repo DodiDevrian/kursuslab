@@ -5,7 +5,7 @@
 						<div class="header_content d-flex flex-row align-items-center justify-content-start">
 							<div class="logo_container">
 								<a href="<?= base_url() ?>">
-									<div><img class="logo_pict" src="<?= base_url() ?>assets/frontend/images/logoif.png" alt=""></div>
+									<div><img class="logo_pict" src="<?= base_url() ?>assets/img/logoif.png" alt=""></div>
 									<!-- <div class="logo_text">Kursus<span> Online</span></div> -->
 								</a>
 							</div>

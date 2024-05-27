@@ -96,5 +96,7 @@
 <script src="<?= base_url() ?>assets/frontend/js/custom.js"></script>
 <script src="<?= base_url() ?>assets/frontend/js/course.js"></script>
 <script src="<?= base_url() ?>assets/frontend/js/courses.js"></script>
+
+<script src="<?= base_url() ?>assets/js/script.js"></script>
 </body>
 </html>
