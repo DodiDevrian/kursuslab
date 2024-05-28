@@ -1,10 +1,6 @@
 <div class="home">
 		<div class="home_slider_container">
-			
-			<!-- Home Slider -->
 			<div class="owl-carousel owl-theme home_slider">
-				
-				<!-- Home Slider Item -->
 				<div class="owl-item">
 					<div class="home_slider_background" style="background-image:url(<?= base_url() ?>assets/img/gambar1.jpg)"></div>
 					<div class="home_slider_content">
@@ -19,7 +15,6 @@
 					</div>
 				</div>
 
-				<!-- Home Slider Item -->
 				<div class="owl-item">
 					<div class="home_slider_background" style="background-image:url(<?= base_url() ?>assets/img/gambar2.jpg)"></div>
 					<div class="home_slider_content">
@@ -34,7 +29,6 @@
 					</div>
 				</div>
 
-				<!-- Home Slider Item -->
 				<div class="owl-item">
 					<div class="home_slider_background" style="background-image:url(<?= base_url() ?>assets/img/gambar3.jpg)"></div>
 					<div class="home_slider_content">
@@ -52,13 +46,9 @@
 			</div>
 		</div>
 
-		<!-- Home Slider Nav -->
-
 		<div class="home_slider_nav home_slider_prev"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
 		<div class="home_slider_nav home_slider_next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
 	</div>
-
-	<!-- Features -->
 
 	<div class="features">
 		<div class="container">
@@ -133,7 +123,7 @@
 						</div>
 						<div class="course_footer">
 							<div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
-								<a href="<?= base_url('kursus/detail_kursus') ?>" class="mx-auto">
+								<a href="<?= base_url('kursus/detail_kursus/' . $value->id_kursus) ?>" class="mx-auto">
 									<div class="btn btn-primary">Masuk</div>
 								</a>
 							</div>
@@ -163,70 +153,23 @@
 			</div>
 
 			<div class="row team_row">
-				<div class="col-lg-3 col-md-6 team_col">
-					<div class="team_item">
-						<div class="team_image"><img src="<?= base_url() ?>assets/img/profil.png" alt=""></div>
-						<div class="team_body">
-							<div class="team_title"><a href="#">Dodi Devian</a></div>
-							<div class="team_subtitle">Pemrograman Web</div>
-							<div class="social_list">
-								<ul>
-									<li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a></li>
-								</ul>
+				<?php foreach ($asprak_terakhir as $key => $value) { ?>
+					<div class="col-lg-3 col-md-6 team_col">
+						<div class="team_item">
+							<div class="team_image"><img src="<?= base_url() ?>upload/foto_asprak/<?= $value->foto ?>" alt=""></div>
+							<div class="team_body">
+								<div class="team_title"><a href="#"><?= $value->nama_asprak ?></a></div>
+								<div class="team_subtitle"><?= $value->matakuliah ?></div>
+								<div class="social_list">
+									<ul>
+										<li><a type="button" class="" data-toggle="modal" data-target="#nomor<?= $value->id_asprak ?>"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+										<li><a type="button" class="" data-toggle="modal" data-target="#nomor<?= $value->id_asprak ?>"><i class="fa fa-phone" aria-hidden="true"></i></a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 team_col">
-					<div class="team_item">
-						<div class="team_image"><img src="<?= base_url() ?>assets/img/profil.png" alt=""></div>
-						<div class="team_body">
-							<div class="team_title"><a href="#">Ahmad Akbar</a></div>
-							<div class="team_subtitle">Sistem Tertanam</div>
-							<div class="social_list">
-								<ul>
-									<li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 team_col">
-					<div class="team_item">
-						<div class="team_image"><img src="<?= base_url() ?>assets/img/profil.png" alt=""></div>
-						<div class="team_body">
-							<div class="team_title"><a href="#">Wili Jonatan</a></div>
-							<div class="team_subtitle">Mechine Leaning</div>
-							<div class="social_list">
-								<ul>
-									<li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6 team_col">
-					<div class="team_item">
-						<div class="team_image"><img src="<?= base_url() ?>assets/img/profil.png" alt=""></div>
-						<div class="team_body">
-							<div class="team_title"><a href="#">Freya Jayawardana</a></div>
-							<div class="team_subtitle">Algoritma Pemrograman</div>
-							<div class="social_list">
-								<ul>
-									<li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-
+				<?php } ?>
 			</div>
 			<div class="row">
 				<div class="col">
@@ -235,3 +178,25 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Modal -->
+	<?php foreach ($asprak_terakhir as $key => $value) { ?>
+		<div class="modal fade" id="nomor<?= $value->id_asprak ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel"><?= $value->nama_asprak ?></h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					Nomor HP : 0<?= $value->no_hp ?>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success"><a style="color: white;" target="_blank" href="https://wa.me/62<?= $value->no_hp ?>"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></button>
+				</div>
+				</div>
+			</div>
+		</div>
+	<?php } ?>

@@ -20,19 +20,14 @@
 		</div>			
 	</div>
 
-	<!-- Course -->
-
 	<div class="course">
 		<div class="container">
 			<div class="row">
-
-				<!-- Course -->
 				<div class="col-lg-12">
 					
 					<div class="course_container">
 						<div class="course_title text-center"><?= $kursus->nama_kursus ?></div>
 
-						<!-- Course Image -->
 						<div class="course_image text-center" style="aspect-ratio: 0;"><img src="<?= base_url('upload/cover_kursus/' . $kursus->cover_kursus) ?>" alt=""></div>
 						<div class="tab_panel_text" >
 							<p><?= $kursus->ket_kursus ?></p>
@@ -43,7 +38,6 @@
 							</button>
 						</div>
 
-						<!-- Modal -->
 						<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content">

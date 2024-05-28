@@ -17,21 +17,16 @@
 			</div>
 		</div>			
 	</div>
-	
-
-	<!-- Courses -->
 
 	<div class="courses">
 		<div class="container">
 			<div class="text-center"><h2>Daftar Kursus</h2></div>
 			
 			<div class="row">
-				<!-- Courses Main Content -->
 				<div class="col-lg-12">
 					<div class="courses_container">
 						<div class="row courses_row">
 							
-							<!-- Course -->
 							<?php foreach ($kursus as $key => $value) { ?>
 							<div class="col-lg-4 course_col">
 								<div class="course">

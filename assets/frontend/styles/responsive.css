@@ -289,6 +289,10 @@
 	{
 		display: none;
 	}
+	.header.scrolled .header_content
+	{
+		height: 115px;
+	}
 	.home_slider_nav
 	{
 		display: none;

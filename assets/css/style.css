@@ -33,7 +33,6 @@ body {
     width: 100%;
     overflow: hidden;
     transition: all 0.35s ease-in-out;
-    background-color: #fafbfe;
 }
 
 #sidebar {
@@ -48,7 +47,7 @@ body {
 #sidebar.expand {
     width: 260px;
     min-width: 325px;
-    background-color: #bdbdbd;
+    background-color: #f1f3f4;
     margin: 20px;
     border-radius: 40px;
 }

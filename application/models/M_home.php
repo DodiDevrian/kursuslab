@@ -11,4 +11,24 @@ class M_home extends CI_Model
 
         return $this->db->get()->result();
     }
+
+    public function asprak_terakhir()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_asprak');
+        $this->db->order_by('id_asprak', 'ASC');
+        $this->db->limit(4);
+
+        return $this->db->get()->result();
+    }
+
+    public function no_asprak()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_asprak');
+        $this->db->order_by('id_asprak', 'ASC');
+        $this->db->limit(1);
+
+        return $this->db->get()->result();
+    }
 }

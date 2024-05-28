@@ -36,7 +36,6 @@ class M_kursus extends CI_Model
         $this->db->from('tbl_materi');
         $this->db->join('tbl_kursus', 'tbl_kursus.id_kursus = tbl_materi.id_kursus', 'left');
         $this->db->order_by('id_materi', 'ASC');
-        // $this->db->limit(1);
 
         return $this->db->get()->result();
     }

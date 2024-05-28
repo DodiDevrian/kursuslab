@@ -15,8 +15,4 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/plugins/OwlCarousel2-2.2.1/animate.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/styles/main_styles.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/styles/responsive.css">
-
-    <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
-    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
-    
 </head>
