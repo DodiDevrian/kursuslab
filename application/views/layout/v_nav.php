@@ -13,7 +13,7 @@
 								<ul class="main_nav">
 									<li class="<?php echo menuAktif('home') ?>"><a href="<?= base_url() ?>">Home</a></li>
 									<li class="<?php echo menuAktif('kursus') ?>"><a href="<?= base_url('kursus') ?>">Kursus</a></li>
-									<li><a href="blog.html">Asprak</a></li>
+									<li class="<?php echo menuAktif('asprak') ?>"><a href="<?= base_url('asprak') ?>">Asprak</a></li>
 									<li><a href="#">Menu 1</a></li>
 									<li><a href="#">Menu 2</a></li>
 									<li><a href="#">Menu 3</a></li>

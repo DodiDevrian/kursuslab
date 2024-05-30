@@ -26,7 +26,7 @@
 		<div class="wrapper">
 			<aside id="sidebar">
 				<div class="d-flex">
-					<button class="toggle-btn" type="button">
+					<button class="toggle-btn ml-auto" type="button">
 						<i class="lni lni-menu"></i>
 					</button>
 				</div>
