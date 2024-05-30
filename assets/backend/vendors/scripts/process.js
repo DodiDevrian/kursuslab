@@ -5,8 +5,8 @@ var width = 100,
     
 // Percentage Increment Animation
 var PercentageID = $("#percent1"),
-		start = 90,
-		end = 100,
+		start = 0,
+		end = 10,
 		durataion = 3;
 		animateValue(PercentageID, start, end, durataion);
 		

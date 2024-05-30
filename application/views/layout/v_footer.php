@@ -12,7 +12,7 @@
 								<div class="footer_section footer_about">
 									<div class="footer_logo_container">
 										<a href="#">
-											<img src="<?= base_url() ?>assets/frontend/images/ifitera.png" alt="" width="250px">
+											<img src="<?= base_url() ?>assets/img/ifitera.png" alt="" width="250px">
 											<!-- <div class="footer_logo_text">Unic<span>at</span></div> -->
 										</a>
 									</div>
