@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'home';
 
-$route['admin/kursus'] = 'admin/kursus/v_list_kursus/index';
+$route['admin/Materi'] = 'admin/materi/v_list/index';
 
 
 

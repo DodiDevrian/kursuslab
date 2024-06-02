@@ -91,14 +91,32 @@
                         <span class="micon dw dw-analytics-19"></span><span class="mtext">Dashboard</span>
                     </a>
                 </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon dw dw-user-3"></span><span class="mtext">User</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="<?= base_url('user')?>" class="<?= menuAktif('user') ?>">Asprak</a></li>
+                        <li><a href="index2.html">Praktikan</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon dw dw-book1"></span><span class="mtext">Kursus</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="<?= base_url('akursus')?>" class="<?= menuAktif('akursus') ?>">Mata Kuliah</a></li>
+                        <li><a href="<?= base_url('admin/materi')?>" class="<?= menuAktif('admin/materi') ?>">Materi</a></li>
+                    </ul>
+                </li>
                 <li>
-                    <a href="<?= base_url('akursus')?>" class="dropdown-toggle no-arrow <?= menuAktif('akursus') ?>">
-                        <span class="micon dw dw-book1"></span><span class="mtext">Materi</span>
+                    <a href="<?= base_url('admin')?>" class="dropdown-toggle no-arrow <?php echo menuAktif('admin') ?>">
+                        <span class="micon dw dw-pencil"></span><span class="mtext">Quiz</span>
                     </a>
                 </li>
                 <li>
-                    <a href="calendar.html" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-user-3"></span><span class="mtext">Asprak</span>
+                    <a href="<?= base_url('admin')?>" class="dropdown-toggle no-arrow <?php echo menuAktif('admin') ?>">
+                        <span class="micon dw dw-personal-computer"></span><span class="mtext">Projek</span>
                     </a>
                 </li>
             </ul>

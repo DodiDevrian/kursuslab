@@ -50,5 +50,22 @@ class M_kursus extends CI_Model
         return $this->db->get()->row();
     }
 
+    public function add($data)
+    {
+        $this->db->insert('tbl_kursus', $data);
+    }
+
+    public function edit($data)
+    {
+        $this->db->where('id_kursus', $data['id_kursus']);
+        $this->db->update('tbl_kursus', $data);
+    }
+
+    public function delete($data)
+    {
+        $this->db->where('id_kursus', $data['id_kursus']);
+        $this->db->delete('tbl_kursus', $data);
+    }
+
     
 }
