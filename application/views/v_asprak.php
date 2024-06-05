@@ -33,10 +33,10 @@
 				<?php foreach ($asprak as $key => $value) { ?>
 					<div class="col-lg-3 col-md-6 team_col">
 						<div class="team_item">
-							<div class="team_image"><img src="<?= base_url() ?>upload/foto_asprak/<?= $value->foto ?>" alt=""></div>
+							<div class="team_image"><img src="<?= base_url() ?>upload/foto_asprak/<?= $value->foto_asprak ?>" alt=""></div>
 							<div class="team_body">
 								<div class="team_title"><a href="#"><?= $value->nama_asprak ?></a></div>
-								<div class="team_subtitle"><?= $value->matakuliah ?></div>
+								<div class="team_subtitle"><?= $value->nama_kursus ?></div>
 								<div class="social_list">
 									<ul>
 										<li><a type="button" class="" data-toggle="modal" data-target="#nomor<?= $value->id_asprak ?>"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>

@@ -87,7 +87,7 @@
         <div class="sidebar-menu">
             <ul id="accordion-menu">
                 <li>
-                    <a href="<?= base_url('admin')?>" class="dropdown-toggle no-arrow <?php echo menuAktif('admin') ?>">
+                    <a href="<?= base_url('admin/dashboard')?>" class="dropdown-toggle no-arrow <?php echo menuAktif('dashboard') ?>">
                         <span class="micon dw dw-analytics-19"></span><span class="mtext">Dashboard</span>
                     </a>
                 </li>
@@ -96,7 +96,7 @@
                         <span class="micon dw dw-user-3"></span><span class="mtext">User</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="<?= base_url('user')?>" class="<?= menuAktif('user') ?>">Asprak</a></li>
+                        <li><a href="<?= base_url('admin/asprak')?>" class="<?= menuAktif('asprak') ?>">Asprak</a></li>
                         <li><a href="index2.html">Praktikan</a></li>
                     </ul>
                 </li>
@@ -106,7 +106,7 @@
                     </a>
                     <ul class="submenu">
                         <li><a href="<?= base_url('akursus')?>" class="<?= menuAktif('akursus') ?>">Mata Kuliah</a></li>
-                        <li><a href="<?= base_url('admin/materi')?>" class="<?= menuAktif('admin/materi') ?>">Materi</a></li>
+                        <li><a href="<?= base_url('admin/materi')?>" class="<?= menuAktif('materi') ?>">Materi</a></li>
                     </ul>
                 </li>
                 <li>

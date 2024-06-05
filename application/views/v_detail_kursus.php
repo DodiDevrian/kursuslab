@@ -54,7 +54,10 @@
                         <iframe class="course_image" src="https://www.youtube.com/embed/<?= $materi -> id_yt ?>" title="<?= $materi -> nama_materi ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 					</div>
 				</div>
-				<h4 class="mb-2 mt-2"><?= $materi -> nama_materi ?></h4>
+				<div class="d-flex justify-content-between" style="margin-top: 25px;">
+					<h3 class="mb-2 mt-2"><?= $materi -> nama_materi ?></h3>
+					<a target="_blank" class="btn btn-warning" href="<?= base_url('upload/doc_materi/' . $materi->doc_materi) ?>"><i style="font-size: 25px; margin-right: 10px;" class="fa fa-file-pdf-o"></i> Download Modul</a>
+				</div>
 			</div>
 		</div>
 	</div>

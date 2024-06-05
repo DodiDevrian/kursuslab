@@ -16,7 +16,8 @@ class M_home extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tbl_asprak');
-        $this->db->order_by('id_asprak', 'ASC');
+        $this->db->join('tbl_kursus', 'tbl_kursus.id_kursus = tbl_asprak.id_kursus', 'left');
+        $this->db->order_by('id_asprak', 'DESC');
         $this->db->limit(4);
 
         return $this->db->get()->result();

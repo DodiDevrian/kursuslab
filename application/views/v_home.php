@@ -114,7 +114,7 @@
 				<?php foreach ($kursus_terakhir as $key => $value) { ?>
 				<div class="col-lg-4 course_col">
 					<div class="course">
-						<div class="course_image"><img src="<?= base_url() ?>upload/cover_kursus/<?= $value->cover_kursus ?>" alt=""></div>
+						<div class="course_image"><img src="<?= base_url() ?>upload/cover_kursus/<?= $value->cover_kursus ?>" alt="" style="width: 100%; height: 223px; object-fit: cover; object-position: 20% 10%;"></div>
 						<div class="course_body">
 							<h3 class="course_title"><a href="course.html"><?= $value-> nama_kursus ?></a></h3>
 							<div class="course_text">
@@ -156,10 +156,10 @@
 				<?php foreach ($asprak_terakhir as $key => $value) { ?>
 					<div class="col-lg-3 col-md-6 team_col">
 						<div class="team_item">
-							<div class="team_image"><img src="<?= base_url() ?>upload/foto_asprak/<?= $value->foto ?>" alt=""></div>
+							<div class="team_image"><img src="<?= base_url() ?>upload/foto_asprak/<?= $value->foto_asprak ?>" alt=""></div>
 							<div class="team_body">
 								<div class="team_title"><a href="#"><?= $value->nama_asprak ?></a></div>
-								<div class="team_subtitle"><?= $value->matakuliah ?></div>
+								<div class="team_subtitle"><?= $value->nama_kursus ?></div>
 								<div class="social_list">
 									<ul>
 										<li><a type="button" class="" data-toggle="modal" data-target="#nomor<?= $value->id_asprak ?>"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
