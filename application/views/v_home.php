@@ -99,7 +99,7 @@
 	</div>
 
 	<div class="courses">
-		<div class="section_background parallax-window" data-parallax="scroll" data-image-src="<?= base_url() ?>assets/frontend/images/courses_background.jpg" data-speed="0.8"></div>
+		<div class="section_background parallax-window" data-parallax="scroll" data-image-src="<?= base_url() ?>assets/img/courses_background.png" data-speed="0.8"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col">

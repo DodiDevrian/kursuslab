@@ -83,7 +83,6 @@
 												break;
 												
 												default:
-													# code...
 													break;
 											}
 
@@ -94,7 +93,22 @@
 									</li>
 								</ul>
 								<div class="top_bar_login ml-auto">
-									<div class="login_button"><a href="#">Login</a></div>
+									
+										<?php if($this->session->userdata('username')) { ?>
+											<div class="dropdown">
+												<button class="btn login_button dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" style="color: white;">
+													<?php echo $this->session->userdata('username') ?>
+												</button>
+												<div class="dropdown-menu">
+													<a class="dropdown-item" href="#"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+													<a class="dropdown-item" href="<?= base_url('auth/logout')?>"><i class="fa fa-sign-out"></i> Logout</a>
+												</div>
+											</div>
+										<?php }else{ ?>	
+											<div class="login_button">
+												<a href="<?= base_url('auth/login')?>"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+											</div>
+										<?php } ?>
 								</div>
 							</div>
 						</div>

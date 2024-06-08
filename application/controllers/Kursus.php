@@ -9,6 +9,7 @@ class Kursus extends CI_Controller
 		$this->load->helpers('text');
 
         $this->load->model('m_kursus');
+        $this->load->model('M_auth');
 	}
     
     public function index()

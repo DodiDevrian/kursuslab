@@ -41,28 +41,33 @@
 						<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">Materi <?= $kursus->nama_kursus ?></h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<?php $no=1; foreach ($materi as $key => $value) { 
-									if ($value->id_kursus == $id) {
-									?>
-									<p><?= $no++ . '. ' . $value->nama_materi ?> </p>
-								<?php  }} ?>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-								<?php $no=1; foreach ($materi_button as $key => $value) { 
-								if ($value->id_kursus == $id) {
-									?>
-									<?php if ($no == 1) { $no++; ?>
-								<a href="<?= base_url('kursus/detail_materi/' . $value->id_materi) ?>" class="btn btn-primary">Mulai Belajar</a>
-								<?php }}} ?>
-							</div>
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Materi <?= $kursus->nama_kursus ?></h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<?php $no=1; foreach ($materi as $key => $value) { 
+										if ($value->id_kursus == $id) {
+										?>
+										<p><?= $no++ . '. ' . $value->nama_materi ?> </p>
+									<?php  }} ?>
+								</div>
+
+								<?php if($this->session->userdata('username')) { ?>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										<?php $no=1; foreach ($materi_button as $key => $value) { 
+										if ($value->id_kursus == $id) {
+											?>
+											<?php if ($no == 1) { $no++; ?>
+										<a href="<?= base_url('kursus/detail_materi/' . $value->id_materi) ?>" class="btn btn-primary">Mulai Belajar</a>
+										<?php }}} ?>
+									</div>
+								<?php } else{ ?>
+									<div>Maaf anda belum melakukan login</div>
+								<?php } ?>
 							</div>
 						</div>
 						</div>
