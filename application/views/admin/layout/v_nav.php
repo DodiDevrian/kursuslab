@@ -119,6 +119,15 @@
                         <span class="micon dw dw-personal-computer"></span><span class="mtext">Projek</span>
                     </a>
                 </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon dw dw-settings"></span><span class="mtext">Settings</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="<?= base_url('admin/slider')?>" class="<?= menuAktif('slider') ?>">Slider</a></li>
+                        <li><a href="<?= base_url('admin/materi')?>" class="<?= menuAktif('materi') ?>">Materi</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>

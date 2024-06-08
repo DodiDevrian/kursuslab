@@ -12,6 +12,16 @@ class M_home extends CI_Model
         return $this->db->get()->result();
     }
 
+    public function foto_slider()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_slider');
+        $this->db->order_by('id_slider', 'DESC');
+        $this->db->limit(5);
+
+        return $this->db->get()->result();
+    }
+
     public function asprak_terakhir()
     {
         $this->db->select('*');
