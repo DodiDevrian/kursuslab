@@ -11,7 +11,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard') ?>">Home</a></li>
                                 <li class="breadcrumb-item">Kursus</li>
-                                <li class="breadcrumb-item active" aria-current="page">Tambah Data Materi</li>
+                                <li class="breadcrumb-item active" aria-current="page"><?= $title2 ?></li>
                             </ol>
                         </nav>
                     </div>

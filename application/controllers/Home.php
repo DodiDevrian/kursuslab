@@ -20,6 +20,7 @@ class Home extends CI_Controller
             'title2'                => 'Laboratorium Teknik Informatika',
             'kursus_terakhir'       => $this->m_home->kursus_terakhir(),
             'asprak_terakhir'       => $this->m_home->asprak_terakhir(),
+            'slider_terakhir'       => $this->m_home->slider_terakhir(),
             'isi'                   => 'v_home'
         );
         $this->load->view('layout/v_wrapper', $data, FALSE);

@@ -29,9 +29,14 @@
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
-							<img src="<?= base_url() ?>assets/img/profil.png" alt="">
+							<?php if ($this->session->userdata('foto_user')==NULL) { ?>
+								<img src="<?= base_url('assets/img/profil.png') ?>">
+							<?php } else { ?>
+								<img src="<?= base_url('assets/upload/foto_user/') . $this->session->userdata('foto_user') ?>">
+							<?php } ?>
+							
 						</span>
-						<span class="user-name">Dodi Devrian</span>
+						<span class="user-name"><?= $this->session->userdata('username') ?></span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>

@@ -12,7 +12,7 @@ class M_home extends CI_Model
         return $this->db->get()->result();
     }
 
-    public function foto_slider()
+    public function slider_terakhir()
     {
         $this->db->select('*');
         $this->db->from('tbl_slider');

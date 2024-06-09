@@ -75,7 +75,7 @@
 
 <div class="left-side-bar">
     <div class="brand-logo">
-        <a href="index.html">
+        <a href="<?= base_url() ?>/admin/dashboard">
             <img src="<?= base_url() ?>assets/img/ifiterablack.png" alt="" class="dark-logo">
             <img src="<?= base_url() ?>assets/img/ifitera.png" alt="" class="light-logo">
         </a>

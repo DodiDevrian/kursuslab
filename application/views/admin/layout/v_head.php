@@ -3,7 +3,7 @@
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>Laboratorium Teknik Informatika</title>
+	<title><?= $title ?> - Laboratorium Teknik Informatika</title>
 
 	<link rel="shortcut icon" href="<?= base_url() ?>assets/img/logoif.png">
 

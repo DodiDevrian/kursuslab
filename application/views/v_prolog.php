@@ -66,7 +66,9 @@
 										<?php }}} ?>
 									</div>
 								<?php } else{ ?>
-									<div>Maaf anda belum melakukan login</div>
+									<div class="modal-footer">
+										<div class="text-center mb-2"> <i style="color: red; margin-right: 5px;">*</i> Silahkan Login terlebih dahulu untuk melihat materi</div>
+									</div>
 								<?php } ?>
 							</div>
 						</div>

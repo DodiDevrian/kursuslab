@@ -1,47 +1,20 @@
 <div class="home">
 		<div class="home_slider_container">
 			<div class="owl-carousel owl-theme home_slider">
+			<?php foreach ($slider_terakhir as $key => $value) { ?>
 				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url(<?= base_url() ?>assets/img/gambar1.jpg)"></div>
+					<div class="home_slider_background" style="background-image:url(<?= base_url('upload/foto_slider/' . $value->foto_slider) ?>)"></div>
 					<div class="home_slider_content">
 						<div class="container">
 							<div class="row">
 								<div class="col text-center">
-									<div class="home_slider_title">Foto Slider</div>
-									<div class="home_slider_subtitle">Slogan or Keterangan Slider</div>
+									<div class="home_slider_title"><?= $value->nama_slider ?></div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url(<?= base_url() ?>assets/img/gambar2.jpg)"></div>
-					<div class="home_slider_content">
-						<div class="container">
-							<div class="row">
-								<div class="col text-center">
-									<div class="home_slider_title">Foto Slider</div>
-									<div class="home_slider_subtitle">Slogan or Keterangan Slider</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="owl-item">
-					<div class="home_slider_background" style="background-image:url(<?= base_url() ?>assets/img/gambar3.jpg)"></div>
-					<div class="home_slider_content">
-						<div class="container">
-							<div class="row">
-								<div class="col text-center">
-									<div class="home_slider_title">Foto Slider</div>
-									<div class="home_slider_subtitle">Slogan or Keterangan Slider</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<?php } ?>
 
 			</div>
 		</div>
@@ -64,7 +37,7 @@
 				
 				<div class="col-lg-3 feature_col">
 					<div class="feature text-center trans_400">
-						<div class="feature_icon"><img src="<?= base_url() ?>assets/frontend/images/icon_1.png" alt=""></div>
+						<div class="feature_icon"><img src="<?= base_url() ?>assets/img/icon_1.png" alt=""></div>
 						<h3 class="feature_title">Slogan 1</h3>
 						<div class="feature_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
 					</div>
@@ -72,7 +45,7 @@
 
 				<div class="col-lg-3 feature_col">
 					<div class="feature text-center trans_400">
-						<div class="feature_icon"><img src="<?= base_url() ?>assets/frontend/images/icon_2.png" alt=""></div>
+						<div class="feature_icon"><img src="<?= base_url() ?>assets/img/icon_2.png" alt=""></div>
 						<h3 class="feature_title">Slogan 2</h3>
 						<div class="feature_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
 					</div>
@@ -80,7 +53,7 @@
 
 				<div class="col-lg-3 feature_col">
 					<div class="feature text-center trans_400">
-						<div class="feature_icon"><img src="<?= base_url() ?>assets/frontend/images/icon_3.png" alt=""></div>
+						<div class="feature_icon"><img src="<?= base_url() ?>assets/img/icon_3.png" alt=""></div>
 						<h3 class="feature_title">Slogan 3</h3>
 						<div class="feature_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
 					</div>
@@ -88,7 +61,7 @@
 
 				<div class="col-lg-3 feature_col">
 					<div class="feature text-center trans_400">
-						<div class="feature_icon"><img src="<?= base_url() ?>assets/frontend/images/icon_4.png" alt=""></div>
+						<div class="feature_icon"><img src="<?= base_url() ?>assets/img/icon_4.png" alt=""></div>
 						<h3 class="feature_title">Slogan 4</h3>
 						<div class="feature_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
 					</div>
