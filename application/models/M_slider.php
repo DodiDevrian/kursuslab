@@ -11,7 +11,7 @@ class M_slider extends CI_Model
         return $this->db->get()->result();
     }
 
-    public function detail_kursus($id_slider)
+    public function detail($id_slider)
     {
         $this->db->select('*');
         $this->db->from('tbl_slider');

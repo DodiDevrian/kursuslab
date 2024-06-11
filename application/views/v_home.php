@@ -152,7 +152,7 @@
 		</div>
 	</div>
 
-	<!-- Modal -->
+	<!-- Modal Untuk Nampilin Nomor HP dan Chat WhatsApp -->
 	<?php foreach ($asprak_terakhir as $key => $value) { ?>
 		<div class="modal fade" id="nomor<?= $value->id_asprak ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">

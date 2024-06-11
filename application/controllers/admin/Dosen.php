@@ -1,6 +1,6 @@
 <?php
 
-class Slider extends CI_Controller
+class Dosen extends CI_Controller
 {
     public function __construct(){
 		parent ::__construct();
@@ -8,7 +8,7 @@ class Slider extends CI_Controller
 		$this->load->helpers(['menuAktif']);
 		$this->load->helpers('text');
 
-        $this->load->model('m_slider');
+        $this->load->model('m_dosen');
 
         if ($this->session->userdata('role')!=1) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -21,10 +21,10 @@ class Slider extends CI_Controller
     public function index()
     {
         $data = array(
-            'title'         => 'Slider',
+            'title'         => 'Dosen',
             'title2'        => 'Laboratorium Teknik Informatika',
-            'slider'        => $this->m_slider->lists(),
-            'isi'           => 'admin/slider/v_list'
+            'dosen'        => $this->m_dosen->lists(),
+            'isi'           => 'admin/dosen/v_list'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
     }

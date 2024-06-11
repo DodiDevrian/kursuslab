@@ -32,7 +32,7 @@
 							<?php if ($this->session->userdata('foto_user')==NULL) { ?>
 								<img src="<?= base_url('assets/img/profil.png') ?>">
 							<?php } else { ?>
-								<img src="<?= base_url('upload/foto_user/') . $this->session->userdata('foto_user') ?>">
+								<img src="<?= base_url('upload/foto_user/') . $this->session->userdata('foto_user') ?>" style="width: 100%; height: 52px; object-fit: cover; object-position: 20% 10%;">
 							<?php } ?>
 							
 						</span>

@@ -17,9 +17,8 @@ class Auth extends CI_Controller {
 			if ($auth == FALSE) {
 				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <strong>Username atau Password</strong> Salah!
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 				</div>');
-				redirect('login');
+				redirect('auth/login');
 			}else {
 				$this->session->set_userdata('username', $auth->username);
 				$this->session->set_userdata('id_user', $auth->id_user);
@@ -27,13 +26,13 @@ class Auth extends CI_Controller {
 				$this->session->set_userdata('foto_user', $auth->foto_user);
 				
 				switch($auth->role){
-					case 0 : redirect('owner/dashboard_owner');
-							break;
-
 					case 1 : redirect('admin/dashboard');
 							break;
 
-					case 2 : redirect('home');
+					case 2 : redirect('dosen/dashboard');
+							break;
+
+					case 3 : redirect('home');
 							break;
 
 					default : break;

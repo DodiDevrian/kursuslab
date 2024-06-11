@@ -9,9 +9,9 @@ class Dashboard extends CI_Controller
 		$this->load->helpers(['menuAktif']);
 		$this->load->helpers('text');
 
-        if ($this->session->userdata('role') != 1) {
+        if ($this->session->userdata('role') != 2 ) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-				Anda Belum Melakukan <strong>Login Sebagai Admin!</strong>
+				Anda Belum Melakukan <strong>Login Sebagai Dosen!</strong>
 				</div>');
 			redirect('auth/login');
 		}
@@ -20,10 +20,10 @@ class Dashboard extends CI_Controller
     public function index()
     {
         $data = array(
-            'title' => 'Admin',
+            'title' => 'Dosen',
             'title2' => 'Dashboard',
-            'isi'   => 'admin/v_dashboard'
+            'isi'   => 'dosen/v_dashboard'
         );
-        $this->load->view('admin/layout/v_wrapper', $data, FALSE);
+        $this->load->view('dosen/layout/v_wrapper', $data, FALSE);
     }
 }

@@ -10,6 +10,13 @@ class Asprak extends CI_Controller
 
         $this->load->model('m_asprak');
         $this->load->model('m_kursus');
+
+        if ($this->session->userdata('role')!=1) {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				Anda Belum Melakukan <strong>Login Sebagai Admin!</strong>
+				</div>');
+			redirect('auth/login');
+		}
 	}
     
     public function index()

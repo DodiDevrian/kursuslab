@@ -8,6 +8,13 @@ class Kursus extends CI_Controller
 		$this->load->helpers(['menuAktif']);
 		$this->load->helpers('text');
 
+        if ($this->session->userdata('role')!=1) {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				Anda Belum Melakukan <strong>Login Sebagai Admin!</strong>
+				</div>');
+			redirect('auth/login');
+		}
+
 	}
     
     public function index()

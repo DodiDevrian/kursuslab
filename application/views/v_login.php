@@ -13,7 +13,7 @@
 	
 	<link rel="stylesheet" href="<?= base_url('assets/css/login-style.css') ?>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
 
 	</head>
 	<body>
@@ -45,9 +45,7 @@
 							<?php
                                 echo form_open('auth/login');
                                 if ($this->session->flashdata('pesan')) {
-                                    echo '<div class="alert alert-success alert-dismissible"> <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
                                     echo $this->session->flashdata('pesan');
-                                    echo '</div>';
                                 }
                             ?>
                                 <div class="form-group mb-3">
@@ -85,6 +83,7 @@
     <script src="<?= base_url('assets/js/popper.js') ?>"></script>
     <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/main.js') ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 	</body>
 </html>
 

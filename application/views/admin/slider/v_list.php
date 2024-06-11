@@ -19,7 +19,7 @@
             <!-- Isi Tabel Materi -->
             <div class="card-box mb-30">
                 <div class="mb-30 pd-20 d-flex justify-content-between">
-                    <h4 class="text-blue h4">Data Slider</h4>
+                    <h4 class="text-blue h4">Tabel Data Slider</h4>
                     <a href="<?= base_url('admin/slider/add') ?>" class="btn btn-secondary">Tambah Data Slider +</a>
                 </div>
                 <div class="pb-20">
@@ -53,8 +53,8 @@
                                             <i class="dw dw-more"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                            <a class="dropdown-item" href="<?= base_url('admin/asprak/edit/' . $value->id_slider) ?>"><i class="dw dw-edit2"></i> Edit</a>
-                                            <a class="dropdown-item" href="<?= base_url('admin/asprak/delete/' . $value->id_slider) ?>"><i class="dw dw-delete-3"></i> Delete</a>
+                                            <a class="dropdown-item" href="<?= base_url('admin/slider/edit/' . $value->id_slider) ?>"><i class="dw dw-edit2"></i> Edit</a>
+                                            <a class="dropdown-item" href="<?= base_url('admin/slider/delete/' . $value->id_slider) ?>"><i class="dw dw-delete-3"></i> Delete</a>
                                         </div>
                                     </div>
                                 </td>
