@@ -11,6 +11,11 @@ class Materi extends CI_Controller
         $this->load->model('m_kursus');
         $this->load->model('m_materi');
 
+        if ($this->agent->is_referral())
+        {
+            echo $this->agent->referrer();
+        }
+
         if ($this->session->userdata('role')!=1) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
 				Anda Belum Melakukan <strong>Login Sebagai Admin!</strong>

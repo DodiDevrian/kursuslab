@@ -1,5 +1,3 @@
-<?php $this->session->set_userdata('referred_from', current_url()); ?>
-
 <div class="main-container">
     <div class="pd-ltr-20 xs-pd-20-10">
         <div class="min-height-200px">
@@ -22,10 +20,7 @@
             <!-- Isi Tabel Materi -->
             <div class="card-box mb-30">
                 <div class="mb-30 pd-20 d-flex justify-content-between">
-                    <div class="d-flex justify-content-start">
-                        <a href="<?= base_url('admin/kursus')?>"><span class="micon dw dw-left-chevron-1"></span></a>
-                        <h4 class="ml-2 text-blue h4">Data Materi</h4>
-                    </div>
+                    <h4 class="text-blue h4">Data Materi</h4>
                     <a href="<?= base_url('akursus/add_materi/' . $this->uri->segment(3)) ?>" class="btn btn-secondary">Tambah Data Materi +</a>
                 </div>
                 <div class="pb-20">
