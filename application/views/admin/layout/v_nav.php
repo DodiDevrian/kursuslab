@@ -106,7 +106,7 @@
                         <span class="micon dw dw-book1"></span><span class="mtext">Kursus</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="<?= base_url('akursus')?>" class="<?= menuAktif('akursus') ?>">Mata Kuliah</a></li>
+                        <li><a href="<?= base_url('admin/kursus')?>" class="<?= menuAktif('kursus') ?>">Mata Kuliah</a></li>
                         <li><a href="<?= base_url('admin/materi')?>" class="<?= menuAktif('materi') ?>">Materi</a></li>
                     </ul>
                 </li>

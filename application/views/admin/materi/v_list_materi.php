@@ -26,7 +26,7 @@
                         <a href="<?= base_url('admin/kursus')?>"><span class="micon dw dw-left-chevron-1"></span></a>
                         <h4 class="ml-2 text-blue h4">Data Materi</h4>
                     </div>
-                    <a href="<?= base_url('akursus/add_materi/' . $this->uri->segment(3)) ?>" class="btn btn-secondary">Tambah Data Materi +</a>
+                    <a href="<?= base_url('admin/kursus/add_materi/' . $this->uri->segment(4)) ?>" class="btn btn-secondary">Tambah Data Materi +</a>
                 </div>
                 <div class="pb-20">
                 <?php
@@ -40,30 +40,40 @@
                     <table class="data-table table stripe hover nowrap">
                         <thead>
                             <tr>
+                                <th>No</th>
                                 <th>Nama Materi</th>
                                 <th>Keterangan</th>
                                 <th>Id Youtube</th>
                                 <th>File</th>
+                                <th>Status</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- Mulai Foreach -->
-                            <?php foreach ($materi as $key => $value) {
+                            <?php $no=1; foreach ($materi as $key => $value) {
                                 if ($value->id_kursus == $id) { ?>
                             <tr>
+                                <td><?= $no++?></td>
                                 <td><?= $value->nama_materi?></td>
                                 <td><?= substr(strip_tags($value->ket_materi), 0, 80) ?>...</td>
                                 <td><?= $value->id_yt?><br> <a class="mr-auto" target="_blank" href="https://youtu.be/<?= $value->id_yt?>"><i style="font-size: 25px;" class="icon-copy fi-play-video"></i></a></td>
-                                <td><?= $value->doc_materi?></td>
+                                <td><?= substr(strip_tags($value->doc_materi), 0, 30) ?>...</td>
+                                <td>
+                                    <?php if ($value->status == 1) { ?>
+                                        <span class="badge badge-pill badge-danger">Belum Diterima Dosen</span>
+                                    <?php }else { ?>
+                                        <span class="badge badge-pill badge-success">Diterima Dosen</span>
+                                    <?php }  ?>
+                                </td>
                                 <td>
                                     <div class="dropdown">
                                         <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                                             <i class="dw dw-more"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                            <a class="dropdown-item" href="<?= base_url('akursus/edit_materi/' . $value->id_materi) ?>"><i class="dw dw-edit2"></i> Edit</a>
-                                            <a class="dropdown-item" href="<?= base_url('akursus/delete_materi/' . $value->id_materi) ?>"><i class="dw dw-delete-3"></i> Delete</a>
+                                            <a class="dropdown-item" href="<?= base_url('admin/kursus/edit_materi/' . $value->id_materi) ?>"><i class="dw dw-edit2"></i> Edit</a>
+                                            <a class="dropdown-item" href="<?= base_url('admin/kursus/delete_materi/' . $value->id_materi) ?>"><i class="dw dw-delete-3"></i> Delete</a>
                                         </div>
                                     </div>
                                 </td>

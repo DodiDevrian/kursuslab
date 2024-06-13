@@ -39,4 +39,9 @@ class M_materi extends CI_Model
         $this->db->where('id_materi', $data['id_materi']);
         $this->db->delete('tbl_materi', $data);
     }
+
+    public function update_status($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
+	}
 }

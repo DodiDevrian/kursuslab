@@ -19,15 +19,6 @@
             <!-- Isi Tabel Kursus -->
 
             <div class="panel-body">
-            
-					<?php
-                        if (isset($error_upload)) {
-                            echo '<div class="alert alert-danger alert-dismissible">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
-                        }
-
-                        echo form_open_multipart('akursus/edit/' . $kursus->id_kursus);
-                        ?>
 				<div class="pd-20 card-box mb-30">
 					<div class="clearfix mb-30">
 						<div class="pull-left">
@@ -40,7 +31,7 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
                         }
 
-                        echo form_open_multipart('akursus/add');
+                        echo form_open_multipart('admin/kursus/edit/' . $kursus->id_kursus);
                         ?>
 						<div class="form-group">
 							<label>Nama Kursus atau Mata Kuliah</label>

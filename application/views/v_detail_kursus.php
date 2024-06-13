@@ -34,9 +34,9 @@
 					<?php foreach ($lists_materi as $key => $value) { 
 					if ($value->id_kursus == $id_list) { ?>
 					<li class="sidebar-item">
-						<a href="<?= base_url('kursus/detail_materi/' . $value->id_materi) ?>" class="sidebar-link">
+						<a href="<?= base_url('kursus/detail_materi/' . $value->id_materi) ?>" class="sidebar-link d-flex">
 							<i class="lni lni-play"></i>
-							<span><?= $value->nama_materi ?></span>
+							<div><?= $value->nama_materi ?></div>
 						</a>
 					</li>
 					<?php }} ?>
@@ -51,12 +51,20 @@
 			<div class="main p-3">
 				<div class="text-center">
 					<div class="course_container">
-                        <iframe class="course_image" src="https://www.youtube.com/embed/<?= $materi -> id_yt ?>" title="<?= $materi -> nama_materi ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+						<?php if ($materi -> status == 2) { ?>
+							<iframe class="course_image" src="https://www.youtube.com/embed/<?= $materi -> id_yt ?>" title="<?= $materi -> nama_materi ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+						<?php } else { ?>
+							<div class="alert alert-danger" role="alert">
+								Mohon maaf, materi sedang ditinjau oleh dosen pengampu!
+							</div>
+						<?php } ?>
 					</div>
 				</div>
 				<div class="d-flex justify-content-between" style="margin-top: 25px;">
 					<h3 class="mb-2 mt-2"><?= $materi -> nama_materi ?></h3>
+					<?php if ($materi -> status == 2) { ?>
 					<a target="_blank" class="btn btn-warning" href="<?= base_url('upload/doc_materi/' . $materi->doc_materi) ?>"><i style="font-size: 25px; margin-right: 10px;" class="fa fa-file-pdf-o"></i> Download Modul</a>
+					<?php } ?>
 				</div>
 			</div>
 		</div>

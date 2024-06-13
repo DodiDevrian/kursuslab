@@ -20,7 +20,6 @@
             <div class="card-box mb-30">
                 <div class="mb-30 pd-20 d-flex justify-content-between">
                     <h4 class="text-blue h4">Data Kursus</h4>
-                    <a href="<?= base_url('akursus/add') ?>" class="btn btn-secondary">Tambah Data Kursus +</a>
                 </div>
                 <div class="pb-20">
                 <?php

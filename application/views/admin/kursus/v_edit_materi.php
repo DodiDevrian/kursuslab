@@ -33,7 +33,7 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
                         }
 
-                        echo form_open_multipart('akursus/edit_materi/' . $materi->id_materi);
+                        echo form_open_multipart('admin/kursus/edit_materi/' . $materi->id_materi);
                         ?>
 						<div class="form-group">
 							<label>Nama Materi</label>
@@ -41,7 +41,7 @@
 						</div>
                         <div class="form-group">
 							<label>Mata Kuliah</label>
-							<select class="form-control" disabled="">
+							<select class="form-control" name="id_kursus">
 								<option value="<?= $materi->id_kursus ?>"><?= $materi->nama_kursus ?></option>
 							</select>
 						</div>

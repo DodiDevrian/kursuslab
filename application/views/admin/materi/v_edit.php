@@ -41,7 +41,7 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
                         }
 
-                        echo form_open_multipart('akursus/add');
+                        echo form_open_multipart('admin/kursus/add');
                         ?>
 						<div class="form-group">
 							<label>Nama Materi</label>

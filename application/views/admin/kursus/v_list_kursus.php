@@ -20,7 +20,7 @@
             <div class="card-box mb-30">
                 <div class="mb-30 pd-20 d-flex justify-content-between">
                     <h4 class="text-blue h4">Data Kursus</h4>
-                    <a href="<?= base_url('akursus/add') ?>" class="btn btn-secondary">Tambah Data Kursus +</a>
+                    <a href="<?= base_url('admin/kursus/add') ?>" class="btn btn-secondary">Tambah Data Kursus +</a>
                 </div>
                 <div class="pb-20">
                 <?php
@@ -34,6 +34,7 @@
                     <table class="data-table table stripe hover nowrap">
                         <thead>
                             <tr>
+                                <th>No</th>
                                 <th>Mata Kuliah</th>
                                 <th>Dosen</th>
                                 <th>Keterangan</th>
@@ -43,8 +44,9 @@
                         </thead>
                         <tbody>
                             <!-- Mulai Foreach -->
-                            <?php foreach ($kursus as $key => $value) { ?>
+                            <?php $no=1; foreach ($kursus as $key => $value) { ?>
                             <tr>
+                                <td><?= $no++ ?></td>
                                 <td><?= $value->nama_kursus?></td>
                                 <td><?= $value->nama_user?></td>
                                 <td><?= substr(strip_tags($value->ket_kursus), 0, 80) ?>...</td>
@@ -55,9 +57,9 @@
                                             <i class="dw dw-more"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                            <a class="dropdown-item" href="<?= base_url('akursus/list_materi/' . $value->id_kursus) ?>"><i class="dw dw-eye"></i> Lihat Materi</a>
-                                            <a class="dropdown-item" href="<?= base_url('akursus/edit/' . $value->id_kursus) ?>"><i class="dw dw-edit2"></i> Edit</a>
-                                            <a class="dropdown-item" href="<?= base_url('akursus/delete/' . $value->id_kursus) ?>"><i class="dw dw-delete-3"></i> Delete</a>
+                                            <a class="dropdown-item" href="<?= base_url('admin/kursus/list_materi/' . $value->id_kursus) ?>"><i class="dw dw-eye"></i> Lihat Materi</a>
+                                            <a class="dropdown-item" href="<?= base_url('admin/kursus/edit/' . $value->id_kursus) ?>"><i class="dw dw-edit2"></i> Edit</a>
+                                            <a class="dropdown-item" href="<?= base_url('admin/kursus/delete/' . $value->id_kursus) ?>"><i class="dw dw-delete-3"></i> Delete</a>
                                         </div>
                                     </div>
                                 </td>

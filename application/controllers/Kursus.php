@@ -39,6 +39,13 @@ class Kursus extends CI_Controller
 
     public function detail_materi($id_materi)
     {
+        if ($this->session->userdata('role') != 3) {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				Anda Belum Melakukan <strong>Login Sebagai User!</strong>
+				</div>');
+			redirect('auth/login');
+		}
+
         $data = array(
             'title'         => 'Kursus',
             'title2'        => 'Laboratorium Teknik Informatika',
