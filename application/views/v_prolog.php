@@ -68,6 +68,7 @@
 								<?php } else{ ?>
 									<div class="modal-footer">
 										<div class="text-center mb-2"> <i style="color: red; margin-right: 5px;">*</i> Silahkan Login terlebih dahulu untuk melihat materi</div>
+										<div><a href="<?= base_url('auth/login') ?>" class="ml-3 btn btn-warning text-white">Login</a></div>
 									</div>
 								<?php } ?>
 							</div>

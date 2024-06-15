@@ -49,7 +49,7 @@
                                 <td><?= $no++ ?></td>
                                 <td><?= $value->nama_kursus?></td>
                                 <td><?= $value->nama_user?></td>
-                                <td><?= substr(strip_tags($value->ket_kursus), 0, 80) ?>...</td>
+                                <td><?= substr(strip_tags($value->ket_kursus), 0, 80)?>...</td>
                                 <td><img width="100px" src="<?= base_url('upload/cover_kursus/') . $value->cover_kursus ?>" alt=""></td>
                                 <td>
                                     <div class="dropdown">
