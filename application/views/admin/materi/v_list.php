@@ -20,7 +20,6 @@
             <div class="card-box mb-30">
                 <div class="mb-30 pd-20 d-flex justify-content-between">
                     <h4 class="text-blue h4">Data Materi</h4>
-                    <a href="<?= base_url('admin/materi/add') ?>" class="btn btn-secondary">Tambah Data Materi +</a>
                 </div>
                 <div class="pb-20">
                 <?php
@@ -37,9 +36,10 @@
                                 <th>No</th>    
                                 <th>Nama Materi</th>
                                 <th>Mata Pelajaran</th>
-                                <th>Keterangan</th>
-                                <th>Id Youtube</th>
-                                <th>File</th>
+                                <th class="datatable-nosort">Keterangan</th>
+                                <th class="datatable-nosort">Id Youtube</th>
+                                <th class="datatable-nosort">File</th>
+                                <th class="datatable-nosort">Status</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
@@ -48,11 +48,18 @@
                             <?php $no=1; foreach ($materi as $key => $value) { ?>
                             <tr>
                             <td><?= $no++?></td>
-                                <td><?= $value->nama_materi?></td>
-                                <td><?= $value->nama_kursus?></td>
+                                <td><?= wordwrap($value->nama_materi,35,"<br>\n");?></td>
+                                <td><?= wordwrap($value->nama_kursus,35,"<br>\n");?></td>
                                 <td><?= substr(strip_tags($value->ket_materi), 0, 40) ?>...</td>
                                 <td><?= $value->id_yt?><br> <a class="mr-auto" target="_blank" href="https://youtu.be/<?= $value->id_yt?>"><i style="font-size: 25px;" class="icon-copy fi-play-video"></i></a></td>
-                                <td><?= $value->doc_materi?></td>
+                                <td><?= substr(strip_tags($value->doc_materi), 0, 30) ?>...</td>
+                                <td>
+                                    <?php if ($value->status == 1) { ?>
+                                        <span class="badge badge-pill badge-danger"> </span>
+                                    <?php }else { ?>
+                                        <span class="badge badge-pill badge-success"> </span>
+                                    <?php }  ?>
+                                </td>
                                 <td>
                                     <div class="dropdown">
                                         <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">

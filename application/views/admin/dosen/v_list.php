@@ -10,7 +10,7 @@
                         <nav aria-label="breadcrumb" role="navigation">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Asprak</li>
+                                <li class="breadcrumb-item active" aria-current="page">Dosen</li>
                             </ol>
                         </nav>
                     </div>
@@ -19,8 +19,8 @@
             <!-- Isi Tabel Materi -->
             <div class="card-box mb-30">
                 <div class="mb-30 pd-20 d-flex justify-content-between">
-                    <h4 class="text-blue h4">Data Asprak</h4>
-                    <a href="<?= base_url('admin/asprak/add') ?>" class="btn btn-secondary">Tambah Data Asprak +</a>
+                    <h4 class="text-blue h4">Data Dosen</h4>
+                    <a href="<?= base_url('admin/dosen/add') ?>" class="btn btn-secondary">Tambah Data Dosen +</a>
                 </div>
                 <div class="pb-20">
                 <?php

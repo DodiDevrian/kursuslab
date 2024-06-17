@@ -37,11 +37,7 @@
 						<a href="<?= base_url('kursus/detail_materi/' . $value->id_materi) ?>" class="sidebar-link d-flex">
 							<i class="lni lni-play"></i>
 							<div>
-								<?php 
-								$str = $value->nama_materi;
-								echo wordwrap($str,35,"<br>\n");
-								?>
-								<!-- <?= $value->nama_materi ?> -->
+								<?= wordwrap($value->nama_materi,35,"<br>\n");?>
 							</div>
 						</a>
 					</li>
