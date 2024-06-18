@@ -16,6 +16,7 @@ class M_kursus extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tbl_kursus');
+        $this->db->join('tbl_user', 'tbl_user.id_user = tbl_kursus.id_user', 'left');
         $this->db->where('id_kursus', $id_kursus);
 
         return $this->db->get()->row();

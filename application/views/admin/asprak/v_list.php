@@ -52,7 +52,7 @@
                                 <td><?= $value->nim?></td>
                                 <td><?= $value->nama_kursus?></td>
                                 <td><?= $value->no_hp?></td>
-                                <td><?= $value->foto_asprak?></td>
+                                <td><img src="<?=base_url('upload/foto_asprak/' . $value->foto_asprak)?>" alt="" width="100px"></td>
                                 <td>
                                     <div class="dropdown">
                                         <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">

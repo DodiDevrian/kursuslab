@@ -21,12 +21,24 @@
             </div>
             <!-- Isi Tabel Materi -->
             <div class="card-box mb-30">
-                <div class="mb-30 pd-20 d-flex justify-content-between">
+                <div class="mb-5 pd-20 d-flex justify-content-between">
                     <div class="d-flex justify-content-start">
                         <a href="<?= base_url('admin/kursus')?>"><span class="micon dw dw-left-chevron-1"></span></a>
                         <h4 class="ml-2 text-blue h4">Data Materi</h4>
                     </div>
                     <a href="<?= base_url('admin/kursus/add_materi/' . $this->uri->segment(4)) ?>" class="btn btn-secondary">Tambah Data Materi +</a>
+                </div>
+                <div class="mb-20 ml-30 pl-20">
+                    <table>
+                        <tr>
+                            <td>Dosen Pengampu</td>
+                            <td>&nbsp;&nbsp;&nbsp; : <?= $kursus->nama_user ?></td>
+                        </tr>
+                        <tr>
+                            <td>Email Dosen</td>
+                            <td>&nbsp;&nbsp;&nbsp; : <?= $kursus->email ?></td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="pb-20">
                 <?php

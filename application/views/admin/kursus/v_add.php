@@ -9,8 +9,9 @@
                         </div>
                         <nav aria-label="breadcrumb" role="navigation">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Kursus</li>
+                                <li class="breadcrumb-item"><a href="<?= base_url('admin/dashboard')?>">Home</a></li>
+                                <li class="breadcrumb-item" aria-current="page"><a href="<?=base_url('admin/kursus')?>">Kursus</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><?= $title2 ?></li>
                             </ol>
                         </nav>
                     </div>
@@ -36,10 +37,23 @@
 						<div class="form-group">
 							<label>Nama Kursus atau Mata Kuliah</label>
 							<input class="form-control" name="nama_kursus" type="text" placeholder="Masukkan Mata Kuliah">
+                            <?= form_error('nama_kursus', '<div class="text-danger small">', '</div>') ?>
+						</div>
+                        <div class="form-group">
+							<label>Dosen Pengampu</label>
+							<select class="form-control" name="id_user">
+                                <!-- <option value="" disabled selected>--Pilih Kursus atau Mata Pelajaran--</option> -->
+                                <?php foreach ($dosen as $key => $value) {
+                                    if ($value->role == 2) { ?>                                    
+                                    <option value="<?= $value->id_user?>"><?= $value->nama_user?></option>
+                                <?php } }?>
+							</select>
+                            <?= form_error('id_user', '<div class="text-danger small">', '</div>') ?>
 						</div>
 						<div class="form-group">
                             <label>Keterangan Kursus</label>
                             <textarea class="form-control" name="ket_kursus"></textarea>
+                            <?= form_error('ket_kursus', '<div class="text-danger small">', '</div>') ?>
                         </div>
 						
 						<div class="form-group">

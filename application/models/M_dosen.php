@@ -6,7 +6,7 @@ class M_dosen extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tbl_user');
-        $this->db->order_by('id_user', 'ASC');
+        $this->db->order_by('id_user', 'DESC');
 
         return $this->db->get()->result();
     }
