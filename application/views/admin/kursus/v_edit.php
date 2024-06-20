@@ -50,12 +50,6 @@
                             <?= form_error('id_user', '<div class="text-danger small">', '</div>') ?>
 						</div>
 						<div class="form-group">
-                            <label>Keterangan Kursus</label>
-                            <textarea  class="form-control" name="ket_kursus"><?= $kursus->ket_kursus ?></textarea>
-                            <?= form_error('ket_kursus', '<div class="text-danger small">', '</div>') ?>
-                        </div>
-						
-						<div class="form-group">
 							<label>Upload Cover Kursus</label>
 							<div class="custom-file">
 								<input type="file" class="custom-file-input" name="cover_kursus">
@@ -63,6 +57,11 @@
 							</div>
 						</div>
 
+                        <div class="form-group">
+                            <label>Keterangan Kursus</label>
+                            <textarea class="textarea_editor form-control border-radius-0" placeholder="Enter text ..." name="ket_kursus" style="height: 500px;"><?= $kursus->ket_kursus ?></textarea>
+                            <?= form_error('ket_kursus', '<div class="text-danger small">', '</div>') ?>
+                        </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                             <button type="reset" class="btn btn-danger">Bersihkan</button>
