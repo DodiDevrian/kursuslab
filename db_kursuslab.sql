@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2024 at 06:12 PM
+-- Generation Time: Jun 22, 2024 at 02:04 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -72,11 +72,11 @@ INSERT INTO `tbl_kursus` (`id_kursus`, `id_user`, `nama_kursus`, `slug_kursus`, 
 (2, 4, 'Sistem Tertanam', 'Sistem-Tertanam', 'Lorem Ipsum Bala bala okay', 'cover_course.jpg'),
 (3, 5, 'Proyek Teknologi Informasi', 'Proyek-Teknologi-Informasi', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lectus id dolor ultricies ultricies eget at nibh. Aliquam in lobortis arcu, non tempor purus. Donec a aliquam purus. Quisque nec felis id tortor bibendum suscipit in faucibus est.', 'cover_course.jpg'),
 (4, 3, 'Jaringan Komputer', 'Jaringan-Komputer', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lectus id dolor ultricies ultricies eget at nibh. Aliquam in lobortis arcu, non tempor purus. Donec a aliquam purus. Quisque nec felis id tortor bibendum suscipit in faucibus est.', 'cover_course.jpg'),
-(5, 4, 'Algoritma Pemrograman 1', 'Algoritma-Pemrograman-1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lectus id dolor ultricies ultricies eget at nibh. Aliquam in lobortis arcu, non tempor purus. Donec a aliquam purus. Quisque nec felis id tortor bibendum suscipit in faucibus est.', 'cover_course.jpg'),
+(5, 6, 'Algoritma Pemrograman 1', 'Algoritma-Pemrograman-1', 'Algoritma Pemrograman 1 adalah matakuliah yang mempelajari tentang dasar-dasar pemrograman menggunaan bahasa C++<br>Materi yang di palajari pada&nbsp;<span>Algoritma Pemrograman 1 adalah sebagai berikut:<br></span>', 'cover_course.jpg'),
 (6, 5, 'Algoritma Pemrograman 2', 'Algoritma-Pemrograman-2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lectus id dolor ultricies ultricies eget at nibh. Aliquam in lobortis arcu, non tempor purus. Donec a aliquam purus. Quisque nec felis id tortor bibendum suscipit in faucibus est.', 'cover_course.jpg'),
 (10, 3, 'Pemrograman Berbasis Objek', 'Pemrograman-Berbasis-Objek', 'Lorem Ipsum', '4.png'),
-(11, 4, 'Pengembangan Aplikasi Mobile', 'pengembangan-aplikasi-mobile', 'Lorem ipsum bla bla', 'gERBANG.jpg'),
-(12, 5, 'Basis Data', 'basis-data', 'Lorem Ipsum wa we wo Done', 'Gambar_Lab_2.jpg');
+(11, 6, 'Pengembangan Aplikasi Mobile', 'pengembangan-aplikasi-mobile', 'Lorem ipsum bla bla', 'gERBANG.jpg'),
+(12, 6, 'Basis Data', 'basis-data', 'Lorem Ipsum wa we wo Done', 'Gambar_Lab_2.jpg');
 
 -- --------------------------------------------------------
 
@@ -108,9 +108,9 @@ INSERT INTO `tbl_materi` (`id_materi`, `id_kursus`, `nama_materi`, `ket_materi`,
 (7, 4, 'Pertemuan 2 - Instalasi Cisco', 'Lorem ipsum new era', 'HS_RPLa5gPw', 'FORM_7_Daftar_Hadir_Seminar.pdf', 1),
 (12, 5, 'Pertemuan 2 - Operation C++', 'lorem', 'HS_RPLa5gPw', '60-70a.pdf', 2),
 (13, 5, 'Pertemuan 3 - Array', 'lorem ipsum', '8OxTG8plkz4', 'Elegant_Template_by_WrapPixel.pdf', 2),
-(18, 5, 'Pertemuan 4 - Queue', 'asdasd a sa das da sd', '8OxTG8plkz4', '1476-5465-1-PB.pdf', 2),
+(18, 12, 'Pertemuan 4 - Queue', 'asdasd a sa das da sd', '8OxTG8plkz4', '1476-5465-1-PB.pdf', 2),
 (19, 5, 'Pertemuan 5 - Percabangan dan Perulangan', 'dfasds df sdf sd sd f', '8OxTG8plkz4', '1439-3371-1-PB.pdf', 1),
-(20, 5, 'Pertemuan 6 - Prosedur dan Function', 'uiashdia diahsdhas dahsdi asihdauishd ', 'HS_RPLa5gPw', 'METODE_EXTREME_PROGRAMMING_PADA_PEMBANGUNAN_WEB_AP.pdf', 1);
+(20, 12, 'Pertemuan 6 - Prosedur dan Function', 'uiashdia diahsdhas dahsdi asihdauishd ', 'HS_RPLa5gPw', 'METODE_EXTREME_PROGRAMMING_PADA_PEMBANGUNAN_WEB_AP.pdf', 1);
 
 -- --------------------------------------------------------
 
@@ -161,7 +161,8 @@ INSERT INTO `tbl_user` (`id_user`, `username`, `password`, `role`, `nama_user`, 
 (2, 'admin', 'admin123', 1, 'Admin Laboran', NULL, NULL, NULL, NULL),
 (3, 'andika', 'andika123', 2, 'Andika Setiawan S.Kom., M.Cs.', 'andika.setiawan@if.itera.ac.id', NULL, '19911127 2022 03 1 007', 'ANS.jpg'),
 (4, 'cahyo', 'cahyo123', 2, 'Meida Cahyo Untoro S.Kom., M.Kom', 'cahyo.untoro@if.itera.ac.id', NULL, '19890518 201903 1 011', 'MCU.jpg'),
-(5, 'aidil', 'aidil123', 2, 'Aidil Afriansyah, S.Kom., M.Kom.', 'aidil.afriansyah@if.itera.ac.id', NULL, '19910416 201903 1 015', 'AAF.jpg');
+(5, 'aidil', 'aidil123', 2, 'Aidil Afriansyah, S.Kom., M.Kom.', 'aidil.afriansyah@if.itera.ac.id', NULL, '19910416 201903 1 015', 'AAF.jpg'),
+(6, 'ilham', 'ilham123', 2, 'Ilham Firman Ashari, S.Kom., M.T.', 'firman.ashari@if.itera.ac.id', NULL, '19930314 201903 1 018', 'IFA.jpg');
 
 --
 -- Indexes for dumped tables
@@ -229,7 +230,7 @@ ALTER TABLE `tbl_slider`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
