@@ -98,7 +98,7 @@
                     <ul class="submenu">
                     <li><a href="<?= base_url('admin/dosen')?>" class="<?= menuAktif('dosen') ?>">Dosen</a></li>
                         <li><a href="<?= base_url('admin/asprak')?>" class="<?= menuAktif('asprak') ?>">Asprak</a></li>
-                        <li><a href="index2.html">Praktikan</a></li>
+                        <li><a href="<?= base_url('admin/praktikan')?>" class="<?= menuAktif('praktikan') ?>">Praktikan</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

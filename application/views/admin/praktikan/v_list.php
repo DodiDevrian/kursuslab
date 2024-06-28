@@ -5,12 +5,12 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <div class="title">
-                            <h4>Data Asprak</h4>
+                            <h4>Data <?= $title?></h4>
                         </div>
                         <nav aria-label="breadcrumb" role="navigation">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Dosen</li>
+                                <li class="breadcrumb-item active" aria-current="page"><?= $title?></li>
                             </ol>
                         </nav>
                     </div>
@@ -19,7 +19,7 @@
             <!-- Isi Tabel Materi -->
             <div class="card-box mb-30">
                 <div class="mb-30 pd-20 d-flex justify-content-between">
-                    <h4 class="text-blue h4">Data Dosen</h4>
+                    <h4 class="text-blue h4">Data <?= $title?></h4>
                     <a href="<?= base_url('admin/dosen/add') ?>" class="btn btn-secondary">Tambah Data Dosen +</a>
                 </div>
                 <div class="pb-20">
@@ -36,7 +36,7 @@
                             <tr>
                                 <th>No</th>    
                                 <th>Nama Dosen</th>
-                                <th>NIP</th>
+                                <th>NIM</th>
                                 <th>Email</th>
                                 <th>Foto</th>
                                 <th class="datatable-nosort">Action</th>
@@ -44,12 +44,12 @@
                         </thead>
                         <tbody>
                             <!-- Mulai Foreach -->
-                            <?php $no=1; foreach ($dosen as $key => $value) {
-                                if ($value->role == '2') { ?>
+                            <?php $no=1; foreach ($praktikan as $key => $value) {
+                                if ($value->role == '3') { ?>
                             <tr>
                             <td><?= $no++?></td>
                                 <td><?= $value->nama_user?></td>
-                                <td><?= $value->nip?></td>
+                                <td><?= $value->nim?></td>
                                 <td><?= $value->email?></td>
                                 <td><img src="<?= base_url()?>/upload/foto_user/<?= $value->foto_user?>" alt="" width="100px"></td>
                                 <td>
@@ -58,8 +58,8 @@
                                             <i class="dw dw-more"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                            <a class="dropdown-item" href="<?= base_url('admin/dosen/edit/' . $value->id_user) ?>"><i class="dw dw-edit2"></i> Edit</a>
-                                            <a class="dropdown-item" href="<?= base_url('admin/dosen/delete/' . $value->id_user) ?>"><i class="dw dw-delete-3"></i> Delete</a>
+                                            <a class="dropdown-item" href="<?= base_url('admin/asprak/edit/' . $value->id_user) ?>"><i class="dw dw-edit2"></i> Edit</a>
+                                            <a class="dropdown-item" href="<?= base_url('admin/asprak/delete/' . $value->id_user) ?>"><i class="dw dw-delete-3"></i> Delete</a>
                                         </div>
                                     </div>
                                 </td>
