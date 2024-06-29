@@ -160,17 +160,17 @@ class Dosen extends CI_Controller
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
     }
 
-    public function delete($id_slider)
+    public function delete($id_user)
     {
         // Hapus foto yang lama
-        $slider = $this->m_slider->detail($id_slider);
-        if ($slider->foto_slider != "") {
-            unlink('./upload/foto_slider/' . $slider->foto_slider);
+        $dosen = $this->m_dosen->detail($id_user);
+        if ($dosen->foto_user != "") {
+            unlink('./upload/foto_user/' . $dosen->foto_user);
         }
 
-        $data = array('id_slider' => $id_slider);
-        $this->m_slider->delete($data);
+        $data = array('id_user' => $id_user);
+        $this->m_dosen->delete($data);
         $this->session->set_flashdata('pesan', 'Data Berhasil Dihapus!');
-        redirect('admin/slider');
+        redirect('admin/dosen');
     }
 }

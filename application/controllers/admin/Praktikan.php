@@ -34,7 +34,7 @@ class Praktikan extends CI_Controller
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('nama_user', 'Nama Dosen', 'required');
-        $this->form_validation->set_rules('nip', 'NIP', 'required');
+        $this->form_validation->set_rules('nim ', 'NIM', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required');
 
         if ($this->form_validation->run() == TRUE) {
@@ -46,10 +46,10 @@ class Praktikan extends CI_Controller
             if (!$this->upload->do_upload('foto_user')) {
 
                 $data = array(
-                    'title'     => 'Dosen',
-                    'title2'    => 'Tambah Data Dosen',
+                    'title'     => 'Praktikan',
+                    'title2'    => 'Tambah Data Praktikan',
                     'error'     => $this->upload->display_errors(),
-                    'isi'       => 'admin/dosen/v_add'
+                    'isi'       => 'admin/praktikan/v_add'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
             } else {
@@ -63,20 +63,20 @@ class Praktikan extends CI_Controller
                     'password'     => $this->input->post('password'),
                     'role'         => 2,
                     'nama_user'    => $this->input->post('nama_user'),
-                    'nip'          => $this->input->post('nip'),
+                    'nim'          => $this->input->post('nim'),
                     'email'        => $this->input->post('email'),
                     'foto_user'    => $upload_data['uploads']['file_name']
                 );
 
-                $this->m_dosen->add($data);
+                $this->m_praktikan->add($data);
                 $this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan!');
-                redirect('admin/dosen');
+                redirect('admin/praktikan');
             }
         }
         $data = array(
-            'title'     => 'Dosen',
-            'title2'    => 'Tambah Data Dosen',
-            'isi'       => 'admin/dosen/v_add'
+            'title'     => 'Praktikan',
+            'title2'    => 'Tambah Data Praktikan',
+            'isi'       => 'admin/praktikan/v_add'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
     }
