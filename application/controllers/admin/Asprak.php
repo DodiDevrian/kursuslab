@@ -112,9 +112,9 @@ class Asprak extends CI_Controller
                 $this->load->library('image_lib', $config);
 
                 // Hapus file foto yang lama
-                $kursus = $this->m_kursus->detail($id_asprak);
-                if ($kursus->foto_asprak != "") {
-                    unlink('./upload/foto_asprak/' . $kursus->foto_asprak);
+                $asprak = $this->m_asprak->detail($id_asprak);
+                if ($asprak->foto_asprak != "") {
+                    unlink('./upload/foto_asprak/' . $asprak->foto_asprak);
                 }
 
                 $data = array(

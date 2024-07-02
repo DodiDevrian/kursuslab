@@ -23,54 +23,6 @@
 		<div class="home_slider_nav home_slider_next"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
 	</div>
 
-	<div class="features">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="section_title_container text-center">
-						<h2 class="section_title">Kursus Online Praktikum</h2>
-						<div class="section_subtitle"><p>Memberikan sarana media pendamping belajar pada pelaksaan praktikum</p></div>
-					</div>
-				</div>
-			</div>
-			<div class="row features_row">
-				
-				<div class="col-lg-3 feature_col">
-					<div class="feature text-center trans_400">
-						<div class="feature_icon"><img src="<?= base_url() ?>assets/img/icon_1.png" alt=""></div>
-						<h3 class="feature_title">Slogan 1</h3>
-						<div class="feature_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 feature_col">
-					<div class="feature text-center trans_400">
-						<div class="feature_icon"><img src="<?= base_url() ?>assets/img/icon_2.png" alt=""></div>
-						<h3 class="feature_title">Slogan 2</h3>
-						<div class="feature_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 feature_col">
-					<div class="feature text-center trans_400">
-						<div class="feature_icon"><img src="<?= base_url() ?>assets/img/icon_3.png" alt=""></div>
-						<h3 class="feature_title">Slogan 3</h3>
-						<div class="feature_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 feature_col">
-					<div class="feature text-center trans_400">
-						<div class="feature_icon"><img src="<?= base_url() ?>assets/img/icon_4.png" alt=""></div>
-						<h3 class="feature_title">Slogan 4</h3>
-						<div class="feature_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-
 	<div class="courses">
 		<div class="section_background parallax-window" data-parallax="scroll" data-image-src="<?= base_url() ?>assets/img/courses_background.png" data-speed="0.8"></div>
 		<div class="container">

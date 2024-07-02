@@ -108,6 +108,7 @@
                     <ul class="submenu">
                         <li><a href="<?= base_url('admin/kursus')?>" class="<?= menuAktif('kursus') ?>">Mata Kuliah</a></li>
                         <li><a href="<?= base_url('admin/materi')?>" class="<?= menuAktif('materi') ?>">Materi</a></li>
+                        <li><a href="<?= base_url('admin/pretest')?>" class="<?= menuAktif('pretest') ?>">Pre-Test</a></li>
                     </ul>
                 </li>
                 <li>
