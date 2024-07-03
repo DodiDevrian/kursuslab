@@ -50,4 +50,44 @@ class Pretest extends CI_Controller
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
     }
+
+    public function add($id_materi)
+    {
+        $this->form_validation->set_rules('soal', 'Soal', 'required');
+        $this->form_validation->set_rules('jawaban_a', 'Jawaban A', 'required');
+        $this->form_validation->set_rules('jawaban_b', 'Jawaban B', 'required');
+        $this->form_validation->set_rules('jawaban_c', 'Jawaban C', 'required');
+        $this->form_validation->set_rules('jawaban_d', 'Jawaban D', 'required');
+        $this->form_validation->set_rules('jawaban_e', 'Jawaban E', 'required');
+        $this->form_validation->set_rules('jawaban_benar', 'Jawaban Benar', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $data = array(
+                'title'         => 'Soal',
+                'title2'        => 'Tambah Data Soal',
+                'materi'        => $this->m_kursus->detail_materi($id_materi),
+                'isi'           => 'admin/pretest/v_add'
+            );
+            $this->load->view('admin/layout/v_wrapper', $data, FALSE);
+        } else {
+
+
+            $data = array(
+                'soal'          => $this->input->post('soal'),
+                'id_materi'     => $this->input->post('id_materi'),
+                'jawaban_a'     => $this->input->post('jawaban_a'),
+                'jawaban_b'     => $this->input->post('jawaban_b'),
+                'jawaban_c'     => $this->input->post('jawaban_c'),
+                'jawaban_d'     => $this->input->post('jawaban_d'),
+                'jawaban_e'     => $this->input->post('jawaban_e'),
+                'jawaban_benar' => $this->input->post('jawaban_benar'),
+
+            );
+
+            $this->m_kelas->add($data);
+            $this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan!');
+            redirect('kelas');
+        }
+    }
+
 }

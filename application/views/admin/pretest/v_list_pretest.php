@@ -21,7 +21,7 @@
             <div class="card-box mb-30">
                 <div class="mb-30 pd-20 d-flex justify-content-between">
                     <h4 class="text-blue h4">Data <?= $title?></h4>
-                    <a href="<?= base_url('admin/praktikan/add') ?>" class="btn btn-secondary">Tambah Data Soal +</a>
+                    <a href="<?= base_url('admin/pretest/add/' . $materi->id_materi) ?>" class="btn btn-secondary">Tambah Soal +</a>
                 </div>
                 <div class="pb-20">
                 <?php
@@ -32,47 +32,32 @@
                     echo '</div>';
                 }
                 ?>
-                    <table class="data-table table stripe hover nowrap">
-                        <thead>
-                            <tr>
-                                <th>No</th>    
-                                <th>Soal</th>
-                                <th>Pilihan Jawaban</th>
-                                <th>Jawaban Benar</th>
-                                <th class="datatable-nosort">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Mulai Foreach -->
-                            <?php $no=1; foreach ($pretest as $key => $value) {
-                                if ($value->id_materi == $id) { ?>
-                            <tr>
-                                <td><?= $no++?></td>
-                                <td><?= $value->soal?></td>
-                                <td>
-                                    <p>A. <?= $value->jawaban_a?></p>
-                                    <p>B. <?= $value->jawaban_b?></p>
-                                    <p>C. <?= $value->jawaban_c?></p>
-                                    <p>D. <?= $value->jawaban_d?></p>
-                                    <p>E. <?= $value->jawaban_e?></p>
-                                </td>
-                                <td><?= $value->jawaban_benar?></td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                            <i class="dw dw-more"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                            <a class="dropdown-item" href="<?= base_url('admin/asprak/edit/' . $value->id_pretest) ?>"><i class="dw dw-edit2"></i> Edit</a>
-                                            <a class="dropdown-item" href="<?= base_url('admin/asprak/delete/' . $value->id_pretest) ?>"><i class="dw dw-delete-3"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <?php }} ?>
-                            <!-- End Foreach -->
-                        </tbody>
-                    </table>
+
+                    <div class="pd-20">
+                        <?php $no=1; foreach ($pretest as $key => $value) {
+                                    if ($value->id_materi == $id) { ?>
+                        <div>
+                            <div><?=$no?>. <?= $value->soal?></div>
+                            <div class="pl-20 mt-3">
+                                <ul>
+                                    <li class="mb-2">A. <?= $value->jawaban_a?></li>
+                                    <li class="mb-2">B. <?= $value->jawaban_b?></li>
+                                    <li class="mb-2">C. <?= $value->jawaban_c?></li>
+                                    <li class="mb-2">D. <?= $value->jawaban_d?></li>
+                                    <li class="mb-2">E. <?= $value->jawaban_e?></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="mt-3 col-sm-3"><strong>Jawaban : <?= $value->jawaban_benar?></strong></div>
+                            <div class="mt-3 col-sm-9">
+                                <a href="<?= base_url('admin/pretest/edit/' . $value->id_pretest) ?>" class="ml-5 btn btn-secondary"><i class="dw dw-edit2"></i> Edit</a>
+                                <a href="<?= base_url('admin/pretest/delete/' . $value->id_pretest) ?>" class="btn btn-danger"><i class="dw dw-delete-3"></i> Delete</a>
+                            </div>
+                        </div>
+                        <hr>
+                        <?php }} ?>
+                    </div>
                 </div>
             </div>
 

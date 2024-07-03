@@ -127,6 +127,7 @@
                     </a>
                     <ul class="submenu">
                         <li><a href="<?= base_url('admin/slider')?>" class="<?= menuAktif('slider') ?>">Slider</a></li>
+                        <li><a href="<?= base_url('admin/asset')?>" class="<?= menuAktif('asset') ?>">Asset</a></li>
                     </ul>
                 </li>
             </ul>
