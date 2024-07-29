@@ -35,7 +35,7 @@
                         ?>
 						<div class="form-group">
 							<label>Username Praktikan</label>
-							<input class="form-control" name="username" type="text" placeholder="Masukkan Username Dosen">
+							<input class="form-control" name="username" type="text" placeholder="Masukkan Username">
                             <?php echo form_error('username', '<div class="text-danger small">', '</div>') ?>
 						</div>
                         <div class="form-group">

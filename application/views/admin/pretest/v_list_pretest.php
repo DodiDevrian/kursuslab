@@ -1,3 +1,5 @@
+<?php $this->session->set_userdata('halaman_soal', current_url()); ?>
+
 <div class="main-container">
     <div class="pd-ltr-20 xs-pd-20-10">
         <div class="min-height-200px">
@@ -37,7 +39,7 @@
                         <?php $no=1; foreach ($pretest as $key => $value) {
                                     if ($value->id_materi == $id) { ?>
                         <div>
-                            <div><?=$no?>. <?= $value->soal?></div>
+                            <div><?=$no++?>. <?= $value->soal?></div>
                             <div class="pl-20 mt-3">
                                 <ul>
                                     <li class="mb-2">A. <?= $value->jawaban_a?></li>
@@ -56,7 +58,7 @@
                             </div>
                         </div>
                         <hr>
-                        <?php }} ?>
+                        <?php  }} ?>
                     </div>
                 </div>
             </div>

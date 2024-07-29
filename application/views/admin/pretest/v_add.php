@@ -1,3 +1,7 @@
+<?php $sumsoal=1; foreach ($pretest as $key => $value) {
+            if ($value->id_materi == $id) {
+                $sumsoal += $value->sum;
+            }} ?>
 <div class="main-container">
     <div class="pd-ltr-20 xs-pd-20-10">
         <div class="min-height-200px">
@@ -5,14 +9,13 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <div class="title">
-                            <h4><?= $materi->nama_materi ?></h4>
+                            <h4>Tambah Data Soal Pre-Test (<?= $materi->nama_materi ?>)</h4>
                         </div>
                         <nav aria-label="breadcrumb" role="navigation">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item" aria-current="page">Kursus</li>
-                                <li class="breadcrumb-item" aria-current="page"><?= $kursus->nama_kursus ?></li>
-                                <li class="breadcrumb-item active" aria-current="page">Tambah Data Materi</li>
+                                <li class="breadcrumb-item"><a href="<?=base_url('admin/dashboard')?>">Home</a></li>
+                                <li class="breadcrumb-item" aria-current="page"><a href="<?=base_url('admin/pretest')?>">Pretest</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Tambah Data Soal</li>
                             </ol>
                         </nav>
                     </div>
@@ -24,7 +27,7 @@
 				<div class="pd-20 card-box mb-30">
 					<div class="clearfix mb-30">
 						<div class="pull-left">
-							<h4 class="text-blue h4">Form Tambah Data Materi</h4>
+							<h4 class="text-blue h4">Form Tambah Data Soal Pre-Test "Soal Nomor <?= $sumsoal ?>"</h4>
 						</div>
 					</div>
 					<?php
@@ -33,32 +36,60 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
                         }
 
-                        echo form_open_multipart('admin/kursus/add_materi/' . $kursus->id_kursus);
+                        echo form_open_multipart('admin/pretest/add/' . $materi->id_materi);
                         ?>
-						<div class="form-group">
-							<label>Nama Materi</label>
-							<input class="form-control" name="nama_materi" type="text" placeholder="Masukkan Materi" required>
-                            <?php echo form_error('nama_materi', '<div class="text-danger small">', '</div>') ?>
-						</div>
                         <div class="form-group">
-							<label>Mata Kuliah</label>
-							<select class="form-control" disabled="">
-								<option value="<?= $kursus->id_kursus ?>"><?= $kursus->nama_kursus ?></option>
+							<label>Materi</label>
+							<select class="form-control" name="id_materi">
+								<option value="<?= $materi->id_materi ?>"><?= $materi->nama_materi ?></option>
 							</select>
 						</div>
-						<div class="form-group">
-                            <label>Keterangan Materi</label>
-                            <textarea class="form-control" name="ket_materi"></textarea>
+
+                        <div class="form-group mt-5">
+                            <label><b>Soal : </b></label>
+                            <textarea class="textarea_editor form-control border-radius-0" placeholder="Enter text ..." name="soal" style="height: 500px;"></textarea>
+                            <?= form_error('soal', '<div class="text-danger small">', '</div>') ?>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 70px;">
+                            <label><strong>Jawaban A : </strong></label>
+                            <textarea class="form-control border-radius-0" placeholder="Enter text ..." name="jawaban_a" style="height: 150px;"></textarea>
+                            <?= form_error('jawaban_a', '<div class="text-danger small">', '</div>') ?>
                         </div>
 
                         <div class="form-group">
-							<label>ID Youtube</label>
-							<input class="form-control" name="id_yt" type="text" placeholder="Masukkan ID Youtube">
-						</div>
+                            <label><strong>Jawaban B : </strong></label>
+                            <textarea class="form-control border-radius-0" placeholder="Enter text ..." name="jawaban_b" style="height: 150px;"></textarea>
+                            <?= form_error('jawaban_b', '<div class="text-danger small">', '</div>') ?>
+                        </div>
 
                         <div class="form-group">
-							<label>Upload File Materi</label>
-							<input name="doc_materi" type="file" class="form-control-file form-control height-auto">
+                            <label><strong>Jawaban C : </strong></label>
+                            <textarea class="form-control border-radius-0" placeholder="Enter text ..." name="jawaban_c" style="height: 150px;"></textarea>
+                            <?= form_error('jawaban_c', '<div class="text-danger small">', '</div>') ?>
+                        </div>
+
+                        <div class="form-group">
+                            <label><strong>Jawaban D : </strong></label>
+                            <textarea class="form-control border-radius-0" placeholder="Enter text ..." name="jawaban_d" style="height: 150px;"></textarea>
+                            <?= form_error('jawaban_d', '<div class="text-danger small">', '</div>') ?>
+                        </div>
+
+                        <div class="form-group">
+                            <label><strong>Jawaban E : </strong></label>
+                            <textarea class="form-control border-radius-0" placeholder="Enter text ..." name="jawaban_e" style="height: 150px;"></textarea>
+                            <?= form_error('jawaban_e', '<div class="text-danger small">', '</div>') ?>
+                        </div>
+
+                        <div class="form-group">
+							<label>Jawaban Benar </label>
+							<select class="form-control" name="jawaban_benar">
+								<option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
+							</select>
 						</div>
 
                         <div class="form-group text-center">
@@ -68,3 +99,5 @@
             <?php echo form_close(); ?>
         </div>
         </div>
+
+        

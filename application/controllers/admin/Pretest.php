@@ -44,7 +44,7 @@ class Pretest extends CI_Controller
             'title'         => 'Soal Pre-Test',
             'title2'        => 'Laboratorium Teknik Informatika',
             'materi'        => $this->m_kursus->detail_materi($id_materi),
-            'pretest'        => $this->m_pretest->lists_soal(),
+            'pretest'       => $this->m_pretest->lists_soal(),
             'id'            => $this->uri->segment(4),
             'isi'           => 'admin/pretest/v_list_pretest'
         );
@@ -66,6 +66,8 @@ class Pretest extends CI_Controller
                 'title'         => 'Soal',
                 'title2'        => 'Tambah Data Soal',
                 'materi'        => $this->m_kursus->detail_materi($id_materi),
+                'pretest'       => $this->m_pretest->lists_soal(),
+                'id'            => $this->uri->segment(4),
                 'isi'           => 'admin/pretest/v_add'
             );
             $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -73,6 +75,7 @@ class Pretest extends CI_Controller
 
 
             $data = array(
+                'id_materi'     => $this->input->post('id_materi'),
                 'soal'          => $this->input->post('soal'),
                 'id_materi'     => $this->input->post('id_materi'),
                 'jawaban_a'     => $this->input->post('jawaban_a'),
@@ -81,12 +84,15 @@ class Pretest extends CI_Controller
                 'jawaban_d'     => $this->input->post('jawaban_d'),
                 'jawaban_e'     => $this->input->post('jawaban_e'),
                 'jawaban_benar' => $this->input->post('jawaban_benar'),
+                'sum'           => 1
 
             );
 
-            $this->m_kelas->add($data);
+            $this->m_pretest->add($data);
             $this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan!');
-            redirect('kelas');
+            
+            $referred_from = $this->session->userdata('halaman_soal');
+            redirect($referred_from, 'refresh');
         }
     }
 

@@ -58,8 +58,8 @@
                                             <i class="dw dw-more"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                            <a class="dropdown-item" href="<?= base_url('admin/asprak/edit/' . $value->id_user) ?>"><i class="dw dw-edit2"></i> Edit</a>
-                                            <a class="dropdown-item" href="<?= base_url('admin/asprak/delete/' . $value->id_user) ?>"><i class="dw dw-delete-3"></i> Delete</a>
+                                            <a class="dropdown-item" href="<?= base_url('admin/praktikan/edit/' . $value->id_user) ?>"><i class="dw dw-edit2"></i> Edit</a>
+                                            <a class="dropdown-item" href="<?= base_url('admin/praktikan/delete/' . $value->id_user) ?>"><i class="dw dw-delete-3"></i> Delete</a>
                                         </div>
                                     </div>
                                 </td>

@@ -24,5 +24,7 @@
 	<!-- Datatable Setting js -->
 	<script src="<?= base_url() ?>assets/backend/vendors/scripts/datatable-setting.js"></script>
 
+	
+
 </body>
 </html>

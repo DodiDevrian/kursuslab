@@ -1,3 +1,40 @@
+<style>
+    .form-copy {
+        width: 95%;
+        margin: auto;
+        margin-top: 10px;
+        height: 50px;
+        border: solid 1px #bfbfbf;
+        background: #f9f9f9;
+        border-radius: 5px;
+        padding: 0 14px;
+    }
+ 
+    button.btn-copy{
+        padding: 20px 10px;
+        color: #fff;
+        background-color: #5cb85c;
+        border-color: #419641;
+        border-top: solid 2px #84d884;
+        border-left: solid 2px #84d884;
+        border-right: solid 2px #419641;
+        border-bottom: solid 2px #419641;
+    }
+    button.btn-copy:hover{
+        background-color: #419641;
+    }
+    input#code:focus {
+        outline: none!important;
+    }
+    .btn-circle {
+        border-radius: 50%;
+        position: relative;
+        top: -29px;
+        float: right;
+        border-color: #5cb85c;
+    }
+</style>
+
 <div class="main-container">
     <div class="pd-ltr-20 xs-pd-20-10">
         <div class="min-height-200px">
@@ -37,9 +74,16 @@
                         <div class="row">
                                 <?php foreach ($asset as $key => $value) { ?>
                                 <div class="col-12 col-md-4 col-sm-6 col-lg-3">
-                                    <div class="card" style="width: 18rem;">
-                                        <img src="<?= base_url('upload/foto_asset/' . $value->foto_asset) ?>" class="card-img-top" alt="...">
+                                    <div class="card mx-auto" style="width: 18rem;">
+                                        <img style="width: 100%; height: 200px; object-fit: cover; object-position: 20% 10%;" src="<?= base_url('upload/foto_asset/' . $value->foto_asset) ?>" class="card-img-top" alt="...">
+                                        <input class="form-copy" id="text-copy" value="<?=base_url('upload/foto_asset/' . $value->foto_asset)?>">
+                                        
+                                        
                                         <div class="card-body text-center">
+                                            <button class="mb-3 btn btn-success" onclick="copyText()">
+                                                <span class="fa fa-copy"></span> Copy Link
+                                            </button>
+                                            <br>
                                             <a href="#" class="btn btn-danger">Delete</a>
                                         </div>
                                     </div>
@@ -84,3 +128,11 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            function copyText() {  
+                var copyText = document.getElementById("text-copy");  
+                copyText.select();  
+                document.execCommand("copy");
+            }
+        </script>

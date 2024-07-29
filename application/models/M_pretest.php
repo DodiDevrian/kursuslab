@@ -20,4 +20,9 @@ class M_pretest extends CI_Model
 
         return $this->db->get()->result();
     }
+
+    public function add($data)
+    {
+        $this->db->insert('tbl_pretest', $data);
+    }
 }
