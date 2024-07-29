@@ -59,7 +59,6 @@ class Pretest extends CI_Controller
         $this->form_validation->set_rules('jawaban_c', 'Jawaban C', 'required');
         $this->form_validation->set_rules('jawaban_d', 'Jawaban D', 'required');
         $this->form_validation->set_rules('jawaban_e', 'Jawaban E', 'required');
-        $this->form_validation->set_rules('jawaban_benar', 'Jawaban Benar', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $data = array(
@@ -82,9 +81,7 @@ class Pretest extends CI_Controller
                 'jawaban_b'     => $this->input->post('jawaban_b'),
                 'jawaban_c'     => $this->input->post('jawaban_c'),
                 'jawaban_d'     => $this->input->post('jawaban_d'),
-                'jawaban_e'     => $this->input->post('jawaban_e'),
-                'jawaban_benar' => $this->input->post('jawaban_benar'),
-                'sum'           => 1
+                'jawaban_e'     => $this->input->post('jawaban_e')
 
             );
 

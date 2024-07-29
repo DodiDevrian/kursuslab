@@ -98,7 +98,7 @@
 			</div>
 			<div class="row">
 				<div class="col">
-					<div class="courses_button trans_200"><a href="<?= base_url('kursus') ?>">lihat semua asisten praktikum</a></div>
+					<div class="courses_button trans_200"><a href="<?= base_url('asprak') ?>">lihat semua asisten praktikum</a></div>
 				</div>
 			</div>
 		</div>

@@ -54,12 +54,8 @@
 										<ul>
 											<li><a href="index.html">Home</a></li>
 											<li><a href="about.html">Kursus</a></li>
-											<li><a href="contact.html">Menu 1</a></li>
-											<li><a href="#">Menu 2</a></li>
-											<li><a href="courses.html">Menu 2</a></li>
-											<li><a href="#">Menu 4</a></li>
-											<li><a href="#">Menu 5</a></li>
-											<li><a href="#">Menu 6</a></li>
+											<li><a href="contact.html">Asprak</a></li>
+											<li><a href="#">About</a></li>
 										</ul>
 									</div>
 								</div>

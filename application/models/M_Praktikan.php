@@ -36,4 +36,15 @@ class M_praktikan extends CI_Model
         $this->db->where('id_user', $data['id_user']);
         $this->db->delete('tbl_user', $data);
     }
+
+    public function add_keypretest($data)
+    {
+        $this->db->insert('tbl_keypretest', $data);
+    }
+
+    public function edit_keypretest($data)
+    {
+        $this->db->where('id_keypretest', $data['id_keypretest']);
+        $this->db->update('tbl_keypretest', $data);
+    }
 }

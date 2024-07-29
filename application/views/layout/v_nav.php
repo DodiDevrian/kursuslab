@@ -14,10 +14,7 @@
 									<li class="<?php echo menuAktif('home') ?>"><a href="<?= base_url() ?>">Home</a></li>
 									<li class="<?php echo menuAktif('kursus') ?>"><a href="<?= base_url('kursus') ?>">Kursus</a></li>
 									<li class="<?php echo menuAktif('asprak') ?>"><a href="<?= base_url('asprak') ?>">Asprak</a></li>
-									<li><a href="#">Menu 1</a></li>
-									<li><a href="#">Menu 2</a></li>
-									<li><a href="#">Menu 3</a></li>
-									<li><a href="contact.html">About</a></li>
+									<li class="<?php echo menuAktif('about') ?>"><a href="<?= base_url('about') ?>">About</a></li>
 								</ul>
 
 								<!-- Hamburger -->
@@ -59,12 +56,10 @@
 		<div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
 		<nav class="menu_nav">
 			<ul class="menu_mm">
-				<li class="menu_mm"><a href="index.html">Home</a></li>
-				<li class="menu_mm"><a href="#">Kursus</a></li>
-				<li class="menu_mm"><a href="#">Asprak</a></li>
-				<li class="menu_mm"><a href="#">Menu 1</a></li>
-				<li class="menu_mm"><a href="#">Menu 2</a></li>
-				<li class="menu_mm"><a href="#">About</a></li>
+				<li class="<?php echo menuAktif('home') ?> menu_mm"><a href="<?= base_url('home') ?>">Home</a></li>
+				<li class="<?php echo menuAktif('kursus') ?> menu_mm"><a href="<?= base_url('kursus') ?>">Kursus</a></li>
+				<li class="<?php echo menuAktif('asprak') ?> menu_mm"><a href="<?= base_url('asprak') ?>">Asprak</a></li>
+				<li class="<?php echo menuAktif('about') ?> menu_mm"><a href="<?= base_url('about') ?>">About</a></li>
 			</ul>
 		</nav>
 	</div>

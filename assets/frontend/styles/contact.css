@@ -267,7 +267,7 @@ section
 .top_bar
 {
 	width: 100%;
-	background: #14bdee;
+	background: #0f233a;
 }
 .header.scrolled .top_bar
 {
@@ -317,7 +317,7 @@ section
 {
 	width: 160px;
 	height: 100%;
-	background: #f3f3f3;
+	background: #ed9532;
 	text-align: center;
 }
 .login_button a
@@ -326,7 +326,7 @@ section
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 40px;
-	color: #384158;
+	color: #ffffff;
 }
 
 /*********************************
@@ -392,7 +392,7 @@ section
 }
 .logo_text span
 {
-	color: #14bdee;
+	color: #ed9532;
 }
 .header.scrolled .logo
 {
@@ -441,7 +441,7 @@ section
 .main_nav li a:hover,
 .main_nav li.active a
 {
-	color: #14bdee;
+	color: #ed9532;
 }
 .main_nav li.active::after
 {
@@ -451,7 +451,7 @@ section
 	left: 0;
 	width: 100%;
 	height: 2px;
-	background: #14bdee;
+	background: #ed9532;
 	content: '';
 }
 .search_button
@@ -903,7 +903,7 @@ section
 {
 	width: 150px;
 	height: 46px;
-	background: #14bdee;
+	background: #ed9532;
 	text-transform: uppercase;
 	font-size: 14px;
 	font-weight: 500;
