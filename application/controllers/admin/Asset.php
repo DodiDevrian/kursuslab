@@ -53,4 +53,18 @@ class Asset extends CI_Controller
             redirect('admin/asset');
         }
     }
+
+    public function delete($id_asset)
+    {
+        // Hapus foto yang lama
+        $asset = $this->m_asset->detail($id_asset);
+        if ($asset->foto_asset != "") {
+            unlink('./upload/foto_asset/' . $asset->foto_asset);
+        }
+
+        $data = array('id_asset' => $id_asset);
+        $this->m_asset->delete($data);
+        $this->session->set_flashdata('pesan', 'Data Asset Berhasil Dihapus!');
+        redirect('admin/asset');
+    }
 }

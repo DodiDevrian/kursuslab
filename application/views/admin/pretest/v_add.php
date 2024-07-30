@@ -81,17 +81,6 @@
                             <?= form_error('jawaban_e', '<div class="text-danger small">', '</div>') ?>
                         </div>
 
-                        <div class="form-group">
-							<label>Jawaban Benar </label>
-							<select class="form-control" name="jawaban_benar">
-								<option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="C">C</option>
-                                <option value="D">D</option>
-                                <option value="E">E</option>
-							</select>
-						</div>
-
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                             <button type="reset" class="btn btn-danger">Bersihkan</button>

@@ -11,6 +11,15 @@ class M_asset extends CI_Model
         return $this->db->get()->result();
     }
 
+    public function detail($id_asset)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_asset');
+        $this->db->where('id_asset', $id_asset);
+
+        return $this->db->get()->row();
+    }
+
     public function add($data)
     {
         $this->db->insert('tbl_asset', $data);

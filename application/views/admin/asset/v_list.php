@@ -76,15 +76,14 @@
                                 <div class="col-12 col-md-4 col-sm-6 col-lg-3">
                                     <div class="card mx-auto" style="width: 18rem;">
                                         <img style="width: 100%; height: 200px; object-fit: cover; object-position: 20% 10%;" src="<?= base_url('upload/foto_asset/' . $value->foto_asset) ?>" class="card-img-top" alt="...">
-                                        <input class="form-copy" id="text-copy" value="<?=base_url('upload/foto_asset/' . $value->foto_asset)?>">
-                                        
-                                        
+                                        <input class="form-copy" id="text-copy<?= $value->id_asset?>" value="<?=base_url('upload/foto_asset/' . $value->foto_asset)?>">
+
                                         <div class="card-body text-center">
-                                            <button class="mb-3 btn btn-success" onclick="copyText()">
+                                            <button class="mb-3 btn btn-success" onclick="copyText<?= $value->id_asset?>()">
                                                 <span class="fa fa-copy"></span> Copy Link
                                             </button>
                                             <br>
-                                            <a href="#" class="btn btn-danger">Delete</a>
+                                            <a href="<?= base_url('admin/asset/delete/' . $value->id_asset) ?>" class="btn btn-danger">Delete</a>
                                         </div>
                                     </div>
                                 </div>
@@ -122,17 +121,18 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary">Upload</button>
                 </div>
                 <?php echo form_close(); ?>
                 </div>
             </div>
         </div>
-
         <script>
-            function copyText() {  
-                var copyText = document.getElementById("text-copy");  
-                copyText.select();  
+            <?php foreach ($asset as $key => $value) { ?>
+            function copyText<?= $value->id_asset?>() {  
+                var copyText<?= $value->id_asset?> = document.getElementById("text-copy<?= $value->id_asset?>");  
+                copyText<?= $value->id_asset?>.select();  
                 document.execCommand("copy");
             }
+            <?php } ?>
         </script>

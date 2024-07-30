@@ -25,4 +25,24 @@ class M_pretest extends CI_Model
     {
         $this->db->insert('tbl_pretest', $data);
     }
+
+    public function keypretest()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_keypretest');
+        $this->db->order_by('id_keypretest', 'ASC');
+
+        return $this->db->get()->result();
+    }
+
+    public function add_keypretest($data)
+    {
+        $this->db->insert('tbl_keypretest', $data);
+    }
+
+    public function edit_keypretest($data)
+    {
+        $this->db->where('id_keypretest', $data['id_keypretest']);
+        $this->db->update('tbl_keypretest', $data);
+    }
 }

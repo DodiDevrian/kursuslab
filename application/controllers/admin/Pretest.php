@@ -45,6 +45,7 @@ class Pretest extends CI_Controller
             'title2'        => 'Laboratorium Teknik Informatika',
             'materi'        => $this->m_kursus->detail_materi($id_materi),
             'pretest'       => $this->m_pretest->lists_soal(),
+            'keypretest'    => $this->m_pretest->keypretest(),
             'id'            => $this->uri->segment(4),
             'isi'           => 'admin/pretest/v_list_pretest'
         );
@@ -81,7 +82,8 @@ class Pretest extends CI_Controller
                 'jawaban_b'     => $this->input->post('jawaban_b'),
                 'jawaban_c'     => $this->input->post('jawaban_c'),
                 'jawaban_d'     => $this->input->post('jawaban_d'),
-                'jawaban_e'     => $this->input->post('jawaban_e')
+                'jawaban_e'     => $this->input->post('jawaban_e'),
+                'sum'           => 1
 
             );
 
@@ -92,5 +94,24 @@ class Pretest extends CI_Controller
             redirect($referred_from, 'refresh');
         }
     }
+
+    public function add_keypretest($id_materi)
+	{
+		$data = array(
+			'id_materi'     => $id_materi,
+			'jawaban_1' 	=> $this->input->post('jawaban_1'),
+            'jawaban_2' 	=> $this->input->post('jawaban_2'),
+            'jawaban_3' 	=> $this->input->post('jawaban_3'),
+            'jawaban_4' 	=> $this->input->post('jawaban_4'),
+            'jawaban_5' 	=> $this->input->post('jawaban_5'),
+		);
+
+		$this->m_pretest->add_keypretest($data);
+		$this->session->set_flashdata('pesan', 'Kunci Jawaban Berhasil Dibuat!');
+
+		$referred_from = $this->session->userdata('halaman_soal');
+        redirect($referred_from, 'refresh');
+	}
+    
 
 }
