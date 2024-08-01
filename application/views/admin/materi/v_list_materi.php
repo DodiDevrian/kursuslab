@@ -54,7 +54,6 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama Materi</th>
-                                <th>Keterangan</th>
                                 <th>Id Youtube</th>
                                 <th>File</th>
                                 <th>Status</th>
@@ -68,7 +67,6 @@
                             <tr>
                                 <td><?= $no++?></td>
                                 <td><?= wordwrap($value->nama_materi,35,"<br>\n");?></td>
-                                <td><?= substr(strip_tags($value->ket_materi), 0, 40) ?>...</td>
                                 <td><?= $value->id_yt?><br> <a class="mr-auto" target="_blank" href="https://youtu.be/<?= $value->id_yt?>"><i style="font-size: 25px;" class="icon-copy fi-play-video"></i></a></td>
                                 <td><?= substr(strip_tags($value->doc_materi), 0, 30) ?>...</td>
                                 <td>

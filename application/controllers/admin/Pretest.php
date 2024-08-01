@@ -112,6 +112,24 @@ class Pretest extends CI_Controller
 		$referred_from = $this->session->userdata('halaman_soal');
         redirect($referred_from, 'refresh');
 	}
+
+    public function edit_keypretest($id_materi)
+	{
+		$data = array(
+			'id_materi'     => $id_materi,
+			'jawaban_1' 	=> $this->input->post('jawaban_1'),
+            'jawaban_2' 	=> $this->input->post('jawaban_2'),
+            'jawaban_3' 	=> $this->input->post('jawaban_3'),
+            'jawaban_4' 	=> $this->input->post('jawaban_4'),
+            'jawaban_5' 	=> $this->input->post('jawaban_5'),
+		);
+
+		$this->m_pretest->edit_keypretest($data);
+		$this->session->set_flashdata('pesan', 'Kunci Jawaban Berhasil Diubah!');
+
+		$referred_from = $this->session->userdata('halaman_soal');
+        redirect($referred_from, 'refresh');
+	}
     
 
 }

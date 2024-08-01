@@ -28,7 +28,7 @@
                             $sum +=1 ;
                         }
                     } ?>
-                    
+
                     <?php if ($sum < 5) { ?>
                         <a href="<?= base_url('admin/pretest/add/' . $materi->id_materi) ?>" class="btn btn-secondary">Tambah Soal +</a>
                     <?php } ?>
@@ -97,8 +97,11 @@
                                 </tr>
                             </table>
                             <?php }} ?>
-
-                            <div class="mt-2">
+                            
+                            <div class="alert alert-warning mt-3 text-center" role="alert">
+                                Isi hanya dengan <strong>1 data saja</strong>, ketika terdapat kesalah pada data, ketik edit untuk mengubah data!
+                            </div>
+                            <div class="mt-2 text-center">
                                 <button type="button" class="btn btn-info mt-2" data-toggle="modal" data-target="#exampleModal">
                                     Buat Kunci Jawaban
                                 </button>
@@ -129,7 +132,6 @@
                     <div class="form-group d-flex align-items-center">
                         <label style="width: 60px;">Soal 1</label>
                         <select class="form-control" name="jawaban_1">
-                            <option disabled>Pilih Jawaban</option>
                             <option value="A">A</option>
                             <option value="B">B</option>
                             <option value="C">C</option>
@@ -196,7 +198,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Kunci Jawaban</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Ubah Kunci Jawaban</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
@@ -204,10 +206,14 @@
 
                 <div class="modal-body">
 
-                <?php echo form_open_multipart('admin/pretest/add_keypretest/'. $materi->id_materi); ?>
+                <?php echo form_open_multipart('admin/pretest/edit_keypretest/'. $materi->id_materi); ?>
+                <?php foreach ($keypretest as $key => $value) {
+                    if ($value->id_materi == $id) {
+                ?>
                     <div class="form-group d-flex align-items-center">
                         <label style="width: 60px;">Soal 1</label>
                         <select class="form-control" name="jawaban_1">
+                            <option value="<?= $value->jawaban_1 ?>"><?= $value->jawaban_1 ?></option>
                             <option value="A">A</option>
                             <option value="B">B</option>
                             <option value="C">C</option>
@@ -219,6 +225,7 @@
                     <div class="form-group d-flex align-items-center">
                         <label style="width: 60px;">Soal 2</label>
                         <select class="form-control" name="jawaban_2">
+                            <option value="<?= $value->jawaban_2 ?>"><?= $value->jawaban_2 ?></option>
                             <option value="A">A</option>
                             <option value="B">B</option>
                             <option value="C">C</option>
@@ -230,6 +237,7 @@
                     <div class="form-group d-flex align-items-center">
                         <label style="width: 60px;">Soal 3</label>
                         <select class="form-control" name="jawaban_3">
+                            <option value="<?= $value->jawaban_3 ?>"><?= $value->jawaban_3 ?></option>
                             <option value="A">A</option>
                             <option value="B">B</option>
                             <option value="C">C</option>
@@ -241,6 +249,7 @@
                     <div class="form-group d-flex align-items-center">
                         <label style="width: 60px;">Soal 4</label>
                         <select class="form-control" name="jawaban_4">
+                            <option value="<?= $value->jawaban_4 ?>"><?= $value->jawaban_4 ?></option>
                             <option value="A">A</option>
                             <option value="B">B</option>
                             <option value="C">C</option>
@@ -252,6 +261,7 @@
                     <div class="form-group d-flex align-items-center">
                         <label style="width: 60px;">Soal 5</label>
                         <select class="form-control" name="jawaban_5">
+                            <option value="<?= $value->jawaban_5 ?>"><?= $value->jawaban_5 ?></option>
                             <option value="A">A</option>
                             <option value="B">B</option>
                             <option value="C">C</option>
@@ -265,6 +275,7 @@
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
                 <?php echo form_close(); ?>
+                <?php }} ?>
                 </div>
             </div>
         </div>
