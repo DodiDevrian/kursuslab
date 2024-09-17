@@ -129,9 +129,9 @@ class Praktikan extends CI_Controller
                     'foto_user'    => $upload_data['uploads']['file_name']
                 );
 
-                $this->m_asprak->edit($data);
+                $this->m_praktikan->edit($data);
                 $this->session->set_flashdata('pesan', 'Data Berhasil Diubah!');
-                redirect('admin/dosen');
+                redirect('admin/praktikan');
             }
             $upload_data = array('uploads' => $this->upload->data());
             $config['image_library'] = 'gd2';

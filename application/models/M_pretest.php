@@ -21,9 +21,24 @@ class M_pretest extends CI_Model
         return $this->db->get()->result();
     }
 
+    public function detail($id_pretest)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_pretest');
+        $this->db->where('id_pretest', $id_pretest);
+
+        return $this->db->get()->row();
+    }
+
     public function add($data)
     {
         $this->db->insert('tbl_pretest', $data);
+    }
+
+    public function edit($data)
+    {
+        $this->db->where('id_pretest', $data['id_pretest']);
+        $this->db->update('tbl_pretest', $data);
     }
 
     public function keypretest()

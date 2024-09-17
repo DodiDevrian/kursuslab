@@ -103,10 +103,10 @@
                 </li>
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-book1"></span><span class="mtext">Kursus</span>
+                        <span class="micon dw dw-book1"></span><span class="mtext">Menu</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="<?= base_url('admin/kursus')?>" class="<?= menuAktif('kursus') ?>">Mata Kuliah</a></li>
+                        <li><a href="<?= base_url('admin/kursus')?>" class="<?= menuAktif('kursus') ?>">Praktikum</a></li>
                         <li><a href="<?= base_url('admin/materi')?>" class="<?= menuAktif('materi') ?>">Materi</a></li>
                         <li><a href="<?= base_url('admin/pretest')?>" class="<?= menuAktif('pretest') ?>">Pre-Test</a></li>
                     </ul>

@@ -29,7 +29,7 @@
 			<div class="row">
 				<div class="col">
 					<div class="section_title_container text-center">
-						<h2 class="section_title">Materi Kursus</h2>
+						<h2 class="section_title">Materi Praktikum</h2>
 						<div class="section_subtitle"><p>Materi yang disediakan sesuai dengan materi yang terdapat pada pelaksaan praktikum</p></div>
 					</div>
 				</div>

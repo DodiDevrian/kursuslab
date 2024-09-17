@@ -95,6 +95,50 @@ class Pretest extends CI_Controller
         }
     }
 
+    public function edit($id_pretest)
+    {
+        $this->form_validation->set_rules('soal', 'Soal', 'required');
+        $this->form_validation->set_rules('jawaban_a', 'Jawaban A', 'required');
+        $this->form_validation->set_rules('jawaban_b', 'Jawaban B', 'required');
+        $this->form_validation->set_rules('jawaban_c', 'Jawaban C', 'required');
+        $this->form_validation->set_rules('jawaban_d', 'Jawaban D', 'required');
+        $this->form_validation->set_rules('jawaban_e', 'Jawaban E', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $data = array(
+                'title'         => 'Soal',
+                'title2'        => 'Edit Data Soal',
+                'materi'        => $this->m_kursus->detail_materi($id_materi),
+                'pretest'       => $this->m_pretest->lists_soal(),
+                'detail'        => $this->m_pretest->detail($id_materi),
+                'id'            => $this->uri->segment(4),
+                'isi'           => 'admin/pretest/v_edit'
+            );
+            $this->load->view('admin/layout/v_wrapper', $data, FALSE);
+        } else {
+
+
+            $data = array(
+                'id_materi'     => $this->input->post('id_materi'),
+                'soal'          => $this->input->post('soal'),
+                'id_materi'     => $this->input->post('id_materi'),
+                'jawaban_a'     => $this->input->post('jawaban_a'),
+                'jawaban_b'     => $this->input->post('jawaban_b'),
+                'jawaban_c'     => $this->input->post('jawaban_c'),
+                'jawaban_d'     => $this->input->post('jawaban_d'),
+                'jawaban_e'     => $this->input->post('jawaban_e'),
+                'sum'           => 1
+
+            );
+
+            $this->m_pretest->add($data);
+            $this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan!');
+            
+            $referred_from = $this->session->userdata('halaman_soal');
+            redirect($referred_from, 'refresh');
+        }
+    }
+
     public function add_keypretest($id_materi)
 	{
 		$data = array(

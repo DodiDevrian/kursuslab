@@ -43,7 +43,7 @@
                 <div class="pb-20">
                 <?php
                 if ($this->session->flashdata('pesan')) {
-                    echo '<div class="alert alert-success alert-dismissible">
+                    echo '<div class="alert alert-success alert-dismissible m-3">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
                     echo $this->session->flashdata('pesan');
                     echo '</div>';
@@ -67,7 +67,11 @@
                             <tr>
                                 <td><?= $no++?></td>
                                 <td><?= wordwrap($value->nama_materi,35,"<br>\n");?></td>
-                                <td><?= $value->id_yt?><br> <a class="mr-auto" target="_blank" href="https://youtu.be/<?= $value->id_yt?>"><i style="font-size: 25px;" class="icon-copy fi-play-video"></i></a></td>
+                                <td><?= $value->id_yt?><br>
+                                    <a class="mr-auto" type="button" data-toggle="modal" data-target="#exampleModal<?= $value->id_materi?>">
+                                        <i style="font-size: 25px;" class="icon-copy fi-play-video"></i>
+                                    </a>
+                                </td>
                                 <td><?= substr(strip_tags($value->doc_materi), 0, 30) ?>...</td>
                                 <td>
                                     <?php if ($value->status == 1) { ?>
@@ -96,3 +100,25 @@
             </div>
 
         </div>
+        
+        <?php $no=1; foreach ($materi as $key => $value) {
+            if ($value->id_kursus == $id) { ?>
+        <div class="modal fade" id="exampleModal<?= $value->id_materi?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe style="aspect-ratio: 16/9; width: 100%;" src="https://www.youtube.com/embed/<?= $value -> id_yt ?>" title="<?= $value -> nama_materi ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <?php }} ?>
