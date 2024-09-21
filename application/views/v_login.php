@@ -58,16 +58,8 @@
                                     <input type="password" class="form-control" name="password" placeholder="Password" required>
                                     <?php echo form_error('password', '<div class="text-danger small ml-2">', '</div>') ?>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mt-5">
                                     <button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
-                                </div>
-                                <div class="form-group d-md-flex">
-                                    <div class="w-50 text-left">
-                                        <label class="checkbox-wrap checkbox-primary mb-0">Remember Me
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-										</label>
-									</div>
                                 </div>
                             <? echo form_close(); ?>
 

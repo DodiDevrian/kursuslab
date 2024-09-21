@@ -56,6 +56,7 @@
                                 <th>Nama Materi</th>
                                 <th>Id Youtube</th>
                                 <th>File</th>
+                                <th>Catatan</th>
                                 <th>Status</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>
@@ -73,6 +74,7 @@
                                     </a>
                                 </td>
                                 <td><?= substr(strip_tags($value->doc_materi), 0, 30) ?>...</td>
+                                <td><?= $value->note?></td>
                                 <td>
                                     <?php if ($value->status == 1) { ?>
                                         <span class="badge badge-pill badge-danger">Belum Diterima Dosen</span>

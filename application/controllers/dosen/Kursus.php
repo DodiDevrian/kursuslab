@@ -225,7 +225,8 @@ class Kursus extends CI_Controller
 	{
 		$data = array(
 			'id_materi'	=> $id_materi,
-			'status' 	=> $this->input->post('status')
+			'status' 	=> $this->input->post('status'),
+            'note' 	    => $this->input->post('note')
 		);
 
 		$this->m_materi->edit($data);

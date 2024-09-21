@@ -27,7 +27,7 @@
                 <div class="pb-20">
                 <?php
                 if ($this->session->flashdata('pesan')) {
-                    echo '<div class="alert alert-success alert-dismissible">
+                    echo '<div class="alert alert-success alert-dismissible m-3">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
                     echo $this->session->flashdata('pesan');
                     echo '</div>';
@@ -40,6 +40,7 @@
                                 <th>Keterangan</th>
                                 <th>Id Youtube</th>
                                 <th>File</th>
+                                <th>Catatan</th>
                                 <th class="datatable-nosort">Status</th>
                             </tr>
                         </thead>
@@ -52,6 +53,7 @@
                                 <td><?= substr(strip_tags($value->ket_materi), 0, 80) ?>...</td>
                                 <td><?= $value->id_yt?><br> <a class="mr-auto" target="_blank" href="https://youtu.be/<?= $value->id_yt?>"><i style="font-size: 25px;" class="icon-copy fi-play-video"></i></a></td>
                                 <td><?= substr(strip_tags($value->doc_materi), 0, 30) ?>...</td>
+                                <td><?= $value->note?></td>
                                 <td class="status">
                                     <div>
                                         <?php if ($value->status == 1) { ?>
@@ -61,7 +63,7 @@
                                         <?php }  ?>
                                     </div>
                                     <div>
-                                        <a class="dropdown-item" type="button" data-toggle="modal" data-target="#exampleModal<?= $value->id_materi?>"><i class="dw dw-edit2"></i> Edit Status</a>
+                                        <a class="dropdown-item" type="button" data-toggle="modal" data-target="#exampleModal<?= $value->id_materi?>"><i class="dw dw-edit2"></i> Edit Status dan Catatan</a>
                                     </div>
                                 </td>
                             </tr>
@@ -87,6 +89,12 @@
                     </div>
                     <div class="modal-body">
                         <?php echo form_open_multipart('dosen/kursus/edit_status/'. $value->id_materi); ?>
+                        <div class="form-group">
+							<label>Catatan</label>
+							<input class="form-control" name="note" type="text" placeholder="Masukkan Catatan" required>
+                            <?php echo form_error('note', '<div class="text-danger small">', '</div>') ?>
+						</div>
+
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="status" id="exampleRadios1" value="1" <?php if ($value->status == 1) { ?> checked <?php } ?>>
                             <label class="form-check-label" for="exampleRadios1">
