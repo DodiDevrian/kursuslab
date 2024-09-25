@@ -1,6 +1,6 @@
-<?php $sumsoal=1; foreach ($pretest as $key => $value) {
+<?php $sumsoal=1; $sum=1; foreach ($pretest as $key => $value) {
             if ($value->id_materi == $id) {
-                $sumsoal += $value->sum;
+                $sumsoal += $sum;
             }} ?>
 <div class="main-container">
     <div class="pd-ltr-20 xs-pd-20-10">
@@ -40,6 +40,7 @@
                         ?>
                         <div class="form-group">
 							<label>Materi</label>
+                            <input value="<?= $sumsoal ?>" name="nomor_soal" type="hidden">
 							<select class="form-control" name="id_materi">
 								<option value="<?= $materi->id_materi ?>"><?= $materi->nama_materi ?></option>
 							</select>
@@ -50,6 +51,17 @@
                             <textarea class="textarea_editor form-control border-radius-0" placeholder="Enter text ..." name="soal" style="height: 500px;"></textarea>
                             <?= form_error('soal', '<div class="text-danger small">', '</div>') ?>
                         </div>
+
+                        <div class="form-group">
+							<label>Jawaban Benar</label>
+							<select class="form-control" name="keypretest">
+								<option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="D">D</option>
+                                <option value="E">E</option>
+							</select>
+						</div>
 
                         <div class="form-group" style="margin-top: 70px;">
                             <label><strong>Jawaban A : </strong></label>

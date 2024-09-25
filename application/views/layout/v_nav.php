@@ -14,6 +14,7 @@
 									<li class="<?php echo menuAktif('home') ?>"><a href="<?= base_url() ?>">Home</a></li>
 									<li class="<?php echo menuAktif('kursus') ?>"><a href="<?= base_url('kursus') ?>">Praktikum</a></li>
 									<li class="<?php echo menuAktif('asprak') ?>"><a href="<?= base_url('asprak') ?>">Asprak</a></li>
+									<li class="<?php echo menuAktif('diskusi') ?>"><a href="<?= base_url('diskusi') ?>">Forum Diskusi</a></li>
 									<li class="<?php echo menuAktif('about') ?>"><a href="<?= base_url('about') ?>">About</a></li>
 								</ul>
 
@@ -59,6 +60,7 @@
 				<li class="<?php echo menuAktif('home') ?> menu_mm"><a href="<?= base_url('home') ?>">Home</a></li>
 				<li class="<?php echo menuAktif('kursus') ?> menu_mm"><a href="<?= base_url('kursus') ?>">Praktikum</a></li>
 				<li class="<?php echo menuAktif('asprak') ?> menu_mm"><a href="<?= base_url('asprak') ?>">Asprak</a></li>
+				<li class="<?php echo menuAktif('diskusi') ?> menu_mm"><a href="<?= base_url('diskusi') ?>">Forum Diskusi</a></li>
 				<li class="<?php echo menuAktif('about') ?> menu_mm"><a href="<?= base_url('about') ?>">About</a></li>
 			</ul>
 		</nav>

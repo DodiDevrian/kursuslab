@@ -102,7 +102,7 @@ class Slider extends CI_Controller
                 $this->load->library('image_lib', $config);
 
                 // Hapus file foto yang lama
-                $kursus = $this->m_kursus->detail($id_slider);
+                $kursus = $this->m_slider->detail($id_slider);
                 if ($kursus->foto_slider != "") {
                     unlink('./upload/foto_slider/' . $kursus->foto_slider);
                 }

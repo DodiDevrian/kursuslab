@@ -242,7 +242,7 @@ class Kursus extends CI_Controller
     {
         $this->form_validation->set_rules('nama_materi', 'Nama Materi', 'required');
         $this->form_validation->set_rules('ket_materi', 'Keterangan Materi', 'required');
-        $this->form_validation->set_rules('id_yt', 'Keterangan Materi', 'required');
+        $this->form_validation->set_rules('id_yt', 'ID Vidio Youtube', 'required');
         
         if ($this->form_validation->run() == TRUE) {
             $config['upload_path']      = './upload/doc_materi/';

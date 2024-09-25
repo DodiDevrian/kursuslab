@@ -20,7 +20,7 @@
 
 	<div class="courses">
 		<div class="container">
-			<div class="text-center"><h2>Daftar Kursus</h2></div>
+			<div class="text-center"><h2>Daftar Praktikum</h2></div>
 			
 			<div class="row">
 				<div class="col-lg-12">

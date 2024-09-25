@@ -60,6 +60,7 @@ class Pretest extends CI_Controller
         $this->form_validation->set_rules('jawaban_c', 'Jawaban C', 'required');
         $this->form_validation->set_rules('jawaban_d', 'Jawaban D', 'required');
         $this->form_validation->set_rules('jawaban_e', 'Jawaban E', 'required');
+        $this->form_validation->set_rules('keypretest', 'Jawaban Benar', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $data = array(
@@ -75,7 +76,6 @@ class Pretest extends CI_Controller
 
 
             $data = array(
-                'id_materi'     => $this->input->post('id_materi'),
                 'soal'          => $this->input->post('soal'),
                 'id_materi'     => $this->input->post('id_materi'),
                 'jawaban_a'     => $this->input->post('jawaban_a'),
@@ -83,7 +83,8 @@ class Pretest extends CI_Controller
                 'jawaban_c'     => $this->input->post('jawaban_c'),
                 'jawaban_d'     => $this->input->post('jawaban_d'),
                 'jawaban_e'     => $this->input->post('jawaban_e'),
-                'sum'           => 1
+                'keypretest'     => $this->input->post('keypretest'),
+                'nomor_soal'     => $this->input->post('nomor_soal'),
 
             );
 
@@ -95,7 +96,7 @@ class Pretest extends CI_Controller
         }
     }
 
-    public function edit($id_pretest)
+    public function edit($id_soal)
     {
         $this->form_validation->set_rules('soal', 'Soal', 'required');
         $this->form_validation->set_rules('jawaban_a', 'Jawaban A', 'required');
@@ -103,14 +104,14 @@ class Pretest extends CI_Controller
         $this->form_validation->set_rules('jawaban_c', 'Jawaban C', 'required');
         $this->form_validation->set_rules('jawaban_d', 'Jawaban D', 'required');
         $this->form_validation->set_rules('jawaban_e', 'Jawaban E', 'required');
+        $this->form_validation->set_rules('keypretest', 'Jawaban Benar', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $data = array(
                 'title'         => 'Soal',
                 'title2'        => 'Edit Data Soal',
-                'materi'        => $this->m_kursus->detail_materi($id_materi),
                 'pretest'       => $this->m_pretest->lists_soal(),
-                'detail'        => $this->m_pretest->detail($id_materi),
+                'detail'        => $this->m_pretest->detail($id_soal),
                 'id'            => $this->uri->segment(4),
                 'isi'           => 'admin/pretest/v_edit'
             );
@@ -119,7 +120,7 @@ class Pretest extends CI_Controller
 
 
             $data = array(
-                'id_materi'     => $this->input->post('id_materi'),
+                'id_soal'          => $this->input->post('id_soal'),
                 'soal'          => $this->input->post('soal'),
                 'id_materi'     => $this->input->post('id_materi'),
                 'jawaban_a'     => $this->input->post('jawaban_a'),
@@ -127,12 +128,13 @@ class Pretest extends CI_Controller
                 'jawaban_c'     => $this->input->post('jawaban_c'),
                 'jawaban_d'     => $this->input->post('jawaban_d'),
                 'jawaban_e'     => $this->input->post('jawaban_e'),
-                'sum'           => 1
+                'keypretest'     => $this->input->post('keypretest'),
+                'nomor_soal'     => $this->input->post('nomor_soal'),
 
             );
 
-            $this->m_pretest->add($data);
-            $this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan!');
+            $this->m_pretest->edit($data);
+            $this->session->set_flashdata('pesan', 'Data Berhasil Diubah!');
             
             $referred_from = $this->session->userdata('halaman_soal');
             redirect($referred_from, 'refresh');

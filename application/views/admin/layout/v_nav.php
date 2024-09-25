@@ -109,6 +109,7 @@
                         <li><a href="<?= base_url('admin/kursus')?>" class="<?= menuAktif('kursus') ?>">Praktikum</a></li>
                         <li><a href="<?= base_url('admin/materi')?>" class="<?= menuAktif('materi') ?>">Materi</a></li>
                         <li><a href="<?= base_url('admin/pretest')?>" class="<?= menuAktif('pretest') ?>">Pre-Test</a></li>
+                        <li><a href="<?= base_url('admin/diskusi')?>" class="<?= menuAktif('diskusi') ?>">Forum Diskusi</a></li>
                     </ul>
                 </li>
                 <li>

@@ -14,31 +14,32 @@ class M_pretest extends CI_Model
     public function lists_soal()
     {
         $this->db->select('*');
-        $this->db->from('tbl_pretest');
-        $this->db->join('tbl_materi', 'tbl_materi.id_materi = tbl_pretest.id_materi', 'left');
-        $this->db->order_by('id_pretest', 'ASC');
+        $this->db->from('tbl_banksoalpretest');
+        $this->db->join('tbl_materi', 'tbl_materi.id_materi = tbl_banksoalpretest.id_materi', 'left');
+        $this->db->order_by('id_soal', 'ASC');
 
         return $this->db->get()->result();
     }
 
-    public function detail($id_pretest)
+    public function detail($id_soal)
     {
         $this->db->select('*');
-        $this->db->from('tbl_pretest');
-        $this->db->where('id_pretest', $id_pretest);
+        $this->db->from('tbl_banksoalpretest');
+        $this->db->join('tbl_materi', 'tbl_materi.id_materi = tbl_banksoalpretest.id_materi', 'left');
+        $this->db->where('id_soal', $id_soal);
 
         return $this->db->get()->row();
     }
 
     public function add($data)
     {
-        $this->db->insert('tbl_pretest', $data);
+        $this->db->insert('tbl_banksoalpretest', $data);
     }
 
     public function edit($data)
     {
-        $this->db->where('id_pretest', $data['id_pretest']);
-        $this->db->update('tbl_pretest', $data);
+        $this->db->where('id_soal', $data['id_soal']);
+        $this->db->update('tbl_banksoalpretest', $data);
     }
 
     public function keypretest()
