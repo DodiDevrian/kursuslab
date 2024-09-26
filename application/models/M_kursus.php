@@ -6,7 +6,7 @@ class M_kursus extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tbl_kursus');
-        $this->db->join('tbl_user', 'tbl_user.id_user = tbl_kursus.id_user', 'left');
+        $this->db->join('tbl_dosen', 'tbl_dosen.id_dosen = tbl_kursus.id_dosen', 'left');
         $this->db->order_by('id_kursus', 'DESC');
 
         return $this->db->get()->result();
@@ -16,7 +16,7 @@ class M_kursus extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tbl_kursus');
-        $this->db->join('tbl_user', 'tbl_user.id_user = tbl_kursus.id_user', 'left');
+        $this->db->join('tbl_dosen', 'tbl_dosen.id_dosen = tbl_kursus.id_dosen', 'left');
         $this->db->where('id_kursus', $id_kursus);
 
         return $this->db->get()->row();
@@ -27,7 +27,7 @@ class M_kursus extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_materi');
         $this->db->join('tbl_kursus', 'tbl_kursus.id_kursus = tbl_materi.id_kursus', 'left');
-        $this->db->join('tbl_user', 'tbl_user.id_user = tbl_kursus.id_user', 'left');
+        $this->db->join('tbl_dosen', 'tbl_dosen.id_dosen = tbl_kursus.id_dosen', 'left');
         $this->db->order_by('id_materi', 'ASC');
 
         return $this->db->get()->result();

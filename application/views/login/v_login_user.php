@@ -39,13 +39,13 @@
                                 </div>
 								<div class="w-100">
 									<p class="social-media d-flex justify-content-end">
-										<a target="_blank" href="https://www.instagram.com/iteraofficial/" class="social-icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Login Sebagai Dosen">
+										<a href="<?= base_url('auth/login_dosen')?>" class="social-icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Login Sebagai Dosen">
                                             <span class="fa fa-user-o"></span>
                                         </a>
-										<a target="_blank" href="https://www.youtube.com/@InstitutTeknologiSumatera" class="social-icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Login Sebagai Asprak">
+										<a href="<?= base_url('auth/login_asprak')?>" class="social-icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Login Sebagai Asprak">
                                             <span class="fa fa-users"></span>
                                         </a>
-                                        <a target="_blank" href="https://www.youtube.com/@InstitutTeknologiSumatera" class="social-icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Login Sebagai Admin">
+                                        <a href="<?= base_url('auth/login_admin')?>" class="social-icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Login Sebagai Admin">
                                             <span class="fa fa-unlock-alt"></span>
                                         </a>
 									</p>

@@ -30,7 +30,7 @@
 						<div class="img" style="background-image: url(<?= base_url()?>assets/img/gambar1.jpg);"></div>
 						<div class="login-wrap p-4 p-md-5">
                             <div class="role text-center">
-                                <h3 class="mb-4">Mahasiswa</h3>
+                                <h3 class="mb-4">Laboran</h3>
                             </div>
                             <div class="d-flex">
                                 <div class="w-100 d-flex">
@@ -39,21 +39,21 @@
                                 </div>
 								<div class="w-100">
 									<p class="social-media d-flex justify-content-end">
-										<a target="_blank" href="https://www.instagram.com/iteraofficial/" class="social-icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Login Sebagai Dosen">
+										<a href="<?= base_url('auth/login_dosen')?>" class="social-icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Login Sebagai Dosen">
                                             <span class="fa fa-user-o"></span>
                                         </a>
-										<a target="_blank" href="https://www.youtube.com/@InstitutTeknologiSumatera" class="social-icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Login Sebagai Asprak">
+										<a href="<?= base_url('auth/login_asprak')?>" class="social-icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Login Sebagai Asprak">
                                             <span class="fa fa-users"></span>
                                         </a>
-                                        <a target="_blank" href="https://www.youtube.com/@InstitutTeknologiSumatera" class="social-icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Login Sebagai Admin">
-                                            <span class="fa fa-unlock-alt"></span>
+                                        <a href="<?= base_url('auth/login')?>" class="social-icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Login Sebagai Mahasiswa">
+                                            <span class="fa fa-user"></span>
                                         </a>
 									</p>
 								</div>
                             </div>
 
 							<?php
-                                echo form_open('auth/login');
+                                echo form_open('auth/login_admin');
                                 if ($this->session->flashdata('pesan')) {
                                     echo $this->session->flashdata('pesan');
                                 }

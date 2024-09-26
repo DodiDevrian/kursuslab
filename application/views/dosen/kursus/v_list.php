@@ -43,10 +43,10 @@
                         <tbody>
                             <!-- Mulai Foreach -->
                             <?php foreach ($kursus as $key => $value) {
-                                if ($value->id_user == $this->session->userdata('id_user')) { ?>
+                                if ($value->id_dosen == $this->session->userdata('id_dosen')) { ?>
                             <tr>
                                 <td><?= $value->nama_kursus?></td>
-                                <td><?= $value->nama_user?></td>
+                                <td><?= $value->nama_dosen?></td>
                                 <td><?= substr(strip_tags($value->ket_kursus), 0, 80) ?>...</td>
                                 <td><img width="100px" src="<?= base_url('upload/cover_kursus/') . $value->cover_kursus ?>" alt=""></td>
                                 <td>

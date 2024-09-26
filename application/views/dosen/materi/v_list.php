@@ -91,7 +91,7 @@
                         <?php echo form_open_multipart('dosen/kursus/edit_status/'. $value->id_materi); ?>
                         <div class="form-group">
 							<label>Catatan</label>
-							<input class="form-control" name="note" type="text" placeholder="Masukkan Catatan" required>
+							<input class="form-control" value="<?= $value->note ?>" name="note" type="text" placeholder="Masukkan Catatan" required>
                             <?php echo form_error('note', '<div class="text-danger small">', '</div>') ?>
 						</div>
 

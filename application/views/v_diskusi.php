@@ -23,6 +23,7 @@
 </div>
 
 <div class="container">
+    <h3 class="text-center mt-4">Forum Diskusi</h3>
     <div class="wrapper">
         <aside id="sidebar">
             <div class="d-flex">
