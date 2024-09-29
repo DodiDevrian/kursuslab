@@ -9,7 +9,7 @@
 						<div class="breadcrumbs">
 							<ul>
 								<li><a href="index.html">Home</a></li>
-								<li><a href="courses.html">Kursus</a></li>
+								<li><a href="courses.html">Praktikum</a></li>
 								<li><?= $kursus->nama_kursus ?></li>
 								
 							</ul>

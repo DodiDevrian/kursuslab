@@ -48,3 +48,13 @@ background:#86BB71;
 .align-right {
     text-align: right;
 }
+
+.chat-diskusi {
+    margin: 20px;
+}
+
+.flex-chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

@@ -41,7 +41,7 @@ class Kursus extends CI_Controller
     {
         if ($this->session->userdata('role') != 3) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-				Anda Belum Melakukan <strong>Login Sebagai User!</strong>
+				Anda Belum Melakukan!
 				</div>');
 			redirect('auth/login');
 		}

@@ -34,7 +34,7 @@
             <ul class="sidebar-nav">
                 <?php foreach ($kursus as $key => $value) { ?>
                 <li class="sidebar-item">
-                    <a href="<?= base_url('kursus/detail_materi/' . $value->id_kursus) ?>" class="sidebar-link d-flex">
+                    <a href="<?= base_url('diskusi/detail_diskusi/' . $value->id_kursus) ?>" class="sidebar-link d-flex">
                         <div>
                             <?= wordwrap($value->nama_kursus,35,"<br>\n");?>
                         </div>
@@ -53,14 +53,18 @@
         <div class="main">
             <div class="diskusi">
                 <div class="course_container">
-                        <?php foreach ($diskusi as $key => $value) { ?>
+                        <?php foreach ($diskusi as $key => $value) {
+                            $tanggal_kirim = $value->created_diskusi; 
+                            $tanggal_jawab = $value->modified_diskusi;
+                            ?>
                         <div class="row">
                             <div class="col-lg-6 block-user">
                                 <div class="content-diskusi">
                                     <li>
                                         <div class="message-data">
                                             <span class="message-data-name">Dodi Devrian Andrianto</span>
-                                            <span an class="message-data-time">10:12 AM, Today</span>
+                                            <span> &nbsp;| </span>
+                                            <span an class="message-data-time"><?= date('M j, Y, g:i a', strtotime($tanggal_kirim)) ?></span>
                                         </div>
 
                                         <div class="message my-message">
@@ -74,18 +78,21 @@
                             </div>
 
                             <div class="col-lg-6">
-                                <div class="content-diskusi">
-                                    <li class="clearfix">
-                                        <div class="message-data align-right">
-                                        <span class="message-data-time" >10:10 AM, Today</span> &nbsp; &nbsp;
-                                        <span class="message-data-name" >Asisten Praktikum</span>
-                                        
-                                        </div>
-                                        <div class="message other-message float-right">
-                                        <?= $value->diskusi_asprak ?>
-                                        </div>
-                                    </li>
-                                </div>
+                                <?php if ($value->diskusi_asprak != NULL) { ?>
+                                    <div class="content-diskusi">
+                                        <li class="clearfix">
+                                            <div class="message-data align-right">
+                                            <span class="message-data-time" ><?= date('M j, Y, g:i a', strtotime($tanggal_jawab)) ?></span> &nbsp;
+                                            <span> |&nbsp; </span>
+                                            <span class="message-data-name" ><?= $value->nama_asprak ?></span>
+                                            
+                                            </div>
+                                            <div class="message other-message float-right">
+                                            <?= $value->diskusi_asprak ?>
+                                            </div>
+                                        </li>
+                                    </div>
+                                <?php } ?>
                             </div>
                         </div>
                         <hr style="background: white; margin: 15px;">
