@@ -7,6 +7,7 @@ class M_kursus extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_kursus');
         $this->db->join('tbl_dosen', 'tbl_dosen.id_dosen = tbl_kursus.id_dosen', 'left');
+        $this->db->join('tbl_asprak', 'tbl_asprak.id_asprak = tbl_kursus.id_asprak', 'left');
         $this->db->order_by('id_kursus', 'DESC');
 
         return $this->db->get()->result();

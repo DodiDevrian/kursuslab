@@ -45,8 +45,8 @@
 						</div>
                         <div class="form-group">
 							<label>Nama Dosen</label>
-							<input class="form-control" name="nama_user" type="text" placeholder="Masukkan Nama Dosen">
-                            <?php echo form_error('nama_user', '<div class="text-danger small">', '</div>') ?>
+							<input class="form-control" name="nama_dosen" type="text" placeholder="Masukkan Nama Dosen">
+                            <?php echo form_error('nama_dosen', '<div class="text-danger small">', '</div>') ?>
 						</div>
                         <div class="form-group">
 							<label>Email Dosen</label>
@@ -60,7 +60,7 @@
 						</div>
                         <div class="form-group">
 							<label>Upload Foto Dosen</label>
-							<input name="foto_user" type="file" class="form-control-file form-control height-auto">
+							<input name="foto_dosen" type="file" class="form-control-file form-control height-auto">
 						</div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary">Simpan</button>

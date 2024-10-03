@@ -25,7 +25,7 @@
                 <div class="pb-20">
                 <?php
                 if ($this->session->flashdata('pesan')) {
-                    echo '<div class="alert alert-success alert-dismissible">
+                    echo '<div class="alert alert-success alert-dismissible m-3">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
                     echo $this->session->flashdata('pesan');
                     echo '</div>';
@@ -48,18 +48,18 @@
                                 if ($value->role == '2') { ?>
                             <tr>
                             <td><?= $no++?></td>
-                                <td><?= $value->nama_user?></td>
+                                <td><?= $value->nama_dosen?></td>
                                 <td><?= $value->nip?></td>
                                 <td><?= $value->email?></td>
-                                <td><img src="<?= base_url()?>/upload/foto_user/<?= $value->foto_user?>" alt="" width="100px"></td>
+                                <td><img src="<?= base_url()?>/upload/foto_dosen/<?= $value->foto_dosen?>" alt="" width="100px"></td>
                                 <td>
                                     <div class="dropdown">
                                         <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                                             <i class="dw dw-more"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                            <a class="dropdown-item" href="<?= base_url('admin/dosen/edit/' . $value->id_user) ?>"><i class="dw dw-edit2"></i> Edit</a>
-                                            <a class="dropdown-item" href="<?= base_url('admin/dosen/delete/' . $value->id_user) ?>"><i class="dw dw-delete-3"></i> Delete</a>
+                                            <a class="dropdown-item" href="<?= base_url('admin/dosen/edit/' . $value->id_dosen) ?>"><i class="dw dw-edit2"></i> Edit</a>
+                                            <a class="dropdown-item" href="<?= base_url('admin/dosen/delete/' . $value->id_dosen) ?>"><i class="dw dw-delete-3"></i> Delete</a>
                                         </div>
                                     </div>
                                 </td>

@@ -122,6 +122,7 @@
                         <div class="form-group">
                             <label for="exampleFormControlFile1" style="color: #ff6300;">** Gambar Optional</label>
                             <input name="foto_diskusi" type="file" class="form-control-file" id="exampleFormControlFile1">
+                            
                             <input type="hidden" name="id_kursus" value="<?=$id?>">
                             <input type="hidden" name="id_asprak" value="<?=$detail_kursus->id_asprak?>">
                             <input type="hidden" name="id_user" value="<?=$this->session->userdata('id_user')?>">

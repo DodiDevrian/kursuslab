@@ -34,34 +34,35 @@
 
                         echo form_open_multipart('admin/asprak/add');
                         ?>
-						<div class="form-group">
+                        <div class="form-group">
+							<label>Username Asprak</label>
+							<input class="form-control" name="username" type="text" placeholder="Masukkan Username Asprak">
+                            <?php echo form_error('username', '<div class="text-danger small">', '</div>') ?>
+						</div>
+                        <div class="form-group">
+							<label>Password Akun Asprak</label>
+							<input class="form-control" name="password" type="password" placeholder="Masukkan Password">
+                            <?php echo form_error('password', '<div class="text-danger small">', '</div>') ?>
+						</div>
+                        <div class="form-group">
 							<label>Nama Asprak</label>
 							<input class="form-control" name="nama_asprak" type="text" placeholder="Masukkan Nama Asprak">
+                            <?php echo form_error('nama_asprak', '<div class="text-danger small">', '</div>') ?>
 						</div>
                         <div class="form-group">
 							<label>NIM Asprak</label>
 							<input class="form-control" name="nim" type="text" placeholder="Masukkan NIM Asprak">
+                            <?php echo form_error('nim', '<div class="text-danger small">', '</div>') ?>
 						</div>
-                        <div class="form-group">
-							<label>Matakuliah</label>
-							<select class="form-control" name="id_kursus">
-                                <!-- <option value="" disabled selected>--Pilih Kursus atau Mata Pelajaran--</option> -->
-                                <?php foreach ($kursus as $key => $value) { ?>
-                                    <option value="<?= $value->id_kursus ?>"><?= $value->nama_kursus ?></option>
-                                <?php } ?>
-							</select>
-						</div>
-
                         <div class="form-group">
 							<label>Nomor Handphone</label>
-							<input class="form-control" name="no_hp" type="text" placeholder="Nomor Handphone Atau WhatsApp">
+							<input class="form-control" name="no_hp" type="text" placeholder="Masukkan Nomor Handphone">
+                            <?php echo form_error('no_hp', '<div class="text-danger small">', '</div>') ?>
 						</div>
-
                         <div class="form-group">
 							<label>Upload Foto Asprak</label>
 							<input name="foto_asprak" type="file" class="form-control-file form-control height-auto">
 						</div>
-
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                             <button type="reset" class="btn btn-danger">Bersihkan</button>

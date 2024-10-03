@@ -31,7 +31,7 @@
                             echo '<div class="alert alert-danger alert-dismissible">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
                         }
-                        echo form_open_multipart('admin/dosen/edit/' . $dosen->id_user);
+                        echo form_open_multipart('admin/dosen/edit/' . $dosen->id_dosen);
                         ?>
 						<div class="form-group">
 							<label>Username Dosen</label>
@@ -45,8 +45,8 @@
 						</div>
                         <div class="form-group">
 							<label>Nama Dosen</label>
-							<input class="form-control" name="nama_user" type="text" value="<?= $dosen->nama_user ?>" placeholder="Masukkan Nama Dosen">
-                            <?php echo form_error('nama_user', '<div class="text-danger small">', '</div>') ?>
+							<input class="form-control" name="nama_dosen" type="text" value="<?= $dosen->nama_dosen ?>" placeholder="Masukkan Nama Dosen">
+                            <?php echo form_error('nama_dosen', '<div class="text-danger small">', '</div>') ?>
 						</div>
                         <div class="form-group">
 							<label>Email Dosen</label>
@@ -60,11 +60,11 @@
 						</div>
                         <div class="form-group">
 							<label>Foto Saat Ini</label><br>
-							<img src="<?= base_url('upload/foto_user/' . $dosen->foto_user)?>" width="200px" alt="">
+							<img src="<?= base_url('upload/foto_dosen/' . $dosen->foto_dosen)?>" width="200px" alt="">
 						</div>
                         <div class="form-group">
 							<label>Upload Foto Dosen</label>
-							<input name="foto_user" type="file" class="form-control-file form-control height-auto">
+							<input name="foto_dosen" type="file" class="form-control-file form-control height-auto">
 						</div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary">Simpan</button>

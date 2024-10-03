@@ -78,7 +78,7 @@ class Auth extends CI_Controller {
 				$this->session->set_userdata('role', $auth->role);
 				$this->session->set_userdata('foto_asprak', $auth->foto_asprak);
 				
-				redirect('asprak/dashboard');
+				redirect('asisten/dashboard');
 			}
 		}
 	}

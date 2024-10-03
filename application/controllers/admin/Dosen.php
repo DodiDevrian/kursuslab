@@ -14,7 +14,7 @@ class Dosen extends CI_Controller
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
 				Anda Belum Melakukan <strong>Login Sebagai Admin!</strong>
 				</div>');
-			redirect('auth/login');
+			redirect('auth/login_admin');
 		}
 	}
     
@@ -33,17 +33,17 @@ class Dosen extends CI_Controller
     {
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
-        $this->form_validation->set_rules('nama_user', 'Nama Dosen', 'required');
+        $this->form_validation->set_rules('nama_dosen', 'Nama Dosen', 'required');
         $this->form_validation->set_rules('nip', 'NIP', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required');
 
         if ($this->form_validation->run() == TRUE) {
-            $config['upload_path']      = './upload/foto_user/';
+            $config['upload_path']      = './upload/foto_dosen/';
             $config['allowed_types']    = 'jpg|png|jpeg|gif';
             $config['max_size']         = 20000;
             $this->upload->initialize($config);
 
-            if (!$this->upload->do_upload('foto_user')) {
+            if (!$this->upload->do_upload('foto_dosen')) {
 
                 $data = array(
                     'title'     => 'Dosen',
@@ -55,17 +55,17 @@ class Dosen extends CI_Controller
             } else {
                 $upload_data = array('uploads' => $this->upload->data());
                 $config['image_library'] = 'gd2';
-                $config['source_image'] = './upload/foto_user/' . $upload_data['uploads']['file_name'];
+                $config['source_image'] = './upload/foto_dosen/' . $upload_data['uploads']['file_name'];
                 $this->load->library('image_lib', $config);
 
                 $data = array(
                     'username'     => $this->input->post('username'),
                     'password'     => $this->input->post('password'),
                     'role'         => 2,
-                    'nama_user'    => $this->input->post('nama_user'),
+                    'nama_dosen'    => $this->input->post('nama_dosen'),
                     'nip'          => $this->input->post('nip'),
                     'email'        => $this->input->post('email'),
-                    'foto_user'    => $upload_data['uploads']['file_name']
+                    'foto_dosen'    => $upload_data['uploads']['file_name']
                 );
 
                 $this->m_dosen->add($data);
@@ -81,51 +81,51 @@ class Dosen extends CI_Controller
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
     }
 
-    public function edit($id_user)
+    public function edit($id_dosen)
     {
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
-        $this->form_validation->set_rules('nama_user', 'Nama Dosen', 'required');
+        $this->form_validation->set_rules('nama_dosen', 'Nama Dosen', 'required');
         $this->form_validation->set_rules('nip', 'NIP', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required');
         
         if ($this->form_validation->run() == TRUE) {
-            $config['upload_path']      = './upload/foto_user/';
+            $config['upload_path']      = './upload/foto_dosen/';
             $config['allowed_types']    = 'jpg|png|jpeg|gif';
             $config['max_size']         = 20000;
             $this->upload->initialize($config);
 
-            if (!$this->upload->do_upload('foto_user')) {
+            if (!$this->upload->do_upload('foto_dosen')) {
 
                 $data = array(
                     'title'     => 'Dosen',
                     'title2'    => 'Ubah Data Dosen',
                     'error'     => $this->upload->display_errors(),
-                    'dosen'    =>  $this->m_dosen->detail($id_user),
+                    'dosen'    =>  $this->m_dosen->detail($id_dosen),
                     'isi'       => 'admin/dosen/v_edit'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
             } else {
                 $upload_data = array('uploads' => $this->upload->data());
                 $config['image_library'] = 'gd2';
-                $config['source_image'] = './upload/foto_user/' . $upload_data['uploads']['file_name'];
+                $config['source_image'] = './upload/foto_dosen/' . $upload_data['uploads']['file_name'];
                 $this->load->library('image_lib', $config);
 
                 // Hapus file foto yang lama
-                $dosen = $this->m_dosen->detail($id_user);
-                if ($dosen->foto_user != "") {
-                    unlink('./upload/foto_user/' . $dosen->foto_user);
+                $dosen = $this->m_dosen->detail($id_dosen);
+                if ($dosen->foto_dosen != "") {
+                    unlink('./upload/foto_dosen/' . $dosen->foto_dosen);
                 }
 
                 $data = array(
-                    'id_user'      => $id_user,
+                    'id_dosen'      => $id_dosen,
                     'username'     => $this->input->post('username'),
                     'password'     => $this->input->post('password'),
                     'role'         => 2,
-                    'nama_user'    => $this->input->post('nama_user'),
+                    'nama_dosen'    => $this->input->post('nama_dosen'),
                     'nip'          => $this->input->post('nip'),
                     'email'        => $this->input->post('email'),
-                    'foto_user'    => $upload_data['uploads']['file_name']
+                    'foto_dosen'    => $upload_data['uploads']['file_name']
                 );
 
                 $this->m_asprak->edit($data);
@@ -134,15 +134,15 @@ class Dosen extends CI_Controller
             }
             $upload_data = array('uploads' => $this->upload->data());
             $config['image_library'] = 'gd2';
-            $config['source_image'] = './upload/foto_user/' . $upload_data['uploads']['file_name'];
+            $config['source_image'] = './upload/foto_dosen/' . $upload_data['uploads']['file_name'];
             $this->load->library('image_lib', $config);
 
             $data = array(
-                'id_user'      => $id_user,
+                'id_dosen'      => $id_dosen,
                 'username'     => $this->input->post('username'),
                 'password'     => $this->input->post('password'),
                 'role'         => 2,
-                'nama_user'    => $this->input->post('nama_user'),
+                'nama_dosen'    => $this->input->post('nama_dosen'),
                 'nip'          => $this->input->post('nip'),
                 'email'        => $this->input->post('email')
             );
@@ -154,21 +154,21 @@ class Dosen extends CI_Controller
         $data = array(
             'title'     => 'Dosen',
             'title2'    => 'Ubah Data Dosen',
-            'dosen'    =>  $this->m_dosen->detail($id_user),
+            'dosen'    =>  $this->m_dosen->detail($id_dosen),
             'isi'       => 'admin/dosen/v_edit'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
     }
 
-    public function delete($id_user)
+    public function delete($id_dosen)
     {
         // Hapus foto yang lama
-        $dosen = $this->m_dosen->detail($id_user);
-        if ($dosen->foto_user != "") {
-            unlink('./upload/foto_user/' . $dosen->foto_user);
+        $dosen = $this->m_dosen->detail($id_dosen);
+        if ($dosen->foto_dosen != "") {
+            unlink('./upload/foto_dosen/' . $dosen->foto_dosen);
         }
 
-        $data = array('id_user' => $id_user);
+        $data = array('id_dosen' => $id_dosen);
         $this->m_dosen->delete($data);
         $this->session->set_flashdata('pesan', 'Data Berhasil Dihapus!');
         redirect('admin/dosen');

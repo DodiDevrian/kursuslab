@@ -15,7 +15,7 @@ class Asprak extends CI_Controller
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
 				Anda Belum Melakukan <strong>Login Sebagai Admin!</strong>
 				</div>');
-			redirect('auth/login');
+			redirect('auth/login_admin');
 		}
 	}
     
@@ -24,7 +24,7 @@ class Asprak extends CI_Controller
         $data = array(
             'title'         => 'Asprak',
             'title2'        => 'Laboratorium Teknik Informatika',
-            'asprak'        => $this->m_asprak->lists(),
+            'asprak'        => $this->m_asprak->lists_asprak(),
             'isi'           => 'admin/asprak/v_list'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -32,9 +32,10 @@ class Asprak extends CI_Controller
 
     public function add()
     {
-        $this->form_validation->set_rules('nama_asprak', 'Nama Asprak', 'required');
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('nama_asprak', 'Nama Dosen', 'required');
         $this->form_validation->set_rules('nim', 'NIM', 'required');
-        $this->form_validation->set_rules('id_kursus', 'Mata Kuliah', 'required');
         $this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'required');
 
         if ($this->form_validation->run() == TRUE) {
@@ -49,7 +50,6 @@ class Asprak extends CI_Controller
                     'title'     => 'Asprak',
                     'title2'    => 'Tambah Data Asprak',
                     'error'     => $this->upload->display_errors(),
-                    'asprak'     => $this->m_asprak->lists(),
                     'isi'       => 'admin/asprak/v_add'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -60,22 +60,23 @@ class Asprak extends CI_Controller
                 $this->load->library('image_lib', $config);
 
                 $data = array(
+                    'username'     => $this->input->post('username'),
+                    'password'     => $this->input->post('password'),
+                    'role'         => 4,
                     'nama_asprak'    => $this->input->post('nama_asprak'),
-                    'nim'            => $this->input->post('nim'),
-                    'id_kursus'      => $this->input->post('id_kursus'),
-                    'no_hp'          => $this->input->post('no_hp'),
-                    'foto_asprak'     => $upload_data['uploads']['file_name']
+                    'nim'          => $this->input->post('nim'),
+                    'no_hp'        => $this->input->post('no_hp'),
+                    'foto_asprak'    => $upload_data['uploads']['file_name']
                 );
 
                 $this->m_asprak->add($data);
-                $this->session->set_flashdata('pesan', 'Data Asprak Berhasil Ditambahkan!');
+                $this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan!');
                 redirect('admin/asprak');
             }
         }
         $data = array(
-            'title'     => 'asprak',
-            'title2'    => 'Tambah Data asprak',
-            'kursus'     => $this->m_kursus->lists(),
+            'title'     => 'Asprak',
+            'title2'    => 'Tambah Data Asprak',
             'isi'       => 'admin/asprak/v_add'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -83,9 +84,10 @@ class Asprak extends CI_Controller
 
     public function edit($id_asprak)
     {
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('nama_asprak', 'Nama Asprak', 'required');
         $this->form_validation->set_rules('nim', 'NIM', 'required');
-        $this->form_validation->set_rules('id_kursus', 'Mata Kuliah', 'required');
         $this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'required');
         
         if ($this->form_validation->run() == TRUE) {
@@ -101,7 +103,7 @@ class Asprak extends CI_Controller
                     'title2'    => 'Ubah Data Asprak',
                     'error'     => $this->upload->display_errors(),
                     'kursus'     => $this->m_kursus->lists(),
-                    'asprak'    =>  $this->m_asprak->detail($id_asprak),
+                    'asprak'    =>  $this->m_asprak->detail_asprak($id_asprak),
                     'isi'       => 'admin/asprak/v_edit'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -112,17 +114,18 @@ class Asprak extends CI_Controller
                 $this->load->library('image_lib', $config);
 
                 // Hapus file foto yang lama
-                $asprak = $this->m_asprak->detail($id_asprak);
+                $asprak = $this->m_asprak->detail_asprak($id_asprak);
                 if ($asprak->foto_asprak != "") {
                     unlink('./upload/foto_asprak/' . $asprak->foto_asprak);
                 }
 
                 $data = array(
                     'id_asprak'       => $id_asprak,
+                    'username'     => $this->input->post('username'),
+                    'password'     => $this->input->post('password'),
                     'nama_asprak'    => $this->input->post('nama_asprak'),
-                    'nim'            => $this->input->post('nim'),
-                    'id_kursus'      => $this->input->post('id_kursus'),
-                    'no_hp'          => $this->input->post('no_hp'),
+                    'nim'          => $this->input->post('nim'),
+                    'no_hp'        => $this->input->post('no_hp'),
                     'foto_asprak'    => $upload_data['uploads']['file_name']
                 );
 
@@ -137,9 +140,10 @@ class Asprak extends CI_Controller
 
             $data = array(
                 'id_asprak'      => $id_asprak,
+                'username'       => $this->input->post('username'),
+                'password'       => $this->input->post('password'),
                 'nama_asprak'    => $this->input->post('nama_asprak'),
                 'nim'            => $this->input->post('nim'),
-                'id_kursus'      => $this->input->post('id_kursus'),
                 'no_hp'          => $this->input->post('no_hp'),
             );
 
@@ -150,7 +154,7 @@ class Asprak extends CI_Controller
         $data = array(
             'title'     => 'Asprak',
             'title2'    => 'Ubah Data Asprak',
-            'asprak'    =>  $this->m_asprak->detail($id_asprak),
+            'asprak'    =>  $this->m_asprak->detail_asprak($id_asprak),
             'kursus'     => $this->m_kursus->lists(),
             'isi'       => 'admin/asprak/v_edit'
         );

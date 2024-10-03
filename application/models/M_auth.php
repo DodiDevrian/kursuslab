@@ -44,7 +44,7 @@ class M_auth extends CI_Model{
 		$result 	= $this->db->where('username', $username)
 							   ->where('password', $password)
 							   ->limit(1)
-							   ->get('tbl_aspran');
+							   ->get('tbl_asprak');
 
 		if ($result->num_rows() > 0) {
 			return $result->row();

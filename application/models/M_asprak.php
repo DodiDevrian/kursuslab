@@ -2,6 +2,16 @@
 
 class M_asprak extends CI_Model
 {
+
+    public function lists_asprak()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_asprak');
+        $this->db->order_by('id_asprak', 'DESC');
+
+        return $this->db->get()->result();
+    }
+
     public function lists()
     {
         $this->db->select('*');
@@ -15,6 +25,15 @@ class M_asprak extends CI_Model
         // $this->db->order_by('id_asprak', 'DESC');
 
         return $this->db->get()->result();
+    }
+
+    public function detail_asprak($id_asprak)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_asprak');
+        $this->db->where('id_asprak', $id_asprak);
+
+        return $this->db->get()->row();
     }
 
     public function detail($id_asprak)

@@ -32,7 +32,7 @@
                     <table>
                         <tr>
                             <td>Dosen Pengampu</td>
-                            <td>&nbsp;&nbsp;&nbsp; : <?= $kursus->nama_user ?></td>
+                            <td>&nbsp;&nbsp;&nbsp; : <?= $kursus->nama_dosen ?></td>
                         </tr>
                         <tr>
                             <td>Email Dosen</td>

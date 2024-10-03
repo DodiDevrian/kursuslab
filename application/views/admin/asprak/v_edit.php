@@ -34,6 +34,16 @@
 
                         echo form_open_multipart('admin/asprak/edit/'. $asprak->id_asprak);
                         ?>
+                        <div class="form-group">
+							<label>Username Asprak</label>
+							<input class="form-control" name="username" type="text" value="<?= $asprak->username ?>" placeholder="Masukkan Username Asprak">
+                            <?php echo form_error('username', '<div class="text-danger small">', '</div>') ?>
+						</div>
+                        <div class="form-group">
+							<label>Password Akun Asprak</label>
+							<input class="form-control" name="password" type="password" value="<?= $asprak->password ?>" placeholder="Masukkan Password">
+                            <?php echo form_error('password', '<div class="text-danger small">', '</div>') ?>
+						</div>
 						<div class="form-group">
 							<label>Nama Asprak</label>
 							<input class="form-control" name="nama_asprak" value="<?= $asprak->nama_asprak ?>" type="text" placeholder="Masukkan Nama Asprak">
@@ -41,15 +51,6 @@
                         <div class="form-group">
 							<label>NIM Asprak</label>
 							<input class="form-control" name="nim" value="<?= $asprak->nim ?>" type="text" placeholder="Masukkan NIM Asprak">
-						</div>
-                        <div class="form-group">
-							<label>Matakuliah</label>
-							<select class="form-control" name="id_kursus">
-                                <option value="<?= $asprak->id_kursus ?>"><?= $asprak->nama_kursus ?></option>
-                                <?php foreach ($kursus as $key => $value) { ?>
-                                    <option value="<?= $value->id_kursus ?>"><?= $value->nama_kursus ?></option>
-                                <?php } ?>
-							</select>
 						</div>
 
                         <div class="form-group">

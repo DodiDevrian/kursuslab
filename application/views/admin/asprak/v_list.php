@@ -37,7 +37,6 @@
                                 <th>No</th>    
                                 <th>Nama Asprak</th>
                                 <th>NIM</th>
-                                <th>Mata Kuliah</th>
                                 <th>Nomor HP</th>
                                 <th>Foto</th>
                                 <th class="datatable-nosort">Action</th>
@@ -50,7 +49,6 @@
                             <td><?= $no++?></td>
                                 <td><?= $value->nama_asprak?></td>
                                 <td><?= $value->nim?></td>
-                                <td><?= $value->nama_kursus?></td>
                                 <td><?= $value->no_hp?></td>
                                 <td><img src="<?=base_url('upload/foto_asprak/' . $value->foto_asprak)?>" alt="" width="100px"></td>
                                 <td>

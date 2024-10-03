@@ -75,7 +75,7 @@
 
 <div class="left-side-bar">
     <div class="brand-logo">
-        <a href="<?= base_url() ?>/admin/dashboard">
+        <a href="<?= base_url() ?>/dosen/dashboard">
             <img src="<?= base_url() ?>assets/img/ifiterablack.png" alt="" class="dark-logo">
             <img src="<?= base_url() ?>assets/img/ifitera.png" alt="" class="light-logo">
         </a>
@@ -87,48 +87,17 @@
         <div class="sidebar-menu">
             <ul id="accordion-menu">
                 <li>
-                    <a href="<?= base_url('admin/dashboard')?>" class="dropdown-toggle no-arrow <?php echo menuAktif('dashboard') ?>">
+                    <a href="<?= base_url('dosen/dashboard')?>" class="dropdown-toggle no-arrow <?php echo menuAktif('dashboard') ?>">
                         <span class="micon dw dw-analytics-19"></span><span class="mtext">Dashboard</span>
                     </a>
-                </li>
-                <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-user-3"></span><span class="mtext">User</span>
-                    </a>
-                    <ul class="submenu">
-                    <li><a href="<?= base_url('admin/dosen')?>" class="<?= menuAktif('dosen') ?>">Dosen</a></li>
-                        <li><a href="<?= base_url('admin/asprak')?>" class="<?= menuAktif('asprak') ?>">Asprak</a></li>
-                        <li><a href="<?= base_url('admin/praktikan')?>" class="<?= menuAktif('praktikan') ?>">Praktikan</a></li>
-                    </ul>
                 </li>
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-book1"></span><span class="mtext">Menu</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="<?= base_url('admin/kursus')?>" class="<?= menuAktif('kursus') ?>">Praktikum</a></li>
-                        <li><a href="<?= base_url('admin/materi')?>" class="<?= menuAktif('materi') ?>">Materi</a></li>
-                        <li><a href="<?= base_url('admin/pretest')?>" class="<?= menuAktif('pretest') ?>">Pre-Test</a></li>
-                        <li><a href="<?= base_url('admin/diskusi')?>" class="<?= menuAktif('diskusi') ?>">Forum Diskusi</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="<?= base_url('admin')?>" class="dropdown-toggle no-arrow <?php echo menuAktif('admin') ?>">
-                        <span class="micon dw dw-pencil"></span><span class="mtext">Quiz Post Test</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= base_url('admin')?>" class="dropdown-toggle no-arrow <?php echo menuAktif('admin') ?>">
-                        <span class="micon dw dw-personal-computer"></span><span class="mtext">Projek</span>
-                    </a>
-                </li>
-                <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-settings"></span><span class="mtext">Settings</span>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="<?= base_url('admin/slider')?>" class="<?= menuAktif('slider') ?>">Slider</a></li>
-                        <li><a href="<?= base_url('admin/asset')?>" class="<?= menuAktif('asset') ?>">Asset</a></li>
+                        <li><a href="<?= base_url('dosen/kursus')?>" class="<?= menuAktif('kursus') ?>">Praktikum</a></li>
+                        <li><a href="<?= base_url('dosen/materi')?>" class="<?= menuAktif('materi') ?>">Materi</a></li>
                     </ul>
                 </li>
             </ul>

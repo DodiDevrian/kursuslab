@@ -10,18 +10,12 @@ class Kursus extends CI_Controller
 
         $this->load->model('m_kursus');
         $this->load->model('m_materi');
-        $this->load->model('m_dosen');
 
-        if ($this->agent->is_referral())
-        {
-            echo $this->agent->referrer();
-        }
-
-        if ($this->session->userdata('role')!=1) {
+        if ($this->session->userdata('role')!=2) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
 				Anda Belum Melakukan <strong>Login Sebagai Admin!</strong>
 				</div>');
-			redirect('auth/login_admin');
+			redirect('auth/login_dosen');
 		}
 	}
     
@@ -31,9 +25,9 @@ class Kursus extends CI_Controller
             'title'   => 'Kursus',
             'title2'  => 'Laboratorium Teknik Informatika',
             'kursus'   => $this->m_kursus->lists(),
-            'isi'     => 'admin/kursus/v_list_kursus'
+            'isi'     => 'dosen/kursus/v_list'
         );
-        $this->load->view('admin/layout/v_wrapper', $data, FALSE);
+        $this->load->view('dosen/layout/v_wrapper', $data, FALSE);
     }
 
     public function add()
@@ -53,7 +47,6 @@ class Kursus extends CI_Controller
                     'title'     => 'Kursus',
                     'title2'    => 'Tambah Data Kursus',
                     'error'     => $this->upload->display_errors(),
-                    'dosen'     => $this->m_dosen->lists(),
                     'isi'       => 'admin/kursus/v_add'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -66,20 +59,18 @@ class Kursus extends CI_Controller
                 $data = array(
                     'nama_kursus'    => $this->input->post('nama_kursus'),
                     'ket_kursus'     => $this->input->post('ket_kursus'),
-                    'id_user'        => $this->input->post('id_user'),
-                    'slug_kursus'    => url_title($this->input->post('nama_kursus'), 'dash', TRUE),
+                    'slug_kursus'   => url_title($this->input->post('nama_kursus'), 'dash', TRUE),
                     'cover_kursus'     => $upload_data['uploads']['file_name']
                 );
 
                 $this->m_kursus->add($data);
                 $this->session->set_flashdata('pesan', 'Data Kursus Berhasil Ditambahkan!');
-                redirect('admin/kursus');
+                redirect('akursus');
             }
         }
         $data = array(
             'title'     => 'Kursus',
             'title2'    => 'Tambah Data Kursus',
-            'dosen'     => $this->m_dosen->lists(),
             'isi'       => 'admin/kursus/v_add'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -89,7 +80,6 @@ class Kursus extends CI_Controller
     {
         $this->form_validation->set_rules('nama_kursus', 'Nama Kursus', 'required');
         $this->form_validation->set_rules('ket_kursus', 'keterangan Kursus', 'required');
-        $this->form_validation->set_rules('id_user', 'Dosen Pengampu', 'required');
 
         if ($this->form_validation->run() == TRUE) {
             $config['upload_path']      = './upload/cover_kursus/';
@@ -104,7 +94,6 @@ class Kursus extends CI_Controller
                     'title2'    => 'Ubah Data Kursus',
                     'error'     => $this->upload->display_errors(),
                     'kursus'     => $this->m_kursus->detail_kursus($id_kursus),
-                    'dosen'     => $this->m_dosen->lists(),
                     'isi'       => 'admin/kursus/v_edit'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -123,14 +112,13 @@ class Kursus extends CI_Controller
                 $data = array(
                     'id_kursus'       => $id_kursus,
                     'nama_kursus'     => $this->input->post('nama_kursus'),
-                    'id_user'        => $this->input->post('id_user'),
                     'ket_kursus'      => $this->input->post('ket_kursus'),
                     'cover_kursus'    => $upload_data['uploads']['file_name']
                 );
 
                 $this->m_kursus->edit($data);
                 $this->session->set_flashdata('pesan', 'Data kursus Berhasil Diubah!');
-                redirect('admin/kursus');
+                redirect('akursus');
             }
             $upload_data = array('uploads' => $this->upload->data());
             $config['image_library'] = 'gd2';
@@ -140,19 +128,17 @@ class Kursus extends CI_Controller
             $data = array(
                 'id_kursus'      => $id_kursus,
                 'nama_kursus'    => $this->input->post('nama_kursus'),
-                'id_user'        => $this->input->post('id_user'),
                 'ket_kursus'     => $this->input->post('ket_kursus'),
             );
 
             $this->m_kursus->edit($data);
             $this->session->set_flashdata('pesan', 'Data Kursus Berhasil Diubah!');
-            redirect('admin/kursus');
+            redirect('akursus');
         }
         $data = array(
             'title'     => 'kursus',
             'title2'    => 'Ubah Data kursus',
             'kursus'     => $this->m_kursus->detail_kursus($id_kursus),
-            'dosen'     => $this->m_dosen->lists(),
             'isi'       => 'admin/kursus/v_edit'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -169,8 +155,8 @@ class Kursus extends CI_Controller
 
         $data = array('id_kursus' => $id_kursus);
         $this->m_kursus->delete($data);
-        $this->session->set_flashdata('pesan', 'Data Berhasil Dihapus!');
-        redirect('admin/kursus');
+        $this->session->set_flashdata('pesan', 'Data Guru Berhasil Dihapus!');
+        redirect('akursus');
     }
 
     public function list_materi($id_kursus)
@@ -181,9 +167,9 @@ class Kursus extends CI_Controller
             'kursus'        => $this->m_kursus->detail_kursus($id_kursus),
             'materi'        => $this->m_kursus->lists_materi(),
             'id'            => $this->uri->segment(4),
-            'isi'           => 'admin/materi/v_list_materi'
+            'isi'           => 'dosen/materi/v_list'
         );
-        $this->load->view('admin/layout/v_wrapper', $data, FALSE);
+        $this->load->view('dosen/layout/v_wrapper', $data, FALSE);
     }
 
     public function add_materi($id_kursus)
@@ -218,121 +204,39 @@ class Kursus extends CI_Controller
                     'nama_materi'    => $this->input->post('nama_materi'),
                     'ket_materi'     => $this->input->post('ket_materi'),
                     'id_yt'          => $this->input->post('id_yt'),
-                    'status'         => 1,
-                    'note'           => '-',
                     'doc_materi'     => $upload_data['uploads']['file_name']
                 );
 
                 $this->m_materi->add($data);
-                $this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan!');
-
-                $referred_from = $this->session->userdata('referred_from');
-                redirect($referred_from, 'refresh');
+                $this->session->set_flashdata('pesan', 'Data Kursus Berhasil Ditambahkan!');
+                redirect('akursus/list_materi/'. $this->uri->segment(3));
             }
         }
         $data = array(
-            'title'     => 'Materi',
-            'title2'    => 'Tambah Data Materi',
+            'title'     => 'Kursus',
+            'title2'    => 'Tambah Data Kursus',
             'kursus'     => $this->m_kursus->detail_kursus($id_kursus),
             'isi'       => 'admin/kursus/v_add_materi'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
     }
 
-    public function edit_materi($id_materi)
-    {
-        $this->form_validation->set_rules('nama_materi', 'Nama Materi', 'required');
-        $this->form_validation->set_rules('ket_materi', 'Keterangan Materi', 'required');
-        $this->form_validation->set_rules('id_yt', 'ID Vidio Youtube', 'required');
-        
-        if ($this->form_validation->run() == TRUE) {
-            $config['upload_path']      = './upload/doc_materi/';
-            $config['allowed_types']    = 'pdf|docx|doc';
-            $config['max_size']         = 20000;
-            $this->upload->initialize($config);
+    public function edit_status($id_materi)
+	{
+		$data = array(
+			'id_materi'	=> $id_materi,
+			'status' 	=> $this->input->post('status'),
+            'note' 	    => $this->input->post('note')
+		);
 
-            if (!$this->upload->do_upload('doc_materi')) {
+		$this->m_materi->edit($data);
+		$this->session->set_flashdata('pesan', 'Data Berhasil Diubah!');
 
-                $data = array(
-                    'title'     => 'Materi',
-                    'title2'    => 'Ubah Data Materi',
-                    'error'     => $this->upload->display_errors(),
-                    'materi'         =>  $this->m_materi->detail($id_materi),
-                    'isi'       => 'admin/kursus/v_edit_materi'
-                );
-                $this->load->view('admin/layout/v_wrapper', $data, FALSE);
-            } else {
-                $upload_data = array('uploads' => $this->upload->data());
-                $config['image_library'] = 'gd2';
-                $config['source_image'] = './upload/doc_materi/' . $upload_data['uploads']['file_name'];
-                $this->load->library('image_lib', $config);
-
-                // Hapus file yang lama
-                $kursus = $this->m_kursus->detail_materi($id_materi);
-                if ($kursus->doc_materi != "") {
-                    unlink('./upload/doc_materi/' . $kursus->doc_materi);
-                }
-
-                $data = array(
-                    'id_materi'       => $id_materi,
-                    'id_kursus'       => $this->input->post('id_kursus'),
-                    'nama_materi'     => $this->input->post('nama_materi'),
-                    'ket_materi'      => $this->input->post('ket_materi'),
-                    'id_yt'           => $this->input->post('id_yt'),
-                    'doc_materi'       => $upload_data['uploads']['file_name']
-                );
-
-                $this->m_materi->edit($data);
-                $this->session->set_flashdata('pesan', 'Data Berhasil Diubah!');
-                
-                $referred_from = $this->session->userdata('referred_from');
-                redirect($referred_from, 'refresh');
-            }
-
-            $upload_data = array('uploads' => $this->upload->data());
-            $config['image_library'] = 'gd2';
-            $config['source_image'] = './upload/doc_materi/' . $upload_data['uploads']['file_name'];
-            $this->load->library('image_lib', $config);
-
-            $data = array(
-                'id_materi'       => $id_materi,
-                'id_kursus'       => $this->input->post('id_kursus'),
-                'nama_materi'     => $this->input->post('nama_materi'),
-                'ket_materi'      => $this->input->post('ket_materi'),
-                'id_yt'           => $this->input->post('id_yt')
-            );
-
-            $this->m_materi->edit($data);
-            $this->session->set_flashdata('pesan', 'Data Berhasil Diubah!');
-
-            $referred_from = $this->session->userdata('referred_from');
-            redirect($referred_from, 'refresh');
-        }
-        $data = array(
-            'title'     => 'Materi',
-            'title2'    => 'Ubah Data Materi',
-            'materi'    =>  $this->m_materi->detail($id_materi),
-            'isi'       => 'admin/kursus/v_edit_materi'
-        );
-        $this->load->view('admin/layout/v_wrapper', $data, FALSE);
-    }
-
-
-    public function delete_materi($id_materi)
-    {
-        // Hapus foto yang lama
-        $kursus = $this->m_materi->detail($id_materi);
-        if ($kursus->doc_materi != "") {
-            unlink('./upload/doc_materi/' . $kursus->doc_materi);
-        }
-
-        $data = array('id_materi' => $id_materi);
-        $this->m_materi->delete($data);
-        $this->session->set_flashdata('pesan', 'Data Berhasil Dihapus!');
-
-        $referred_from = $this->session->userdata('referred_from');
+		$referred_from = $this->session->userdata('dosen_materi');
         redirect($referred_from, 'refresh');
-    }
+	}
+
+
 
     public function detail_materi($id_materi)
     {
