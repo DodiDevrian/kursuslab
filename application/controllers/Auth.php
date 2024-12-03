@@ -24,7 +24,15 @@ class Auth extends CI_Controller {
 				$this->session->set_userdata('role', $auth->role);
 				$this->session->set_userdata('foto_user', $auth->foto_user);
 
-				redirect('home');
+				switch($auth->role){
+					case 3 : redirect('home');
+							 break;
+
+					case 4 : redirect('asisten/dashboard');
+							 break;
+
+					default : break;
+				}
 			}
 		}
 	}

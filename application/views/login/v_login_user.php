@@ -42,12 +42,6 @@
 										<a href="<?= base_url('auth/login_dosen')?>" class="social-icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Login Sebagai Dosen">
                                             <span class="fa fa-user-o"></span>
                                         </a>
-										<a href="<?= base_url('auth/login_asprak')?>" class="social-icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Login Sebagai Asprak">
-                                            <span class="fa fa-users"></span>
-                                        </a>
-                                        <a href="<?= base_url('auth/login_admin')?>" class="social-icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Login Sebagai Admin">
-                                            <span class="fa fa-unlock-alt"></span>
-                                        </a>
 									</p>
 								</div>
                             </div>

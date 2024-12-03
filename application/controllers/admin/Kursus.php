@@ -279,7 +279,7 @@ class Kursus extends CI_Controller
                     'nama_materi'     => $this->input->post('nama_materi'),
                     'ket_materi'      => $this->input->post('ket_materi'),
                     'id_yt'           => $this->input->post('id_yt'),
-                    'doc_materi'       => $upload_data['uploads']['file_name']
+                    'doc_materi'      => $upload_data['uploads']['file_name']
                 );
 
                 $this->m_materi->edit($data);

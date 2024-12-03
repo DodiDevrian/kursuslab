@@ -13,7 +13,7 @@ class Dashboard extends CI_Controller
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
 				Anda Belum Melakukan <strong>Login Sebagai Asprak!</strong>
 				</div>');
-			redirect('auth/login_asprak');
+			redirect('auth/login');
 		}
 	}
 
