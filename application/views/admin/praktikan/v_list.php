@@ -38,19 +38,35 @@
                                 <th>Nama</th>
                                 <th>NIM</th>
                                 <th>Email</th>
+                                <th>Asprak ?</th>
                                 <th>Foto</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- Mulai Foreach -->
-                            <?php $no=1; foreach ($praktikan as $key => $value) {
-                                if ($value->role == '3') { ?>
+                            <?php $no=1; foreach ($praktikan as $key => $value) {?>
                             <tr>
                                 <td><?= $no++?></td>
                                 <td><?= $value->nama_user?></td>
                                 <td><?= $value->nim?></td>
                                 <td><?= $value->email?></td>
+                                <td>
+                                    <div>
+                                        <?php if ($value->role == 4) { ?>
+                                            <a type="button" data-toggle="modal" data-target="#exampleModal<?= $value->id_user?>">
+                                                <span class="notif-role badge badge-pill badge-success"><p class="label-role">Ya</p> <li class="fa fa-caret-down"></li></span>
+                                            </a>
+                                            <?php }else { ?>
+                                                <a type="button" data-toggle="modal" data-target="#exampleModal<?= $value->id_user?>">
+                                                    <span class="notif-role badge badge-pill badge-danger"><p class="label-role">Tidak</p> <li class="fa fa-caret-down"></li></span>
+                                                </a>
+                                        <?php }  ?>
+                                    </div>
+                                    <div>
+                                        <!-- <a class="dropdown-item" type="button" data-toggle="modal" data-target="#exampleModal<?= $value->id_user?>"><i class="dw dw-edit2"></i> Ubah</a> -->
+                                    </div>
+                                </td>
                                 <td><img src="<?= base_url()?>/upload/foto_user/<?= $value->foto_user?>" alt="" width="100px"></td>
                                 <td>
                                     <div class="dropdown">
@@ -64,7 +80,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <?php }} ?>
+                            <?php } ?>
                             <!-- End Foreach -->
                         </tbody>
                     </table>
@@ -72,3 +88,29 @@
             </div>
 
         </div>
+
+        <?php foreach ($praktikan as $key => $value) { ?>
+        <div class="modal fade" id="exampleModal<?= $value->id_user?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ubah Status Asprak</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <?php echo form_open_multipart('admin/praktikan/edit_role_yes/'. $value->id_user); ?>
+                        <div class="form-group">
+							<label>Apakah ingin mengubah status asprak dari <b><?= $value->nama_user ?></b> ?</label>
+						</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                        <button type="submit" class="btn btn-primary">Ya</button>
+                    </div>
+                    <?php echo form_close(); ?>
+                </div>
+            </div>
+        </div>
+        <?php } ?>

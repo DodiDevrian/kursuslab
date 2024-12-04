@@ -47,10 +47,10 @@
                             <?php $no=1; foreach ($asprak as $key => $value) { ?>
                             <tr>
                             <td><?= $no++?></td>
-                                <td><?= $value->nama_asprak?></td>
+                                <td><?= $value->nama_user?></td>
                                 <td><?= $value->nim?></td>
                                 <td><?= $value->no_hp?></td>
-                                <td><img src="<?=base_url('upload/foto_asprak/' . $value->foto_asprak)?>" alt="" width="100px"></td>
+                                <td><img src="<?=base_url('upload/foto_user/' . $value->foto_user)?>" alt="" width="100px"></td>
                                 <td>
                                     <div class="dropdown">
                                         <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">

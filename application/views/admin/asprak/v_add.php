@@ -1,3 +1,5 @@
+
+<script src="<?= base_url() ?>assets/js/jquery-1.11.2.min.js"></script>
 <div class="main-container">
     <div class="pd-ltr-20 xs-pd-20-10">
         <div class="min-height-200px">
@@ -35,33 +37,33 @@
                         echo form_open_multipart('admin/asprak/add');
                         ?>
                         <div class="form-group">
-							<label>Username Asprak</label>
-							<input class="form-control" name="username" type="text" placeholder="Masukkan Username Asprak">
-                            <?php echo form_error('username', '<div class="text-danger small">', '</div>') ?>
+							<label>Username</label>
+							<select class="form-control" id="js-example-basic-single" name="id_user">
+                                <!-- <option value="" disabled selected>--Pilih Kursus atau Mata Pelajaran--</option> -->
+                                <?php foreach ($mahasiswa as $key => $value) {
+                                    if ($value->role == 4) { ?>                                    
+                                    <option value="<?= $value->id_user?>"><?= $value->username?></option>
+                                <?php }}?>
+							</select>
+                            <?= form_error('id_user', '<div class="text-danger small">', '</div>') ?>
 						</div>
+
                         <div class="form-group">
-							<label>Password Akun Asprak</label>
-							<input class="form-control" name="password" type="password" placeholder="Masukkan Password">
-                            <?php echo form_error('password', '<div class="text-danger small">', '</div>') ?>
+							<label>Nama Mahasiswa</label>
+							<select class="form-control" id="js-example-basic-single2" name="nama_asprak">
+                                <!-- <option value="" disabled selected>--Pilih Kursus atau Mata Pelajaran--</option> -->
+                                <?php foreach ($mahasiswa as $key => $value) {
+                                    if ($value->role == 4) { ?>                                    
+                                    <option value="<?= $value->nama_user?>"><?= $value->nama_user?></option>
+                                <?php } }?>
+							</select>
+                            <?= form_error('nama_asprak', '<div class="text-danger small">', '</div>') ?>
 						</div>
-                        <div class="form-group">
-							<label>Nama Asprak</label>
-							<input class="form-control" name="nama_asprak" type="text" placeholder="Masukkan Nama Asprak">
-                            <?php echo form_error('nama_asprak', '<div class="text-danger small">', '</div>') ?>
-						</div>
-                        <div class="form-group">
-							<label>NIM Asprak</label>
-							<input class="form-control" name="nim" type="text" placeholder="Masukkan NIM Asprak">
-                            <?php echo form_error('nim', '<div class="text-danger small">', '</div>') ?>
-						</div>
+
                         <div class="form-group">
 							<label>Nomor Handphone</label>
 							<input class="form-control" name="no_hp" type="text" placeholder="Masukkan Nomor Handphone">
                             <?php echo form_error('no_hp', '<div class="text-danger small">', '</div>') ?>
-						</div>
-                        <div class="form-group">
-							<label>Upload Foto Asprak</label>
-							<input name="foto_asprak" type="file" class="form-control-file form-control height-auto">
 						</div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -70,3 +72,20 @@
             <?php echo form_close(); ?>
         </div>
         </div>
+
+<script type="text/javascript">
+    $(function(){
+        $(document).ready(function() {
+            $('#js-example-basic-single').select2();
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(function(){
+        $(document).ready(function() {
+            $('#js-example-basic-single2').select2();
+        });
+    });
+</script>
+

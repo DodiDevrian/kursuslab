@@ -148,3 +148,14 @@ a.sidebar-link:hover {
     transform: rotate(45deg);
     transition: all .2s ease-out;
 }
+
+.notif-role {
+    width: 61px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.label-role {
+    margin: auto;
+}

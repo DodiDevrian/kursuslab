@@ -10,6 +10,7 @@ class Diskusi extends CI_Controller
 
         $this->load->model('m_diskusi');
         $this->load->model('m_kursus');
+        $this->load->model('m_asprak');
 	}
 
     public function index()
@@ -30,6 +31,7 @@ class Diskusi extends CI_Controller
             'title'         => 'Kursus',
             'title2'        => 'Laboratorium Teknik Informatika',
             'kursus'        => $this->m_kursus->lists(),
+            'detail_asprak' => $this->m_asprak->detail_asprak($id_kursus),
             'detail_kursus' => $this->m_kursus->detail_kursus($id_kursus),
             'diskusi'       => $this->m_diskusi->lists(),
             'id'            => $this->uri->segment(3),

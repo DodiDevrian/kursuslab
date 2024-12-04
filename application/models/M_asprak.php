@@ -6,8 +6,10 @@ class M_asprak extends CI_Model
     public function lists_asprak()
     {
         $this->db->select('*');
-        $this->db->from('tbl_asprak');
-        $this->db->order_by('id_asprak', 'DESC');
+        $this->db->from('tbl_kursus');
+        $this->db->join('tbl_asprak', 'tbl_asprak.id_asprak = tbl_kursus.id_asprak', 'left');
+        $this->db->join('tbl_user', 'tbl_user.id_user = tbl_asprak.id_user', 'left');
+        $this->db->order_by('id_kursus', 'DESC');
 
         return $this->db->get()->result();
     }
@@ -17,6 +19,7 @@ class M_asprak extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_kursus');
         $this->db->join('tbl_asprak', 'tbl_asprak.id_asprak = tbl_kursus.id_asprak', 'left');
+        $this->db->join('tbl_user', 'tbl_user.id_user = tbl_asprak.id_user', 'left');
         $this->db->order_by('id_kursus', 'DESC');
 
         // $this->db->select('*');

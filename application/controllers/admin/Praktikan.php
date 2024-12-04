@@ -102,7 +102,7 @@ class Praktikan extends CI_Controller
                     'title'     => 'Praktikan',
                     'title2'    => 'Ubah Data Praktikan',
                     'error'     => $this->upload->display_errors(),
-                    'dosen'    =>  $this->m_dosen->detail($id_user),
+                    'praktikan' =>  $this->m_praktikan->detail($id_user),
                     'isi'       => 'admin/praktikan/v_edit'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -113,18 +113,17 @@ class Praktikan extends CI_Controller
                 $this->load->library('image_lib', $config);
 
                 // Hapus file foto yang lama
-                $dosen = $this->m_dosen->detail($id_user);
-                if ($dosen->foto_user != "") {
-                    unlink('./upload/foto_user/' . $dosen->foto_user);
+                $praktikan = $this->m_praktikan->detail($id_user);
+                if ($praktikan->foto_user != "") {
+                    unlink('./upload/foto_user/' . $praktikan->foto_user);
                 }
 
                 $data = array(
                     'id_user'      => $id_user,
                     'username'     => $this->input->post('username'),
                     'password'     => $this->input->post('password'),
-                    'role'         => 3,
                     'nama_user'    => $this->input->post('nama_user'),
-                    'nip'          => $this->input->post('nip'),
+                    'nim'          => $this->input->post('nim'),
                     'email'        => $this->input->post('email'),
                     'foto_user'    => $upload_data['uploads']['file_name']
                 );
@@ -142,20 +141,19 @@ class Praktikan extends CI_Controller
                 'id_user'      => $id_user,
                 'username'     => $this->input->post('username'),
                 'password'     => $this->input->post('password'),
-                'role'         => 3,
                 'nama_user'    => $this->input->post('nama_user'),
-                'nip'          => $this->input->post('nip'),
+                'nim'          => $this->input->post('nim'),
                 'email'        => $this->input->post('email')
             );
 
-            $this->m_dosen->edit($data);
+            $this->m_praktikan->edit($data);
             $this->session->set_flashdata('pesan', 'Data Berhasil Diubah!');
             redirect('admin/praktikan');
         }
         $data = array(
             'title'     => 'Praktikan',
             'title2'    => 'Ubah Data Praktikan',
-            'dosen'    =>  $this->m_dosen->detail($id_user),
+            'praktikan' =>  $this->m_praktikan->detail($id_user),
             'isi'       => 'admin/praktikan/v_edit'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -173,5 +171,10 @@ class Praktikan extends CI_Controller
         $this->m_slider->delete($data);
         $this->session->set_flashdata('pesan', 'Data Berhasil Dihapus!');
         redirect('admin/slider');
+    }
+
+    public function edit_role()
+    {
+        $this->form_validation->set_rules('role', 'Role', 'required');
     }
 }

@@ -31,36 +31,42 @@
                             echo '<div class="alert alert-danger alert-dismissible">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
                         }
-                        echo form_open_multipart('admin/praktikan/edit/' . $dosen->id_user);
+                        echo form_open_multipart('admin/praktikan/edit/' . $praktikan->id_user);
                         ?>
 						<div class="form-group">
 							<label>Username Praktikan</label>
-							<input class="form-control" name="username" type="text" value="<?= $dosen->username; ?>">
+							<input class="form-control" name="username" type="text" value="<?= $praktikan->username; ?>">
                             <?php echo form_error('username', '<div class="text-danger small">', '</div>') ?>
 						</div>
                         <div class="form-group">
 							<label>Password Akun Praktikan</label>
-							<input class="form-control" name="password" type="password" value="<?= $dosen->password; ?>"">
+							<input class="form-control" name="password" type="password" value="<?= $praktikan->password; ?>"">
                             <?php echo form_error('password', '<div class="text-danger small">', '</div>') ?>
 						</div>
                         <div class="form-group">
 							<label>Nama</label>
-							<input class="form-control" name="nama_user" type="text" value="<?= $dosen->nama_user; ?>">
+							<input class="form-control" name="nama_user" type="text" value="<?= $praktikan->nama_user; ?>">
                             <?php echo form_error('nama_user', '<div class="text-danger small">', '</div>') ?>
 						</div>
                         <div class="form-group">
 							<label>Email</label>
-							<input class="form-control" name="email" type="text" value="<?= $dosen->email; ?>">
+							<input class="form-control" name="email" type="text" value="<?= $praktikan->email; ?>">
                             <?php echo form_error('email', '<div class="text-danger small">', '</div>') ?>
 						</div>
                         <div class="form-group">
 							<label>NIM</label>
-							<input class="form-control" name="nim" type="text" value="<?= $dosen->nim; ?>">
+							<input class="form-control" name="nim" type="text" value="<?= $praktikan->nim; ?>">
                             <?php echo form_error('nim', '<div class="text-danger small">', '</div>') ?>
 						</div>
                         <div class="form-group">
 							<label>Upload Foto</label>
 							<input name="foto_user" type="file" class="form-control-file form-control height-auto">
+						</div>
+
+                        <div class="form-group">
+							<label>Foto Saat Ini</label>
+                            <br>
+							<img src="<?= base_url('/upload/foto_user/') . $praktikan->foto_user;?>"  width="150px" alt="">
 						</div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-primary">Simpan</button>

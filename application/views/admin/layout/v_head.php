@@ -19,6 +19,8 @@
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/backend/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/backend/src/plugins/datatables/css/responsive.bootstrap4.min.css">
 
+	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/css/style.css">
+
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];

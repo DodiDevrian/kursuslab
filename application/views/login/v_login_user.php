@@ -39,7 +39,7 @@
                                 </div>
 								<div class="w-100">
 									<p class="social-media d-flex justify-content-end">
-										<a href="<?= base_url('auth/login_dosen')?>" class="social-icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Login Sebagai Dosen">
+										<a href="<?= base_url('auth/login_admin')?>" class="social-icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="top" title="Login Sebagai Dosen">
                                             <span class="fa fa-user-o"></span>
                                         </a>
 									</p>

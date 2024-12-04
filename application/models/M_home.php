@@ -27,6 +27,7 @@ class M_home extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_kursus');
         $this->db->join('tbl_asprak', 'tbl_asprak.id_asprak = tbl_kursus.id_asprak', 'left');
+        $this->db->join('tbl_user', 'tbl_user.id_user = tbl_asprak.id_user', 'left');
         $this->db->order_by('id_kursus', 'DESC');
 
         // $this->db->select('*');
