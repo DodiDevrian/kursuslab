@@ -34,8 +34,8 @@ class Praktikan extends CI_Controller
     {
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
-        $this->form_validation->set_rules('nama_user', 'Nama Dosen', 'required');
-        $this->form_validation->set_rules('nim ', 'NIM', 'required');
+        $this->form_validation->set_rules('nama_user', 'Nama Praktikan', 'required');
+        $this->form_validation->set_rules('nim', 'NIM', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required');
 
         if ($this->form_validation->run() == TRUE) {
@@ -75,8 +75,8 @@ class Praktikan extends CI_Controller
             }
         }
         $data = array(
-            'title'     => 'Praktikan',
-            'title2'    => 'Tambah Data Praktikan',
+            'title'     => 'Dosen',
+            'title2'    => 'Tambah Data Dosen',
             'isi'       => 'admin/praktikan/v_add'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -173,8 +173,29 @@ class Praktikan extends CI_Controller
         redirect('admin/slider');
     }
 
-    public function edit_role()
+    public function edit_role_yes($id_user)
     {
-        $this->form_validation->set_rules('role', 'Role', 'required');
+        $data = array(
+			'id_user'	=> $id_user,
+            'role' 	    => 4
+		);
+
+		$this->m_praktikan->edit($data);
+		$this->session->set_flashdata('pesan', 'Data Berhasil Diubah!');
+
+		redirect('admin/praktikan');
+    }
+
+    public function edit_role_no($id_user)
+    {
+        $data = array(
+			'id_user'	=> $id_user,
+            'role' 	    => 3
+		);
+
+		$this->m_praktikan->edit($data);
+		$this->session->set_flashdata('pesan', 'Data Berhasil Diubah!');
+
+		redirect('admin/praktikan');
     }
 }

@@ -69,7 +69,7 @@
                                 <div class="content-diskusi">
                                     <li>
                                         <div class="message-data">
-                                            <span class="message-data-name">Dodi Devrian Andrianto</span>
+                                            <span class="message-data-name"><?= $value->nama_user ?></span>
                                             <span> &nbsp;| </span>
                                             <span an class="message-data-time"><?= date('M j, Y, g:i a', strtotime($tanggal_kirim)) ?></span>
                                         </div>

@@ -54,11 +54,11 @@
                                 <td>
                                     <div>
                                         <?php if ($value->role == 4) { ?>
-                                            <a type="button" data-toggle="modal" data-target="#exampleModal<?= $value->id_user?>">
+                                            <a type="button" data-toggle="modal" data-target="#UbahRoleYes<?= $value->id_user?>">
                                                 <span class="notif-role badge badge-pill badge-success"><p class="label-role">Ya</p> <li class="fa fa-caret-down"></li></span>
                                             </a>
                                             <?php }else { ?>
-                                                <a type="button" data-toggle="modal" data-target="#exampleModal<?= $value->id_user?>">
+                                                <a type="button" data-toggle="modal" data-target="#UbahRoleNo<?= $value->id_user?>">
                                                     <span class="notif-role badge badge-pill badge-danger"><p class="label-role">Tidak</p> <li class="fa fa-caret-down"></li></span>
                                                 </a>
                                         <?php }  ?>
@@ -89,8 +89,36 @@
 
         </div>
 
+        <!-- Modal Ubah Ya -->
         <?php foreach ($praktikan as $key => $value) { ?>
-        <div class="modal fade" id="exampleModal<?= $value->id_user?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="UbahRoleYes<?= $value->id_user?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ubah Status Asprak</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <?php echo form_open_multipart('admin/praktikan/edit_role_no/'. $value->id_user); ?>
+                        <div class="form-group">
+                        <label>Apakah ingin menghapus <b style="color: red;"><?= $value->nama_user ?></b> dari asprak ?</label>
+						</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                        <button type="submit" class="btn btn-primary">Ya</button>
+                    </div>
+                    <?php echo form_close(); ?>
+                </div>
+            </div>
+        </div>
+        <?php } ?>
+
+        <!-- Modal Ubah Tidak -->
+        <?php foreach ($praktikan as $key => $value) { ?>
+        <div class="modal fade" id="UbahRoleNo<?= $value->id_user?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -102,7 +130,7 @@
                     <div class="modal-body">
                         <?php echo form_open_multipart('admin/praktikan/edit_role_yes/'. $value->id_user); ?>
                         <div class="form-group">
-							<label>Apakah ingin mengubah status asprak dari <b><?= $value->nama_user ?></b> ?</label>
+                            <label>Apakah ingin menambahkan <b style="color: green;"><?= $value->nama_user ?></b> sebagai asprak?</label>
 						</div>
                     </div>
                     <div class="modal-footer">

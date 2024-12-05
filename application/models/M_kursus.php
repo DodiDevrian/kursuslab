@@ -6,7 +6,7 @@ class M_kursus extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tbl_kursus');
-        $this->db->join('tbl_dosen', 'tbl_dosen.id_dosen = tbl_kursus.id_dosen', 'left');
+        $this->db->join('tbl_admin', 'tbl_admin.id_admin = tbl_kursus.id_admin', 'left');
         $this->db->join('tbl_asprak', 'tbl_asprak.id_asprak = tbl_kursus.id_asprak', 'left');
         $this->db->order_by('id_kursus', 'DESC');
 
@@ -17,7 +17,7 @@ class M_kursus extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tbl_kursus');
-        $this->db->join('tbl_dosen', 'tbl_dosen.id_dosen = tbl_kursus.id_dosen', 'left');
+        $this->db->join('tbl_admin', 'tbl_admin.id_admin = tbl_kursus.id_admin', 'left');
         // $this->db->join('tbl_asprak', 'tbl_asprak.id_asprak = tbl_kursus.id_asprak', 'left');
         $this->db->where('id_kursus', $id_kursus);
 
@@ -29,7 +29,7 @@ class M_kursus extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_materi');
         $this->db->join('tbl_kursus', 'tbl_kursus.id_kursus = tbl_materi.id_kursus', 'left');
-        $this->db->join('tbl_dosen', 'tbl_dosen.id_dosen = tbl_kursus.id_dosen', 'left');
+        $this->db->join('tbl_admin', 'tbl_admin.id_admin = tbl_kursus.id_admin', 'left');
         $this->db->order_by('id_materi', 'ASC');
 
         return $this->db->get()->result();
