@@ -14,6 +14,17 @@ class M_diskusi extends CI_Model
         return $this->db->get()->result();
     }
 
+    // public function detail_diskusi($id_kursus)
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('tbl_kursus');
+    //     $this->db->join('tbl_admin', 'tbl_admin.id_admin = tbl_kursus.id_admin', 'left');
+    //     // $this->db->join('tbl_asprak', 'tbl_asprak.id_asprak = tbl_kursus.id_asprak', 'left');
+    //     $this->db->where('id_kursus', $id_kursus);
+
+    //     return $this->db->get()->row();
+    // }
+
     public function add_chat_user($data)
     {
         $this->db->insert('tbl_diskusi', $data);

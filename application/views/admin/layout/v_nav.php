@@ -129,6 +129,7 @@
                     <ul class="submenu">
                         <li><a href="<?= base_url('admin/slider')?>" class="<?= menuAktif('slider') ?>">Slider</a></li>
                         <li><a href="<?= base_url('admin/asset')?>" class="<?= menuAktif('asset') ?>">Asset</a></li>
+                        <li><a href="<?= base_url('admin/clogin/index/' . 1)?>" class="<?= menuAktif('clogin') ?>">Cover Login</a></li>
                     </ul>
                 </li>
             </ul>

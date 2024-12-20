@@ -81,7 +81,7 @@ class Dosen extends CI_Controller
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
     }
 
-    public function edit($id_dosen)
+    public function edit($id_admin)
     {
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
@@ -101,7 +101,7 @@ class Dosen extends CI_Controller
                     'title'     => 'Dosen',
                     'title2'    => 'Ubah Data Dosen',
                     'error'     => $this->upload->display_errors(),
-                    'dosen'    =>  $this->m_dosen->detail($id_dosen),
+                    'dosen'    =>  $this->m_dosen->detail($id_admin),
                     'isi'       => 'admin/dosen/v_edit'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -112,13 +112,13 @@ class Dosen extends CI_Controller
                 $this->load->library('image_lib', $config);
 
                 // Hapus file foto yang lama
-                $dosen = $this->m_dosen->detail($id_dosen);
+                $dosen = $this->m_dosen->detail($id_admin);
                 if ($dosen->foto_dosen != "") {
                     unlink('./upload/foto_dosen/' . $dosen->foto_dosen);
                 }
 
                 $data = array(
-                    'id_dosen'      => $id_dosen,
+                    'id_admin'      => $id_admin,
                     'username'     => $this->input->post('username'),
                     'password'     => $this->input->post('password'),
                     'role'         => 2,
@@ -138,7 +138,7 @@ class Dosen extends CI_Controller
             $this->load->library('image_lib', $config);
 
             $data = array(
-                'id_dosen'      => $id_dosen,
+                'id_admin'      => $id_admin,
                 'username'     => $this->input->post('username'),
                 'password'     => $this->input->post('password'),
                 'role'         => 2,
@@ -154,21 +154,21 @@ class Dosen extends CI_Controller
         $data = array(
             'title'     => 'Dosen',
             'title2'    => 'Ubah Data Dosen',
-            'dosen'    =>  $this->m_dosen->detail($id_dosen),
+            'dosen'    =>  $this->m_dosen->detail($id_admin),
             'isi'       => 'admin/dosen/v_edit'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
     }
 
-    public function delete($id_dosen)
+    public function delete($id_admin)
     {
         // Hapus foto yang lama
-        $dosen = $this->m_dosen->detail($id_dosen);
+        $dosen = $this->m_dosen->detail($id_admin);
         if ($dosen->foto_dosen != "") {
             unlink('./upload/foto_dosen/' . $dosen->foto_dosen);
         }
 
-        $data = array('id_dosen' => $id_dosen);
+        $data = array('id_admin' => $id_admin);
         $this->m_dosen->delete($data);
         $this->session->set_flashdata('pesan', 'Data Berhasil Dihapus!');
         redirect('admin/dosen');

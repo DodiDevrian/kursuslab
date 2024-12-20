@@ -28,6 +28,7 @@ class Kursus extends CI_Controller
         $data = array(
             'title'         => 'Kursus',
             'title2'        => 'Laboratorium Teknik Informatika',
+            'list_kursus'        => $this->m_kursus->lists(),
             'kursus'        => $this->m_kursus->detail_kursus($id_kursus),
             'materi'        => $this->m_kursus->lists_materi(),
             'materi_button' => $this->m_kursus->lists_materi_button(),

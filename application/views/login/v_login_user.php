@@ -27,7 +27,9 @@
 			<div class="row justify-content-center">
 				<div class="col-md-12 col-lg-10">
 					<div class="wrap d-md-flex">
-						<div class="img" style="background-image: url(<?= base_url()?>assets/img/gambar1.jpg);"></div>
+                        <?php foreach ($clogin as $key => $value) { ?>
+                            <div class="img" style="background-image: url(<?= base_url()?>upload/foto_login/<?= $value->foto_login ?>);"></div>
+                        <?php } ?>
 						<div class="login-wrap p-4 p-md-5">
                             <div class="role text-center">
                                 <h3 class="mb-4">Mahasiswa</h3>

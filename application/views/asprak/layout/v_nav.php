@@ -96,8 +96,8 @@
                         <span class="micon dw dw-book1"></span><span class="mtext">Menu</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="<?= base_url('dosen/kursus')?>" class="<?= menuAktif('kursus') ?>">Praktikum</a></li>
-                        <li><a href="<?= base_url('dosen/materi')?>" class="<?= menuAktif('materi') ?>">Materi</a></li>
+                        <li><a href="<?= base_url('asprak/kursus')?>" class="<?= menuAktif('kursus') ?>">Praktikum</a></li>
+                        <li><a href="<?= base_url('asprak/materi')?>" class="<?= menuAktif('materi') ?>">Materi</a></li>
                     </ul>
                 </li>
             </ul>

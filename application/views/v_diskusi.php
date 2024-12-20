@@ -24,9 +24,19 @@
 
 
 <div class="container">
-    <h3 class="text-center mt-4">Forum Diskusi</h3>
+    <h3 class="text-center mt-4 mb-3">Forum Diskusi</h3>
+        <div class="btn-group mb-2">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-expanded="false">
+                Pilih Praktikum
+            </button>
+            <div class="dropdown-menu dropdown-menu-lg-right">
+                <?php foreach ($kursus as $key => $value) { ?>
+                    <a class="dropdown-item" href="<?= base_url('diskusi/detail_diskusi/' . $value->id_kursus) ?>"><?= wordwrap($value->nama_kursus,35,"<br>\n");?></a>
+                <?php } ?>
+            </div>
+        </div>
     <div class="wrapper">
-        <aside id="sidebar">
+        <!-- <aside id="sidebar">
             <div class="d-flex">
                 <button class="toggle-btn ml-auto" type="button">
                     <i class="lni lni-menu"></i>
@@ -37,7 +47,7 @@
                 <li class="sidebar-item">
                     <a href="<?= base_url('diskusi/detail_diskusi/' . $value->id_kursus) ?>" class="sidebar-link d-flex">
                         <div>
-                            <?= wordwrap($value->nama_kursus,35,"<br>\n");?>
+                            <?= $value->nama_kursus ?>
                         </div>
                     </a>
                 </li>
@@ -49,8 +59,7 @@
                     <span>Logout</span>
                 </a>
             </div>
-        </aside>
-
+        </aside> -->
         <div class="main">
             <div class="diskusi">
                 <div class="course_container">

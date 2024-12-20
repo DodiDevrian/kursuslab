@@ -91,17 +91,26 @@
 										</div>
 										<li class="question"><?= date('H:i') ?> WIB</li>
 									</li>
+									<li><a style="color: white;" href="http://if.itera.ac.id/" target="_blank"><i class="fa fa-solid fa-globe"></i> &nbsp;IF ITERA</a></li>
 								</ul>
 								<div class="top_bar_login ml-auto">
 									
 										<?php if($this->session->userdata('username')) { ?>
-											<div class="dropdown">
+											<!-- <div class="dropdown">
 												<button class="btn login_button dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" style="color: white;">
 													<?php echo $this->session->userdata('username') ?>
 												</button>
 												<div class="dropdown-menu">
 													<a class="dropdown-item" href="#"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
 													<a class="dropdown-item" href="<?= base_url('auth/logout')?>"><i class="fa fa-sign-out"></i> Logout</a>
+												</div>
+											</div> -->
+											<div class="flex-profile">
+												<div class="button-profile">
+													<a class="link-profile" href="<?= base_url('profile') ?>"><i class="fa fa-user" aria-hidden="true"></i> <?php echo $this->session->userdata('nama_user') ?></a>
+												</div>
+												<div class="login_button">
+													<a href="" type="button" data-toggle="modal" data-target="#logout"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a>
 												</div>
 											</div>
 										<?php }else{ ?>	

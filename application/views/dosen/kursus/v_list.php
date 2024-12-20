@@ -43,7 +43,7 @@
                         <tbody>
                             <!-- Mulai Foreach -->
                             <?php foreach ($kursus as $key => $value) {
-                                if ($value->id_dosen == $this->session->userdata('id_dosen')) { ?>
+                                if ($value->id_admin == $this->session->userdata('id_admin')) { ?>
                             <tr>
                                 <td><?= $value->nama_kursus?></td>
                                 <td><?= $value->nama_dosen?></td>

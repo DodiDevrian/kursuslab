@@ -1,3 +1,25 @@
+<div class="modal fade" id="logout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Logout</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+				<label>Apakah ingin menghapus dari asprak ?</label>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+				<a href="<?= base_url('auth/logout')?>" type="button" class="btn btn-primary">Ya</a>
+			</div>
+		</div>
+	</div>
+</div>
+
 <footer class="footer">
 		<div class="footer_background" style="background-image:url(<?= base_url() ?>assets/img/footer_background.png"></div>
 		<div class="container">
@@ -52,10 +74,12 @@
 									<div class="footer_title">Menu</div>
 									<div class="footer_links_container">
 										<ul>
-											<li><a href="index.html">Home</a></li>
-											<li><a href="about.html">Kursus</a></li>
+											<li><a href="<?= base_url() ?>">Home</a></li>
+											<li><a href="about.html">Praktikum</a></li>
 											<li><a href="contact.html">Asprak</a></li>
+											<li><a href="#">Forum Diskusi</a></li>
 											<li><a href="#">About</a></li>
+											<li><a href="#">Login</a></li>
 										</ul>
 									</div>
 								</div>

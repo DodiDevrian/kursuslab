@@ -29,7 +29,8 @@
 1. Fonts
 ***********/
 
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:300,400,500,700,900');
+/* @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:300,400,500,700,900'); */
+@import url('fontroboto.css');
 
 /*********************************
 2. Body and some general stuff
@@ -718,7 +719,7 @@ section
 }
 .course_title
 {
-
+	height: 75px;
 }
 .course_title a
 {
@@ -745,6 +746,7 @@ section
 .course_text
 {
 	margin-top: 13px;
+	height: 65px;
 }
 .course_footer
 {

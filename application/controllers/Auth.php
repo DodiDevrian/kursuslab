@@ -2,6 +2,15 @@
 
 class Auth extends CI_Controller {
 
+	public function __construct(){
+		parent ::__construct();
+
+		$this->load->helpers(['menuAktif']);
+		$this->load->helpers('text');
+
+        $this->load->model('m_clogin');
+	}
+
 	public function login(){
 			$this->form_validation->set_rules('username', 'Username', 'required',[
 				'required' => 'Username wajib diisi!']);
@@ -9,7 +18,10 @@ class Auth extends CI_Controller {
 				'required' => 'Password wajib diisi!']);
 
 		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('login/v_login_user');
+			$data = array(
+				'clogin'       => $this->m_clogin->lists(),
+			);
+			$this->load->view('login/v_login_user', $data, FALSE);
 		}else{
 			$auth = $this->M_auth->cek_login();
 
@@ -22,6 +34,7 @@ class Auth extends CI_Controller {
 				$this->session->set_userdata('username', $auth->username);
 				$this->session->set_userdata('id_user', $auth->id_user);
 				$this->session->set_userdata('role', $auth->role);
+				$this->session->set_userdata('nama_user', $auth->nama_user);
 				$this->session->set_userdata('foto_user', $auth->foto_user);
 
 				switch($auth->role){
@@ -29,7 +42,7 @@ class Auth extends CI_Controller {
 							 break;
 
 					case 4 : redirect('asisten/dashboard');
-							 break;
+						     break;
 
 					default : break;
 				}
@@ -44,7 +57,10 @@ class Auth extends CI_Controller {
 			'required' => 'Password wajib diisi!']);
 
 		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('login/v_login_admin');
+			$data = array(
+				'clogin'       => $this->m_clogin->lists(),
+			);
+			$this->load->view('login/v_login_admin', $data, FALSE);
 		}else{
 			$auth = $this->M_auth->cek_login_admin();
 
@@ -55,8 +71,9 @@ class Auth extends CI_Controller {
 				redirect('auth/login_admin');
 			}else {
 				$this->session->set_userdata('username', $auth->username);
-				$this->session->set_userdata('id_user', $auth->id_user);
+				$this->session->set_userdata('id_admin', $auth->id_admin);
 				$this->session->set_userdata('role', $auth->role);
+				$this->session->set_userdata('nama_dosen', $auth->nama_dosen);
 				$this->session->set_userdata('foto_user', $auth->foto_user);
 				
 				switch($auth->role){
@@ -129,6 +146,12 @@ class Auth extends CI_Controller {
 	public function logout(){
 
 		$this->session->sess_destroy();
-		redirect('home');
+		redirect('auth/login');
+	}
+
+	public function logout_admin(){
+
+		$this->session->sess_destroy();
+		redirect('auth/login_admin');
 	}
 }

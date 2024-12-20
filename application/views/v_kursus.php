@@ -28,7 +28,7 @@
 						<div class="row courses_row">
 							
 							<?php foreach ($kursus as $key => $value) { ?>
-							<div class="col-lg-4 course_col">
+							<div class="col-lg-4 mb-4">
 								<div class="course">
 									<div class="course_image"><img src="<?= base_url() ?>upload/cover_kursus/<?= $value->cover_kursus ?>" alt="" style="width: 100%; height: 223px; object-fit: cover; object-position: 20% 10%;"></div>
 									<div class="course_body">
