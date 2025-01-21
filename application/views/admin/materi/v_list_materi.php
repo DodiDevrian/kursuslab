@@ -62,7 +62,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Mulai Foreach -->
                             <?php $no=1; foreach ($materi as $key => $value) {
                                 if ($value->id_kursus == $id) { ?>
                             <tr>

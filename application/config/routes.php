@@ -54,6 +54,5 @@ $route['default_controller'] = 'home';
 $route['admin/Materi'] = 'admin/materi/v_list/index';
 
 
-
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

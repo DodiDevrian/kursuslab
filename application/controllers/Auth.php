@@ -35,7 +35,10 @@ class Auth extends CI_Controller {
 				$this->session->set_userdata('id_user', $auth->id_user);
 				$this->session->set_userdata('role', $auth->role);
 				$this->session->set_userdata('nama_user', $auth->nama_user);
+				$this->session->set_userdata('nim', $auth->nim);
+				$this->session->set_userdata('email', $auth->email);
 				$this->session->set_userdata('foto_user', $auth->foto_user);
+				$this->session->set_userdata('slug_user', $auth->slug_user);
 
 				switch($auth->role){
 					case 3 : redirect('home');

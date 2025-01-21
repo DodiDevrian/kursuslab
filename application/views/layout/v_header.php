@@ -107,7 +107,7 @@
 											</div> -->
 											<div class="flex-profile">
 												<div class="button-profile">
-													<a class="link-profile" href="<?= base_url('profile') ?>"><i class="fa fa-user" aria-hidden="true"></i> <?php echo $this->session->userdata('nama_user') ?></a>
+													<a class="link-profile" href="<?= base_url('profile/mahasiswa/' . $this->session->userdata('slug_user')) ?>"><i class="fa fa-user" aria-hidden="true"></i> <?php echo $this->session->userdata('nama_user') ?></a>
 												</div>
 												<div class="login_button">
 													<a href="" type="button" data-toggle="modal" data-target="#logout"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout</a>
