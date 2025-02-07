@@ -44,7 +44,7 @@ class Auth extends CI_Controller {
 					case 3 : redirect('home');
 							 break;
 
-					case 4 : redirect('asisten/dashboard');
+					case 4 : redirect('home');
 						     break;
 
 					default : break;

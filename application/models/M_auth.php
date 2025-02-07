@@ -19,39 +19,39 @@ class M_auth extends CI_Model{
 		}
 	}
 
-	public function cek_login_dosen(){
+	// public function cek_login_dosen(){
 
-		$username	= set_value('username');
-		$password	= set_value('password');
+	// 	$username	= set_value('username');
+	// 	$password	= set_value('password');
 
-		$result 	= $this->db->where('username', $username)
-							   ->where('password', $password)
-							   ->limit(1)
-							   ->get('tbl_dosen');
+	// 	$result 	= $this->db->where('username', $username)
+	// 						   ->where('password', $password)
+	// 						   ->limit(1)
+	// 						   ->get('tbl_dosen');
 
-		if ($result->num_rows() > 0) {
-			return $result->row();
-		}else {
-			return array();
-		}
-	}
+	// 	if ($result->num_rows() > 0) {
+	// 		return $result->row();
+	// 	}else {
+	// 		return array();
+	// 	}
+	// }
 
-	public function cek_login_asprak(){
+	// public function cek_login_asprak(){
 
-		$username	= set_value('username');
-		$password	= set_value('password');
+	// 	$username	= set_value('username');
+	// 	$password	= set_value('password');
 
-		$result 	= $this->db->where('username', $username)
-							   ->where('password', $password)
-							   ->limit(1)
-							   ->get('tbl_asprak');
+	// 	$result 	= $this->db->where('username', $username)
+	// 						   ->where('password', $password)
+	// 						   ->limit(1)
+	// 						   ->get('tbl_asprak');
 
-		if ($result->num_rows() > 0) {
-			return $result->row();
-		}else {
-			return array();
-		}
-	}
+	// 	if ($result->num_rows() > 0) {
+	// 		return $result->row();
+	// 	}else {
+	// 		return array();
+	// 	}
+	// }
 
 	public function cek_login_admin(){
 

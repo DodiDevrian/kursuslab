@@ -22,7 +22,7 @@ class Profile extends CI_Controller
         $this->load->view('layout/v_wrapper', $data, FALSE);
     }
 
-    public function edit($id_user)
+    public function edit($slug_user)
     {
         $config['upload_path']      = './upload/foto_user/';
         $config['allowed_types']    = 'jpg|png|jpeg|gif';
@@ -37,19 +37,19 @@ class Profile extends CI_Controller
             $config['source_image'] = './upload/foto_user/' . $upload_data['uploads']['file_name'];
             $this->load->library('image_lib', $config);
 
-            $clogin = $this->m_clogin->detail($id_user);
-            if ($clogin->foto_user != "") {
-                unlink('./upload/foto_user/' . $clogin->foto_user);
+            $profile = $this->m_profile->profile($slug_user);
+            if ($profile->foto_user != "") {
+                unlink('./upload/foto_user/' . $profile->foto_user);
             }
 
             $data = array(
-                'id_user'      => $id_user,
+                'slug_user'    => $slug_user,
                 'foto_user'    => $upload_data['uploads']['file_name']
             );
 
-            $this->m_clogin->edit($data);
+            $this->m_profile->edit($data);
             $this->session->set_flashdata('pesan', 'Gambar Berhasil Diubah!');
-            redirect('admin/clogin/index/' . $id_user);
+            redirect('profile/mahasiswa/' . $slug_user);
         }
     }
 

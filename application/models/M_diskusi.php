@@ -2,7 +2,7 @@
 
 class M_diskusi extends CI_Model
 {
-    public function lists()
+    public function listsJoin()
     {
         $this->db->select('*');
         $this->db->from('tbl_diskusi');
@@ -10,9 +10,17 @@ class M_diskusi extends CI_Model
         $this->db->join('tbl_asprak', 'tbl_asprak.id_asprak = tbl_diskusi.id_asprak', 'left');
         $this->db->join('tbl_kursus', 'tbl_kursus.id_kursus = tbl_diskusi.id_kursus', 'left');
         $this->db->order_by('id_diskusi', 'DESC');
-
+    
         return $this->db->get()->result();
     }
+    
+    public function lists($limit, $start)
+    {
+        $query = $this->db->get('tbl_diskusi', $limit, $start);
+        return $query;
+
+    }
+
 
     // public function detail_diskusi($id_kursus)
     // {

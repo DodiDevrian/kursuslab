@@ -13,7 +13,7 @@ class Diskusi extends CI_Controller
         $this->load->model('m_asprak');
 	}
 
-    public function index()
+    public function index2()
     {
         $data = array(
             'title'   => 'Forum Diskusi',
@@ -23,6 +23,44 @@ class Diskusi extends CI_Controller
             'isi'     => 'v_diskusi'
         );
         $this->load->view('layout/v_wrapper', $data, FALSE);
+    }
+
+    public function index()
+    {
+
+        $config['base_url'] = site_url('duskusi/index'); //site url
+        $config['total_rows'] = $this->db->count_all('tbl_diskusi'); //total row
+        $config['per_page'] = 5;
+        $config["uri_segment"] = 3;
+        $choice = $config["total_rows"] / $config["per_page"];
+        $config["num_links"] = floor($choice);
+
+        $this->pagination->initialize($config);
+
+        $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $data['diskusi'] = $this->m_diskusi->lists($config["per_page"], $data['page'])->result();
+        // $data['pagination'] = $this->pagination->create_links();
+        $data['kursus'] = $this->m_kursus->lists();
+        $data['title'] = 'Forum Diskusi';
+        $data['title2'] = 'Laboratorium Teknik Informatika';
+
+        $this->load->view('layout/v_head');
+        $this->load->view('layout/v_header');
+        $this->load->view('layout/v_nav');
+        $this->load->view('v_diskusi', $data);
+        $this->load->view('layout/v_footer');
+
+
+        // $data = array(
+        //     'title'   => 'Forum Diskusi',
+        //     'title2'  => 'Laboratorium Teknik Informatika',
+        //     'diskusi'   => $this->m_diskusi->lists($config["per_page"] , ['page'])->result(),
+        //     'kursus'    => $this->m_kursus->lists(),
+        //     'page'  => ($this->uri->segment(3)) ? $this->uri->segment(3) : 0,
+        //     // 'pagination' => $this->pagination->create_links(),
+        //     'isi'     => 'v_diskusi'
+        // );
+        // $this->load->view('layout/v_wrapper', $data, FALSE);
     }
 
     public function detail_diskusi($id_kursus)
@@ -49,10 +87,10 @@ class Diskusi extends CI_Controller
 
         if (!$this->upload->do_upload('foto_diskusi')) {
             $data = array(
-                'id_user'   => $this->input->post('id_user'),
-                'id_kursus'     => $this->input->post('id_kursus'),
-                'id_asprak'     => $this->input->post('id_asprak'),
-                'diskusi_user'     => $this->input->post('diskusi_user')
+                'id_user'           => $this->input->post('id_user'),
+                'id_kursus'         => $this->input->post('id_kursus'),
+                'id_asprak'         => $this->input->post('id_asprak'),
+                'diskusi_user'      => $this->input->post('diskusi_user')
             );
 
             $this->m_diskusi->add_chat_user($data);

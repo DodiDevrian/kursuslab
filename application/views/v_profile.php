@@ -21,7 +21,15 @@
 <div class="container mt-2">
     <div class="row">
         <div class="col-lg-4 text-center">
-            <img class="mb-3" src="<?= base_url('upload/foto_user/' ) . $profile->foto_user ?>" alt="" width="250px"> <br>
+            <?php
+                if ($this->session->flashdata('pesan')) {
+                    echo '<div class="alert alert-success alert-dismissible m-3">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
+                    echo $this->session->flashdata('pesan');
+                    echo '</div>';
+                }
+                ?>
+            <img class="mb-3" src="<?= base_url('upload/foto_user/' ) . $profile->foto_user ?>" alt="" width="200px"> <br>
             <button type="button" class="btn btn-primary mb-5" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-picture-o" aria-hidden="true"></i> Update Foto</button>
         </div>
         <div class="col-lg-8">
@@ -74,11 +82,11 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
                         }
                         
-                        echo form_open_multipart('admin/clogin/edit/' . $clogin->id_clogin);
+                        echo form_open_multipart('profile/edit/' . $profile->slug_user);
                     ?>
                     <div class="form-group">
                         <label>Edit Foto Profile</label>
-                        <input type="file" class="form-control-file form-control height-auto" name="foto_login">
+                        <input type="file" class="form-control-file form-control height-auto" name="foto_user">
                     </div>
                     
                 </div>

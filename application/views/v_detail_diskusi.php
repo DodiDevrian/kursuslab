@@ -26,7 +26,9 @@
 
 <div class="container">
     <h3 class="text-center mt-4">Forum Diskusi <?= $detail_kursus->nama_kursus ?></h3>
-        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        <span class="mr-3">
+            <a href="<?= base_url('diskusi') ?>"><i class="back_button fa fa-arrow-left" aria-hidden="true"></i></a>
+        </span>
         <div class="btn-group mb-2">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-expanded="false">
                 Pilih Praktikum
@@ -67,9 +69,14 @@
             
             <div class="diskusi">
                 <div class="course_container">
-                        <?php foreach ($diskusi as $key => $value) {
-                            $tanggal_kirim = $value->created_diskusi; 
-                            $tanggal_jawab = $value->modified_diskusi;
+                        <?php
+                            $nama_user = 1;
+                            foreach ($dikusiJoin as $key => $value) {
+                                # code...
+                            }
+                            foreach ($diskusi as $key => $value) {
+                                $tanggal_kirim = $value->created_diskusi; 
+                                $tanggal_jawab = $value->modified_diskusi;
 
                             if ($id == $value->id_kursus) {
 
@@ -87,6 +94,9 @@
 
                                         <div class="message my-message">
                                         <?= $value->diskusi_user ?>
+                                        </div>
+                                        <div class="img-diskusi mt-4">
+                                            <img src="<?= base_url('upload/foto_diskusi/' . $value->foto_diskusi) ?>" alt="" width="100%">
                                         </div>
                                         <div class="message-data">
                                         <?= $value->nama_kursus ?>

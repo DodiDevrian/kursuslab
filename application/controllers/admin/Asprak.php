@@ -49,6 +49,7 @@ class Asprak extends CI_Controller
 
             $data = array(
                 'id_user'          => $this->input->post('id_user'),
+                'id_asprak'          => $this->input->post('id_user'),
                 'nama_asprak'      => $this->input->post('nama_asprak'),
                 'no_hp'            => $this->input->post('no_hp'),
             );

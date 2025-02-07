@@ -87,19 +87,31 @@
         <div class="sidebar-menu">
             <ul id="accordion-menu">
                 <li>
-                    <a href="<?= base_url('dosen/dashboard')?>" class="dropdown-toggle no-arrow <?php echo menuAktif('dashboard') ?>">
+                    <a href="<?= base_url()?>" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-monitor"></span><span class="mtext">Website</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= base_url('asisten/dashboard')?>" class="dropdown-toggle no-arrow <?php echo menuAktif('dashboard') ?>">
                         <span class="micon dw dw-analytics-19"></span><span class="mtext">Dashboard</span>
                     </a>
                 </li>
-                <li class="dropdown">
+                <li>
+                    <a href="<?= base_url('asisten/diskusi')?>" class="dropdown-toggle no-arrow <?php echo menuAktif('diskusi') ?>">
+                        <span class="micon dw dw-chat-11"></span><span class="mtext">Diskusi</span>
+                    </a>
+                </li>
+
+                <!-- <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-book1"></span><span class="mtext">Menu</span>
                     </a>
                     <ul class="submenu">
                         <li><a href="<?= base_url('asprak/kursus')?>" class="<?= menuAktif('kursus') ?>">Praktikum</a></li>
                         <li><a href="<?= base_url('asprak/materi')?>" class="<?= menuAktif('materi') ?>">Materi</a></li>
+                        <li><a href="<?= base_url('asprak/diskusi')?>" class="<?= menuAktif('diskusi') ?>">Diskusi</a></li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>

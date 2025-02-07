@@ -44,13 +44,13 @@
                         </thead>
                         <tbody>
                             <!-- Mulai Foreach -->
-                            <?php $no=1; foreach ($diskusi as $key => $value) { ?>
+                            <?php $no=1; foreach ($diskusi as $key => $value) {
+                                if ($value->id_asprak == $this->session->userdata('id_user')) { ?>
                             <tr>
                                 <td><?= $no++?></td>
                                 <td><?= $value->nama_user?></td>
-                                <td><?= $value->id_asprak?></td>
-                                <td><?= $value->diskusi_user?></td>
-                                <td><?= $value->diskusi_asprak?></td>
+                                <td><?= wordwrap($value->diskusi_user,35,"<br>\n");?></td>
+                                <td><?= wordwrap($value->diskusi_asprak,35,"<br>\n");?></td>
                                 <td><?= $value->foto_diskusi?></td>
                                 <!-- <td><img src="<?= base_url() ?>upload/foto_slider/<?= $value->foto_slider?>" alt="" width="350px"></td> -->
                                 <td>
@@ -60,12 +60,12 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                             <!-- <a class="dropdown-item" href="<?= base_url('admin/diskusi/edit/' . $value->id_diskusi) ?>"><i class="dw dw-edit2"></i> Edit</a> -->
-                                            <a class="dropdown-item" href="<?= base_url('admin/diskusi/delete/' . $value->id_diskusi) ?>"><i class="dw dw-delete-3"></i> Delete</a>
+                                            <a class="dropdown-item" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="dw dw-delete-3"></i> Delete</a>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                            <?php } ?>
+                            <?php }} ?>
                             <!-- End Foreach -->
                         </tbody>
                     </table>
@@ -74,32 +74,26 @@
 
         </div>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-  Launch static backdrop modal
-</button>
-
-<!-- Modal -->
-<?php foreach ($diskusi as $key => $value) { ?>
-
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            ...
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Understood</button>
-        </div>
+<?php foreach ($diskusi as $key => $value) {
+    if ($value->id_asprak == $this->session->userdata('id_user')) { ?>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
         </div>
     </div>
-</div>
-
-<?php } ?>
+<?php }} ?>

@@ -106,6 +106,11 @@
 												</div>
 											</div> -->
 											<div class="flex-profile">
+												<?php if ($this->session->userdata('role')==4) { ?>
+													<div class="panel-asprak mr-3">
+														<a class="link-profile" href="<?= base_url('asisten/dashboard') ?>"><i class="fa fa-cog" aria-hidden="true"></i> Panel Asisten</a>
+													</div>
+												<?php  } ?>
 												<div class="button-profile">
 													<a class="link-profile" href="<?= base_url('profile/mahasiswa/' . $this->session->userdata('slug_user')) ?>"><i class="fa fa-user" aria-hidden="true"></i> <?php echo $this->session->userdata('nama_user') ?></a>
 												</div>

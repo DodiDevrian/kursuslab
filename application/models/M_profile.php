@@ -10,4 +10,10 @@ class M_profile extends CI_Model
 
         return $this->db->get()->row();
     }
+
+    public function edit($data)
+    {
+        $this->db->where('slug_user', $data['slug_user']);
+        $this->db->update('tbl_user', $data);
+    }
 }
