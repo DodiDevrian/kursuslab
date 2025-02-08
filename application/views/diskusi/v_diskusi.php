@@ -24,7 +24,7 @@
 
 
 <div class="container">
-    <h3 class="text-center mt-4 mb-3">Forum Diskusi</h3>
+    <h3 class="text-center mt-4 mb-4">Forum Diskusi</h3>
         <div class="btn-group mb-2">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-expanded="false">
                 Pilih Praktikum
@@ -34,6 +34,9 @@
                     <a class="dropdown-item" href="<?= base_url('diskusi/detail_diskusi/' . $value->id_kursus) ?>"><?= wordwrap($value->nama_kursus,35,"<br>\n");?></a>
                 <?php } ?>
             </div>
+            <?php if ($this->session->userdata('username')) { ?>
+                <a href="<?= base_url('diskusi/me') ?>" class="btn btn-info ml-3">My Question</a>
+            <?php } ?>
         </div>
     <div class="wrapper">
         <!-- <aside id="sidebar">
@@ -110,14 +113,15 @@
 
                 </div>
             </div>
-
+            
             <!-- <div class="d-flex justify-content-between" style="margin-top: 25px;">
                 <h3 class="mb-2 mt-2"><?= $materi -> nama_materi ?></h3>
                 <?php if ($materi -> status == 2) { ?>
-                <a target="_blank" class="btn btn-warning" href="<?= base_url('upload/doc_materi/' . $materi->doc_materi) ?>"><i style="font-size: 25px; margin-right: 10px;" class="fa fa-file-pdf-o"></i> Download Modul</a>
-                <?php } ?>
-            </div> -->
+                    <a target="_blank" class="btn btn-warning" href="<?= base_url('upload/doc_materi/' . $materi->doc_materi) ?>"><i style="font-size: 25px; margin-right: 10px;" class="fa fa-file-pdf-o"></i> Download Modul</a>
+                    <?php } ?>
+                </div> -->
+            </div>
         </div>
-    </div>
+        <div class="col mt-5 mb-3"><?php echo $pagination; ?></div>
 </div>
 
