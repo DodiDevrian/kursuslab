@@ -11,6 +11,7 @@ class Kursus extends CI_Controller
         $this->load->model('m_kursus');
         $this->load->model('m_materi');
         $this->load->model('m_dosen');
+        $this->load->model('m_asprak');
 
         if ($this->agent->is_referral())
         {
@@ -40,6 +41,8 @@ class Kursus extends CI_Controller
     {
         $this->form_validation->set_rules('nama_kursus', 'Nama Kursus', 'required');
         $this->form_validation->set_rules('ket_kursus', 'Keterangan Kursus', 'required');
+        $this->form_validation->set_rules('id_admin', 'Dosen', 'required');
+        $this->form_validation->set_rules('id_asprak', 'Asprak', 'required');
 
         if ($this->form_validation->run() == TRUE) {
             $config['upload_path']      = './upload/cover_kursus/';
@@ -54,6 +57,7 @@ class Kursus extends CI_Controller
                     'title2'    => 'Tambah Data Kursus',
                     'error'     => $this->upload->display_errors(),
                     'dosen'     => $this->m_dosen->lists(),
+                    'asprak'    => $this->m_asprak->lists_asprak(),
                     'isi'       => 'admin/kursus/v_add'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -66,7 +70,8 @@ class Kursus extends CI_Controller
                 $data = array(
                     'nama_kursus'    => $this->input->post('nama_kursus'),
                     'ket_kursus'     => $this->input->post('ket_kursus'),
-                    'id_user'        => $this->input->post('id_user'),
+                    // 'id_admin'       => $this->input->post('id_admin'),
+                    // 'id_asprak'      => $this->input->post('id_asprak'),
                     'slug_kursus'    => url_title($this->input->post('nama_kursus'), 'dash', TRUE),
                     'cover_kursus'     => $upload_data['uploads']['file_name']
                 );
@@ -80,6 +85,7 @@ class Kursus extends CI_Controller
             'title'     => 'Kursus',
             'title2'    => 'Tambah Data Kursus',
             'dosen'     => $this->m_dosen->lists(),
+            'asprak'    => $this->m_asprak->lists_asprak(),
             'isi'       => 'admin/kursus/v_add'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);

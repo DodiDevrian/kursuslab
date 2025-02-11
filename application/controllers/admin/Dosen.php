@@ -138,11 +138,11 @@ class Dosen extends CI_Controller
             $this->load->library('image_lib', $config);
 
             $data = array(
-                'id_admin'      => $id_admin,
+                'id_admin'     => $id_admin,
                 'username'     => $this->input->post('username'),
                 'password'     => $this->input->post('password'),
                 'role'         => 2,
-                'nama_dosen'    => $this->input->post('nama_dosen'),
+                'nama_dosen'   => $this->input->post('nama_dosen'),
                 'nip'          => $this->input->post('nip'),
                 'email'        => $this->input->post('email')
             );
@@ -162,7 +162,6 @@ class Dosen extends CI_Controller
 
     public function delete($id_admin)
     {
-        // Hapus foto yang lama
         $dosen = $this->m_dosen->detail($id_admin);
         if ($dosen->foto_dosen != "") {
             unlink('./upload/foto_dosen/' . $dosen->foto_dosen);

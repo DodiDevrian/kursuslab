@@ -38,6 +38,9 @@
                     <a class="dropdown-item" href="<?= base_url('diskusi/detail_diskusi/' . $value->id_kursus) ?>"><?= wordwrap($value->nama_kursus,35,"<br>\n");?></a>
                 <?php } ?>
             </div>
+            <?php if ($this->session->userdata('username')) { ?>
+                <a href="<?= base_url('diskusi/detail_diskusi_me/' . $detail_kursus->id_kursus) ?>" class="btn btn-info ml-3">My Question</a>
+            <?php } ?>
         </div>
     <div class="wrapper">
         <!-- <aside id="sidebar">
@@ -88,13 +91,17 @@
                                             <span an class="message-data-time"><?= date('M j, Y, g:i a', strtotime($tanggal_kirim)) ?></span>
                                         </div>
 
-                                        <div class="message my-message">
+                                        <div class="message my-message mb-3">
                                         <?= $value->diskusi_user ?>
                                         </div>
-                                        <div class="img-diskusi mt-4">
-                                            <img src="<?= base_url('upload/foto_diskusi/' . $value->foto_diskusi) ?>" alt="" width="100%">
-                                        </div>
-                                        <div class="message-data">
+                                        <?php if ($value->foto_diskusi != NULL) { ?>
+                                            <div class="img-diskusi">
+                                                <img class="foto-diskusi" id="myImg<?= $value->id_diskusi ?>" src="<?= base_url('upload/foto_diskusi/' . $value->foto_diskusi) ?>" style="width:100%;">
+                                            </div>
+                                        <?php } ?>
+                                        <div class="message-data <?php if ($value->foto_diskusi != NULL) {
+                                            echo 'mt-3';
+                                        } ?>">
                                         <?= $value->nama_kursus ?>
                                         </div>
                                     </li>
@@ -111,9 +118,14 @@
                                             <span class="message-data-name" ><?= $value->nama_asprak ?></span>
                                             
                                             </div>
-                                            <div class="message other-message float-right">
+                                            <div class="message other-message float-right mb-3">
                                             <?= $value->diskusi_asprak ?>
                                             </div>
+                                            <?php if ($value->foto_diskusi_asprak != NULL) { ?>
+                                                <div class="img-diskusi">
+                                                    <img class="foto-diskusi" id="asImg<?= $value->id_diskusi ?>" src="<?= base_url('upload/foto_diskusi_asprak/' . $value->foto_diskusi_asprak) ?>" style="width:100%;">
+                                                </div>
+                                            <?php } ?>
                                         </li>
                                     </div>
                                 <?php } ?>
@@ -156,4 +168,65 @@
             <?php } ?>
         </div>
     </div>
+    <!-- <div class="col mt-5 mb-3"><?php echo $pagination; ?></div> -->
 </div>
+
+<?php foreach ($diskusi as $key => $value) { ?>
+<div id="myModal" class="modal-ps">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+
+<script>
+    var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg<?= $value->id_diskusi ?>");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+</script>
+<?php } ?>
+
+<?php foreach ($diskusi as $key => $value) { ?>
+<div id="myModal" class="modal-ps">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+
+<script>
+    var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var as = document.getElementById("asImg<?= $value->id_diskusi ?>");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+as.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+</script>
+<?php } ?>

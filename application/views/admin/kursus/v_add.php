@@ -41,14 +41,23 @@
 						</div>
                         <div class="form-group">
 							<label>Dosen Pengampu</label>
-							<select class="form-control" name="id_user">
-                                <!-- <option value="" disabled selected>--Pilih Kursus atau Mata Pelajaran--</option> -->
+							<select class="form-control" name="id_admin">
                                 <?php foreach ($dosen as $key => $value) {
                                     if ($value->role == 2) { ?>                                    
-                                    <option value="<?= $value->id_user?>"><?= $value->nama_user?></option>
+                                    <option value="<?= $value->id_admin?>"><?= $value->nama_dosen?></option>
                                 <?php } }?>
 							</select>
-                            <?= form_error('id_user', '<div class="text-danger small">', '</div>') ?>
+                            <?= form_error('id_admin', '<div class="text-danger small">', '</div>') ?>
+						</div>
+
+                        <div class="form-group">
+							<label>Asisten Praktikum</label>
+							<select class="form-control" name="id_asprak">
+                                <?php foreach ($asprak as $key => $value) { ?>                                    
+                                    <option value="<?= $value->id_asprak?>"><?= $value->nama_asprak?></option>
+                                <?php }?>
+							</select>
+                            <?= form_error('id_asprak', '<div class="text-danger small">', '</div>') ?>
 						</div>
 						
 						<div class="form-group">

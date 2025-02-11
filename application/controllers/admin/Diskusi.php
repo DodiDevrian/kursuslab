@@ -23,7 +23,7 @@ class Diskusi extends CI_Controller
         $data = array(
             'title'         => 'Forum Diskusi',
             'title2'        => 'Laboratorium Teknik Informatika',
-            'diskusi'        => $this->m_diskusi->lists(),
+            'diskusi'        => $this->m_diskusi->list(),
             'isi'           => 'admin/diskusi/v_list'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);

@@ -48,11 +48,15 @@
                             <tr>
                                 <td><?= $no++?></td>
                                 <td><?= $value->nama_user?></td>
-                                <td><?= $value->id_asprak?></td>
-                                <td><?= $value->diskusi_user?></td>
-                                <td><?= $value->diskusi_asprak?></td>
+                                <td>
+                                    <?= wordwrap($value->diskusi_user,35,"<br>\n");?><br>
+                                    <img src="<?= base_url('upload/foto_diskusi/' . $value->foto_diskusi) ?>" alt="" width="200px">
+                                </td>
+                                <td>
+                                    <?= wordwrap($value->diskusi_asprak,35,"<br>\n");?><br>
+                                    <img src="<?= base_url('upload/foto_diskusi_asprak/' . $value->foto_diskusi_asprak) ?>" alt="" width="200px">
+                                </td>
                                 <td><?= $value->foto_diskusi?></td>
-                                <!-- <td><img src="<?= base_url() ?>upload/foto_slider/<?= $value->foto_slider?>" alt="" width="350px"></td> -->
                                 <td>
                                     <div class="dropdown">
                                         <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">

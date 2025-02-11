@@ -6,8 +6,8 @@ class M_diskusi extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tbl_diskusi');
-        $this->db->join('tbl_user', 'tbl_user.id_user = tbl_diskusi.id_user', 'left');
         $this->db->join('tbl_asprak', 'tbl_asprak.id_asprak = tbl_diskusi.id_asprak', 'left');
+        $this->db->join('tbl_user', 'tbl_user.id_user = tbl_diskusi.id_user', 'left');
         $this->db->join('tbl_kursus', 'tbl_kursus.id_kursus = tbl_diskusi.id_kursus', 'left');
         $this->db->order_by('id_diskusi', 'DESC');
     
@@ -21,6 +21,19 @@ class M_diskusi extends CI_Model
         $this->db->join('tbl_kursus', 'tbl_kursus.id_kursus = tbl_diskusi.id_kursus', 'left');
         $this->db->order_by('id_diskusi', 'DESC');
         $query = $this->db->get('tbl_diskusi', $limit, $start);
+        return $query;
+
+    }
+
+    public function listsById($id_kursus, $limit, $start)
+    {
+        // $this->db->join('tbl_asprak', 'tbl_asprak.id_asprak = tbl_diskusi.id_asprak', 'left');
+        // $this->db->join('tbl_user', 'tbl_user.id_user = tbl_diskusi.id_user', 'left');
+        // $this->db->join('tbl_kursus', 'tbl_kursus.id_kursus = tbl_diskusi.id_kursus', 'left');
+        // $this->db->order_by('id_diskusi', 'DESC');
+
+        $query = $this->db->get_where("tbl_diskusi",array('id_kursus' => $id_kursus),$limit, $start);
+        // $query = $this->db->get('tbl_diskusi', $limit, $start);
         return $query;
 
     }
@@ -40,5 +53,20 @@ class M_diskusi extends CI_Model
     public function add_chat_user($data)
     {
         $this->db->insert('tbl_diskusi', $data);
+    }
+
+    public function detail($id_diskusi)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_diskusi');
+        $this->db->where('id_diskusi', $id_diskusi);
+
+        return $this->db->get()->row();
+    }
+
+    public function delete($data)
+    {
+        $this->db->where('id_diskusi', $data['id_diskusi']);
+        $this->db->delete('tbl_diskusi', $data);
     }
 }
