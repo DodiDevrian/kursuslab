@@ -8,7 +8,7 @@ class M_materi extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_materi');
         $this->db->join('tbl_kursus', 'tbl_kursus.id_kursus = tbl_materi.id_kursus', 'left');
-        $this->db->join('tbl_dosen', 'tbl_dosen.id_dosen = tbl_kursus.id_dosen', 'left');
+        $this->db->join('tbl_admin', 'tbl_admin.id_admin = tbl_kursus.id_admin', 'left');
         $this->db->order_by('id_materi', 'ASC');
 
         return $this->db->get()->result();

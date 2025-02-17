@@ -54,7 +54,7 @@
 
                         <div class="form-group">
 							<label>Jawaban Benar</label>
-							<select class="form-control" name="keypretest">
+							<select class="form-control" name="kunci">
 								<option value="A">A</option>
                                 <option value="B">B</option>
                                 <option value="C">C</option>

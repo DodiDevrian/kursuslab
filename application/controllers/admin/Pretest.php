@@ -45,7 +45,7 @@ class Pretest extends CI_Controller
             'title2'        => 'Laboratorium Teknik Informatika',
             'materi'        => $this->m_kursus->detail_materi($id_materi),
             'pretest'       => $this->m_pretest->lists_soal(),
-            'keypretest'    => $this->m_pretest->keypretest(),
+            // 'keypretest'    => $this->m_pretest->keypretest(),
             'id'            => $this->uri->segment(4),
             'isi'           => 'admin/pretest/v_list_pretest'
         );
@@ -60,7 +60,7 @@ class Pretest extends CI_Controller
         $this->form_validation->set_rules('jawaban_c', 'Jawaban C', 'required');
         $this->form_validation->set_rules('jawaban_d', 'Jawaban D', 'required');
         $this->form_validation->set_rules('jawaban_e', 'Jawaban E', 'required');
-        $this->form_validation->set_rules('keypretest', 'Jawaban Benar', 'required');
+        $this->form_validation->set_rules('kunci', 'Jawaban Benar', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $data = array(
@@ -83,8 +83,7 @@ class Pretest extends CI_Controller
                 'jawaban_c'     => $this->input->post('jawaban_c'),
                 'jawaban_d'     => $this->input->post('jawaban_d'),
                 'jawaban_e'     => $this->input->post('jawaban_e'),
-                'keypretest'     => $this->input->post('keypretest'),
-                'nomor_soal'     => $this->input->post('nomor_soal'),
+                'kunci'     => $this->input->post('kunci')
 
             );
 

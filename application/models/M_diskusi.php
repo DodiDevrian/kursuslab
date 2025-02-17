@@ -64,6 +64,12 @@ class M_diskusi extends CI_Model
         return $this->db->get()->row();
     }
 
+    public function edit($data)
+    {
+        $this->db->where('id_diskusi', $data['id_diskusi']);
+        $this->db->update('tbl_diskusi', $data);
+    }
+
     public function delete($data)
     {
         $this->db->where('id_diskusi', $data['id_diskusi']);

@@ -51,18 +51,18 @@
                                 <div class="mt-3"><?=$no++?>. <?= $value->soal?></div>
                                 <div class="pl-20 mt-3">
                                     <ul>
-                                        <li class="mb-2">A. <?= $value->jawaban_a?></li>
-                                        <li class="mb-2">B. <?= $value->jawaban_b?></li>
-                                        <li class="mb-2">C. <?= $value->jawaban_c?></li>
-                                        <li class="mb-2">D. <?= $value->jawaban_d?></li>
-                                        <li class="mb-2">E. <?= $value->jawaban_e?></li>
+                                        <li class="mb-2" <?php if ($value->kunci == 'A') {echo 'style="background: yellow;"'; } ?>>A. <?= $value->jawaban_a?></li>
+                                        <li class="mb-2" <?php if ($value->kunci == 'B') {echo 'style="background: yellow;"'; } ?>>B. <?= $value->jawaban_b?></li>
+                                        <li class="mb-2" <?php if ($value->kunci == 'C') {echo 'style="background: yellow;"'; } ?>>C. <?= $value->jawaban_c?></li>
+                                        <li class="mb-2" <?php if ($value->kunci == 'D') {echo 'style="background: yellow;"'; } ?>>D. <?= $value->jawaban_d?></li>
+                                        <li class="mb-2" <?php if ($value->kunci == 'E') {echo 'style="background: yellow;"'; } ?>>E. <?= $value->jawaban_e?></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="mt-3 col-sm-9">
-                                    <a href="<?= base_url('admin/pretest/edit/' . $value->id_soal) ?>" class="ml-5 btn btn-secondary"><i class="dw dw-edit2"></i> Edit</a>
-                                    <a href="<?= base_url('admin/pretest/delete/' . $value->id_soal) ?>" class="btn btn-danger"><i class="dw dw-delete-3"></i> Delete</a>
+                                    <a href="<?= base_url('admin/pretest/edit/' . $value->id_pretest) ?>" class="ml-5 btn btn-secondary"><i class="dw dw-edit2"></i> Edit</a>
+                                    <a href="<?= base_url('admin/pretest/delete/' . $value->id_pretest) ?>" class="btn btn-danger"><i class="dw dw-delete-3"></i> Delete</a>
                                 </div>
                             </div>
                             <hr>
@@ -76,7 +76,7 @@
                                         if ($value->id_materi == $id) { ?>
                                 <tr style="height: 30px;">
                                     <td style="margin-right: 5px;"><?= $no++?>. &nbsp;</td>
-                                    <td> <?= $value->keypretest ?></td>
+                                    <td> <?= $value->kunci ?></td>
                                 </tr>
                             <?php  }} ?>
                             </table>

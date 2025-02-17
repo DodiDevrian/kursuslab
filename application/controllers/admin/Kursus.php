@@ -56,8 +56,6 @@ class Kursus extends CI_Controller
                     'title'     => 'Kursus',
                     'title2'    => 'Tambah Data Kursus',
                     'error'     => $this->upload->display_errors(),
-                    'dosen'     => $this->m_dosen->lists(),
-                    'asprak'    => $this->m_asprak->lists_asprak(),
                     'isi'       => 'admin/kursus/v_add'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -70,9 +68,9 @@ class Kursus extends CI_Controller
                 $data = array(
                     'nama_kursus'    => $this->input->post('nama_kursus'),
                     'ket_kursus'     => $this->input->post('ket_kursus'),
-                    // 'id_admin'       => $this->input->post('id_admin'),
-                    // 'id_asprak'      => $this->input->post('id_asprak'),
-                    'slug_kursus'    => url_title($this->input->post('nama_kursus'), 'dash', TRUE),
+                    'id_admin'     => $this->input->post('id_admin'),
+                    'id_asprak'     => $this->input->post('id_asprak'),
+                    'slug_kursus'   => url_title($this->input->post('nama_kursus'), 'dash', TRUE),
                     'cover_kursus'     => $upload_data['uploads']['file_name']
                 );
 
@@ -81,6 +79,7 @@ class Kursus extends CI_Controller
                 redirect('admin/kursus');
             }
         }
+        
         $data = array(
             'title'     => 'Kursus',
             'title2'    => 'Tambah Data Kursus',
@@ -95,7 +94,6 @@ class Kursus extends CI_Controller
     {
         $this->form_validation->set_rules('nama_kursus', 'Nama Kursus', 'required');
         $this->form_validation->set_rules('ket_kursus', 'keterangan Kursus', 'required');
-        $this->form_validation->set_rules('id_user', 'Dosen Pengampu', 'required');
 
         if ($this->form_validation->run() == TRUE) {
             $config['upload_path']      = './upload/cover_kursus/';
@@ -111,6 +109,7 @@ class Kursus extends CI_Controller
                     'error'     => $this->upload->display_errors(),
                     'kursus'     => $this->m_kursus->detail_kursus($id_kursus),
                     'dosen'     => $this->m_dosen->lists(),
+                    'asprak'    => $this->m_asprak->lists_asprak(),
                     'isi'       => 'admin/kursus/v_edit'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -129,7 +128,8 @@ class Kursus extends CI_Controller
                 $data = array(
                     'id_kursus'       => $id_kursus,
                     'nama_kursus'     => $this->input->post('nama_kursus'),
-                    'id_user'        => $this->input->post('id_user'),
+                    'id_admin'     => $this->input->post('id_admin'),
+                    'id_asprak'     => $this->input->post('id_asprak'),
                     'ket_kursus'      => $this->input->post('ket_kursus'),
                     'cover_kursus'    => $upload_data['uploads']['file_name']
                 );
@@ -146,7 +146,8 @@ class Kursus extends CI_Controller
             $data = array(
                 'id_kursus'      => $id_kursus,
                 'nama_kursus'    => $this->input->post('nama_kursus'),
-                'id_user'        => $this->input->post('id_user'),
+                'id_admin'     => $this->input->post('id_admin'),
+                'id_asprak'     => $this->input->post('id_asprak'),
                 'ket_kursus'     => $this->input->post('ket_kursus'),
             );
 
@@ -159,6 +160,7 @@ class Kursus extends CI_Controller
             'title2'    => 'Ubah Data kursus',
             'kursus'     => $this->m_kursus->detail_kursus($id_kursus),
             'dosen'     => $this->m_dosen->lists(),
+            'asprak'    => $this->m_asprak->lists_asprak(),
             'isi'       => 'admin/kursus/v_edit'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);

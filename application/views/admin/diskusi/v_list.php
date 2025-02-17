@@ -25,7 +25,7 @@
                 <div class="pb-20">
                 <?php
                 if ($this->session->flashdata('pesan')) {
-                    echo '<div class="alert alert-success alert-dismissible">
+                    echo '<div class="alert alert-success alert-dismissible m-3">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>';
                     echo $this->session->flashdata('pesan');
                     echo '</div>';
@@ -38,7 +38,6 @@
                                 <th>Nama Pengirim</th>
                                 <th>Diskusi</th>
                                 <th>Jawaban</th>
-                                <th>Foto</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
@@ -49,14 +48,13 @@
                                 <td><?= $no++?></td>
                                 <td><?= $value->nama_user?></td>
                                 <td>
-                                    <?= wordwrap($value->diskusi_user,35,"<br>\n");?><br>
+                                    <?= wordwrap($value->diskusi_user,45,"<br>\n");?><br>
                                     <img src="<?= base_url('upload/foto_diskusi/' . $value->foto_diskusi) ?>" alt="" width="200px">
                                 </td>
                                 <td>
-                                    <?= wordwrap($value->diskusi_asprak,35,"<br>\n");?><br>
+                                    <?= wordwrap($value->diskusi_asprak,45,"<br>\n");?><br>
                                     <img src="<?= base_url('upload/foto_diskusi_asprak/' . $value->foto_diskusi_asprak) ?>" alt="" width="200px">
                                 </td>
-                                <td><?= $value->foto_diskusi?></td>
                                 <td>
                                     <div class="dropdown">
                                         <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">

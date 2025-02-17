@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 04, 2025 at 03:08 PM
+-- Generation Time: Feb 15, 2025 at 03:58 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -72,14 +72,15 @@ CREATE TABLE `tbl_asprak` (
 --
 
 INSERT INTO `tbl_asprak` (`id_asprak`, `id_user`, `nama_asprak`, `no_hp`, `created`, `modified`) VALUES
-(1, 7, 'Ahmad Akbar', 85788113563, '2024-09-26 16:27:10', '2024-12-04 00:55:38'),
-(2, 8, 'Nurdana Jaya', 85788113563, '2024-09-26 16:27:10', '2024-12-04 00:55:57'),
-(3, 9, 'Wili Jonatan', 81389654250, '2024-09-26 16:27:10', '2024-12-04 00:56:05'),
+(7, 7, 'Ahmad Akbar', 85788113563, '2024-09-26 16:27:10', '2025-02-04 21:39:47'),
+(8, 8, 'Nurdana Jaya', 85788113563, '2024-09-26 16:27:10', '2025-02-04 21:39:54'),
+(9, 9, 'Wili Jonatan', 81389654250, '2024-09-26 16:27:10', '2025-02-04 21:39:59'),
 (10, 10, 'Michael Mathew', 89628744896, '2024-12-04 06:07:30', NULL),
 (11, 11, 'Dila Ayu Prastita', 89628744896, '2024-12-04 06:15:37', NULL),
 (12, 12, 'Dimas Azi Rajab Aizar', 89628744896, '2024-12-04 06:15:37', NULL),
 (13, 13, 'Dwi Ananda Rizky', 89628744896, '2024-12-04 06:22:35', NULL),
-(14, 14, 'Edo Sani', 89628744896, '2024-12-04 06:22:35', NULL);
+(14, 14, 'Edo Sani', 89628744896, '2024-12-04 06:22:35', NULL),
+(16, 16, 'Punky Wijayanto Muda', 89628744878, '2025-02-04 23:08:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -156,7 +157,7 @@ CREATE TABLE `tbl_clogin` (
 --
 
 INSERT INTO `tbl_clogin` (`id_clogin`, `foto_login`) VALUES
-(1, 'e8c7334eca29eb90f9a8cfadb7763ae5.jpg');
+(1, '3.jpg');
 
 -- --------------------------------------------------------
 
@@ -183,14 +184,21 @@ CREATE TABLE `tbl_diskusi` (
 
 INSERT INTO `tbl_diskusi` (`id_diskusi`, `id_user`, `id_kursus`, `id_asprak`, `diskusi_user`, `diskusi_asprak`, `foto_diskusi`, `foto_diskusi_asprak`, `created_diskusi`, `modified_diskusi`) VALUES
 (1, 1, 1, 1, 'Permisi kak, maaf izin bertanya terkait materi pertemuan ke 7 apakah sudah di upload modulnya kak, terima kasih kak', 'Oke iuasd iubuhba usb unjasbd jhb javsasdd yv', NULL, NULL, '2024-09-25 09:48:43', '2024-09-28 07:30:16'),
-(2, 1, 5, 2, 'Bagiamana kalau Modul Tetap di sediakan?', 'lorem ipsum bhw jbjhbad', NULL, NULL, '2024-09-27 08:31:34', '2024-09-28 08:18:28'),
-(3, 1, 11, 4, 'Apakah Boleh Bertanya Kak?', '', NULL, NULL, '2024-09-29 23:28:51', NULL),
+(2, 1, 5, 16, 'Bagiamana kalau Modul Tetap di sediakan?', 'lorem ipsum bhw jbjhbad', NULL, NULL, '2024-09-27 08:31:34', '2025-02-08 15:28:16'),
 (4, 1, 12, 1, 'Bagaimana jika apakah?', '', NULL, NULL, '2024-09-30 09:33:24', NULL),
 (5, 1, 12, 1, 'Bagaimana Jika apakah kalau?', '', 'U9Vdxcb-avenged-sevenfold-wallpaper-hd.jpg', NULL, '2024-09-30 09:36:11', NULL),
-(6, 1, 6, 6, 'Bagaimana Jika wahhb ahb jhbasjdb?', '', 'WhatsApp_Image_2024-07-21_at_16_12_04.jpeg', NULL, '2024-09-30 09:42:55', NULL),
-(7, 1, 1, 1, 'Test 1 2 3 4 Haloo word', '', NULL, NULL, '2024-12-04 01:11:20', NULL),
-(8, 1, 11, 0, 'asdasdasd', '', NULL, NULL, '2024-12-04 01:31:39', NULL),
-(9, 15, 1, 1, 'Maaf kak, ini gimana ya kak yaa', '', NULL, NULL, '2024-12-05 23:53:14', NULL);
+(6, 1, 6, 6, 'Bagaimana Jika wahhb ahb jhbasjdb?', 'dsaiudhaui sdiuahd ihasdui hasuidh asuidh uisa dhuisadh ', 'WhatsApp_Image_2024-07-21_at_16_12_04.jpeg', '20200730090409.jpg', '2024-09-30 09:42:55', '2025-02-11 06:10:34'),
+(7, 1, 1, 7, 'Test 1 2 3 4 Haloo word', 'Iya seperti itu sudah benar', NULL, NULL, '2024-12-04 01:11:20', '2025-02-04 21:41:08'),
+(9, 15, 1, 1, 'Maaf kak, ini gimana ya kak yaa', '', NULL, NULL, '2024-12-05 23:53:14', NULL),
+(10, 15, 4, 10, 'Untuk materi minggu depan apakah sudah dishare kak?', '', NULL, NULL, '2025-02-04 21:59:29', NULL),
+(11, 15, 1, 7, 'Maaf kak, untuk pertemuan selanjutnya apakah ada tugas?', '', NULL, NULL, '2025-02-04 22:04:59', '2025-02-04 22:06:05'),
+(12, 15, 1, 7, 'adfsdfasdf', '', NULL, NULL, '2025-02-05 23:07:44', '2025-02-05 23:23:05'),
+(19, 1, 1, 7, 'Permisi kak, maaf izin bertanya terkait materi pertemuan ke 7 apakah sudah di upload modulnya kak, terima kasih kak lorem ipsupm saiui iasdhiuh iasuhdih iasudhiuasdh iuashduias hduiashd iuh', '', NULL, NULL, '2025-02-10 15:44:30', NULL),
+(20, 1, 1, 7, 'Permisi kak, maaf izin bertanya terkait materi pertemuan ke 7 apakah sudah di upload modulnya kak, terima kasih kak', '', NULL, NULL, '2025-02-10 17:06:10', NULL),
+(21, 1, 1, 7, 'Permisi kak, maaf izin bertanya terkait materi pertemuan ke 7 apakah sudah di upload modulnya kak, terima kasih kak', '', NULL, NULL, '2025-02-10 17:06:14', NULL),
+(22, 1, 1, 7, 'Permisi kak, maaf izin bertanya terkait materi pertemuan ke 7 apakah sudah di upload modulnya kak, terima kasih kak', '', NULL, NULL, '2025-02-10 17:06:18', NULL),
+(23, 1, 1, 7, 'Permisi kak, maaf izin bertanya terkait materi pertemuan ke 7 apakah sudah di upload modulnya kak, terima kasih kak', '', NULL, NULL, '2025-02-10 17:06:49', NULL),
+(24, 1, 1, 7, 'Permisi kak, maaf izin bertanya terkait materi pertemuan ke 7 apakah sudah di upload modulnya kak, terima kasih kak', 'Boleeh', NULL, 'wallpaperflare_com_wallpaper_(4).jpg', '2025-02-10 17:06:57', '2025-02-13 18:35:13');
 
 -- --------------------------------------------------------
 
@@ -200,43 +208,30 @@ INSERT INTO `tbl_diskusi` (`id_diskusi`, `id_user`, `id_kursus`, `id_asprak`, `d
 
 CREATE TABLE `tbl_do_pretest` (
   `id_dopretest` int(255) NOT NULL,
-  `id_pretest` int(255) NOT NULL,
+  `id_user` int(255) NOT NULL,
+  `id_kursus` int(255) NOT NULL,
   `jawab_1` varchar(255) NOT NULL,
   `jawab_2` varchar(255) NOT NULL,
   `jawab_3` varchar(255) NOT NULL,
   `jawab_4` varchar(255) NOT NULL,
   `jawab_5` varchar(255) NOT NULL,
+  `jawaban_6` varchar(255) NOT NULL,
+  `jawaban_7` varchar(255) NOT NULL,
+  `jawaban_8` varchar(255) NOT NULL,
+  `jawaban_9` varchar(255) NOT NULL,
+  `jawaban_10` varchar(255) NOT NULL,
   `poin_1` int(255) NOT NULL,
   `poin_2` int(255) NOT NULL,
   `poin_3` int(255) NOT NULL,
   `poin_4` int(255) NOT NULL,
   `poin_5` int(255) NOT NULL,
-  `sum` int(255) NOT NULL
+  `poin_6` int(255) NOT NULL,
+  `poin_7` int(255) NOT NULL,
+  `poin_8` int(255) NOT NULL,
+  `poin_9` int(255) NOT NULL,
+  `poin_10` int(255) NOT NULL,
+  `sum` int(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_keypretest`
---
-
-CREATE TABLE `tbl_keypretest` (
-  `id_keypretest` int(255) NOT NULL,
-  `id_materi` int(255) NOT NULL,
-  `jawaban_1` varchar(255) NOT NULL,
-  `jawaban_2` varchar(255) NOT NULL,
-  `jawaban_3` varchar(255) NOT NULL,
-  `jawaban_4` varchar(255) NOT NULL,
-  `jawaban_5` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tbl_keypretest`
---
-
-INSERT INTO `tbl_keypretest` (`id_keypretest`, `id_materi`, `jawaban_1`, `jawaban_2`, `jawaban_3`, `jawaban_4`, `jawaban_5`) VALUES
-(1, 1, 'A', 'C', 'B', 'D', 'E'),
-(2, 2, 'A', 'C', 'D', 'E', 'C');
 
 -- --------------------------------------------------------
 
@@ -261,15 +256,15 @@ CREATE TABLE `tbl_kursus` (
 --
 
 INSERT INTO `tbl_kursus` (`id_kursus`, `id_admin`, `id_asprak`, `nama_kursus`, `slug_kursus`, `ket_kursus`, `cover_kursus`, `created`, `modified`) VALUES
-(1, 1, 1, 'Pemrograman Web', 'Pemrograman-Web', 'Lorem ipusm bala bala oye asdg ihasdi biaushd ibasid biubasdbi ubsadibais dbiuasb duyagb iaushfb iashbf usbds f', 'cover_course.jpg', '2024-09-23 22:32:25', '2024-12-04 06:24:38'),
-(2, 2, 2, 'Sistem Tertanam', 'Sistem-Tertanam', 'Lorem Ipsum Bala bala okay', 'cover_course.jpg', '2024-09-23 22:32:25', '2024-12-04 06:25:08'),
-(3, 3, 3, 'Proyek Teknologi Informasi', 'Proyek-Teknologi-Informasi', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lectus id dolor ultricies ultricies eget at nibh. Aliquam in lobortis arcu, non tempor purus. Donec a aliquam purus. Quisque nec felis id tortor bibendum suscipit in faucibus est.', 'cover_course.jpg', '2024-09-23 22:32:25', '2024-12-04 06:25:12'),
+(1, 1, 7, 'Pemrograman Web', 'Pemrograman-Web', 'Lorem ipusm bala bala oye asdg ihasdi biaushd ibasid biubasdbi ubsadibais dbiuasb duyagb iaushfb iashbf usbds f', 'cover_course.jpg', '2024-09-23 22:32:25', '2025-02-04 22:05:39'),
+(2, 2, 11, 'Sistem Tertanam', 'Sistem-Tertanam', 'Lorem Ipsum Bala bala okay', 'cover_course.jpg', '2024-09-23 22:32:25', '2025-02-12 17:27:08'),
 (4, 1, 10, 'Jaringan Komputer', 'Jaringan-Komputer', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lectus id dolor ultricies ultricies eget at nibh. Aliquam in lobortis arcu, non tempor purus. Donec a aliquam purus. Quisque nec felis id tortor bibendum suscipit in faucibus est.', 'cover_course.jpg', '2024-09-23 22:32:25', '2024-12-04 06:25:24'),
 (5, 2, 11, 'Algoritma Pemrograman 1', 'Algoritma-Pemrograman-1', 'Algoritma Pemrograman 1 adalah matakuliah yang mempelajari tentang dasar-dasar pemrograman menggunaan bahasa C++<br>Materi yang di palajari pada&nbsp;<span>Algoritma Pemrograman 1 adalah sebagai berikut:<br></span>', 'cover_course.jpg', '2024-09-23 22:32:25', '2024-12-04 06:25:29'),
 (6, 3, 12, 'Algoritma Pemrograman 2', 'Algoritma-Pemrograman-2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lectus id dolor ultricies ultricies eget at nibh. Aliquam in lobortis arcu, non tempor purus. Donec a aliquam purus. Quisque nec felis id tortor bibendum suscipit in faucibus est.', 'cover_course.jpg', '2024-09-23 22:32:25', '2024-12-04 06:25:32'),
 (10, 3, 13, 'Pemrograman Berbasis Objek', 'Pemrograman-Berbasis-Objek', 'Lorem Ipsum', '4.png', '2024-09-23 22:32:25', '2024-12-04 06:25:36'),
 (11, 1, 14, 'Pengembangan Aplikasi Mobile', 'pengembangan-aplikasi-mobile', 'Lorem ipsum bla bla', 'gERBANG.jpg', '2024-09-23 22:32:25', '2024-12-04 06:25:41'),
-(12, 2, 10, 'Basis Data', 'basis-data', 'Lorem Ipsum wa we wo Done', 'Gambar_Lab_2.jpg', '2024-09-23 22:32:25', '2024-12-04 06:25:48');
+(12, 2, 10, 'Basis Data', 'basis-data', 'Lorem Ipsum wa we wo Done', 'Gambar_Lab_2.jpg', '2024-09-23 22:32:25', '2024-12-04 06:25:48'),
+(22, 3, 16, 'Proyek Teknologi Informasi', 'proyek-teknologi-informasi', 'sfsdf d fdg fh&nbsp;&nbsp;', 'wallpaperflare_com_wallpaper_(5).jpg', '2025-02-12 10:31:51', '2025-02-14 17:11:37');
 
 -- --------------------------------------------------------
 
@@ -324,20 +319,33 @@ CREATE TABLE `tbl_pretest` (
   `jawaban_c` text NOT NULL,
   `jawaban_d` text NOT NULL,
   `jawaban_e` text NOT NULL,
-  `sum` int(255) NOT NULL
+  `kunci` varchar(255) NOT NULL,
+  `created` datetime NOT NULL DEFAULT current_timestamp(),
+  `modified` datetime DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbl_pretest`
 --
 
-INSERT INTO `tbl_pretest` (`id_pretest`, `id_materi`, `soal`, `jawaban_a`, `jawaban_b`, `jawaban_c`, `jawaban_d`, `jawaban_e`, `sum`) VALUES
-(1, 1, 'Apakah???', 'ada', 'ava', 'afa', 'aea', 'ara', 1),
-(2, 2, 'Akankah akankah??', 'fgd', 'hfgh', 'dfgdg', 'sdfsf', 'fghfgh', 1),
-(3, 1, 'asd as as as&nbsp;', ' asdas  asd', 'f dgdf hf g ', 'hfg jg kgkf ', 'jdj dyjd y', ' syjs ry', 1),
-(4, 1, 'Soal ke 3 dengan bjasok askdhash djk?', 'asdasd sad as dasd', 's fsd fsd fds fsd f', 'dsfsdf sdf sdf', 'sd fsdf dsfsd f sd', 'sdf sdf sdf ds fsdf dfg df g', 1),
-(5, 1, 'Soal 4 asdhkj khasdkjha kdhakjsd hads', 'asd', 'sdg g', 'df gdfg', 'fgh fg', 'ryeyerte5', 1),
-(6, 1, 'Soal 5 hfiush fishdfi usdhf idhf?', 'asdafsgfdhgf jhs', ' awfsgdhgf dfhgdsfad', 'fdgzfd gzdf gd g', 'dytdtydtjs   sth str sh', 's fdz zdf gzf g', 1);
+INSERT INTO `tbl_pretest` (`id_pretest`, `id_materi`, `soal`, `jawaban_a`, `jawaban_b`, `jawaban_c`, `jawaban_d`, `jawaban_e`, `kunci`, `created`, `modified`) VALUES
+(1, 1, 'Apakah???', 'ada', 'ava', 'afa', 'aea', 'ara', 'A', '2025-02-14 16:35:50', NULL),
+(2, 2, 'Akankah akankah??', 'fgd', 'hfgh', 'dfgdg', 'sdfsf', 'fghfgh', 'B', '2025-02-14 16:35:50', NULL),
+(3, 1, 'asd as as as&nbsp;', ' asdas  asd', 'f dgdf hf g ', 'hfg jg kgkf ', 'jdj dyjd y', ' syjs ry', 'C', '2025-02-14 16:35:50', NULL),
+(4, 1, 'Soal ke 3 dengan bjasok askdhash djk?', 'asdasd sad as dasd', 's fsd fsd fds fsd f', 'dsfsdf sdf sdf', 'sd fsdf dsfsd f sd', 'sdf sdf sdf ds fsdf dfg df g', 'D', '2025-02-14 16:35:50', NULL),
+(5, 1, 'Soal 4 asdhkj khasdkjha kdhakjsd hads', 'asd', 'sdg g', 'df gdfg', 'fgh fg', 'ryeyerte5', 'E', '2025-02-14 16:35:50', NULL),
+(6, 1, 'Soal 5 hfiush fishdfi usdhf idhf?', 'asdafsgfdhgf jhs', ' awfsgdhgf dfhgdsfad', 'fdgzfd gzdf gd g', 'dytdtydtjs   sth str sh', 's fdz zdf gzf g', 'A', '2025-02-14 16:35:50', NULL),
+(7, 1, 'Soal Nomor 6', 'Soal Nomor 6', 'Soal Nomor 6', 'Soal Nomor 6', 'Soal Nomor 6', 'Soal Nomor 6', 'C', '2025-02-14 16:35:50', NULL),
+(8, 1, 'Soal Nomor 7', 'Soal Nomor 7', 'Soal Nomor 7', 'Soal Nomor 7', 'Soal Nomor 7', 'Soal Nomor 7', 'E', '2025-02-14 16:35:50', NULL),
+(9, 1, 'Soal Nomor 8', 'Soal Nomor 8', 'Soal Nomor 8', 'Soal Nomor 8', 'Soal Nomor 8', 'Soal Nomor 8', 'B', '2025-02-14 16:35:50', NULL),
+(10, 1, 'Soal Nomor 9', 'Soal Nomor 9', 'Soal Nomor 9', 'Soal Nomor 9', 'Soal Nomor 9', 'Soal Nomor 9', 'A', '2025-02-14 16:35:50', NULL),
+(11, 1, 'Soal Nomor 10', 'Soal Nomor 10', 'Soal Nomor 10', 'Soal Nomor 10', 'Soal Nomor 10', 'Soal Nomor 10', 'D', '2025-02-14 16:35:50', NULL),
+(12, 2, 'Pertemuan 2 - CSS', 'Pertemuan 2 - CSS Soal Nomor 2', 'Pertemuan 2 - CSS Soal Nomor 2', 'Pertemuan 2 - CSS Soal Nomor 2', 'Pertemuan 2 - CSS Soal Nomor 2', 'Pertemuan 2 - CSS Soal Nomor 2', 'C', '2025-02-14 16:40:16', NULL),
+(13, 2, 'Pertemuan 2 - CSS Soal Nomor 3', 'Pertemuan 2 - CSS Soal Nomor 3', 'Pertemuan 2 - CSS Soal Nomor 3', 'Pertemuan 2 - CSS Soal Nomor 3', 'Pertemuan 2 - CSS Soal Nomor 3', 'Pertemuan 2 - CSS Soal Nomor 3', 'D', '2025-02-14 16:41:32', NULL),
+(14, 2, 'Pertemuan 2 - CSS&nbsp;Soal Nomor 4', 'Pertemuan 2 - CSS Soal Nomor 4', 'Pertemuan 2 - CSS Soal Nomor 4', 'Pertemuan 2 - CSS Soal Nomor 4', 'Pertemuan 2 - CSS Soal Nomor 4', 'Pertemuan 2 - CSS Soal Nomor 4', 'E', '2025-02-14 16:49:24', NULL),
+(15, 2, 'Pertemuan 2 - CSS&nbsp;Soal Nomor 5', 'Pertemuan 2 - CSS Soal Nomor 5', 'Pertemuan 2 - CSS Soal Nomor 5', 'Pertemuan 2 - CSS Soal Nomor 5', 'Pertemuan 2 - CSS Soal Nomor 5', 'Pertemuan 2 - CSS Soal Nomor 5', 'A', '2025-02-14 16:49:42', NULL),
+(16, 2, 'Pertemuan 2 - CSS&nbsp;Soal Nomor 6', 'Pertemuan 2 - CSS Soal Nomor 6', 'Pertemuan 2 - CSS Soal Nomor 6', 'Pertemuan 2 - CSS Soal Nomor 6', 'Pertemuan 2 - CSS Soal Nomor 6', 'Pertemuan 2 - CSS Soal Nomor 6', 'D', '2025-02-14 16:50:01', NULL),
+(17, 2, 'Pertemuan 2 - CSS&nbsp;Soal Nomor 7', 'Pertemuan 2 - CSS Soal Nomor 7', 'Pertemuan 2 - CSS Soal Nomor 7', 'Pertemuan 2 - CSS Soal Nomor 7', 'Pertemuan 2 - CSS Soal Nomor 7', 'Pertemuan 2 - CSS Soal Nomor 7', 'C', '2025-02-14 16:59:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -397,7 +405,8 @@ INSERT INTO `tbl_user` (`id_user`, `username`, `password`, `role`, `nama_user`, 
 (12, 'dimas.121140135', 'dimas123', 4, 'Dimas Azi Rajab Aizar', 'dimas.121140135@student.itera.ac.id', 121140135, 'user4.png', '', '2024-12-04 06:11:56', NULL),
 (13, 'dwi.120140027', 'dwi123', 4, 'Dwi Ananda Rizky', 'dwi.120140027@student.ac.id', 120140027, 'WhatsApp_Image_2024-07-03_at_00_54_373.jpeg', '', '2024-12-04 06:19:59', NULL),
 (14, 'edo.120140179', 'edo123', 4, 'Edo Sani', 'edo.120140179@student.itera.ac.id', 120140179, 'activist1.png', '', '2024-12-04 06:19:59', NULL),
-(15, 'khairunnisa.123450071', 'khairunnisa123', 3, 'Khairunnisa Maharani', 'khairunnisa.123450071@student.itera.ac.id', 123450071, 'WhatsApp_Image_2024-07-21_at_16_07_22.jpeg', '', '2024-12-05 23:03:11', '2024-12-05 23:28:48');
+(15, 'khairunnisa.123450071', 'khairunnisa123', 3, 'Khairunnisa Maharani', 'khairunnisa.123450071@student.itera.ac.id', 123450071, 'WhatsApp_Image_2024-07-21_at_16_07_22.jpeg', 'khairunnisa-maharani', '2024-12-05 23:03:11', '2025-02-04 21:51:43'),
+(16, 'punky.119140048', 'punky123', 4, 'Punky Wijayanto Muda', 'punky.119140048@student.itera.ac.id', 119140048, 'customer-service1.png', '', '2025-02-04 23:07:54', '2025-02-04 23:08:01');
 
 --
 -- Indexes for dumped tables
@@ -446,12 +455,6 @@ ALTER TABLE `tbl_do_pretest`
   ADD PRIMARY KEY (`id_dopretest`);
 
 --
--- Indexes for table `tbl_keypretest`
---
-ALTER TABLE `tbl_keypretest`
-  ADD PRIMARY KEY (`id_keypretest`);
-
---
 -- Indexes for table `tbl_kursus`
 --
 ALTER TABLE `tbl_kursus`
@@ -492,12 +495,6 @@ ALTER TABLE `tbl_admin`
   MODIFY `id_admin` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tbl_asprak`
---
-ALTER TABLE `tbl_asprak`
-  MODIFY `id_asprak` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
 -- AUTO_INCREMENT for table `tbl_asset`
 --
 ALTER TABLE `tbl_asset`
@@ -519,7 +516,7 @@ ALTER TABLE `tbl_clogin`
 -- AUTO_INCREMENT for table `tbl_diskusi`
 --
 ALTER TABLE `tbl_diskusi`
-  MODIFY `id_diskusi` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_diskusi` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `tbl_do_pretest`
@@ -528,16 +525,10 @@ ALTER TABLE `tbl_do_pretest`
   MODIFY `id_dopretest` int(255) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tbl_keypretest`
---
-ALTER TABLE `tbl_keypretest`
-  MODIFY `id_keypretest` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT for table `tbl_kursus`
 --
 ALTER TABLE `tbl_kursus`
-  MODIFY `id_kursus` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_kursus` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `tbl_materi`
@@ -549,7 +540,7 @@ ALTER TABLE `tbl_materi`
 -- AUTO_INCREMENT for table `tbl_pretest`
 --
 ALTER TABLE `tbl_pretest`
-  MODIFY `id_pretest` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_pretest` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tbl_slider`
@@ -561,7 +552,7 @@ ALTER TABLE `tbl_slider`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

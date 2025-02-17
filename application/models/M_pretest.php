@@ -14,9 +14,19 @@ class M_pretest extends CI_Model
     public function lists_soal()
     {
         $this->db->select('*');
-        $this->db->from('tbl_banksoalpretest');
-        $this->db->join('tbl_materi', 'tbl_materi.id_materi = tbl_banksoalpretest.id_materi', 'left');
-        $this->db->order_by('id_soal', 'ASC');
+        $this->db->from('tbl_pretest');
+        $this->db->join('tbl_materi', 'tbl_materi.id_materi = tbl_pretest.id_materi', 'left');
+        $this->db->order_by('id_pretest', 'ASC');
+
+        return $this->db->get()->result();
+    }
+
+    public function do_pretest()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_do_pretest');
+        $this->db->join('tbl_materi', 'tbl_materi.id_materi = tbl_do_pretest.id_materi', 'left');
+        $this->db->order_by('id_pretest', 'ASC');
 
         return $this->db->get()->result();
     }
@@ -33,13 +43,13 @@ class M_pretest extends CI_Model
 
     public function add($data)
     {
-        $this->db->insert('tbl_banksoalpretest', $data);
+        $this->db->insert('tbl_pretest', $data);
     }
 
     public function edit($data)
     {
         $this->db->where('id_soal', $data['id_soal']);
-        $this->db->update('tbl_banksoalpretest', $data);
+        $this->db->update('tbl_pretest', $data);
     }
 
     public function keypretest()

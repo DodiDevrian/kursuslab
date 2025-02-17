@@ -52,6 +52,7 @@ class Kursus extends CI_Controller
             'title2'        => 'Laboratorium Teknik Informatika',
             'materi'        => $this->m_kursus->detail_materi($id_materi),
             'lists_materi'  => $this->m_kursus->lists_materi(),
+            'do_pretest'    => $this->m_pretest->do_pretest(),
             'id'            => $this->uri->segment(4),
             'isi'           => 'v_detail_kursus'
         );

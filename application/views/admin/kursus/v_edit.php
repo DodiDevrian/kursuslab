@@ -40,15 +40,29 @@
 						</div>
                         <div class="form-group">
 							<label>Dosen Pengampu</label>
-							<select class="form-control" name="id_user">
-                                <option value="<?= $kursus->id_user ?>" disabled><?= $kursus->nama_user?></option>
+							<select class="form-control" name="id_admin">
+                                <option value="<?= $kursus->id_admin ?>"><?= $kursus->nama_dosen?></option>
                                 <?php foreach ($dosen as $key => $value) {
                                     if ($value->role == 2) { ?>                                    
-                                    <option value="<?= $value->id_user?>"><?= $value->nama_user?></option>
+                                    <option value="<?= $value->id_admin?>"><?= $value->nama_dosen?></option>
                                 <?php } }?>
 							</select>
-                            <?= form_error('id_user', '<div class="text-danger small">', '</div>') ?>
+                            <?= form_error('id_admin', '<div class="text-danger small">', '</div>') ?>
 						</div>
+                        <div class="form-group">
+							<label>Asisten Praktikum</label>
+							<select class="form-control" name="id_asprak">
+                                <option value="<?= $kursus->id_asprak ?>"><?= $kursus->nama_asprak?></option>
+                                <?php foreach ($asprak as $key => $value) { ?>                                    
+                                    <option value="<?= $value->id_asprak?>"><?= $value->nama_asprak?></option>
+                                <?php }?>
+							</select>
+                            <?= form_error('id_asprak', '<div class="text-danger small">', '</div>') ?>
+						</div>
+                        <div class="form-group">
+                            <label>Gambar Saat Ini</label><br>
+                            <img src="<?= base_url('upload/cover_kursus/' . $kursus->cover_kursus) ?>" alt="" width="600px">
+                        </div>
 						<div class="form-group">
 							<label>Upload Cover Kursus</label>
 							<div class="custom-file">

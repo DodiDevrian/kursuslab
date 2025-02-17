@@ -17,8 +17,8 @@ class M_kursus extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tbl_kursus');
+        $this->db->join('tbl_asprak', 'tbl_asprak.id_asprak = tbl_kursus.id_asprak', 'left');
         $this->db->join('tbl_admin', 'tbl_admin.id_admin = tbl_kursus.id_admin', 'left');
-        // $this->db->join('tbl_asprak', 'tbl_asprak.id_asprak = tbl_kursus.id_asprak', 'left');
         $this->db->where('id_kursus', $id_kursus);
 
         return $this->db->get()->row();

@@ -57,7 +57,7 @@
             <div class="card-box mb-30">
                 <div class="mb-30 pd-20 d-flex justify-content-between">
                     <h4 class="text-blue h4">Data <?= $title?></h4>
-                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">Ubah Gambar +</button>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">Ubah Gambar <i class="ml-2 fa fa-pencil-square-o" aria-hidden="true"></i></button>
                 </div>
 
                 <div class="pb-20 text-center">

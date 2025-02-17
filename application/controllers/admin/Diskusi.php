@@ -28,4 +28,21 @@ class Diskusi extends CI_Controller
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
     }
+
+    public function delete($id_diskusi)
+    {
+        $diskusi = $this->m_diskusi->detail($id_diskusi);
+        if ($diskusi->foto_diskusi != "") {
+            unlink('./upload/foto_diskusi/' . $diskusi->foto_diskusi);
+        }
+        if ($diskusi->foto_diskusi_asprak != "") {
+            unlink('./upload/foto_diskusi_asprak/' . $diskusi->foto_diskusi_asprak);
+        }
+
+        $data = array('id_diskusi' => $id_diskusi);
+        $this->m_diskusi->delete($data);
+
+        $this->session->set_flashdata('pesan', 'Data Berhasil Dihapus!');
+        redirect('admin/diskusi');
+    }
 }
