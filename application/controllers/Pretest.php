@@ -9,6 +9,7 @@ class Pretest extends CI_Controller
 		$this->load->helpers('text');
 
         $this->load->model('m_kursus');
+        $this->load->model('m_pretest');
         $this->load->model('M_auth');
 	}
 
@@ -17,12 +18,10 @@ class Pretest extends CI_Controller
         $data = array(
             'title'         => 'Pretest',
             'title2'        => 'Laboratorium Teknik Informatika',
-            'list_kursus'        => $this->m_kursus->lists(),
-            // 'kursus'        => $this->m_kursus->detail_kursus($id_kursus),
-            'materi'        => $this->m_kursus->lists_materi(),
-            'materi_button' => $this->m_kursus->lists_materi_button(),
+            'list_kursus'   => $this->m_kursus->lists(),
+            'materi'        => $this->m_kursus->detail_materi($id_materi),
             'id'            => $this->uri->segment(3),
-            'isi'           => 'pretest/v_do_pretestss'
+            'isi'           => 'pretest/v_do_pretest'
         );
         $this->load->view('layout/v_wrapper', $data, FALSE);
     }

@@ -4,6 +4,18 @@
 <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
 <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
 
+<?php $id_materi = $this->uri->segment(3);
+	$max_number = 0;
+	foreach ($do_pretest as $key => $value) {
+		$number = $value->sum ;
+		if ($value->id_materi == $id_materi) {
+			if ( $number > $max_number ) {
+				$max_number = $number ;
+			}
+		}
+	}
+?>
+
 <div class="home">
 		<div class="breadcrumbs_container">
 			<div class="container">
@@ -11,8 +23,8 @@
 					<div class="col">
 						<div class="breadcrumbs">
 							<ul>
-								<li><a href="index.html">Home</a></li>
-								<li><a href="courses.html">Kursus</a></li>
+								<li><a href="<?= base_url() ?>">Home</a></li>
+								<li><a href="<?= base_url('kursus') ?>">Kursus</a></li>
 								<li><?= $materi -> nama_kursus ?></li>
 							</ul>
 						</div>
@@ -31,13 +43,18 @@
 					</button>
 				</div>
 				<ul class="sidebar-nav">
-					<?php foreach ($lists_materi as $key => $value) { 
-					if ($value->id_kursus == $id_list) { ?>
+					<?php $i=1; foreach ($lists_materi as $key => $value) { 
+					if ($value->id_kursus == $id_list) {?>
 					<li class="sidebar-item">
-						<a href="<?= base_url('kursus/detail_materi/' . $value->id_materi) ?>" class="sidebar-link d-flex">
+						<a href="<?php if ($max_number > 70) {
+							echo base_url('kursus/detail_materi/' . $value->id_materi);
+						}else {
+							echo base_url('pretest/do/' . $id_materi);
+						}  ?>" class="sidebar-link d-flex">
 							<i class="lni lni-play"></i>
 							<div>
 								<?= wordwrap($value->nama_materi,35,"<br>\n");?>
+
 							</div>
 						</a>
 					</li>
