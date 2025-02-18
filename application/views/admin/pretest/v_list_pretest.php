@@ -46,7 +46,7 @@
                         <div class="col-md-8" style="padding: 35px;">
                             <h4>Soal dan Pilihan Jawaban</h4>
                             <?php $no=1; foreach ($pretest as $key => $value) {
-                                        if ($value->id_materi == $id) { ?>
+                                        if ($value->id_materi == $id) {  ?> 
                             <div>
                                 <div class="mt-3"><?=$no++?>. <?= $value->soal?></div>
                                 <div class="pl-20 mt-3">

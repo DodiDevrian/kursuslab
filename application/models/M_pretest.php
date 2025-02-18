@@ -46,19 +46,24 @@ class M_pretest extends CI_Model
         $this->db->insert('tbl_pretest', $data);
     }
 
+    public function submit($data)
+    {
+        $this->db->insert('tbl_do_pretest', $data);
+    }
+
     public function edit($data)
     {
         $this->db->where('id_soal', $data['id_soal']);
         $this->db->update('tbl_pretest', $data);
     }
 
-    public function keypretest()
+    public function detail_kunci($id_materi)
     {
         $this->db->select('*');
-        $this->db->from('tbl_keypretest');
-        $this->db->order_by('id_keypretest', 'ASC');
+        $this->db->from('tbl_kunci_pretest');
+        $this->db->where('id_materi', $id_materi);
 
-        return $this->db->get()->result();
+        return $this->db->get()->row();
     }
 
     public function add_keypretest($data)
