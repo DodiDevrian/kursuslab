@@ -52,7 +52,7 @@
                             <?= form_error('soal', '<div class="text-danger small">', '</div>') ?>
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
 							<label>Jawaban Benar</label>
 							<select class="form-control" name="kunci">
 								<option value="A">A</option>
@@ -61,7 +61,7 @@
                                 <option value="D">D</option>
                                 <option value="E">E</option>
 							</select>
-						</div>
+						</div> -->
 
                         <div class="form-group" style="margin-top: 70px;">
                             <label><strong>Jawaban A : </strong></label>

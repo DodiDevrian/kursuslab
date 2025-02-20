@@ -21,6 +21,24 @@ class M_pretest extends CI_Model
         return $this->db->get()->result();
     }
 
+    public function list_kunci()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_kunci_pretest');
+        $this->db->order_by('id_kuncipretest', 'DESC');
+
+        return $this->db->get()->result();
+    }
+
+    public function kunci($id_materi)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_kunci_pretest');
+        $this->db->where('id_materi', $id_materi);
+
+        return $this->db->get()->row();
+    }
+
     public function do_pretest()
     {
         $this->db->select('*');
@@ -31,12 +49,12 @@ class M_pretest extends CI_Model
         return $this->db->get()->result();
     }
 
-    public function detail($id_soal)
+    public function detail($id_pretest)
     {
         $this->db->select('*');
-        $this->db->from('tbl_banksoalpretest');
-        $this->db->join('tbl_materi', 'tbl_materi.id_materi = tbl_banksoalpretest.id_materi', 'left');
-        $this->db->where('id_soal', $id_soal);
+        $this->db->from('tbl_pretest');
+        $this->db->join('tbl_materi', 'tbl_materi.id_materi = tbl_pretest.id_materi', 'left');
+        $this->db->where('id_pretest', $id_pretest);
 
         return $this->db->get()->row();
     }
@@ -44,6 +62,17 @@ class M_pretest extends CI_Model
     public function add($data)
     {
         $this->db->insert('tbl_pretest', $data);
+    }
+
+    public function add_kunci($data)
+    {
+        $this->db->insert('tbl_kunci_pretest', $data);
+    }
+
+    public function edit_kunci($data)
+    {
+        $this->db->where('id_materi', $data['id_materi']);
+        $this->db->update('tbl_kunci_pretest', $data);
     }
 
     public function submit($data)

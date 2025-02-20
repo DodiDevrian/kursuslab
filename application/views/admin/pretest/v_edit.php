@@ -34,12 +34,12 @@
                             echo '<div class="alert alert-danger alert-dismissible">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
                         }
-                        echo form_open_multipart('admin/pretest/edit/' . $detail->id_soal);
+                        echo form_open_multipart('admin/pretest/edit/' . $detail->id_pretest);
                         ?>
                         <div class="form-group">
 							<label>Materi</label>
                             <input value="<?= $detail->nomor_soal ?>" name="nomor_soal" type="hidden">
-                            <input value="<?= $detail->id_soal ?>" name="id_soal" type="hidden">
+                            <input value="<?= $detail->id_pretest ?>" name="id_pretest" type="hidden">
 							<select class="form-control" name="id_materi">
 								<option value="<?= $detail->id_materi ?>"><?= $detail->nama_materi ?></option>
 							</select>
@@ -51,7 +51,7 @@
                             <?= form_error('soal', '<div class="text-danger small">', '</div>') ?>
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
 							<label>Jawaban Benar</label>
 							<select class="form-control" name="keypretest">
                             <option value="<?= $detail->keypretest ?>"><?= $detail->keypretest ?></option>
@@ -62,7 +62,7 @@
                                 <option value="E">E</option>
 							</select>
                             <?= form_error('keypretest', '<div class="text-danger small">', '</div>') ?>
-						</div>
+						</div> -->
 
                         <div class="form-group" style="margin-top: 70px;">
                             <label><strong>Jawaban A : </strong></label>
