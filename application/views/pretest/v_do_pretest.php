@@ -32,6 +32,8 @@
                 }
                 echo form_open_multipart('pretest/do/' . $materi->id_materi);
             ?>
+            <input type="hidden" id="custId" name="id_kursus" value="<?= $materi -> id_kursus ?>">
+
             <?php $no=1; $num=0; foreach ($pretest as $key => $value) {
                                         if ($value->id_materi == $id) { $num++; ?> 
             <input type="hidden" name="id_user" value="<?=$this->session->userdata('id_user')?>">

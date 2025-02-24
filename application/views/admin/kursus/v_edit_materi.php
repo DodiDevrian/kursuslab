@@ -56,7 +56,42 @@
 						</div>
 
                         <div class="form-group">
-							<label>Upload File Materi</label>
+                            <label>Apakah diperlukan Pre-test untuk akses materi ini?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status_pretest" id="status1" value="Yes" <?php if ($materi->status_pretest == 'Yes') { echo 'checked'; } ?>>
+                                <label class="form-check-label" for="status1">
+                                    Ya
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status_pretest" id="status2" value="No" <?php if ($materi->status_pretest == 'No') { echo 'checked'; } ?>>
+                                <label class="form-check-label" for="status2">
+                                    Tidak
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Apakah Ini Termasuk Kedalam Materi Terakhir ?</label>
+                            <div class="note-posttest">
+                                <p>Note : Untuk memunculkan tombol Post-test pada halaman materi.</p>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="cek_last" id="cek1" value="Yes" <?php if ($materi->cek_last == 'Yes') { echo 'checked'; } ?>>
+                                <label class="form-check-label" for="cek1">
+                                    Ya
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="cek_last" id="cek2" value="No" <?php if ($materi->cek_last == 'No') { echo 'checked'; } ?>>
+                                <label class="form-check-label" for="cek2">
+                                    Tidak
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+							<label>Upload File Materi (<span style="color: red;">*File Harus Berupa PDF atau DOCX</span>)</label>
 							<input name="doc_materi" type="file" value="<?= $materi->doc_materi ?>" class="form-control-file form-control height-auto">
 						</div>
 

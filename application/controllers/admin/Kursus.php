@@ -211,6 +211,7 @@ class Kursus extends CI_Controller
                 $data = array(
                     'title'     => 'Materi',
                     'title2'    => 'Tambah Data Materi',
+                    'kursus'     => $this->m_kursus->detail_kursus($id_kursus),
                     'error'     => $this->upload->display_errors(),
                     'isi'       => 'admin/kursus/v_add_materi'
                 );
@@ -224,6 +225,8 @@ class Kursus extends CI_Controller
                 $data = array(
                     'id_kursus'      => $id_kursus,
                     'nama_materi'    => $this->input->post('nama_materi'),
+                    'status_pretest'    => $this->input->post('status_pretest'),
+                    'cek_last'    => $this->input->post('cek_last'),
                     'ket_materi'     => $this->input->post('ket_materi'),
                     'id_yt'          => $this->input->post('id_yt'),
                     'status'         => 1,
@@ -256,7 +259,7 @@ class Kursus extends CI_Controller
         if ($this->form_validation->run() == TRUE) {
             $config['upload_path']      = './upload/doc_materi/';
             $config['allowed_types']    = 'pdf|docx|doc';
-            $config['max_size']         = 20000;
+            $config['max_size']         = 200000000000;
             $this->upload->initialize($config);
 
             if (!$this->upload->do_upload('doc_materi')) {
@@ -284,6 +287,8 @@ class Kursus extends CI_Controller
                 $data = array(
                     'id_materi'       => $id_materi,
                     'id_kursus'       => $this->input->post('id_kursus'),
+                    'status_pretest'    => $this->input->post('status_pretest'),
+                    'cek_last'    => $this->input->post('cek_last'),
                     'nama_materi'     => $this->input->post('nama_materi'),
                     'ket_materi'      => $this->input->post('ket_materi'),
                     'id_yt'           => $this->input->post('id_yt'),
@@ -305,6 +310,8 @@ class Kursus extends CI_Controller
             $data = array(
                 'id_materi'       => $id_materi,
                 'id_kursus'       => $this->input->post('id_kursus'),
+                'status_pretest'    => $this->input->post('status_pretest'),
+                'cek_last'    => $this->input->post('cek_last'),
                 'nama_materi'     => $this->input->post('nama_materi'),
                 'ket_materi'      => $this->input->post('ket_materi'),
                 'id_yt'           => $this->input->post('id_yt')

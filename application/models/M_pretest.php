@@ -80,6 +80,31 @@ class M_pretest extends CI_Model
         $this->db->insert('tbl_do_pretest', $data);
     }
 
+    public function detail_do($id_dopretest)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_do_pretest');
+        $this->db->join('tbl_materi', 'tbl_materi.id_materi = tbl_do_pretest.id_materi', 'left');
+        $this->db->where('id_dopretest', $id_dopretest);
+
+        return $this->db->get()->row();
+    }
+
+    public function hasil_pretest($id_materi)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_do_pretest');
+        $this->db->where('id_materi', $id_materi);
+
+        return $this->db->get()->row();
+    }
+
+    public function repretest($data)
+    {
+        $this->db->where('id_dopretest', $data['id_dopretest']);
+        $this->db->update('tbl_do_pretest', $data);
+    }
+
     public function edit($data)
     {
         $this->db->where('id_soal', $data['id_soal']);

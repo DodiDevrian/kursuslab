@@ -121,8 +121,10 @@ foreach ($kunci_list as $key => $value) {
                                 <p class="mt-3" style="color: red;">Buat 10 soal untuk menambahkan kunci jawaban</p>
                             <?php }else { ?>
                                 <?php $i=0; foreach ($kunci_list as $key => $value) { $i++;
-                                    if ($count < 1) { ?>
+                                    if ($count < 1) { if ($i == 1) { ?>
                                         <a href="<?= base_url('admin/pretest/add_kunci/' . $id) ?>" class="btn btn-success mt-3">Buat Kunci Jawaban</a>
+                                    <?php } ?>
+                                    
                                     <?php }else {
                                         if ($i == 1) { ?>
                                         <table class="mt-3">

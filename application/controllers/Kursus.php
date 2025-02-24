@@ -11,6 +11,8 @@ class Kursus extends CI_Controller
         $this->load->model('m_kursus');
         $this->load->model('m_pretest');
         $this->load->model('M_auth');
+
+        
 	}
     
     public function index()
@@ -22,14 +24,22 @@ class Kursus extends CI_Controller
             'isi'     => 'v_kursus'
         );
         $this->load->view('layout/v_wrapper', $data, FALSE);
+
+        if ($this->session->userdata('role')=='') {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				Anda Belum Melakukan <strong>Login Sebagai Admin!</strong>
+				</div>');
+			redirect('auth/login');
+		}
     }
 
     public function detail_kursus($id_kursus)
     {
+
         $data = array(
             'title'         => 'Kursus',
             'title2'        => 'Laboratorium Teknik Informatika',
-            'list_kursus'        => $this->m_kursus->lists(),
+            'list_kursus'   => $this->m_kursus->lists(),
             'kursus'        => $this->m_kursus->detail_kursus($id_kursus),
             'materi'        => $this->m_kursus->lists_materi(),
             'materi_button' => $this->m_kursus->lists_materi_button(),
@@ -55,6 +65,7 @@ class Kursus extends CI_Controller
             'lists_materi'  => $this->m_kursus->lists_materi(),
             'do_pretest'    => $this->m_pretest->do_pretest(),
             'id'            => $this->uri->segment(4),
+            'cek_id'            => $this->uri->segment(3),
             'isi'           => 'v_detail_kursus'
         );
         $this->load->view('layout/v_wrapper', $data, FALSE);

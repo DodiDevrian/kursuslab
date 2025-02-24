@@ -172,3 +172,15 @@ a.sidebar-link:hover {
 a.link-profile {
     color: white;
 }
+
+.notif-pretest {
+    margin-top: 60px;
+}
+
+.note-posttest {
+    width: 500px;
+    background: #e8e8e8;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+}

@@ -49,15 +49,52 @@
 						<div class="form-group">
                             <label>Keterangan Materi</label>
                             <textarea class="form-control" name="ket_materi"></textarea>
+                            <?php echo form_error('id_yt', '<div class="text-danger small">', '</div>') ?>
                         </div>
 
                         <div class="form-group">
 							<label>ID Youtube</label>
 							<input class="form-control" name="id_yt" type="text" placeholder="Masukkan ID Youtube">
+                            <?php echo form_error('id_yt', '<div class="text-danger small">', '</div>') ?>
 						</div>
 
                         <div class="form-group">
-							<label>Upload File Materi</label>
+                            <label>Apakah diperlukan Pre-test untuk akses materi ini?</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status_pretest" id="status1" value="Yes">
+                                <label class="form-check-label" for="status1">
+                                    Ya
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status_pretest" id="status2" value="No" checked>
+                                <label class="form-check-label" for="status2">
+                                    Tidak
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Apakah Ini Termasuk Kedalam Materi Terakhir ?</label>
+                            <div class="note-posttest">
+                                <p>Note : Untuk memunculkan tombol Post-test pada halaman materi.</p>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="cek_last" id="cek1" value="Yes">
+                                <label class="form-check-label" for="cek1">
+                                    Ya
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="cek_last" id="cek2" value="No" checked>
+                                <label class="form-check-label" for="cek2">
+                                    Tidak
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+							<label>Upload File Materi (<span style="color: red;">*File Harus Berupa PDF atau DOCX</span>)</label>
 							<input name="doc_materi" type="file" class="form-control-file form-control height-auto">
 						</div>
 

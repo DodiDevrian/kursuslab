@@ -43,7 +43,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Mulai Foreach -->
                             <?php $no=1; foreach ($dosen as $key => $value) {
                                 if ($value->role == '2') { ?>
                             <tr>
@@ -65,7 +64,6 @@
                                 </td>
                             </tr>
                             <?php }} ?>
-                            <!-- End Foreach -->
                         </tbody>
                     </table>
                 </div>
