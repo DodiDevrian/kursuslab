@@ -107,7 +107,7 @@ class M_pretest extends CI_Model
 
     public function edit($data)
     {
-        $this->db->where('id_soal', $data['id_soal']);
+        $this->db->where('id_pretest', $data['id_pretest']);
         $this->db->update('tbl_pretest', $data);
     }
 

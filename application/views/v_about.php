@@ -20,7 +20,7 @@
 
 <div class="container mt-2">
     <div class="embed-responsive embed-responsive-21by9" style="border-radius: 10px;">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d340.2212856740058!2d105.30929038405414!3d-5.360445791194249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40c5121587f6e1%3A0xd07320f67e93c5f3!2sGedung%20Laboratorium%20Teknik%203%20ITERA%20(GLT%203)!5e0!3m2!1sid!2sid!4v1722229917777!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d340.22134171581456!2d105.30926175427808!3d-5.360345207087888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40c5004da93831%3A0x77578dd6bab8bcd3!2sLaboratorium%20Teknik%20Informatika!5e0!3m2!1sid!2sid!4v1740497938740!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </div>
 

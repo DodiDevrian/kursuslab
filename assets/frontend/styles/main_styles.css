@@ -1035,6 +1035,10 @@ section
 	padding-right: 30px;
 	padding-bottom: 23px;
 }
+.course_title
+{
+	height: 75px;
+}
 .course_title a
 {
 	font-family: 'Roboto Slab', serif;

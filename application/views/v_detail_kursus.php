@@ -36,7 +36,7 @@
 		}
 	}
 ?>
-	<?php echo $count . '<br>' ; echo $cek_id ;?>
+
 	<div class="container">
 		<div class="wrapper">
 			<aside id="sidebar">
@@ -126,6 +126,9 @@
 						</div>
 						<div class="d-flex justify-content-between" style="margin-top: 25px;">
 							<h3 class="mb-2 mt-2"><?= $materi -> nama_materi ?></h3>
+							<?php if ($materi->cek_last == 'Yes') { ?>
+								<a href="<?= base_url('posttest/do/' . $materi->id_kursus) ?>" class="btn btn-primary">Kerjakan Post-Test</a>
+							<?php } ?>
 							<?php if ($materi -> status == 2) { ?>
 							<a target="_blank" class="btn btn-warning" href="<?= base_url('upload/doc_materi/' . $materi->doc_materi) ?>"><i style="font-size: 25px; margin-right: 10px;" class="fa fa-file-pdf-o"></i> Download Modul</a>
 							<?php } ?>

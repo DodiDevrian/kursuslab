@@ -44,7 +44,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Mulai Foreach -->
                             <?php $no=1; foreach ($praktikan as $key => $value) {?>
                             <tr>
                                 <td><?= $no++?></td>
@@ -63,9 +62,6 @@
                                                 </a>
                                         <?php }  ?>
                                     </div>
-                                    <div>
-                                        <!-- <a class="dropdown-item" type="button" data-toggle="modal" data-target="#exampleModal<?= $value->id_user?>"><i class="dw dw-edit2"></i> Ubah</a> -->
-                                    </div>
                                 </td>
                                 <td><img src="<?= base_url()?>/upload/foto_user/<?= $value->foto_user?>" alt="" width="100px"></td>
                                 <td>
@@ -81,7 +77,6 @@
                                 </td>
                             </tr>
                             <?php } ?>
-                            <!-- End Foreach -->
                         </tbody>
                     </table>
                 </div>

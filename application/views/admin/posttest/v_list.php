@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <div class="title">
-                            <h4>Data Kursus</h4>
+                            <h4>Data Post-Test</h4>
                         </div>
                         <nav aria-label="breadcrumb" role="navigation">
                             <ol class="breadcrumb">
@@ -19,8 +19,7 @@
             <!-- Isi Tabel Kursus -->
             <div class="card-box mb-30">
                 <div class="mb-30 pd-20 d-flex justify-content-between">
-                    <h4 class="text-blue h4">Data Kursus</h4>
-                    <a href="<?= base_url('admin/kursus/add') ?>" class="btn btn-secondary">Tambah Data Kursus +</a>
+                    <h4 class="text-blue h4">Data Post-Test</h4>
                 </div>
                 <div class="pb-20">
                 <?php
@@ -34,35 +33,16 @@
                     <table class="data-table table stripe hover nowrap">
                         <thead>
                             <tr>
-                                <th>No</th>
                                 <th>Mata Kuliah</th>
-                                <th>Dosen</th>
-                                <th>Asprak</th>
-                                <th>Keterangan</th>
-                                <th>Cover</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $no=1; foreach ($kursus as $key => $value) { ?>
+                            <?php foreach ($kursus as $key => $value) { ?>
                             <tr>
-                                <td><?= $no++ ?></td>
                                 <td><?= $value->nama_kursus?></td>
-                                <td><?= $value->nama_dosen?></td>
-                                <td><?= $value->nama_asprak?></td>
-                                <td><?= wordwrap(substr(strip_tags($value->ket_kursus), 0, 80),35,"<br>\n");?><br></td>
-                                <td><img width="100px" src="<?= base_url('upload/cover_kursus/') . $value->cover_kursus ?>" alt=""></td>
                                 <td>
-                                    <div class="dropdown">
-                                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                            <i class="dw dw-more"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                            <a class="dropdown-item" href="<?= base_url('admin/kursus/list_materi/' . $value->id_kursus) ?>"><i class="dw dw-eye"></i> Lihat Materi</a>
-                                            <a class="dropdown-item" href="<?= base_url('admin/kursus/edit/' . $value->id_kursus) ?>"><i class="dw dw-edit2"></i> Edit</a>
-                                            <a class="dropdown-item" href="<?= base_url('admin/kursus/delete/' . $value->id_kursus) ?>"><i class="dw dw-delete-3"></i> Delete</a>
-                                        </div>
-                                    </div>
+                                    <a class="btn btn-info" href="<?= base_url('admin/posttest/soal_posttest/' . $value->id_kursus) ?>" >Lihat Soal Post-Test</a>
                                 </td>
                             </tr>
                             <?php } ?>

@@ -43,7 +43,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Mulai Foreach -->
                             <?php $no=1; foreach ($asprak as $key => $value) { ?>
                             <tr>
                             <td><?= $no++?></td>
@@ -63,7 +62,6 @@
                                 </td>
                             </tr>
                             <?php } ?>
-                            <!-- End Foreach -->
                         </tbody>
                     </table>
                 </div>

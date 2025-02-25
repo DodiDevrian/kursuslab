@@ -113,7 +113,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="<?= base_url('admin')?>" class="dropdown-toggle no-arrow <?php echo menuAktif('admin') ?>">
+                    <a href="<?= base_url('admin/posttest')?>" class="dropdown-toggle no-arrow <?php echo menuAktif('admin') ?>">
                         <span class="micon dw dw-pencil"></span><span class="mtext">Post-Test</span>
                     </a>
                 </li>
