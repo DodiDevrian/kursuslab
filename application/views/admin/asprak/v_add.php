@@ -37,27 +37,27 @@
                         echo form_open_multipart('admin/asprak/add');
                         ?>
                         <div class="form-group">
-							<label>Username</label>
-							<select class="form-control" id="js-example-basic-single" name="id_user">
-                                <!-- <option value="" disabled selected>--Pilih Kursus atau Mata Pelajaran--</option> -->
-                                <?php foreach ($mahasiswa as $key => $value) {
-                                    if ($value->role == 4) { ?>                                    
-                                    <option value="<?= $value->id_user?>"><?= $value->username?></option>
-                                <?php }}?>
-							</select>
-                            <?= form_error('id_user', '<div class="text-danger small">', '</div>') ?>
-						</div>
-
-                        <div class="form-group">
 							<label>Nama Mahasiswa</label>
 							<select class="form-control" id="js-example-basic-single2" name="nama_asprak">
-                                <!-- <option value="" disabled selected>--Pilih Kursus atau Mata Pelajaran--</option> -->
+                                <option value="" disabled selected>--Pilih Asprak--</option>
                                 <?php foreach ($mahasiswa as $key => $value) {
                                     if ($value->role == 4) { ?>                                    
                                     <option value="<?= $value->nama_user?>"><?= $value->nama_user?></option>
                                 <?php } }?>
 							</select>
                             <?= form_error('nama_asprak', '<div class="text-danger small">', '</div>') ?>
+						</div>
+                        
+                        <div class="form-group">
+							<label>Email</label>
+							<select class="form-control" id="js-example-basic-single" name="id_user">
+                                <option value="" disabled selected>--Pilih Email Asprak--</option>
+                                <?php foreach ($mahasiswa as $key => $value) {
+                                    if ($value->role == 4) { ?>                                    
+                                    <option value="<?= $value->id_user?>"><?= $value->email?></option>
+                                <?php }}?>
+							</select>
+                            <?= form_error('id_user', '<div class="text-danger small">', '</div>') ?>
 						</div>
 
                         <div class="form-group">

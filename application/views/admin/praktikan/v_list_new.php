@@ -20,7 +20,6 @@
             <div class="card-box mb-30">
                 <div class="mb-30 pd-20 d-flex justify-content-between">
                     <h4 class="text-blue h4">Data <?= $title?></h4>
-                    <a href="<?= base_url('admin/praktikan/add') ?>" class="btn btn-secondary">Tambah Data Praktikan +</a>
                 </div>
                 <div class="pb-20">
                 <?php
@@ -38,46 +37,47 @@
                                 <th>Nama</th>
                                 <th>NIM</th>
                                 <th>Email</th>
-                                <th>Asprak ?</th>
+                                <!-- <th>Asprak ?</th> -->
                                 <th>Foto</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php $no=1; foreach ($praktikan as $key => $value) {?>
-                                <?php if ($value->status_if == "Yes") { ?>
-                            <tr>
-                                <td><?= $no++?></td>
-                                <td><?= $value->nama_user?></td>
-                                <td><?= $value->nim?></td>
-                                <td><?= $value->email?></td>
-                                <td>
-                                    <div>
-                                        <?php if ($value->role == 4) { ?>
-                                            <a type="button" data-toggle="modal" data-target="#UbahRoleYes<?= $value->id_user?>">
-                                                <span class="notif-role badge badge-pill badge-success"><p class="label-role">Ya</p> <li class="fa fa-caret-down"></li></span>
-                                            </a>
-                                            <?php }else { ?>
-                                                <a type="button" data-toggle="modal" data-target="#UbahRoleNo<?= $value->id_user?>">
-                                                    <span class="notif-role badge badge-pill badge-danger"><p class="label-role">Tidak</p> <li class="fa fa-caret-down"></li></span>
+                                <?php if ($value->status_if == 'No') { ?>
+                                <tr>
+                                    <td><?= $no++?></td>
+                                    <td><?= $value->nama_user?></td>
+                                    <td><?= $value->nim?></td>
+                                    <td><?= $value->email?></td>
+                                    <!-- <td>
+                                        <div>
+                                            <?php if ($value->role == 4) { ?>
+                                                <a type="button" data-toggle="modal" data-target="#UbahRoleYes<?= $value->id_user?>">
+                                                    <span class="notif-role badge badge-pill badge-success"><p class="label-role">Ya</p> <li class="fa fa-caret-down"></li></span>
                                                 </a>
-                                        <?php }  ?>
-                                    </div>
-                                </td>
-                                <td><img src="<?= base_url()?>/upload/foto_user/<?= $value->foto_user?>" alt="" width="100px"></td>
-                                <td>
-                                    <div class="dropdown">
-                                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                            <i class="dw dw-more"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                            <a class="dropdown-item" href="<?= base_url('admin/praktikan/edit/' . $value->id_user) ?>"><i class="dw dw-edit2"></i> Edit</a>
-                                            <a class="dropdown-item" href="<?= base_url('admin/praktikan/delete/' . $value->id_user) ?>"><i class="dw dw-delete-3"></i> Delete</a>
+                                                <?php }else { ?>
+                                                    <a type="button" data-toggle="modal" data-target="#UbahRoleNo<?= $value->id_user?>">
+                                                        <span class="notif-role badge badge-pill badge-danger"><p class="label-role">Tidak</p> <li class="fa fa-caret-down"></li></span>
+                                                    </a>
+                                            <?php }  ?>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <?php } ?>
+                                    </td> -->
+                                    <td><img src="<?= base_url()?>/upload/foto_user/<?= $value->foto_user?>" alt="" width="100px"></td>
+                                    <td>
+                                        <span>
+                                            <a type="button" data-toggle="modal" data-target="#UbahRoleNo<?= $value->id_user?>">
+                                                <img src="<?= base_url('assets/img/unchecked.png') ?>" width="40px" alt="">
+                                            </a>
+                                        </span>
+                                        <span>
+                                            <a type="button" data-toggle="modal" data-target="#UbahRoleYes<?= $value->id_user?>">
+                                                <img src="<?= base_url('assets/img/checked.png') ?>" width="40px" alt="">
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <?php } ?>
                             <?php } ?>
                         </tbody>
                     </table>
@@ -92,15 +92,15 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ubah Status Asprak</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Cek Mahasiswa Teknik Informatika</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <?php echo form_open_multipart('admin/praktikan/edit_role_no/'. $value->id_user); ?>
+                        <?php echo form_open_multipart('admin/praktikan_baru/terima/'. $value->id_user); ?>
                         <div class="form-group">
-                        <label>Apakah ingin menghapus <b style="color: red;"><?= $value->nama_user ?></b> dari asprak ?</label>
+                        <label>Apakah ingin menerima akun milik <b style="color: blue;"><?= $value->nama_user ?></b> ?</label>
 						</div>
                     </div>
                     <div class="modal-footer">
@@ -119,15 +119,15 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ubah Status Asprak</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Cek Mahasiswa Teknik Informatika</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <?php echo form_open_multipart('admin/praktikan/edit_role_yes/'. $value->id_user); ?>
+                        <?php echo form_open_multipart('admin/praktikan_baru/tolak/'. $value->id_user); ?>
                         <div class="form-group">
-                            <label>Apakah ingin menambahkan <b style="color: green;"><?= $value->nama_user ?></b> sebagai asprak?</label>
+                            <label>Apakah ingin menghapus <b style="color: red;"><?= $value->nama_user ?></b> untuk mendaftar akun?</label>
 						</div>
                     </div>
                     <div class="modal-footer">

@@ -23,6 +23,7 @@ class Slider extends CI_Controller
         $data = array(
             'title'         => 'Slider',
             'title2'        => 'Laboratorium Teknik Informatika',
+            'count_new'     => $this->m_praktikan->lists(),
             'slider'        => $this->m_slider->lists(),
             'isi'           => 'admin/slider/v_list'
         );
@@ -45,6 +46,7 @@ class Slider extends CI_Controller
                 $data = array(
                     'title'     => 'Slider',
                     'title2'    => 'Tambah Data Slider',
+                    'count_new' => $this->m_praktikan->lists(),
                     'error'     => $this->upload->display_errors(),
                     'slider'     => $this->m_slider->lists(),
                     'isi'       => 'admin/slider/v_add'
@@ -69,6 +71,7 @@ class Slider extends CI_Controller
         $data = array(
             'title'     => 'Slider',
             'title2'    => 'Tambah Data Slider',
+            'count_new'     => $this->m_praktikan->lists(),
             'slider'     => $this->m_slider->lists(),
             'isi'       => 'admin/slider/v_add'
         );
@@ -90,6 +93,7 @@ class Slider extends CI_Controller
                 $data = array(
                     'title'     => 'Slider',
                     'title2'    => 'Ubah Data Slider',
+                    'count_new'     => $this->m_praktikan->lists(),
                     'error'     => $this->upload->display_errors(),
                     'slider'    =>  $this->m_slider->detail($id_slider),
                     'isi'       => 'admin/slider/v_edit'
@@ -134,6 +138,7 @@ class Slider extends CI_Controller
         $data = array(
             'title'     => 'Slider',
             'title2'    => 'Ubah Data Slider',
+            'count_new'     => $this->m_praktikan->lists(),
             'slider'    =>  $this->m_slider->detail($id_slider),
             'isi'       => 'admin/slider/v_edit'
         );

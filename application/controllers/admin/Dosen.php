@@ -23,6 +23,7 @@ class Dosen extends CI_Controller
         $data = array(
             'title'         => 'Dosen',
             'title2'        => 'Laboratorium Teknik Informatika',
+            'count_new'     => $this->m_praktikan->lists(),
             'dosen'        => $this->m_dosen->lists(),
             'isi'           => 'admin/dosen/v_list'
         );
@@ -49,6 +50,7 @@ class Dosen extends CI_Controller
                     'title'     => 'Dosen',
                     'title2'    => 'Tambah Data Dosen',
                     'error'     => $this->upload->display_errors(),
+                    'count_new'     => $this->m_praktikan->lists(),
                     'isi'       => 'admin/dosen/v_add'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -101,6 +103,7 @@ class Dosen extends CI_Controller
                     'title'     => 'Dosen',
                     'title2'    => 'Ubah Data Dosen',
                     'error'     => $this->upload->display_errors(),
+                    'count_new'     => $this->m_praktikan->lists(),
                     'dosen'    =>  $this->m_dosen->detail($id_admin),
                     'isi'       => 'admin/dosen/v_edit'
                 );
@@ -155,6 +158,7 @@ class Dosen extends CI_Controller
             'title'     => 'Dosen',
             'title2'    => 'Ubah Data Dosen',
             'dosen'    =>  $this->m_dosen->detail($id_admin),
+            'count_new'     => $this->m_praktikan->lists(),
             'isi'       => 'admin/dosen/v_edit'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);

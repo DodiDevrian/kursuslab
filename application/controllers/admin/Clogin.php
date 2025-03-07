@@ -34,6 +34,7 @@ class Clogin extends CI_Controller
                     'title2'    => 'Ubah Data Cover Login',
                     'error'     => $this->upload->display_errors(),
                     'clogin'    =>  $this->m_clogin->detail($id_clogin),
+                    'count_new'     => $this->m_praktikan->lists(),
                     'id'        => $this->uri->segment(5),
                     'isi'       => 'admin/clogin/v_list'
                 );
@@ -77,6 +78,7 @@ class Clogin extends CI_Controller
             'title2'    => 'Ubah Data Cover Login',
             'id'        => $this->uri->segment(5),
             'clogin'    =>  $this->m_clogin->detail($id_clogin),
+            'count_new'     => $this->m_praktikan->lists(),
             'isi'       => 'admin/clogin/v_list'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);

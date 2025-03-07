@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2025 at 02:10 PM
+-- Generation Time: Mar 07, 2025 at 01:08 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -74,7 +74,7 @@ CREATE TABLE `tbl_asprak` (
 INSERT INTO `tbl_asprak` (`id_asprak`, `id_user`, `nama_asprak`, `no_hp`, `created`, `modified`) VALUES
 (7, 7, 'Ahmad Akbar', 85788113563, '2024-09-26 16:27:10', '2025-02-04 21:39:47'),
 (8, 8, 'Nurdana Jaya', 85788113563, '2024-09-26 16:27:10', '2025-02-04 21:39:54'),
-(9, 9, 'Wili Jonatan', 81389654250, '2024-09-26 16:27:10', '2025-02-04 21:39:59'),
+(9, 9, 'Wili Jonatan', 89628744896, '2025-03-06 17:10:02', NULL),
 (10, 10, 'Michael Mathew', 89628744896, '2024-12-04 06:07:30', NULL),
 (11, 11, 'Dila Ayu Prastita', 89628744896, '2024-12-04 06:15:37', NULL),
 (12, 12, 'Dimas Azi Rajab Aizar', 89628744896, '2024-12-04 06:15:37', NULL),
@@ -188,6 +188,57 @@ INSERT INTO `tbl_diskusi` (`id_diskusi`, `id_user`, `id_kursus`, `id_asprak`, `d
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_do_posttest`
+--
+
+CREATE TABLE `tbl_do_posttest` (
+  `id_doposttest` int(255) NOT NULL,
+  `id_user` int(255) NOT NULL,
+  `id_kursus` int(255) NOT NULL,
+  `jawab_1` varchar(255) NOT NULL,
+  `jawab_2` varchar(255) NOT NULL,
+  `jawab_3` varchar(255) NOT NULL,
+  `jawab_4` varchar(255) NOT NULL,
+  `jawab_5` varchar(255) NOT NULL,
+  `jawab_6` varchar(255) NOT NULL,
+  `jawab_7` varchar(255) NOT NULL,
+  `jawab_8` varchar(255) NOT NULL,
+  `jawab_9` varchar(255) NOT NULL,
+  `jawab_10` varchar(255) NOT NULL,
+  `jawab_11` varchar(255) NOT NULL,
+  `jawab_12` varchar(255) NOT NULL,
+  `jawab_13` varchar(255) NOT NULL,
+  `jawab_14` varchar(500) NOT NULL,
+  `jawab_15` varchar(255) NOT NULL,
+  `jawab_16` varchar(255) NOT NULL,
+  `jawab_17` varchar(255) NOT NULL,
+  `jawab_18` varchar(255) NOT NULL,
+  `jawab_19` varchar(255) NOT NULL,
+  `jawab_20` varchar(255) NOT NULL,
+  `jawab_21` varchar(255) NOT NULL,
+  `jawab_22` varchar(255) NOT NULL,
+  `jawab_23` varchar(255) NOT NULL,
+  `jawab_24` varchar(255) NOT NULL,
+  `jawab_25` varchar(255) NOT NULL,
+  `jawab_26` varchar(255) NOT NULL,
+  `jawab_27` varchar(255) NOT NULL,
+  `jawab_28` varchar(255) NOT NULL,
+  `jawab_29` varchar(255) NOT NULL,
+  `jawab_30` varchar(255) NOT NULL,
+  `sum` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_do_posttest`
+--
+
+INSERT INTO `tbl_do_posttest` (`id_doposttest`, `id_user`, `id_kursus`, `jawab_1`, `jawab_2`, `jawab_3`, `jawab_4`, `jawab_5`, `jawab_6`, `jawab_7`, `jawab_8`, `jawab_9`, `jawab_10`, `jawab_11`, `jawab_12`, `jawab_13`, `jawab_14`, `jawab_15`, `jawab_16`, `jawab_17`, `jawab_18`, `jawab_19`, `jawab_20`, `jawab_21`, `jawab_22`, `jawab_23`, `jawab_24`, `jawab_25`, `jawab_26`, `jawab_27`, `jawab_28`, `jawab_29`, `jawab_30`, `sum`) VALUES
+(1, 1, 1, 'B', 'C', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'B', 70),
+(2, 1, 1, 'B', 'C', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'B', 60);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_do_pretest`
 --
 
@@ -224,7 +275,55 @@ CREATE TABLE `tbl_do_pretest` (
 --
 
 INSERT INTO `tbl_do_pretest` (`id_dopretest`, `id_user`, `id_kursus`, `id_materi`, `jawab_1`, `jawab_2`, `jawab_3`, `jawab_4`, `jawab_5`, `jawab_6`, `jawab_7`, `jawab_8`, `jawab_9`, `jawab_10`, `poin_1`, `poin_2`, `poin_3`, `poin_4`, `poin_5`, `poin_6`, `poin_7`, `poin_8`, `poin_9`, `poin_10`, `sum`) VALUES
-(12, 1, 1, 2, 'C', 'C', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 10, 10, 10, 0, 0, 10, 10, 10, 0, 10, 70);
+(13, 1, 1, 2, 'B', 'B', 'C', 'B', 'C', 'D', 'B', 'D', 'D', 'B', 0, 0, 0, 0, 0, 0, 10, 0, 10, 10, 70);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_kunci_posttest`
+--
+
+CREATE TABLE `tbl_kunci_posttest` (
+  `id_kunciposttest` int(255) NOT NULL,
+  `id_kursus` int(255) NOT NULL,
+  `kunci_1` text NOT NULL,
+  `kunci_2` text NOT NULL,
+  `kunci_3` text NOT NULL,
+  `kunci_4` text NOT NULL,
+  `kunci_5` text NOT NULL,
+  `kunci_6` text NOT NULL,
+  `kunci_7` text NOT NULL,
+  `kunci_8` text NOT NULL,
+  `kunci_9` text NOT NULL,
+  `kunci_10` text NOT NULL,
+  `kunci_11` text NOT NULL,
+  `kunci_12` text NOT NULL,
+  `kunci_13` text NOT NULL,
+  `kunci_14` text NOT NULL,
+  `kunci_15` text NOT NULL,
+  `kunci_16` text NOT NULL,
+  `kunci_17` text NOT NULL,
+  `kunci_18` text NOT NULL,
+  `kunci_19` text NOT NULL,
+  `kunci_20` text NOT NULL,
+  `kunci_21` text NOT NULL,
+  `kunci_22` text NOT NULL,
+  `kunci_23` text NOT NULL,
+  `kunci_24` text NOT NULL,
+  `kunci_25` text NOT NULL,
+  `kunci_26` text NOT NULL,
+  `kunci_27` text NOT NULL,
+  `kunci_28` text NOT NULL,
+  `kunci_29` text NOT NULL,
+  `kunci_30` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_kunci_posttest`
+--
+
+INSERT INTO `tbl_kunci_posttest` (`id_kunciposttest`, `id_kursus`, `kunci_1`, `kunci_2`, `kunci_3`, `kunci_4`, `kunci_5`, `kunci_6`, `kunci_7`, `kunci_8`, `kunci_9`, `kunci_10`, `kunci_11`, `kunci_12`, `kunci_13`, `kunci_14`, `kunci_15`, `kunci_16`, `kunci_17`, `kunci_18`, `kunci_19`, `kunci_20`, `kunci_21`, `kunci_22`, `kunci_23`, `kunci_24`, `kunci_25`, `kunci_26`, `kunci_27`, `kunci_28`, `kunci_29`, `kunci_30`) VALUES
+(1, 1, 'B', 'A', 'C', 'B', 'B', 'C', 'A', 'C', 'C', 'D', 'B', 'C', 'D', 'B', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'C', 'B', 'C', 'B', 'B', 'C');
 
 -- --------------------------------------------------------
 
@@ -316,7 +415,7 @@ CREATE TABLE `tbl_materi` (
 
 INSERT INTO `tbl_materi` (`id_materi`, `id_kursus`, `nama_materi`, `ket_materi`, `id_yt`, `doc_materi`, `note`, `status`, `status_pretest`, `cek_last`, `created`, `modified`) VALUES
 (1, 1, 'Pertemuan 1 - HTML 5', 'Lorem Ipsum', 'riSLlQTLHCs', 'XP_part_2.pdf', NULL, 2, 'No', 'No', '2024-09-23 22:59:30', '2025-02-24 11:17:33'),
-(2, 1, 'Pertemuan 2 - CSS', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dictum, mi sed euismod scelerisque, nunc enim fermentum purus, sed vulputate dui tortor id magna. Proin sed pulvinar nisi, vel rutrum erat. Duis augue diam, pharet', 'WxKLNqpmZBk', 'gambar.png', '-', 2, 'Yes', 'No', '2024-09-23 22:59:30', '2025-02-21 21:00:23'),
+(2, 1, 'Pertemuan 2 - CSS', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dictum, mi sed euismod scelerisque, nunc enim fermentum purus, sed vulputate dui tortor id magna. Proin sed pulvinar nisi, vel rutrum erat. Duis augue diam, pharet', 'WxKLNqpmZBk', 'gambar.png', '-', 2, 'Yes', 'Yes', '2024-09-23 22:59:30', '2025-02-25 09:57:06'),
 (3, 1, 'Pertemuan 3 - JacaScript', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dictum, mi sed euismod scelerisque, nunc enim fermentum purus, sed vulputate dui tortor id magna. Proin sed pulvinar nisi, vel rutrum erat. Duis augue diam, pharet', 'WxKLNqpmZBk', 'Dodi_Devrian_Andrianto__119140023_PemotonganUKT.pdf', NULL, 2, 'Yes', 'No', '2024-09-23 22:59:30', '2025-02-21 23:36:49'),
 (4, 4, 'Pertemuan 1 - Instalasi Cisco', 'Lorem ipsum new pro', 'HS_RPLa5gPw', 'gambar.png', 'Sudah Baik', 2, 'No', 'No', '2024-09-23 22:59:30', '2025-02-21 21:00:29'),
 (5, 5, 'Pertemuan 1 - C++', 'Lorem ipsum bala bala bala Data di ubah', 'WxKLNqpmZBk', 'gambar.png', NULL, 2, 'No', 'No', '2024-09-23 22:59:30', '2025-02-21 21:00:31'),
@@ -350,6 +449,42 @@ CREATE TABLE `tbl_posttest` (
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_posttest`
+--
+
+INSERT INTO `tbl_posttest` (`id_posttest`, `id_kursus`, `nomor_soal`, `soal`, `jawaban_a`, `jawaban_b`, `jawaban_c`, `jawaban_d`, `jawaban_e`, `created`, `modified`) VALUES
+(1, 1, 1, 'Soal Nomor 1', 'Jawaban A 1', 'Jawaban B 1', 'Jawaban C 1', 'Jawaban D 1', 'Jawaban E 1', '2025-02-24 21:24:38', NULL),
+(2, 1, 2, 'Pemrograman Web&nbsp;Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', '2025-02-24 22:53:17', NULL),
+(3, 1, 3, 'Soal Nomor 1', 'Jawaban A 1', 'Jawaban B 1', 'Jawaban C 1', 'Jawaban D 1', 'Jawaban E 1', '2025-02-24 21:24:38', '2025-02-25 06:45:50'),
+(4, 1, 4, 'Pemrograman Web&nbsp;Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', '2025-02-24 22:53:17', '2025-02-25 06:45:53'),
+(5, 1, 5, 'Soal Nomor 1', 'Jawaban A 1', 'Jawaban B 1', 'Jawaban C 1', 'Jawaban D 1', 'Jawaban E 1', '2025-02-24 21:24:38', '2025-02-25 06:45:58'),
+(6, 1, 6, 'Pemrograman Web&nbsp;Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', '2025-02-24 22:53:17', '2025-02-25 06:46:03'),
+(7, 1, 7, 'Soal Nomor 1', 'Jawaban A 1', 'Jawaban B 1', 'Jawaban C 1', 'Jawaban D 1', 'Jawaban E 1', '2025-02-24 21:24:38', '2025-02-25 06:46:08'),
+(8, 1, 8, 'Pemrograman Web&nbsp;Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', '2025-02-24 22:53:17', '2025-02-25 06:46:12'),
+(9, 1, 9, 'Soal Nomor 1', 'Jawaban A 1', 'Jawaban B 1', 'Jawaban C 1', 'Jawaban D 1', 'Jawaban E 1', '2025-02-24 21:24:38', '2025-02-25 06:46:16'),
+(10, 1, 10, 'Pemrograman Web&nbsp;Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', '2025-02-24 22:53:17', '2025-02-25 06:46:21'),
+(11, 1, 11, 'Soal Nomor 1', 'Jawaban A 1', 'Jawaban B 1', 'Jawaban C 1', 'Jawaban D 1', 'Jawaban E 1', '2025-02-24 21:24:38', '2025-02-25 06:46:32'),
+(12, 1, 12, 'Pemrograman Web&nbsp;Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', '2025-02-24 22:53:17', '2025-02-25 06:46:36'),
+(13, 1, 13, 'Soal Nomor 1', 'Jawaban A 1', 'Jawaban B 1', 'Jawaban C 1', 'Jawaban D 1', 'Jawaban E 1', '2025-02-24 21:24:38', '2025-02-25 06:46:45'),
+(14, 1, 14, 'Pemrograman Web&nbsp;Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', '2025-02-24 22:53:17', '2025-02-25 06:46:51'),
+(15, 1, 15, 'Soal Nomor 1', 'Jawaban A 1', 'Jawaban B 1', 'Jawaban C 1', 'Jawaban D 1', 'Jawaban E 1', '2025-02-24 21:24:38', '2025-02-25 06:46:55'),
+(16, 1, 16, 'Pemrograman Web&nbsp;Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', '2025-02-24 22:53:17', '2025-02-25 06:47:03'),
+(17, 1, 17, 'Soal Nomor 1', 'Jawaban A 1', 'Jawaban B 1', 'Jawaban C 1', 'Jawaban D 1', 'Jawaban E 1', '2025-02-24 21:24:38', '2025-02-25 06:47:08'),
+(18, 1, 18, 'Pemrograman Web&nbsp;Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', '2025-02-24 22:53:17', '2025-02-25 06:47:12'),
+(19, 1, 19, 'Soal Nomor 1', 'Jawaban A 1', 'Jawaban B 1', 'Jawaban C 1', 'Jawaban D 1', 'Jawaban E 1', '2025-02-24 21:24:38', '2025-02-25 06:47:18'),
+(20, 1, 20, 'Pemrograman Web&nbsp;Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', '2025-02-24 22:53:17', '2025-02-25 06:47:21'),
+(21, 1, 21, 'Soal Nomor 1', 'Jawaban A 1', 'Jawaban B 1', 'Jawaban C 1', 'Jawaban D 1', 'Jawaban E 1', '2025-02-24 21:24:38', '2025-02-25 06:47:25'),
+(22, 1, 22, 'Pemrograman Web&nbsp;Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', '2025-02-24 22:53:17', '2025-02-25 06:47:29'),
+(23, 1, 23, 'Soal Nomor 1', 'Jawaban A 1', 'Jawaban B 1', 'Jawaban C 1', 'Jawaban D 1', 'Jawaban E 1', '2025-02-24 21:24:38', '2025-02-25 06:47:33'),
+(24, 1, 24, 'Pemrograman Web&nbsp;Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', '2025-02-24 22:53:17', '2025-02-25 06:47:36'),
+(25, 1, 25, 'Soal Nomor 1', 'Jawaban A 1', 'Jawaban B 1', 'Jawaban C 1', 'Jawaban D 1', 'Jawaban E 1', '2025-02-24 21:24:38', '2025-02-25 06:47:40'),
+(26, 1, 26, 'Pemrograman Web&nbsp;Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', '2025-02-24 22:53:17', '2025-02-25 06:47:44'),
+(27, 1, 27, 'Soal Nomor 1', 'Jawaban A 1', 'Jawaban B 1', 'Jawaban C 1', 'Jawaban D 1', 'Jawaban E 1', '2025-02-24 21:24:38', '2025-02-25 06:47:48'),
+(28, 1, 28, 'Pemrograman Web&nbsp;Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', '2025-02-24 22:53:17', '2025-02-25 06:47:52'),
+(29, 1, 29, 'Soal Nomor 1', 'Jawaban A 1', 'Jawaban B 1', 'Jawaban C 1', 'Jawaban D 1', 'Jawaban E 1', '2025-02-24 21:24:38', '2025-02-25 06:47:55'),
+(30, 1, 30, 'Pemrograman Web&nbsp;Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', '2025-02-24 22:53:17', '2025-02-25 06:47:58');
 
 -- --------------------------------------------------------
 
@@ -385,7 +520,7 @@ INSERT INTO `tbl_pretest` (`id_pretest`, `id_materi`, `nomor_soal`, `soal`, `jaw
 (7, 1, NULL, 'Soal Nomor 6', 'Soal Nomor 6', 'Soal Nomor 6', 'Soal Nomor 6', 'Soal Nomor 6', 'Soal Nomor 6', '2025-02-14 16:35:50', NULL),
 (8, 1, NULL, 'Soal Nomor 7', 'Soal Nomor 7', 'Soal Nomor 7', 'Soal Nomor 7', 'Soal Nomor 7', 'Soal Nomor 7', '2025-02-14 16:35:50', NULL),
 (9, 1, NULL, 'Soal Nomor 8', 'Soal Nomor 8', 'Soal Nomor 8', 'Soal Nomor 8', 'Soal Nomor 8', 'Soal Nomor 8', '2025-02-14 16:35:50', NULL),
-(10, 1, NULL, 'Soal Nomor 9', 'Soal Nomor 9', 'Soal Nomor 9', 'Soal Nomor 9', 'Soal Nomor 9', 'Soal Nomor 9', '2025-02-14 16:35:50', NULL),
+(10, 1, '', 'Soal Nomor 9', 'Soal Nomor 9', 'Soal Nomor 9', 'Soal Nomor 9', 'Soal Nomor 9', 'Soal Nomor 9', '2025-02-14 16:35:50', '2025-02-24 23:02:17'),
 (11, 1, NULL, 'Soal Nomor 10', 'Soal Nomor 10', 'Soal Nomor 10', 'Soal Nomor 10', 'Soal Nomor 10', 'Soal Nomor 10', '2025-02-14 16:35:50', NULL),
 (12, 2, NULL, 'Pertemuan 2 - CSS', 'Pertemuan 2 - CSS Soal Nomor 2', 'Pertemuan 2 - CSS Soal Nomor 2', 'Pertemuan 2 - CSS Soal Nomor 2', 'Pertemuan 2 - CSS Soal Nomor 2', 'Pertemuan 2 - CSS Soal Nomor 2', '2025-02-14 16:40:16', NULL),
 (13, 2, NULL, 'Pertemuan 2 - CSS Soal Nomor 3', 'Pertemuan 2 - CSS Soal Nomor 3', 'Pertemuan 2 - CSS Soal Nomor 3', 'Pertemuan 2 - CSS Soal Nomor 3', 'Pertemuan 2 - CSS Soal Nomor 3', 'Pertemuan 2 - CSS Soal Nomor 3', '2025-02-14 16:41:32', NULL),
@@ -440,12 +575,13 @@ INSERT INTO `tbl_slider` (`id_slider`, `nama_slider`, `foto_slider`, `created`, 
 
 CREATE TABLE `tbl_user` (
   `id_user` int(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `role` int(20) NOT NULL DEFAULT 3,
   `nama_user` varchar(255) NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
   `nim` bigint(255) DEFAULT NULL,
+  `status_if` varchar(255) NOT NULL DEFAULT 'No',
   `foto_user` text DEFAULT NULL,
   `slug_user` text NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
@@ -456,18 +592,20 @@ CREATE TABLE `tbl_user` (
 -- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`id_user`, `username`, `password`, `role`, `nama_user`, `email`, `nim`, `foto_user`, `slug_user`, `created`, `modified`) VALUES
-(1, 'dodi.119140023', '2000-12-25', 3, 'Dodi Devrian Andrianto', 'dodi.119140023@student.itera.ac.id', 119140023, 'customer-service.png', 'dodi-devrian-andrianto', '2024-12-03 22:19:02', '2025-01-28 21:12:10'),
-(7, 'ahmad.119140293', 'ahmad123', 4, 'Ahmad Akbar', 'ahmad.119140293@student.itera.ac.id', 119140293, 'user2.png', 'ahmad-akbar', '2024-12-03 22:34:23', '2025-01-31 23:10:06'),
-(8, 'nurdana.1191402394', 'nurdana123', 4, 'Nurdana Jaya', 'nurdana.1191402394@student.itera.ac.id', 119140394, 'WhatsApp_Image_2024-07-29_at_00_22_25.jpeg', '', '2024-12-03 23:06:30', '2024-12-20 10:11:23'),
-(9, 'wili.119140025', 'wili123', 4, 'Wili Jonatan', 'wili.119140025@student.itera.ac.id', 119140025, 'avatar-design.png', '', '2024-12-03 23:10:11', '2024-12-04 06:13:19'),
-(10, 'michael.123140101', 'michael123', 4, 'Michael Mathew', 'michael.123140101@student.itera.ac.id', 123140101, 'WhatsApp_Image_2024-07-03_at_00_54_371.jpeg', '', '2024-12-04 06:05:18', NULL),
-(11, 'dila.121140075', 'dila123', 4, 'Dila Ayu Prastita', 'dila.121140075@student.itera.ac.id', 121140075, 'images.jpeg', '', '2024-12-04 06:11:56', '2025-02-24 07:46:06'),
-(12, 'dimas.121140135', 'dimas123', 4, 'Dimas Azi Rajab Aizar', 'dimas.121140135@student.itera.ac.id', 121140135, '5d4b8207341479b8729b9480b98c791a.jpg', '', '2024-12-04 06:11:56', '2025-02-24 07:42:11'),
-(13, 'dwi.120140027', 'dwi123', 4, 'Dwi Ananda Rizky', 'dwi.120140027@student.ac.id', 120140027, 'g_h_a_hasil_editan_15_pas_foto_buku_nikah_sederet_aktor_ganteng_korea_bikin_makin_halu_-_manifesting_dulu_siapa_tahu_jadi_beneran_p_pas_foto_buku_nikah_aktor_korea-20220317-015-non_fotografer_kly.jpg', '', '2024-12-04 06:19:59', '2025-02-24 07:42:50'),
-(14, 'edo.120140179', 'edo123', 4, 'Edo Sani', 'edo.120140179@student.itera.ac.id', 120140179, 'S6b6ca25df9c94414ad3c596b38b3094dw.jpg', '', '2024-12-04 06:19:59', '2025-02-24 07:38:36'),
-(15, 'khairunnisa.123450071', 'khairunnisa123', 3, 'Khairunnisa Maharani', 'khairunnisa.123450071@student.itera.ac.id', 123450071, 'images1.jpeg', 'khairunnisa-maharani', '2024-12-05 23:03:11', '2025-02-24 07:46:44'),
-(16, 'punky.119140048', 'punky123', 4, 'Punky Wijayanto Muda', 'punky.119140048@student.itera.ac.id', 119140048, 'foto_(2).jpg', '', '2025-02-04 23:07:54', '2025-02-24 07:45:17');
+INSERT INTO `tbl_user` (`id_user`, `username`, `email`, `password`, `role`, `nama_user`, `nim`, `status_if`, `foto_user`, `slug_user`, `created`, `modified`) VALUES
+(1, 'dodi.119140023', 'dodi.119140023@student.itera.ac.id', '49fd2814b3f7f7c4c10951864b531abe', 3, 'Dodi Devrian Andrianto', 119140023, 'Yes', 'customer-service.png', 'dodi-devrian-andrianto', '2024-12-03 22:19:02', '2025-03-06 08:42:19'),
+(7, 'ahmad.119140293', 'ahmad.119140293@student.itera.ac.id', '8de13959395270bf9d6819f818ab1a00', 4, 'Ahmad Akbar', 119140293, 'Yes', 'user2.png', 'ahmad-akbar', '2024-12-03 22:34:23', '2025-03-07 09:11:30'),
+(8, 'nurdana.1191402394', 'nurdana.1191402394@student.itera.ac.id', 'nurdana123', 4, 'Nurdana Jaya', 119140394, 'Yes', 'WhatsApp_Image_2024-07-29_at_00_22_25.jpeg', '', '2024-12-03 23:06:30', '2025-02-28 11:39:34'),
+(9, 'wili.119140025', 'wili.119140025@student.itera.ac.id', 'wili123', 4, 'Wili Jonatan', 119140025, 'Yes', 'avatar-design.png', '', '2024-12-03 23:10:11', '2025-02-28 11:39:37'),
+(10, 'michael.123140101', 'michael.123140101@student.itera.ac.id', 'michael123', 4, 'Michael Mathew', 123140101, 'Yes', 'WhatsApp_Image_2024-07-03_at_00_54_371.jpeg', '', '2024-12-04 06:05:18', '2025-02-28 11:39:40'),
+(11, 'dila.121140075', 'dila.121140075@student.itera.ac.id', 'dila123', 4, 'Dila Ayu Prastita', 121140075, 'Yes', 'images.jpeg', '', '2024-12-04 06:11:56', '2025-02-28 11:39:43'),
+(12, 'dimas.121140135', 'dimas.121140135@student.itera.ac.id', 'dimas123', 4, 'Dimas Azi Rajab Aizar', 121140135, 'Yes', '5d4b8207341479b8729b9480b98c791a.jpg', '', '2024-12-04 06:11:56', '2025-02-28 11:39:46'),
+(13, 'dwi.120140027', 'dwi.120140027@student.ac.id', 'dwi123', 4, 'Dwi Ananda Rizky', 120140027, 'Yes', 'g_h_a_hasil_editan_15_pas_foto_buku_nikah_sederet_aktor_ganteng_korea_bikin_makin_halu_-_manifesting_dulu_siapa_tahu_jadi_beneran_p_pas_foto_buku_nikah_aktor_korea-20220317-015-non_fotografer_kly.jpg', '', '2024-12-04 06:19:59', '2025-02-28 11:39:50'),
+(14, 'edo.120140179', 'edo.120140179@student.itera.ac.id', 'edo123', 4, 'Edo Sani', 120140179, 'Yes', 'S6b6ca25df9c94414ad3c596b38b3094dw.jpg', '', '2024-12-04 06:19:59', '2025-02-28 11:39:52'),
+(15, 'khairunnisa.123450071', 'khairunnisa.123450071@student.itera.ac.id', 'khairunnisa123', 3, 'Khairunnisa Maharani', 123450071, 'Yes', 'images1.jpeg', 'khairunnisa-maharani', '2024-12-05 23:03:11', '2025-02-28 11:39:56'),
+(16, 'punky.119140048', 'punky.119140048@student.itera.ac.id', 'punky123', 4, 'Punky Wijayanto Muda', 119140048, 'Yes', 'foto_(2).jpg', '', '2025-02-04 23:07:54', '2025-02-28 11:39:59'),
+(17, 'amanda.119140472', 'amanda.119140472@student.itera.ac.id', '0f4004e836509904e0005999a4fadc48', 3, 'Amanda Rawles', 119140472, 'Yes', 'images2.jpeg', 'amanda-rawles', '2025-03-06 08:50:37', '2025-03-07 09:32:29'),
+(19, NULL, 'haland.119140293@student.itera.ac.id', '462a4b51a0e0457e02aa056d86d73817', 3, 'Haland Budi Kusuma', 119140293, 'Yes', 'foto_(2)5.jpg', 'haland-budi-kusuma', '2025-03-06 10:15:54', '2025-03-07 09:32:33');
 
 --
 -- Indexes for dumped tables
@@ -510,10 +648,22 @@ ALTER TABLE `tbl_diskusi`
   ADD PRIMARY KEY (`id_diskusi`);
 
 --
+-- Indexes for table `tbl_do_posttest`
+--
+ALTER TABLE `tbl_do_posttest`
+  ADD PRIMARY KEY (`id_doposttest`);
+
+--
 -- Indexes for table `tbl_do_pretest`
 --
 ALTER TABLE `tbl_do_pretest`
   ADD PRIMARY KEY (`id_dopretest`);
+
+--
+-- Indexes for table `tbl_kunci_posttest`
+--
+ALTER TABLE `tbl_kunci_posttest`
+  ADD PRIMARY KEY (`id_kunciposttest`);
 
 --
 -- Indexes for table `tbl_kunci_pretest`
@@ -592,10 +742,22 @@ ALTER TABLE `tbl_diskusi`
   MODIFY `id_diskusi` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
+-- AUTO_INCREMENT for table `tbl_do_posttest`
+--
+ALTER TABLE `tbl_do_posttest`
+  MODIFY `id_doposttest` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `tbl_do_pretest`
 --
 ALTER TABLE `tbl_do_pretest`
-  MODIFY `id_dopretest` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_dopretest` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `tbl_kunci_posttest`
+--
+ALTER TABLE `tbl_kunci_posttest`
+  MODIFY `id_kunciposttest` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_kunci_pretest`
@@ -619,7 +781,7 @@ ALTER TABLE `tbl_materi`
 -- AUTO_INCREMENT for table `tbl_posttest`
 --
 ALTER TABLE `tbl_posttest`
-  MODIFY `id_posttest` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_posttest` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `tbl_pretest`
@@ -637,7 +799,7 @@ ALTER TABLE `tbl_slider`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,3 +1,12 @@
+<?php 
+    $count = 0;
+    foreach ($count_new as $key => $value) {
+        if ($value->status_if == 'No') {
+            $count++;
+        }
+    }
+?>
+
 <div class="right-sidebar">
     <div class="sidebar-title">
         <h3 class="weight-600 font-16 text-blue">
@@ -92,13 +101,24 @@
                     </a>
                 </li>
                 <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
+                    <a href="javascript:;" class="dropdown-toggle" style="display: flex; justify-content: space-between; align-items: center;">
                         <span class="micon dw dw-user-3"></span><span class="mtext">User</span>
+                        <?php if ($count > 0 ) { ?>
+                            <span style="font-size: 10px; background: red; padding: 2px; border-radius: 10px;" class="mr-3">New</span>
+                        <?php } ?>
                     </a>
                     <ul class="submenu">
                     <li><a href="<?= base_url('admin/dosen')?>" class="<?= menuAktif('dosen') ?>">Dosen</a></li>
                         <li><a href="<?= base_url('admin/asprak')?>" class="<?= menuAktif('asprak') ?>">Asprak</a></li>
                         <li><a href="<?= base_url('admin/praktikan')?>" class="<?= menuAktif('praktikan') ?>">Praktikan</a></li>
+                        <li>
+                            <a href="<?= base_url('admin/praktikan_baru')?>" class="<?= menuAktif('praktikan_baru') ?>" style="display: flex; justify-content: space-between; align-items: center;">
+                                <span>Praktikan Baru</span>
+                                <?php if ($count > 0 ) { ?>
+                                    <span style="font-size: 10px; background: red; padding: 2px; border-radius: 10px;">New</span>
+                                <?php } ?>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="dropdown">

@@ -22,6 +22,7 @@ class Dashboard extends CI_Controller
         $data = array(
             'title' => 'Admin',
             'title2' => 'Dashboard',
+            'count_new'     => $this->m_praktikan->lists(),
             'isi'   => 'admin/v_dashboard'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);

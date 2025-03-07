@@ -4,10 +4,10 @@ class M_auth extends CI_Model{
 
 	public function cek_login(){
 
-		$username	= set_value('username');
-		$password	= set_value('password');
+		$email		= set_value('email');
+		$password	= md5(set_value('password'));
 
-		$result 	= $this->db->where('username', $username)
+		$result 	= $this->db->where('email', $email)
 							   ->where('password', $password)
 							   ->limit(1)
 							   ->get('tbl_user');

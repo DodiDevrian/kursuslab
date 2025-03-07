@@ -30,6 +30,7 @@ class Materi extends CI_Controller
         $data = array(
             'title'         => 'Materi',
             'title2'        => 'Laboratorium Teknik Informatika',
+            'count_new'     => $this->m_praktikan->lists(),
             'materi'        => $this->m_materi->lists(),
             'isi'           => 'admin/materi/v_list'
         );
@@ -55,6 +56,7 @@ class Materi extends CI_Controller
                     'title2'    => 'Tambah Data Materi',
                     'error'     => $this->upload->display_errors(),
                     'kursus'     => $this->m_kursus->lists(),
+                    'count_new'     => $this->m_praktikan->lists(),
                     'isi'       => 'admin/materi/v_add'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -81,6 +83,7 @@ class Materi extends CI_Controller
             'title'     => 'Materi',
             'title2'    => 'Tambah Data Materi',
             'kursus'     => $this->m_kursus->lists(),
+            'count_new'     => $this->m_praktikan->lists(),
             'isi'       => 'admin/materi/v_add'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -106,6 +109,7 @@ class Materi extends CI_Controller
                     'error'     => $this->upload->display_errors(),
                     'kursus'     => $this->m_kursus->lists(),
                     'materi'         =>  $this->m_materi->detail($id_materi),
+                    'count_new'     => $this->m_praktikan->lists(),
                     'isi'       => 'admin/materi/v_edit'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -155,6 +159,7 @@ class Materi extends CI_Controller
             'title'     => 'Materi',
             'title2'    => 'Ubah Data Materi',
             'materi'    =>  $this->m_materi->detail($id_materi),
+            'count_new'     => $this->m_praktikan->lists(),
             'kursus'     => $this->m_kursus->lists(),
             'isi'       => 'admin/materi/v_edit'
         );

@@ -32,6 +32,7 @@ class Posttest extends CI_Controller
             'title'   => 'Post-Test',
             'title2'  => 'Laboratorium Teknik Informatika',
             'kursus'   => $this->m_kursus->lists(),
+            'count_new'     => $this->m_praktikan->lists(),
             'isi'     => 'admin/posttest/v_list'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -42,6 +43,7 @@ class Posttest extends CI_Controller
         $data = array(
             'title'         => 'Soal Post-Test',
             'title2'        => 'Laboratorium Teknik Informatika',
+            'count_new'     => $this->m_praktikan->lists(),
             'kursus'     => $this->m_kursus->detail_kursus($id_kursus),
             'posttest'       => $this->m_posttest->lists_soal(),
             'kunci_list'    => $this->m_posttest->list_kunci(),
@@ -108,6 +110,7 @@ class Posttest extends CI_Controller
             $data = array(
                 'title'         => 'Soal',
                 'title2'        => 'Edit Data Soal',
+                'count_new'     => $this->m_praktikan->lists(),
                 'posttest'       => $this->m_posttest->lists_soal(),
                 'detail'        => $this->m_posttest->detail($id_posttest),
                 'id'            => $this->uri->segment(4),
@@ -155,6 +158,7 @@ class Posttest extends CI_Controller
             $data = array(
                 'title'         => 'Soal',
                 'title2'        => 'Tambah Data Soal',
+                'count_new'     => $this->m_praktikan->lists(),
                 'kursus'     => $this->m_kursus->detail_kursus($id_kursus),
                 'posttest'       => $this->m_posttest->lists_soal(),
                 'id'            => $this->uri->segment(4),

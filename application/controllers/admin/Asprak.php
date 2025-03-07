@@ -25,6 +25,7 @@ class Asprak extends CI_Controller
         $data = array(
             'title'         => 'Asprak',
             'title2'        => 'Laboratorium Teknik Informatika',
+            'count_new'     => $this->m_praktikan->lists(),
             'asprak'        => $this->m_asprak->lists_asprak(),
             'isi'           => 'admin/asprak/v_list'
         );
@@ -39,6 +40,7 @@ class Asprak extends CI_Controller
             $data = array(
                 'title'         => 'Asprak',
                 'title2'        => 'Tambah Data Asprak',
+                'count_new'     => $this->m_praktikan->lists(),
                 'mahasiswa'     => $this-> m_praktikan->lists(),
                 'asprak'        => $this->m_asprak->lists_asprak(),
                 'isi'           => 'admin/asprak/v_add'
@@ -62,10 +64,9 @@ class Asprak extends CI_Controller
 
     public function edit($id_asprak)
     {
-        $this->form_validation->set_rules('username', 'Username', 'required');
-        $this->form_validation->set_rules('password', 'Password', 'required');
+
+        $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('nama_asprak', 'Nama Asprak', 'required');
-        $this->form_validation->set_rules('nim', 'NIM', 'required');
         $this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'required');
         
         if ($this->form_validation->run() == TRUE) {
@@ -79,6 +80,7 @@ class Asprak extends CI_Controller
                 $data = array(
                     'title'     => 'Asprak',
                     'title2'    => 'Ubah Data Asprak',
+                    'count_new'     => $this->m_praktikan->lists(),
                     'error'     => $this->upload->display_errors(),
                     'kursus'     => $this->m_kursus->lists(),
                     'asprak'    =>  $this->m_asprak->detail_asprak($id_asprak),
@@ -132,6 +134,7 @@ class Asprak extends CI_Controller
         $data = array(
             'title'     => 'Asprak',
             'title2'    => 'Ubah Data Asprak',
+            'count_new'     => $this->m_praktikan->lists(),
             'asprak'    =>  $this->m_asprak->detail_asprak($id_asprak),
             'kursus'     => $this->m_kursus->lists(),
             'isi'       => 'admin/asprak/v_edit'
@@ -142,14 +145,14 @@ class Asprak extends CI_Controller
     public function delete($id_asprak)
     {
         // Hapus foto yang lama
-        $kursus = $this->m_kursus->detail_kursus($id_asprak);
-        if ($kursus->foto_asprak != "") {
-            unlink('./upload/foto_asprak/' . $kursus->foto_asprak);
+        $asprak = $this->m_asprak->detail_asprak($id_asprak);
+        if ($asprak->foto_asprak != "") {
+            unlink('./upload/foto_asprak/' . $asprak->foto_asprak);
         }
 
-        $data = array('id_materi' => $id_asprak);
-        $this->m_materi->delete($data);
+        $data = array('id_asprak' => $id_asprak);
+        $this->m_asprak->delete($data);
         $this->session->set_flashdata('pesan', 'Data Guru Berhasil Dihapus!');
-        redirect('admin/materi');
+        redirect('admin/asprak');
     }
 }

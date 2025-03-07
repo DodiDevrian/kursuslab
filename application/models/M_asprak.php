@@ -33,6 +33,7 @@ class M_asprak extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tbl_asprak');
+        $this->db->join('tbl_user', 'tbl_user.id_user = tbl_asprak.id_user', 'left');
         $this->db->where('id_asprak', $id_asprak);
 
         return $this->db->get()->row();

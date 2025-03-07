@@ -31,6 +31,7 @@ class Pretest extends CI_Controller
         $data = array(
             'title'   => 'Pre-Test',
             'title2'  => 'Laboratorium Teknik Informatika',
+            'count_new'     => $this->m_praktikan->lists(),
             'pretest'   => $this->m_pretest->lists(),
             'materi'   => $this->m_materi->lists(),
             'isi'     => 'admin/pretest/v_list'
@@ -67,6 +68,7 @@ class Pretest extends CI_Controller
             $data = array(
                 'title'         => 'Soal',
                 'title2'        => 'Tambah Data Soal',
+                'count_new'     => $this->m_praktikan->lists(),
                 'materi'        => $this->m_kursus->detail_materi($id_materi),
                 'pretest'       => $this->m_pretest->lists_soal(),
                 'id'            => $this->uri->segment(4),
@@ -109,6 +111,7 @@ class Pretest extends CI_Controller
             $data = array(
                 'title'         => 'Soal',
                 'title2'        => 'Edit Data Soal',
+                'count_new'     => $this->m_praktikan->lists(),
                 'pretest'       => $this->m_pretest->lists_soal(),
                 'detail'        => $this->m_pretest->detail($id_pretest),
                 'id'            => $this->uri->segment(4),
@@ -174,6 +177,7 @@ class Pretest extends CI_Controller
             $data = array(
                 'title'         => 'Soal',
                 'title2'        => 'Tambah Data Soal',
+                'count_new'     => $this->m_praktikan->lists(),
                 'materi'        => $this->m_kursus->detail_materi($id_materi),
                 'pretest'       => $this->m_pretest->lists_soal(),
                 'id'            => $this->uri->segment(4),
@@ -223,6 +227,7 @@ class Pretest extends CI_Controller
             $data = array(
                 'title'         => 'Soal',
                 'title2'        => 'Tambah Data Soal',
+                'count_new'     => $this->m_praktikan->lists(),
                 'materi'        => $this->m_kursus->detail_materi($id_materi),
                 'pretest'       => $this->m_pretest->lists_soal(),
                 'kunci'       => $this->m_pretest->kunci($id_materi),

@@ -32,6 +32,7 @@ class Kursus extends CI_Controller
             'title'   => 'Kursus',
             'title2'  => 'Laboratorium Teknik Informatika',
             'kursus'   => $this->m_kursus->lists(),
+            'count_new'     => $this->m_praktikan->lists(),
             'isi'     => 'admin/kursus/v_list_kursus'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -56,6 +57,7 @@ class Kursus extends CI_Controller
                     'title'     => 'Kursus',
                     'title2'    => 'Tambah Data Kursus',
                     'error'     => $this->upload->display_errors(),
+                    'count_new'     => $this->m_praktikan->lists(),
                     'isi'       => 'admin/kursus/v_add'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -160,6 +162,7 @@ class Kursus extends CI_Controller
             'title2'    => 'Ubah Data kursus',
             'kursus'     => $this->m_kursus->detail_kursus($id_kursus),
             'dosen'     => $this->m_dosen->lists(),
+            'count_new'     => $this->m_praktikan->lists(),
             'asprak'    => $this->m_asprak->lists_asprak(),
             'isi'       => 'admin/kursus/v_edit'
         );
@@ -188,6 +191,7 @@ class Kursus extends CI_Controller
             'title2'        => 'Laboratorium Teknik Informatika',
             'kursus'        => $this->m_kursus->detail_kursus($id_kursus),
             'materi'        => $this->m_kursus->lists_materi(),
+            'count_new'     => $this->m_praktikan->lists(),
             'id'            => $this->uri->segment(4),
             'isi'           => 'admin/materi/v_list_materi'
         );
@@ -213,6 +217,7 @@ class Kursus extends CI_Controller
                     'title2'    => 'Tambah Data Materi',
                     'kursus'     => $this->m_kursus->detail_kursus($id_kursus),
                     'error'     => $this->upload->display_errors(),
+                    'count_new'     => $this->m_praktikan->lists(),
                     'isi'       => 'admin/kursus/v_add_materi'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -245,6 +250,7 @@ class Kursus extends CI_Controller
             'title'     => 'Materi',
             'title2'    => 'Tambah Data Materi',
             'kursus'     => $this->m_kursus->detail_kursus($id_kursus),
+            'count_new'     => $this->m_praktikan->lists(),
             'isi'       => 'admin/kursus/v_add_materi'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -269,6 +275,7 @@ class Kursus extends CI_Controller
                     'title2'    => 'Ubah Data Materi',
                     'error'     => $this->upload->display_errors(),
                     'materi'         =>  $this->m_materi->detail($id_materi),
+                    'count_new'     => $this->m_praktikan->lists(),
                     'isi'       => 'admin/kursus/v_edit_materi'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -355,6 +362,7 @@ class Kursus extends CI_Controller
             'title'         => 'Kursus',
             'title2'        => 'Laboratorium Teknik Informatika',
             'materi'        => $this->m_kursus->detail_materi($id_materi),
+            'count_new'     => $this->m_praktikan->lists(),
             'lists_materi'  => $this->m_kursus->lists_materi(),
             'id'            => $this->uri->segment(4),
             'isi'           => 'v_detail_kursus'

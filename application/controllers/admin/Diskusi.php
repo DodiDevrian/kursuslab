@@ -23,6 +23,7 @@ class Diskusi extends CI_Controller
         $data = array(
             'title'         => 'Forum Diskusi',
             'title2'        => 'Laboratorium Teknik Informatika',
+            'count_new'     => $this->m_praktikan->lists(),
             'diskusi'        => $this->m_diskusi->list(),
             'isi'           => 'admin/diskusi/v_list'
         );

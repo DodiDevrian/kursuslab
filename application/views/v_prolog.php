@@ -55,7 +55,7 @@
 									<?php  }} ?>
 								</div>
 
-								<?php if($this->session->userdata('username')) { ?>
+								<?php if($this->session->userdata('id_user')) { ?>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 										<?php $no=1; foreach ($materi_button as $key => $value) { 

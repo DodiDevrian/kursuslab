@@ -95,7 +95,7 @@
 								</ul>
 								<div class="top_bar_login ml-auto">
 									
-										<?php if($this->session->userdata('username')) { ?>
+										<?php if($this->session->userdata('id_user')) { ?>
 											<!-- <div class="dropdown">
 												<button class="btn login_button dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" style="color: white;">
 													<?php echo $this->session->userdata('username') ?>
@@ -119,8 +119,13 @@
 												</div>
 											</div>
 										<?php }else{ ?>	
-											<div class="login_button">
-												<a href="<?= base_url('auth/login')?>"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+											<div class="flex-profile">
+												<div class="button-profile">
+														<a class="link-profile" href="<?= base_url('profile/mahasiswa/' . $this->session->userdata('slug_user')) ?>">Register</a>
+													</div>
+												<div class="login_button">
+													<a href="<?= base_url('auth/login')?>"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+												</div>
 											</div>
 										<?php } ?>
 								</div>

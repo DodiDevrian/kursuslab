@@ -24,6 +24,7 @@ class Asset extends CI_Controller
             'title'         => 'Asset',
             'title2'        => 'Laboratorium Teknik Informatika',
             'asset'         => $this->m_asset->lists(),
+            'count_new'     => $this->m_praktikan->lists(),
             'isi'           => 'admin/asset/v_list'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);

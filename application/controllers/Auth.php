@@ -9,11 +9,12 @@ class Auth extends CI_Controller {
 		$this->load->helpers('text');
 
         $this->load->model('m_clogin');
+        $this->load->model('m_praktikan');
 	}
 
 	public function login(){
-			$this->form_validation->set_rules('username', 'Username', 'required',[
-				'required' => 'Username wajib diisi!']);
+			$this->form_validation->set_rules('email', 'Email', 'required',[
+				'required' => 'Email wajib diisi!']);
 			$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]',[
 				'required' => 'Password wajib diisi!']);
 
@@ -31,16 +32,21 @@ class Auth extends CI_Controller {
 				</div>');
 				redirect('auth/login');
 			}else {
-				$this->session->set_userdata('username', $auth->username);
 				$this->session->set_userdata('id_user', $auth->id_user);
 				$this->session->set_userdata('role', $auth->role);
 				$this->session->set_userdata('nama_user', $auth->nama_user);
 				$this->session->set_userdata('email', $auth->email);
 				$this->session->set_userdata('foto_user', $auth->foto_user);
+				$this->session->set_userdata('foto_user', $auth->status_if);
 				$this->session->set_userdata('slug_user', $auth->slug_user);
 
 				switch($auth->role){
-					case 3 : redirect('home');
+					case 3 :
+							if ($auth->status_if == 'Yes') {
+								redirect('home');
+							}else {
+								redirect('notif');
+							}
 							break;
 
 					case 4 : redirect('home');
@@ -89,6 +95,69 @@ class Auth extends CI_Controller {
 				}
 			}
 		}
+	}
+
+	public function register()
+	{
+		$this->form_validation->set_rules('nama_user', 'Nama Praktikan', 'required');
+        $this->form_validation->set_rules('nim', 'NIM', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
+
+        if ($this->form_validation->run() == TRUE) {
+            $config['upload_path']      = './upload/foto_user/';
+            $config['allowed_types']    = 'jpg|png|jpeg|gif';
+            $config['max_size']         = 20000;
+            $this->upload->initialize($config);
+
+            if (!$this->upload->do_upload('foto_user')) {
+
+                $data = array(
+                    'title'     => 'Register',
+                    'title2'    => 'Buat Akun',
+                    'error'     => $this->upload->display_errors(),
+					'clogin'    => $this->m_clogin->lists(),
+                );
+                $this->load->view('login/v_register', $data, FALSE);
+            } else {
+                $upload_data = array('uploads' => $this->upload->data());
+                $config['image_library'] = 'gd2';
+                $config['source_image'] = './upload/foto_user/' . $upload_data['uploads']['file_name'];
+                $this->load->library('image_lib', $config);
+
+                $data = array(
+                    'password'     => md5($this->input->post('password')),
+                    'role'         => 3,
+                    'nama_user'    => $this->input->post('nama_user'),
+                    'nim'          => $this->input->post('nim'),
+                    'email'        => $this->input->post('email'),
+					'slug_user'    => url_title($this->input->post('nama_user'), 'dash', TRUE),
+                    'foto_user'    => $upload_data['uploads']['file_name']
+                );
+
+                $this->m_praktikan->add($data);
+                $this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan!');
+                redirect('auth/login');
+            }
+        }
+        $data = array(
+            'title'     => 'Register',
+            'title2'    => 'Buat Akun',
+			'clogin'       => $this->m_clogin->lists(),
+        );
+        $this->load->view('login/v_register', $data, FALSE);
+    }
+
+	public function logout(){
+
+		$this->session->sess_destroy();
+		redirect('auth/login');
+	}
+
+	public function logout_admin(){
+
+		$this->session->sess_destroy();
+		redirect('auth/login_admin');
 	}
 
 	public function login_asprak(){
@@ -143,17 +212,5 @@ class Auth extends CI_Controller {
 				redirect('dosen/dashboard');
 			}
 		}
-	}
-
-	public function logout(){
-
-		$this->session->sess_destroy();
-		redirect('auth/login');
-	}
-
-	public function logout_admin(){
-
-		$this->session->sess_destroy();
-		redirect('auth/login_admin');
 	}
 }

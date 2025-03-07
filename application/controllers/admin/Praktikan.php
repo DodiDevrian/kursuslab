@@ -24,7 +24,8 @@ class Praktikan extends CI_Controller
         $data = array(
             'title'         => 'Praktikan',
             'title2'        => 'Laboratorium Teknik Informatika',
-            'praktikan'        => $this->m_praktikan->lists(),
+            'praktikan'     => $this->m_praktikan->lists(),
+            'count_new'     => $this->m_praktikan->lists(),
             'isi'           => 'admin/praktikan/v_list'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -50,6 +51,7 @@ class Praktikan extends CI_Controller
                     'title'     => 'Praktikan',
                     'title2'    => 'Tambah Data Praktikan',
                     'error'     => $this->upload->display_errors(),
+                    'count_new'     => $this->m_praktikan->lists(),
                     'isi'       => 'admin/praktikan/v_add'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -61,7 +63,7 @@ class Praktikan extends CI_Controller
 
                 $data = array(
                     'username'     => $this->input->post('username'),
-                    'password'     => $this->input->post('password'),
+                    'password'     => md5($this->input->post('password')),
                     'role'         => 3,
                     'nama_user'    => $this->input->post('nama_user'),
                     'nim'          => $this->input->post('nim'),
@@ -75,8 +77,9 @@ class Praktikan extends CI_Controller
             }
         }
         $data = array(
-            'title'     => 'Dosen',
-            'title2'    => 'Tambah Data Dosen',
+            'title'     => 'Praktikan',
+            'title2'    => 'Tambah Data Praktikan',
+            'count_new'     => $this->m_praktikan->lists(),
             'isi'       => 'admin/praktikan/v_add'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -103,6 +106,7 @@ class Praktikan extends CI_Controller
                     'title2'    => 'Ubah Data Praktikan',
                     'error'     => $this->upload->display_errors(),
                     'praktikan' =>  $this->m_praktikan->detail($id_user),
+                    'count_new'     => $this->m_praktikan->lists(),
                     'isi'       => 'admin/praktikan/v_edit'
                 );
                 $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -125,6 +129,7 @@ class Praktikan extends CI_Controller
                     'nama_user'    => $this->input->post('nama_user'),
                     'nim'          => $this->input->post('nim'),
                     'email'        => $this->input->post('email'),
+                    'slug_user'   => url_title($this->input->post('nama_user'), 'dash', TRUE),
                     'foto_user'    => $upload_data['uploads']['file_name']
                 );
 
@@ -154,23 +159,24 @@ class Praktikan extends CI_Controller
             'title'     => 'Praktikan',
             'title2'    => 'Ubah Data Praktikan',
             'praktikan' =>  $this->m_praktikan->detail($id_user),
+            'count_new'     => $this->m_praktikan->lists(),
             'isi'       => 'admin/praktikan/v_edit'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
     }
 
-    public function delete($id_slider)
+    public function delete($id_user)
     {
         // Hapus foto yang lama
-        $slider = $this->m_slider->detail($id_slider);
-        if ($slider->foto_slider != "") {
-            unlink('./upload/foto_slider/' . $slider->foto_slider);
+        $user = $this->m_praktikan->detail($id_user);
+        if ($user->foto_user != "") {
+            unlink('./upload/foto_user/' . $user->foto_user);
         }
 
-        $data = array('id_slider' => $id_slider);
-        $this->m_slider->delete($data);
+        $data = array('id_user' => $id_user);
+        $this->m_praktikan->delete($data);
         $this->session->set_flashdata('pesan', 'Data Berhasil Dihapus!');
-        redirect('admin/slider');
+        redirect('admin/praktikan');
     }
 
     public function edit_role_yes($id_user)
