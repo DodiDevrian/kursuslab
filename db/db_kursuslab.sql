@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2025 at 01:08 PM
+-- Generation Time: Mar 10, 2025 at 10:09 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -80,7 +80,7 @@ INSERT INTO `tbl_asprak` (`id_asprak`, `id_user`, `nama_asprak`, `no_hp`, `creat
 (12, 12, 'Dimas Azi Rajab Aizar', 89628744896, '2024-12-04 06:15:37', NULL),
 (13, 13, 'Dwi Ananda Rizky', 89628744896, '2024-12-04 06:22:35', NULL),
 (14, 14, 'Edo Sani', 89628744896, '2024-12-04 06:22:35', NULL),
-(16, 16, 'Punky Wijayanto Muda', 89628744878, '2025-02-04 23:08:12', NULL);
+(16, 16, 'Punky Wijayanto Muda', 89628744896, '2025-03-08 08:57:18', NULL);
 
 -- --------------------------------------------------------
 
@@ -234,7 +234,9 @@ CREATE TABLE `tbl_do_posttest` (
 
 INSERT INTO `tbl_do_posttest` (`id_doposttest`, `id_user`, `id_kursus`, `jawab_1`, `jawab_2`, `jawab_3`, `jawab_4`, `jawab_5`, `jawab_6`, `jawab_7`, `jawab_8`, `jawab_9`, `jawab_10`, `jawab_11`, `jawab_12`, `jawab_13`, `jawab_14`, `jawab_15`, `jawab_16`, `jawab_17`, `jawab_18`, `jawab_19`, `jawab_20`, `jawab_21`, `jawab_22`, `jawab_23`, `jawab_24`, `jawab_25`, `jawab_26`, `jawab_27`, `jawab_28`, `jawab_29`, `jawab_30`, `sum`) VALUES
 (1, 1, 1, 'B', 'C', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'B', 70),
-(2, 1, 1, 'B', 'C', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'B', 60);
+(2, 1, 1, 'B', 'C', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'B', 60),
+(3, 15, 1, 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 47),
+(4, 15, 1, 'B', 'A', 'C', 'B', 'B', 'C', 'A', 'C', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 67);
 
 -- --------------------------------------------------------
 
@@ -275,7 +277,9 @@ CREATE TABLE `tbl_do_pretest` (
 --
 
 INSERT INTO `tbl_do_pretest` (`id_dopretest`, `id_user`, `id_kursus`, `id_materi`, `jawab_1`, `jawab_2`, `jawab_3`, `jawab_4`, `jawab_5`, `jawab_6`, `jawab_7`, `jawab_8`, `jawab_9`, `jawab_10`, `poin_1`, `poin_2`, `poin_3`, `poin_4`, `poin_5`, `poin_6`, `poin_7`, `poin_8`, `poin_9`, `poin_10`, `sum`) VALUES
-(13, 1, 1, 2, 'B', 'B', 'C', 'B', 'C', 'D', 'B', 'D', 'D', 'B', 0, 0, 0, 0, 0, 0, 10, 0, 10, 10, 70);
+(13, 1, 1, 2, 'B', 'B', 'C', 'B', 'C', 'D', 'B', 'D', 'D', 'B', 0, 0, 0, 0, 0, 0, 10, 0, 10, 10, 60),
+(14, 15, 1, 2, 'B', 'C', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 0, 10, 10, 10, 10, 10, 10, 10, 0, 10, 80),
+(15, 19, 1, 2, 'C', 'C', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 10, 10, 10, 10, 10, 10, 10, 10, 0, 10, 90);
 
 -- --------------------------------------------------------
 
@@ -578,6 +582,7 @@ CREATE TABLE `tbl_user` (
   `username` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
+  `spassword` varchar(255) NOT NULL,
   `role` int(20) NOT NULL DEFAULT 3,
   `nama_user` varchar(255) NOT NULL,
   `nim` bigint(255) DEFAULT NULL,
@@ -592,20 +597,21 @@ CREATE TABLE `tbl_user` (
 -- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`id_user`, `username`, `email`, `password`, `role`, `nama_user`, `nim`, `status_if`, `foto_user`, `slug_user`, `created`, `modified`) VALUES
-(1, 'dodi.119140023', 'dodi.119140023@student.itera.ac.id', '49fd2814b3f7f7c4c10951864b531abe', 3, 'Dodi Devrian Andrianto', 119140023, 'Yes', 'customer-service.png', 'dodi-devrian-andrianto', '2024-12-03 22:19:02', '2025-03-06 08:42:19'),
-(7, 'ahmad.119140293', 'ahmad.119140293@student.itera.ac.id', '8de13959395270bf9d6819f818ab1a00', 4, 'Ahmad Akbar', 119140293, 'Yes', 'user2.png', 'ahmad-akbar', '2024-12-03 22:34:23', '2025-03-07 09:11:30'),
-(8, 'nurdana.1191402394', 'nurdana.1191402394@student.itera.ac.id', 'nurdana123', 4, 'Nurdana Jaya', 119140394, 'Yes', 'WhatsApp_Image_2024-07-29_at_00_22_25.jpeg', '', '2024-12-03 23:06:30', '2025-02-28 11:39:34'),
-(9, 'wili.119140025', 'wili.119140025@student.itera.ac.id', 'wili123', 4, 'Wili Jonatan', 119140025, 'Yes', 'avatar-design.png', '', '2024-12-03 23:10:11', '2025-02-28 11:39:37'),
-(10, 'michael.123140101', 'michael.123140101@student.itera.ac.id', 'michael123', 4, 'Michael Mathew', 123140101, 'Yes', 'WhatsApp_Image_2024-07-03_at_00_54_371.jpeg', '', '2024-12-04 06:05:18', '2025-02-28 11:39:40'),
-(11, 'dila.121140075', 'dila.121140075@student.itera.ac.id', 'dila123', 4, 'Dila Ayu Prastita', 121140075, 'Yes', 'images.jpeg', '', '2024-12-04 06:11:56', '2025-02-28 11:39:43'),
-(12, 'dimas.121140135', 'dimas.121140135@student.itera.ac.id', 'dimas123', 4, 'Dimas Azi Rajab Aizar', 121140135, 'Yes', '5d4b8207341479b8729b9480b98c791a.jpg', '', '2024-12-04 06:11:56', '2025-02-28 11:39:46'),
-(13, 'dwi.120140027', 'dwi.120140027@student.ac.id', 'dwi123', 4, 'Dwi Ananda Rizky', 120140027, 'Yes', 'g_h_a_hasil_editan_15_pas_foto_buku_nikah_sederet_aktor_ganteng_korea_bikin_makin_halu_-_manifesting_dulu_siapa_tahu_jadi_beneran_p_pas_foto_buku_nikah_aktor_korea-20220317-015-non_fotografer_kly.jpg', '', '2024-12-04 06:19:59', '2025-02-28 11:39:50'),
-(14, 'edo.120140179', 'edo.120140179@student.itera.ac.id', 'edo123', 4, 'Edo Sani', 120140179, 'Yes', 'S6b6ca25df9c94414ad3c596b38b3094dw.jpg', '', '2024-12-04 06:19:59', '2025-02-28 11:39:52'),
-(15, 'khairunnisa.123450071', 'khairunnisa.123450071@student.itera.ac.id', 'khairunnisa123', 3, 'Khairunnisa Maharani', 123450071, 'Yes', 'images1.jpeg', 'khairunnisa-maharani', '2024-12-05 23:03:11', '2025-02-28 11:39:56'),
-(16, 'punky.119140048', 'punky.119140048@student.itera.ac.id', 'punky123', 4, 'Punky Wijayanto Muda', 119140048, 'Yes', 'foto_(2).jpg', '', '2025-02-04 23:07:54', '2025-02-28 11:39:59'),
-(17, 'amanda.119140472', 'amanda.119140472@student.itera.ac.id', '0f4004e836509904e0005999a4fadc48', 3, 'Amanda Rawles', 119140472, 'Yes', 'images2.jpeg', 'amanda-rawles', '2025-03-06 08:50:37', '2025-03-07 09:32:29'),
-(19, NULL, 'haland.119140293@student.itera.ac.id', '462a4b51a0e0457e02aa056d86d73817', 3, 'Haland Budi Kusuma', 119140293, 'Yes', 'foto_(2)5.jpg', 'haland-budi-kusuma', '2025-03-06 10:15:54', '2025-03-07 09:32:33');
+INSERT INTO `tbl_user` (`id_user`, `username`, `email`, `password`, `spassword`, `role`, `nama_user`, `nim`, `status_if`, `foto_user`, `slug_user`, `created`, `modified`) VALUES
+(1, 'dodi.119140023', 'dodi.119140023@student.itera.ac.id', '49fd2814b3f7f7c4c10951864b531abe', 'b398b8a18ef4f69811a32cf169946bac', 3, 'Dodi Devrian Andrianto', 119140023, 'Yes', 'WhatsApp_Image_2024-07-03_at_00_54_373.jpeg', 'dodi-devrian-andrianto', '2024-12-03 22:19:02', '2025-03-10 14:31:06'),
+(7, 'ahmad.119140293', 'ahmad.119140293@student.itera.ac.id', '8de13959395270bf9d6819f818ab1a00', '', 4, 'Ahmad Akbar', 119140293, 'Yes', 'user2.png', 'ahmad-akbar', '2024-12-03 22:34:23', '2025-03-07 09:11:30'),
+(8, 'nurdana.1191402394', 'nurdana.1191402394@student.itera.ac.id', 'nurdana123', '', 4, 'Nurdana Jaya', 119140394, 'Yes', 'WhatsApp_Image_2024-07-29_at_00_22_25.jpeg', '', '2024-12-03 23:06:30', '2025-02-28 11:39:34'),
+(9, 'wili.119140025', 'wili.119140025@student.itera.ac.id', 'wili123', '', 4, 'Wili Jonatan', 119140025, 'Yes', 'avatar-design.png', '', '2024-12-03 23:10:11', '2025-02-28 11:39:37'),
+(10, 'michael.123140101', 'michael.123140101@student.itera.ac.id', 'michael123', '', 4, 'Michael Mathew', 123140101, 'Yes', 'WhatsApp_Image_2024-07-03_at_00_54_371.jpeg', '', '2024-12-04 06:05:18', '2025-02-28 11:39:40'),
+(11, 'dila.121140075', 'dila.121140075@student.itera.ac.id', 'dila123', '', 4, 'Dila Ayu Prastita', 121140075, 'Yes', 'images.jpeg', '', '2024-12-04 06:11:56', '2025-02-28 11:39:43'),
+(12, 'dimas.121140135', 'dimas.121140135@student.itera.ac.id', 'dimas123', '', 4, 'Dimas Azi Rajab Aizar', 121140135, 'Yes', '5d4b8207341479b8729b9480b98c791a.jpg', '', '2024-12-04 06:11:56', '2025-02-28 11:39:46'),
+(13, 'dwi.120140027', 'dwi.120140027@student.ac.id', 'dwi123', '', 4, 'Dwi Ananda Rizky', 120140027, 'Yes', 'g_h_a_hasil_editan_15_pas_foto_buku_nikah_sederet_aktor_ganteng_korea_bikin_makin_halu_-_manifesting_dulu_siapa_tahu_jadi_beneran_p_pas_foto_buku_nikah_aktor_korea-20220317-015-non_fotografer_kly.jpg', '', '2024-12-04 06:19:59', '2025-02-28 11:39:50'),
+(14, 'edo.120140179', 'edo.120140179@student.itera.ac.id', 'edo123', '', 4, 'Edo Sani', 120140179, 'Yes', 'S6b6ca25df9c94414ad3c596b38b3094dw.jpg', '', '2024-12-04 06:19:59', '2025-02-28 11:39:52'),
+(15, 'khairunnisa.123450071', 'khairunnisa.123450071@student.itera.ac.id', '927870d176e364d40306658f82e92fc0', '', 3, 'Khairunnisa Maharani', 123450071, 'Yes', 'images1.jpeg', 'khairunnisa-maharani', '2024-12-05 23:03:11', '2025-03-08 15:05:50'),
+(16, 'punky.119140048', 'punky.119140048@student.itera.ac.id', 'punky123', '', 4, 'Punky Wijayanto Muda', 119140048, 'Yes', 'foto_(2).jpg', '', '2025-02-04 23:07:54', '2025-02-28 11:39:59'),
+(17, 'amanda.119140472', 'amanda.119140472@student.itera.ac.id', '0f4004e836509904e0005999a4fadc48', '', 3, 'Amanda Rawles', 119140472, 'Yes', 'images2.jpeg', 'amanda-rawles', '2025-03-06 08:50:37', '2025-03-07 09:32:29'),
+(19, NULL, 'haland.119140293@student.itera.ac.id', '462a4b51a0e0457e02aa056d86d73817', '', 3, 'Haland Budi Kusuma', 119140293, 'Yes', 'foto_(2)5.jpg', 'haland-budi-kusuma', '2025-03-06 10:15:54', '2025-03-07 09:32:33'),
+(22, NULL, 'sharla.119140023@student.itera.ac.id', '3fcf0c2ecc4b25ea2bea21eeca6f814b', 'b398b8a18ef4f69811a32cf169946bac', 3, 'Sharla Rizqillah Kusuma', 119140023, 'No', 'WhatsApp_Image_2024-07-03_at_00_54_374.jpeg', 'sharla-rizqillah-kusuma', '2025-03-10 14:43:15', '2025-03-10 14:53:12');
 
 --
 -- Indexes for dumped tables
@@ -745,13 +751,13 @@ ALTER TABLE `tbl_diskusi`
 -- AUTO_INCREMENT for table `tbl_do_posttest`
 --
 ALTER TABLE `tbl_do_posttest`
-  MODIFY `id_doposttest` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_doposttest` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_do_pretest`
 --
 ALTER TABLE `tbl_do_pretest`
-  MODIFY `id_dopretest` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_dopretest` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tbl_kunci_posttest`
@@ -799,7 +805,7 @@ ALTER TABLE `tbl_slider`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

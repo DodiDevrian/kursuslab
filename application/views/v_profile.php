@@ -3,6 +3,20 @@
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap4.css">
 
+<?php 
+    $countpost=0;
+    $countpre=0;
+    foreach ($posttest as $key => $value) {
+        if ($this->session->userdata('id_user') == $value->id_user) {
+            $countpost++;
+        }
+    }
+    foreach ($pretest as $key => $value) {
+        if ($this->session->userdata('id_user') == $value->id_user) {
+            $countpre++;
+        }
+    }
+?>
 
 <div class="home">
     <div class="breadcrumbs_container">
@@ -70,64 +84,76 @@
 
     <div class="card p-3 hasil-posttest mt-5" style="color: black;">
         <h4 class="text-center"><b>Hasil Post Test</b></h4>
-        <table id="example" class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Praktikum</th>
-                    <th>Nilai Post Test</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php $no=1; foreach ($pretest as $key => $value) { ?>
-                <?php if ($this->session->userdata('id_user') == $value->id_user) { ?>
+        <?php if ($countpost>0) { ?>
+            <table id="example" class="table table-striped table-bordered">
+                <thead>
                     <tr>
-                        <td><?= $no ?></td>
-                            <td><?= $value->nama_kursus ?></td>
-                            <td <?php if ($value->sum >=70) {
-                                echo 'style="background: #12ff12;"';
-                            }else {
-                                echo 'style="background:rgb(255 158 158);"';
-                            } ?>>
-                                <?= $value->sum ?>
-                            </td>
+                        <th>No</th>
+                        <th>Praktikum</th>
+                        <th>Nilai Post Test</th>
                     </tr>
+                </thead>
+                <tbody>
+                <?php $no=1; foreach ($posttest as $key => $value) { ?>
+                    <?php if ($this->session->userdata('id_user') == $value->id_user) { ?>
+                        <tr>
+                            <td><?= $no++ ?></td>
+                                <td><?= $value->nama_kursus ?></td>
+                                <td <?php if ($value->sum >=70) {
+                                    echo 'style="background: #12ff12;"';
+                                }else {
+                                    echo 'style="background:rgb(255 158 158);"';
+                                } ?>>
+                                    <?= $value->sum ?>
+                                </td>
+                        </tr>
+                    <?php } ?>
                 <?php } ?>
-            <?php } ?>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        <?php }else { ?>
+            <div class="alert alert-danger mt-3" role="alert">
+                Anda belum melakukan post-test
+            </div>
+        <?php } ?>
     </div>
 
     <div class="card p-3 hasil-pretest mt-5 mb-5" style="color: black;">
         <h4 class="text-center"><b>Hasil Pre Test</b></h4>
-        <table id="example1" class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Praktikum</th>
-                    <th>Materi</th>
-                    <th>Nilai Post Test</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php $no=1; foreach ($pretest as $key => $value) { ?>
-                    <?php if ($this->session->userdata('id_user') == $value->id_user) { ?>
-                        <tr>
-                            <td><?= $no ?></td>
-                            <td><?= $value->nama_kursus ?></td>
-                            <td><?= $value->nama_materi ?></td>
-                            <td <?php if ($value->sum >=70) {
-                                echo 'style="background: #12ff12;"';
-                            }else {
-                                echo 'style="background:rgb(255 158 158);"';
-                            } ?>>
-                                <?= $value->sum ?>
-                            </td>
-                        </tr>
+        <?php if ($countpre>0) { ?>
+            <table id="example1" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Praktikum</th>
+                        <th>Materi</th>
+                        <th>Nilai Post Test</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $no=1; foreach ($pretest as $key => $value) { ?>
+                        <?php if ($this->session->userdata('id_user') == $value->id_user) { ?>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><?= $value->nama_kursus ?></td>
+                                <td><?= $value->nama_materi ?></td>
+                                <td <?php if ($value->sum >=70) {
+                                    echo 'style="background: #12ff12;"';
+                                }else {
+                                    echo 'style="background:rgb(255 158 158);"';
+                                } ?>>
+                                    <?= $value->sum ?>
+                                </td>
+                            </tr>
+                        <?php } ?>
                     <?php } ?>
-                <?php } ?>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        <?php }else { ?>
+            <div class="alert alert-danger mt-3" role="alert">
+                Anda belum melakukan pre-test
+            </div>
+        <?php } ?>
     </div>
 </div>
 
