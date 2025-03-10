@@ -8,6 +8,8 @@ class Profile extends CI_Controller
 		$this->load->helpers(['menuAktif']);
 		$this->load->helpers('text');
         $this->load->model('m_profile');
+        $this->load->model('m_posttest');
+        $this->load->model('m_pretest');
 	}
 
     public function mahasiswa($slug_user)
@@ -17,6 +19,8 @@ class Profile extends CI_Controller
             'title2'    => 'Laboratorium Teknik Informatika',
             'profile'   => $this->m_profile->profile($slug_user),
             'slug_user' => $this->uri->segment(4),
+            'posttest'     => $this->m_posttest->do_posttest(),
+            'pretest'     => $this->m_pretest->do_pretest(),
             'isi'       => 'v_profile'
         );
         $this->load->view('layout/v_wrapper', $data, FALSE);

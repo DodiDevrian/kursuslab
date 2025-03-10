@@ -1,3 +1,15 @@
+<?php
+// $highestValues = [];
+// foreach ($posttest as $key => $value) {
+//     if (!isset($highestValues[$value->id_user]) || $value->sum > $highestValues[$value->id_user]) {
+//         $highestValues[$value->id_user] = $value->sum;
+//     }
+// }
+
+?>
+
+
+
 <div class="main-container">
     <div class="pd-ltr-20 xs-pd-20-10">
         <div class="min-height-200px">
@@ -16,6 +28,70 @@
                 </div>
             </div>
 
-            Ini Halaman Dashboard
+            <div class="card-box mb-30">
+                <div class="pd-20">
+                    <h4 class="text-blue h4">Data Nilai Post Test</h4>
+                </div>
+                <div class="pb-20">
+                    <table class="table hover multiple-select-row data-table-export nowrap">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>NIM</th>
+                                <th>Praktikum</th>
+                                <th>Nilai Post Test</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 1 ;
+                            $highestValues   = $this->m_posttest->get_highest_values();
+                            foreach ($highestValues as $id_user => $data) { ?>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><?php echo "{$data['nama_user']}"; ?></td>
+                                <td><?php echo "{$data['nim']}"; ?></td>
+                                <td><?php echo "{$data['nama_kursus']}"; ?></td>
+                                <td><?php echo "{$data['sum']}"; ?></td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card-box mb-30">
+                <div class="pd-20">
+                    <h4 class="text-blue h4">Data Nilai Pre-Test</h4>
+                </div>
+                <div class="pb-20">
+                    <table class="table hover multiple-select-row data-table-export nowrap">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>NIM</th>
+                                <th>Praktikum</th>
+                                <th>Materi</th>
+                                <th>Nilai Pre-Test</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 1 ;
+                            $list_pretest   = $this->m_pretest->do_pretest();
+                            foreach ($list_pretest as $key => $value) { ?>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><?= $value->nama_user?></td>
+                                <td><?= $value->nim?></td>
+                                <td><?= $value->nama_kursus?></td>
+                                <td><?= $value->nama_materi?></td>
+                                <td><?= $value->sum?></td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
         </div>

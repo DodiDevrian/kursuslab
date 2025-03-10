@@ -18,6 +18,8 @@
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/backend/vendors/styles/style.css">
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/backend/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/backend/src/plugins/datatables/css/responsive.bootstrap4.min.css">
+	
+	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/backend/src/plugins/fancybox/dist/jquery.fancybox.css">
 
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/css/style.css">
 

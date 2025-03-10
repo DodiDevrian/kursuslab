@@ -9,6 +9,9 @@ class Dashboard extends CI_Controller
 		$this->load->helpers(['menuAktif']);
 		$this->load->helpers('text');
 
+        $this->load->model('m_posttest');
+        $this->load->model('m_pretest');
+
         if ($this->session->userdata('role') != 1) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
 				Anda Belum Melakukan <strong>Login Sebagai Admin!</strong>
@@ -23,6 +26,7 @@ class Dashboard extends CI_Controller
             'title' => 'Admin',
             'title2' => 'Dashboard',
             'count_new'     => $this->m_praktikan->lists(),
+            'posttest'     => $this->m_posttest->do_posttest(),
             'isi'   => 'admin/v_dashboard'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);

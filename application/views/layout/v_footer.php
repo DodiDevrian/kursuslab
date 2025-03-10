@@ -9,7 +9,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
-				<label style="color: black;">Apakah antum ingin <b style="color: #ed9532;">logout</b> ?</label>
+				<label style="color: black;">Apakah anda ingin <b style="color: #ed9532;">logout</b> ?</label>
 				</div>
 			</div>
 			<div class="modal-footer">
@@ -117,6 +117,5 @@
 <script src="<?= base_url() ?>assets/frontend/js/course.js"></script>
 <script src="<?= base_url() ?>assets/frontend/js/courses.js"></script>
 
-<script src="<?= base_url() ?>assets/js/script.js"></script>
 </body>
 </html>

@@ -34,7 +34,7 @@
                     <a class="dropdown-item" href="<?= base_url('diskusi/detail_diskusi/' . $value->id_kursus) ?>"><?= wordwrap($value->nama_kursus,35,"<br>\n");?></a>
                 <?php } ?>
             </div>
-            <?php if ($this->session->userdata('username')) { ?>
+            <?php if ($this->session->userdata('id_user')) { ?>
                 <a href="<?= base_url('diskusi/me') ?>" class="btn btn-info ml-3">My Question</a>
             <?php } ?>
         </div>

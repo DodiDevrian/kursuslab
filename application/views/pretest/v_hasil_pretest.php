@@ -1,6 +1,16 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/styles/contact.css">
 <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/styles/contact_responsive.css">
 
+<?php 
+$hasil=0;
+foreach ($hasil_pretest as $key => $value) {
+    if ($this->session->userdata('id_user')==$value->id_user) {
+        $hasil=$value->sum;
+        $id_dopretest = $value->id_dopretest;
+        $id_materi = $value->id_materi;
+    }
+}
+?>
 <div class="home">
     <div class="breadcrumbs_container">
         <div class="container">
@@ -26,15 +36,15 @@
     <div class="wrapper">
         <div class="main">
             <div class="jumbotron text-center">
-                <h1 class="display-4"><?= $hasil_pretest -> sum ?></h1>
-                <?php if ($hasil_pretest->sum<70) { ?>
+                <h1 class="display-4"><?= $hasil ?></h1>
+                <?php if ($hasil <70) { ?>
                     <p class="lead">Jika Nilai Anda Dibawah 70, Maka Anda Tidak Bisa Lanjut Ke Materi Pertemuan Ini</p>
                     <hr class="my-4">
-                    <a class="btn btn-info btn-lg" href="<?= base_url('pretest/re_pretest/' . $hasil_pretest->id_dopretest) ?>" role="button">Coba Lagi</a>
+                    <a class="btn btn-info btn-lg" href="<?= base_url('pretest/re_pretest/' . $id_dopretest) ?>" role="button">Coba Lagi</a>
                 <?php } else { ?>
                     <p class="lead">Silahkan Lanjut Untuk Melihat Materi</p>
                     <hr class="my-4">
-                    <a class="btn btn-primary btn-lg" href="<?= base_url('kursus/detail_materi/' . $hasil_pretest->id_materi) ?>" role="button">Lanjut</a>
+                    <a class="btn btn-primary btn-lg" href="<?= base_url('kursus/detail_materi/' . $id_materi) ?>" role="button">Lanjut</a>
                 <?php } ?>
             </div>
         </div>

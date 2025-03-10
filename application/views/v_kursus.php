@@ -33,9 +33,9 @@
 									<div class="course_image"><img src="<?= base_url() ?>upload/cover_kursus/<?= $value->cover_kursus ?>" alt="" style="width: 100%; height: 223px; object-fit: cover; object-position: 20% 10%;"></div>
 									<div class="course_body">
 										<h3 class="course_title"><a href="<?= base_url('kursus/detail_kursus/' . $value->id_kursus) ?>"><?= $value->nama_kursus ?></a></h3>
-										<div class="course_text">
+										<!-- <div class="course_text">
 											<p><?= substr(strip_tags($value->ket_kursus), 0, 80) ?>...</p>
-										</div>
+										</div> -->
 									</div>
 									<div class="course_footer">
 										<div class="course_footer_content d-flex flex-row align-items-center justify-content-start">

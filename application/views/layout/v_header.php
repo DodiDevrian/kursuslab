@@ -121,7 +121,7 @@
 										<?php }else{ ?>	
 											<div class="flex-profile">
 												<div class="button-profile">
-														<a class="link-profile" href="<?= base_url('profile/mahasiswa/' . $this->session->userdata('slug_user')) ?>">Register</a>
+														<a class="link-profile" href="<?= base_url('auth/register')?>">Register</a>
 													</div>
 												<div class="login_button">
 													<a href="<?= base_url('auth/login')?>"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>

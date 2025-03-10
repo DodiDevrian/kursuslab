@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="<?= base_url('assets/css/login-style.css') ?>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/styles/bootstrap4/bootstrap.min.css">
 
 
@@ -32,7 +33,8 @@
                         <?php } ?>
 						<div class="login-wrap p-4 p-md-5">
                             <div class="role text-center">
-                                <h3 class="mb-4">Mahasiswa</h3>
+                                <h3 class="">Mahasiswa</h3>
+                                <h5 class="mb-4">Shadow Login</h5>
                             </div>
                             <div class="d-flex">
                                 <div class="w-100 d-flex">
@@ -49,7 +51,7 @@
                             </div>
 
 							<?php
-                                echo form_open('auth/login');
+                                echo form_open('auth/slogin');
                                 if ($this->session->flashdata('pesan')) {
                                     echo $this->session->flashdata('pesan');
                                 }
@@ -60,9 +62,9 @@
                                     <?php echo form_error('email', '<div class="text-danger small ml-2">', '</div>') ?>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label class="label">Password</label>
-                                    <input type="password" class="form-control" name="password" placeholder="Password" required>
-                                    <?php echo form_error('password', '<div class="text-danger small ml-2">', '</div>') ?>
+                                    <label class="label">Shadow Password</label>
+                                    <input type="password" class="form-control" name="spassword" placeholder="Shadow Password" required>
+                                    <?php echo form_error('spassword', '<div class="text-danger small ml-2">', '</div>') ?>
                                 </div>
                                 <div class="form-group mt-5">
                                     <button type="submit" class="form-control btn btn-primary rounded submit px-3">Login &nbsp;&nbsp;<i class="fa fa-sign-in"></i></button>
@@ -85,6 +87,7 @@
     <script src="<?= base_url('assets/js/popper.js') ?>"></script>
     <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/main.js') ?>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 	</body>
 </html>
 

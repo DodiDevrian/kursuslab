@@ -38,8 +38,9 @@
                         ?>
                         <div class="form-group">
 							<label>Nama Mahasiswa</label>
+                            
 							<select class="form-control" id="js-example-basic-single2" name="nama_asprak">
-                                <option value="" disabled selected>--Pilih Asprak--</option>
+                                <option disabled selected>--Pilih Asprak--</option>
                                 <?php foreach ($mahasiswa as $key => $value) {
                                     if ($value->role == 4) { ?>                                    
                                     <option value="<?= $value->nama_user?>"><?= $value->nama_user?></option>
@@ -51,7 +52,7 @@
                         <div class="form-group">
 							<label>Email</label>
 							<select class="form-control" id="js-example-basic-single" name="id_user">
-                                <option value="" disabled selected>--Pilih Email Asprak--</option>
+                                <option disabled selected>--Pilih Email Asprak--</option>
                                 <?php foreach ($mahasiswa as $key => $value) {
                                     if ($value->role == 4) { ?>                                    
                                     <option value="<?= $value->id_user?>"><?= $value->email?></option>

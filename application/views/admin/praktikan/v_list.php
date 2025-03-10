@@ -1,3 +1,18 @@
+<?php
+    $sum_user=0; $user_asprak=0; $user_praktikan=0;
+    foreach ($praktikan as $key => $value) {
+        if ($value->status_if == "Yes") {
+            if ($value->role == 4) {
+                $user_asprak++;
+            }
+            if ($value->role == 3) {
+                $user_praktikan++;
+            }
+            $sum_user++;
+        }
+    }
+?>
+
 <div class="main-container">
     <div class="pd-ltr-20 xs-pd-20-10">
         <div class="min-height-200px">
@@ -20,7 +35,10 @@
             <div class="card-box mb-30">
                 <div class="mb-30 pd-20 d-flex justify-content-between">
                     <h4 class="text-blue h4">Data <?= $title?></h4>
-                    <a href="<?= base_url('admin/praktikan/add') ?>" class="btn btn-secondary">Tambah Data Praktikan +</a>
+                    <span>
+                        Total Praktikan &nbsp;&nbsp; : <b><?= $user_praktikan ?></b><br>
+                        Total Asprak &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <b><?= $user_asprak ?></b>
+                    </span>
                 </div>
                 <div class="pb-20">
                 <?php

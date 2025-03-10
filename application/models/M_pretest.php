@@ -44,6 +44,8 @@ class M_pretest extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_do_pretest');
         $this->db->join('tbl_materi', 'tbl_materi.id_materi = tbl_do_pretest.id_materi', 'left');
+        $this->db->join('tbl_kursus', 'tbl_kursus.id_kursus = tbl_do_pretest.id_kursus', 'left');
+        $this->db->join('tbl_user', 'tbl_user.id_user = tbl_do_pretest.id_user', 'left');
         $this->db->order_by('id_dopretest', 'ASC');
 
         return $this->db->get()->result();

@@ -1,6 +1,9 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/styles/contact.css">
 <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/styles/contact_responsive.css">
 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap4.css">
+
+
 <div class="home">
     <div class="breadcrumbs_container">
         <div class="container">
@@ -63,6 +66,68 @@
                 </tr>
             </table>
         </div>
+    </div>
+
+    <div class="card p-3 hasil-posttest mt-5" style="color: black;">
+        <h4 class="text-center"><b>Hasil Post Test</b></h4>
+        <table id="example" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Praktikum</th>
+                    <th>Nilai Post Test</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php $no=1; foreach ($pretest as $key => $value) { ?>
+                <?php if ($this->session->userdata('id_user') == $value->id_user) { ?>
+                    <tr>
+                        <td><?= $no ?></td>
+                            <td><?= $value->nama_kursus ?></td>
+                            <td <?php if ($value->sum >=70) {
+                                echo 'style="background: #12ff12;"';
+                            }else {
+                                echo 'style="background:rgb(255 158 158);"';
+                            } ?>>
+                                <?= $value->sum ?>
+                            </td>
+                    </tr>
+                <?php } ?>
+            <?php } ?>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card p-3 hasil-pretest mt-5 mb-5" style="color: black;">
+        <h4 class="text-center"><b>Hasil Pre Test</b></h4>
+        <table id="example1" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Praktikum</th>
+                    <th>Materi</th>
+                    <th>Nilai Post Test</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $no=1; foreach ($pretest as $key => $value) { ?>
+                    <?php if ($this->session->userdata('id_user') == $value->id_user) { ?>
+                        <tr>
+                            <td><?= $no ?></td>
+                            <td><?= $value->nama_kursus ?></td>
+                            <td><?= $value->nama_materi ?></td>
+                            <td <?php if ($value->sum >=70) {
+                                echo 'style="background: #12ff12;"';
+                            }else {
+                                echo 'style="background:rgb(255 158 158);"';
+                            } ?>>
+                                <?= $value->sum ?>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
 </div>
 
@@ -149,3 +214,14 @@
 			</div>
 		</div>
 	</div> -->
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap4.js"></script>
+
+    <script>
+        new DataTable('#example');
+        new DataTable('#example1');
+    </script>

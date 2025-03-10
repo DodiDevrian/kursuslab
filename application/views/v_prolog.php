@@ -56,15 +56,22 @@
 								</div>
 
 								<?php if($this->session->userdata('id_user')) { ?>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-										<?php $no=1; foreach ($materi_button as $key => $value) { 
-										if ($value->id_kursus == $id) {
-											?>
-											<?php if ($no == 1) { $no++; ?>
-										<a href="<?= base_url('kursus/detail_materi/' . $value->id_materi) ?>" class="btn btn-primary">Mulai Belajar</a>
-										<?php }}} ?>
+									<?php if ($this->session->userdata('status_if') == 'Yes' ) { ?>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+											<?php $no=1; foreach ($materi_button as $key => $value) { 
+											if ($value->id_kursus == $id) {
+												?>
+												<?php if ($no == 1) { $no++; ?>
+											<a href="<?= base_url('kursus/detail_materi/' . $value->id_materi) ?>" class="btn btn-primary">Mulai Belajar</a>
+											<?php }}} ?>
+										</div>
+									<?php } else { ?>
+										<div class="modal-footer">
+										<div class="text-center mb-2"> <i style="color: red; margin-right: 5px;">*</i> Akun anda sedang diperiksa status mahasiwa Teknik Informatika atau bukan, tunggu sampai akun anda diterima</div>
+										<!-- <div><a href="<?= base_url('auth/login') ?>" class="ml-3 btn btn-warning text-white">Login</a></div> -->
 									</div>
+									<?php } ?>
 								<?php } else{ ?>
 									<div class="modal-footer">
 										<div class="text-center mb-2"> <i style="color: red; margin-right: 5px;">*</i> Silahkan Login terlebih dahulu untuk melihat materi</div>

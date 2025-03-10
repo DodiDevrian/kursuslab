@@ -34,7 +34,23 @@ class Asprak extends CI_Controller
 
     public function add()
     {
-        $this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'required');
+        $this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'required', array('required'=>'Nomor Handphone Harus Diisi!'));
+        $this->form_validation->set_rules(
+            'nama_asprak', 'Asprak', 
+            'required|is_unique[tbl_asprak.nama_asprak]',
+            array(
+                'required'      => 'Harus Pilih Akun!',
+                'is_unique'     => 'Akun Sudah Menjadi Asprak. Silahkan Pilih Akun Lain!'
+            )
+        );
+        $this->form_validation->set_rules(
+            'id_user', 'Email',
+            'required|is_unique[tbl_asprak.id_user]',
+            array(
+                'required'      => 'Harus Pilih Email!',
+                'is_unique'     => 'Akun Sudah Menjadi Asprak. Silahkan Pilih Akun Lain!'
+            )
+        );
 
         if ($this->form_validation->run() == FALSE) {
             $data = array(
@@ -51,7 +67,7 @@ class Asprak extends CI_Controller
 
             $data = array(
                 'id_user'          => $this->input->post('id_user'),
-                'id_asprak'          => $this->input->post('id_user'),
+                'id_asprak'        => $this->input->post('id_user'),
                 'nama_asprak'      => $this->input->post('nama_asprak'),
                 'no_hp'            => $this->input->post('no_hp'),
             );
@@ -64,8 +80,6 @@ class Asprak extends CI_Controller
 
     public function edit($id_asprak)
     {
-
-        $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('nama_asprak', 'Nama Asprak', 'required');
         $this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'required');
         

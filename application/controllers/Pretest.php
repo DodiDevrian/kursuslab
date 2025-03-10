@@ -280,7 +280,7 @@ class Pretest extends CI_Controller
             'list_kursus'   => $this->m_kursus->lists(),
             'materi'        => $this->m_kursus->detail_materi($id_materi),
             'pretest'       => $this->m_pretest->lists_soal(),
-            'hasil_pretest' => $this->m_pretest->hasil_pretest($id_materi),
+            'hasil_pretest' => $this->m_pretest->do_pretest(),
             'id'            => $this->uri->segment(3),
             'isi'           => 'pretest/v_hasil_pretest'
         );

@@ -8,7 +8,7 @@
 						<div class="container">
 							<div class="row">
 								<div class="col text-center">
-									<div class="home_slider_title"><?= $value->nama_slider ?></div>
+									<!-- <div class="home_slider_title"><?= $value->nama_slider ?></div> -->
 								</div>
 							</div>
 						</div>
