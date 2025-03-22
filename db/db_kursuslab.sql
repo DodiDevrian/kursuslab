@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2025 at 10:09 AM
+-- Generation Time: Mar 22, 2025 at 03:14 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -80,7 +80,8 @@ INSERT INTO `tbl_asprak` (`id_asprak`, `id_user`, `nama_asprak`, `no_hp`, `creat
 (12, 12, 'Dimas Azi Rajab Aizar', 89628744896, '2024-12-04 06:15:37', NULL),
 (13, 13, 'Dwi Ananda Rizky', 89628744896, '2024-12-04 06:22:35', NULL),
 (14, 14, 'Edo Sani', 89628744896, '2024-12-04 06:22:35', NULL),
-(16, 16, 'Punky Wijayanto Muda', 89628744896, '2025-03-08 08:57:18', NULL);
+(16, 16, 'Punky Wijayanto Muda', 89628744896, '2025-03-08 08:57:18', NULL),
+(17, 17, 'Amanda Rawles', 89628744896, '2025-03-12 10:41:54', NULL);
 
 -- --------------------------------------------------------
 
@@ -277,9 +278,10 @@ CREATE TABLE `tbl_do_pretest` (
 --
 
 INSERT INTO `tbl_do_pretest` (`id_dopretest`, `id_user`, `id_kursus`, `id_materi`, `jawab_1`, `jawab_2`, `jawab_3`, `jawab_4`, `jawab_5`, `jawab_6`, `jawab_7`, `jawab_8`, `jawab_9`, `jawab_10`, `poin_1`, `poin_2`, `poin_3`, `poin_4`, `poin_5`, `poin_6`, `poin_7`, `poin_8`, `poin_9`, `poin_10`, `sum`) VALUES
-(13, 1, 1, 2, 'B', 'B', 'C', 'B', 'C', 'D', 'B', 'D', 'D', 'B', 0, 0, 0, 0, 0, 0, 10, 0, 10, 10, 60),
 (14, 15, 1, 2, 'B', 'C', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 0, 10, 10, 10, 10, 10, 10, 10, 0, 10, 80),
-(15, 19, 1, 2, 'C', 'C', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 10, 10, 10, 10, 10, 10, 10, 10, 0, 10, 90);
+(15, 19, 1, 2, 'C', 'C', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 10, 10, 10, 10, 10, 10, 10, 10, 0, 10, 90),
+(16, 1, 1, 2, 'C', 'B', 'C', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 10, 0, 0, 10, 10, 10, 10, 10, 0, 10, 70),
+(17, 13, 1, 2, 'C', 'B', 'C', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 10, 0, 0, 10, 10, 10, 10, 10, 0, 10, 70);
 
 -- --------------------------------------------------------
 
@@ -372,6 +374,7 @@ CREATE TABLE `tbl_kursus` (
   `nama_kursus` varchar(100) DEFAULT NULL,
   `slug_kursus` text DEFAULT NULL,
   `ket_kursus` varchar(255) DEFAULT NULL,
+  `batas_posttest` int(10) NOT NULL,
   `cover_kursus` text DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL ON UPDATE current_timestamp()
@@ -381,16 +384,16 @@ CREATE TABLE `tbl_kursus` (
 -- Dumping data for table `tbl_kursus`
 --
 
-INSERT INTO `tbl_kursus` (`id_kursus`, `id_admin`, `id_asprak`, `nama_kursus`, `slug_kursus`, `ket_kursus`, `cover_kursus`, `created`, `modified`) VALUES
-(1, 1, 7, 'Pemrograman Web', 'Pemrograman-Web', 'Lorem ipusm bala bala oye asdg ihasdi biaushd ibasid biubasdbi ubsadibais dbiuasb duyagb iaushfb iashbf usbds f', 'pemweb.jpg', '2024-09-23 22:32:25', '2025-02-24 10:56:05'),
-(2, 2, 11, 'Sistem Tertanam', 'Sistem-Tertanam', 'Lorem Ipsum Bala bala okay', 'sister.jpg', '2024-09-23 22:32:25', '2025-02-24 10:58:29'),
-(4, 1, 10, 'Jaringan Komputer', 'Jaringan-Komputer', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lectus id dolor ultricies ultricies eget at nibh. Aliquam in lobortis arcu, non tempor purus. Donec a aliquam purus. Quisque nec felis id tortor bibendum suscipit in faucibus est.', 'jarkom.jpg', '2024-09-23 22:32:25', '2025-02-24 10:59:09'),
-(5, 2, 11, 'Algoritma Pemrograman 1', 'Algoritma-Pemrograman-1', 'Algoritma Pemrograman 1 adalah matakuliah yang mempelajari tentang dasar-dasar pemrograman menggunaan bahasa C++<br>Materi yang di palajari pada&nbsp;<span>Algoritma Pemrograman 1 adalah sebagai berikut:<br></span>', 'alpro1.jpg', '2024-09-23 22:32:25', '2025-02-24 11:00:21'),
-(6, 3, 12, 'Algoritma Pemrograman 2', 'Algoritma-Pemrograman-2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lectus id dolor ultricies ultricies eget at nibh. Aliquam in lobortis arcu, non tempor purus. Donec a aliquam purus. Quisque nec felis id tortor bibendum suscipit in faucibus est.', 'alpro2.jpg', '2024-09-23 22:32:25', '2025-02-24 11:02:49'),
-(10, 3, 13, 'Pemrograman Berbasis Objek', 'Pemrograman-Berbasis-Objek', 'Lorem Ipsum', 'pbo.jpg', '2024-09-23 22:32:25', '2025-02-24 11:04:03'),
-(11, 1, 14, 'Pengembangan Aplikasi Mobile', 'pengembangan-aplikasi-mobile', 'Lorem ipsum bla bla', 'pam.jpg', '2024-09-23 22:32:25', '2025-02-24 11:04:44'),
-(12, 2, 10, 'Basis Data', 'basis-data', 'Lorem Ipsum wa we wo Done', 'basdat.jpg', '2024-09-23 22:32:25', '2025-02-24 11:05:16'),
-(22, 3, 16, 'Proyek Teknologi Informasi', 'proyek-teknologi-informasi', 'sfsdf d fdg fh&nbsp;&nbsp;', 'pti.jpg', '2025-02-12 10:31:51', '2025-02-24 11:06:12');
+INSERT INTO `tbl_kursus` (`id_kursus`, `id_admin`, `id_asprak`, `nama_kursus`, `slug_kursus`, `ket_kursus`, `batas_posttest`, `cover_kursus`, `created`, `modified`) VALUES
+(1, 1, 7, 'Pemrograman Web', 'Pemrograman-Web', 'Lorem ipusm bala bala oye asdg ihasdi biaushd ibasid biubasdbi ubsadibais dbiuasb duyagb iaushfb iashbf usbds f', 3, 'pemweb.jpg', '2024-09-23 22:32:25', '2025-03-22 18:07:05'),
+(2, 2, 11, 'Sistem Tertanam', 'Sistem-Tertanam', 'Lorem Ipsum Bala bala okay', 3, 'sister.jpg', '2024-09-23 22:32:25', '2025-03-22 18:07:10'),
+(4, 1, 10, 'Jaringan Komputer', 'Jaringan-Komputer', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lectus id dolor ultricies ultricies eget at nibh. Aliquam in lobortis arcu, non tempor purus. Donec a aliquam purus. Quisque nec felis id tortor bibendum suscipit in faucibus est.', 3, 'jarkom.jpg', '2024-09-23 22:32:25', '2025-03-22 18:07:13'),
+(5, 2, 11, 'Algoritma Pemrograman 1', 'Algoritma-Pemrograman-1', 'Algoritma Pemrograman 1 adalah matakuliah yang mempelajari tentang dasar-dasar pemrograman menggunaan bahasa C++<br>Materi yang di palajari pada&nbsp;<span>Algoritma Pemrograman 1 adalah sebagai berikut:<br></span>', 3, 'alpro1.jpg', '2024-09-23 22:32:25', '2025-03-22 18:07:16'),
+(6, 3, 12, 'Algoritma Pemrograman 2', 'Algoritma-Pemrograman-2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et lectus id dolor ultricies ultricies eget at nibh. Aliquam in lobortis arcu, non tempor purus. Donec a aliquam purus. Quisque nec felis id tortor bibendum suscipit in faucibus est.', 3, 'alpro2.jpg', '2024-09-23 22:32:25', '2025-03-22 18:07:19'),
+(10, 3, 13, 'Pemrograman Berbasis Objek', 'Pemrograman-Berbasis-Objek', 'Lorem Ipsum', 3, 'pbo.jpg', '2024-09-23 22:32:25', '2025-03-22 18:07:22'),
+(11, 1, 14, 'Pengembangan Aplikasi Mobile', 'pengembangan-aplikasi-mobile', 'Lorem ipsum bla bla', 3, 'pam.jpg', '2024-09-23 22:32:25', '2025-03-22 18:07:25'),
+(12, 2, 10, 'Basis Data', 'basis-data', 'Lorem Ipsum wa we wo Done', 3, 'basdat.jpg', '2024-09-23 22:32:25', '2025-03-22 18:07:28'),
+(22, 3, 16, 'Proyek Teknologi Informasi', 'proyek-teknologi-informasi', 'sfsdf d fdg fh&nbsp;&nbsp;', 3, 'pti.jpg', '2025-02-12 10:31:51', '2025-03-22 18:07:32');
 
 -- --------------------------------------------------------
 
@@ -432,7 +435,9 @@ INSERT INTO `tbl_materi` (`id_materi`, `id_kursus`, `nama_materi`, `ket_materi`,
 (20, 12, 'Pertemuan 3 - Prosedur dan Function', 'uiashdia diahsdhas dahsdi asihdauishd ', 'HS_RPLa5gPw', 'METODE_EXTREME_PROGRAMMING_PADA_PEMBANGUNAN_WEB_AP.pdf', 'Kurang detail', 1, 'Yes', 'No', '2024-09-23 22:59:30', '2025-02-21 21:00:44'),
 (21, 5, 'Pertemuan 5 - If, Else If, dan Else', 'asdasd asd asd', 'HS_RPLa5gPw', '203-760-1-PB.pdf', NULL, 1, 'Yes', 'No', '2024-09-23 22:59:30', '2025-02-21 21:00:46'),
 (22, 22, 'Pertemuan 1 - Pengenalan Proyek', 'Lorem', 'HS_RPLa5gPw', 'CV-MUHAMMAD_ASYROFUL_NUR_MAULANA_YUSUF.pdf', '-', 1, NULL, NULL, '2025-02-21 23:37:46', NULL),
-(23, 1, 'Pertemuan 4 - Framework', 'Lorem', 'QdvWhjM8Srg', 'asdasd.pdf', 'Belum sesuai dengan modul', 1, 'Yes', 'No', '2025-02-21 23:45:11', '2025-02-24 11:20:05');
+(23, 1, 'Pertemuan 4 - Framework', 'Lorem', 'QdvWhjM8Srg', 'asdasd.pdf', 'Belum sesuai dengan modul Belum sesuai dengan modul Belum sesuai dengan modul Belum sesuai dengan modul Belum sesuai dengan modul Belum sesuai dengan modul Belum sesuai dengan modul Belum sesuai dengan modul Belum sesuai dengan modul Belum sesuai dengan modul ', 1, 'Yes', 'No', '2025-02-21 23:45:11', '2025-03-12 10:56:03'),
+(24, 1, 'Pertemuan 5 - Laravel', 'iagdu asduag sdjhabsj dbajshdb ajshdb jashbdasd', '8OxTG8plkz4', '236128926.pdf', '-', 1, 'Yes', 'No', '2025-03-16 10:44:51', NULL),
+(25, 1, 'Pertemuan 6 - CI3', 'adasdasd haiushd uashduahsdasd', '8OxTG8plkz4', 'Practical-aspects-of-urea-and-ammonia-metabolism-in-ruminants.pdf', '-', 1, 'Yes', 'No', '2025-03-16 10:46:34', NULL);
 
 -- --------------------------------------------------------
 
@@ -488,7 +493,8 @@ INSERT INTO `tbl_posttest` (`id_posttest`, `id_kursus`, `nomor_soal`, `soal`, `j
 (27, 1, 27, 'Soal Nomor 1', 'Jawaban A 1', 'Jawaban B 1', 'Jawaban C 1', 'Jawaban D 1', 'Jawaban E 1', '2025-02-24 21:24:38', '2025-02-25 06:47:48'),
 (28, 1, 28, 'Pemrograman Web&nbsp;Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', '2025-02-24 22:53:17', '2025-02-25 06:47:52'),
 (29, 1, 29, 'Soal Nomor 1', 'Jawaban A 1', 'Jawaban B 1', 'Jawaban C 1', 'Jawaban D 1', 'Jawaban E 1', '2025-02-24 21:24:38', '2025-02-25 06:47:55'),
-(30, 1, 30, 'Pemrograman Web&nbsp;Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', '2025-02-24 22:53:17', '2025-02-25 06:47:58');
+(30, 1, 30, 'Pemrograman Web&nbsp;Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', 'Pemrograman Web Soal Nomor 2', '2025-02-24 22:53:17', '2025-02-25 06:47:58'),
+(32, 11, 1, 'Pengembangan Aplikasi Mobile&nbsp;Soal Nomor 1', 'Soal Nomor 1', 'Soal Nomor 1', 'Soal Nomor 1', 'Soal Nomor 1', 'Soal Nomor 1', '2025-03-16 11:46:15', NULL);
 
 -- --------------------------------------------------------
 
@@ -605,13 +611,13 @@ INSERT INTO `tbl_user` (`id_user`, `username`, `email`, `password`, `spassword`,
 (10, 'michael.123140101', 'michael.123140101@student.itera.ac.id', 'michael123', '', 4, 'Michael Mathew', 123140101, 'Yes', 'WhatsApp_Image_2024-07-03_at_00_54_371.jpeg', '', '2024-12-04 06:05:18', '2025-02-28 11:39:40'),
 (11, 'dila.121140075', 'dila.121140075@student.itera.ac.id', 'dila123', '', 4, 'Dila Ayu Prastita', 121140075, 'Yes', 'images.jpeg', '', '2024-12-04 06:11:56', '2025-02-28 11:39:43'),
 (12, 'dimas.121140135', 'dimas.121140135@student.itera.ac.id', 'dimas123', '', 4, 'Dimas Azi Rajab Aizar', 121140135, 'Yes', '5d4b8207341479b8729b9480b98c791a.jpg', '', '2024-12-04 06:11:56', '2025-02-28 11:39:46'),
-(13, 'dwi.120140027', 'dwi.120140027@student.ac.id', 'dwi123', '', 4, 'Dwi Ananda Rizky', 120140027, 'Yes', 'g_h_a_hasil_editan_15_pas_foto_buku_nikah_sederet_aktor_ganteng_korea_bikin_makin_halu_-_manifesting_dulu_siapa_tahu_jadi_beneran_p_pas_foto_buku_nikah_aktor_korea-20220317-015-non_fotografer_kly.jpg', '', '2024-12-04 06:19:59', '2025-02-28 11:39:50'),
+(13, 'dwi.120140027', 'dwi.120140027@student.ac.id', '6c8802fe5ad2bc2330d382e8ad6c52ca', '', 4, 'Dwi Ananda Rizky', 120140027, 'Yes', 'g_h_a_hasil_editan_15_pas_foto_buku_nikah_sederet_aktor_ganteng_korea_bikin_makin_halu_-_manifesting_dulu_siapa_tahu_jadi_beneran_p_pas_foto_buku_nikah_aktor_korea-20220317-015-non_fotografer_kly.jpg', '', '2024-12-04 06:19:59', '2025-03-22 21:01:44'),
 (14, 'edo.120140179', 'edo.120140179@student.itera.ac.id', 'edo123', '', 4, 'Edo Sani', 120140179, 'Yes', 'S6b6ca25df9c94414ad3c596b38b3094dw.jpg', '', '2024-12-04 06:19:59', '2025-02-28 11:39:52'),
 (15, 'khairunnisa.123450071', 'khairunnisa.123450071@student.itera.ac.id', '927870d176e364d40306658f82e92fc0', '', 3, 'Khairunnisa Maharani', 123450071, 'Yes', 'images1.jpeg', 'khairunnisa-maharani', '2024-12-05 23:03:11', '2025-03-08 15:05:50'),
 (16, 'punky.119140048', 'punky.119140048@student.itera.ac.id', 'punky123', '', 4, 'Punky Wijayanto Muda', 119140048, 'Yes', 'foto_(2).jpg', '', '2025-02-04 23:07:54', '2025-02-28 11:39:59'),
-(17, 'amanda.119140472', 'amanda.119140472@student.itera.ac.id', '0f4004e836509904e0005999a4fadc48', '', 3, 'Amanda Rawles', 119140472, 'Yes', 'images2.jpeg', 'amanda-rawles', '2025-03-06 08:50:37', '2025-03-07 09:32:29'),
+(17, 'amanda.119140472', 'amanda.119140472@student.itera.ac.id', '0f4004e836509904e0005999a4fadc48', '', 4, 'Amanda Rawles', 119140472, 'Yes', 'images2.jpeg', 'amanda-rawles', '2025-03-06 08:50:37', '2025-03-12 10:11:55'),
 (19, NULL, 'haland.119140293@student.itera.ac.id', '462a4b51a0e0457e02aa056d86d73817', '', 3, 'Haland Budi Kusuma', 119140293, 'Yes', 'foto_(2)5.jpg', 'haland-budi-kusuma', '2025-03-06 10:15:54', '2025-03-07 09:32:33'),
-(22, NULL, 'sharla.119140023@student.itera.ac.id', '3fcf0c2ecc4b25ea2bea21eeca6f814b', 'b398b8a18ef4f69811a32cf169946bac', 3, 'Sharla Rizqillah Kusuma', 119140023, 'No', 'WhatsApp_Image_2024-07-03_at_00_54_374.jpeg', 'sharla-rizqillah-kusuma', '2025-03-10 14:43:15', '2025-03-10 14:53:12');
+(22, NULL, 'sharla.119140023@student.itera.ac.id', '3fcf0c2ecc4b25ea2bea21eeca6f814b', 'b398b8a18ef4f69811a32cf169946bac', 3, 'Sharla Rizqillah Kusuma', 119140023, 'Yes', 'WhatsApp_Image_2024-07-03_at_00_54_374.jpeg', 'sharla-rizqillah-kusuma', '2025-03-10 14:43:15', '2025-03-12 10:11:24');
 
 --
 -- Indexes for dumped tables
@@ -757,7 +763,7 @@ ALTER TABLE `tbl_do_posttest`
 -- AUTO_INCREMENT for table `tbl_do_pretest`
 --
 ALTER TABLE `tbl_do_pretest`
-  MODIFY `id_dopretest` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_dopretest` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tbl_kunci_posttest`
@@ -781,13 +787,13 @@ ALTER TABLE `tbl_kursus`
 -- AUTO_INCREMENT for table `tbl_materi`
 --
 ALTER TABLE `tbl_materi`
-  MODIFY `id_materi` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_materi` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tbl_posttest`
 --
 ALTER TABLE `tbl_posttest`
-  MODIFY `id_posttest` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_posttest` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `tbl_pretest`
