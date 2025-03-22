@@ -29,10 +29,10 @@
 				<div class="dropdown">
 					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
 						<span class="user-icon">
-							<?php if ($this->session->userdata('foto_user')==NULL) { ?>
+							<?php if ($this->session->userdata('foto_dosen')==NULL) { ?>
 								<img src="<?= base_url('assets/img/profil.png') ?>">
 							<?php } else { ?>
-								<img src="<?= base_url('upload/foto_user/') . $this->session->userdata('foto_user') ?>" style="width: 100%; height: 52px; object-fit: cover; object-position: 20% 10%;">
+								<img src="<?= base_url('upload/foto_dosen/') . $this->session->userdata('foto_dosen') ?>" style="width: 100%; height: 52px; object-fit: cover; object-position: 20% 10%;">
 							<?php } ?>
 							
 						</span>

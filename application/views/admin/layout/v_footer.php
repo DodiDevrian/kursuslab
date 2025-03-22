@@ -27,6 +27,13 @@
 	<!-- fancybox Popup Js -->
 	<script src="<?= base_url() ?>assets/backend/src/plugins/fancybox/dist/jquery.fancybox.js"></script>
 
+	<script src="<?= base_url() ?>assets/backend/src/plugins/switchery/switchery.min.js"></script>
+	<!-- bootstrap-tagsinput js -->
+	<script src="<?= base_url() ?>assets/backend/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+	<!-- bootstrap-touchspin js -->
+	<script src="<?= base_url() ?>assets/backend/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js"></script>
+	<script src="<?= base_url() ?>assets/backend/vendors/scripts/advanced-components.js"></script>
+
 	
 
 </body>

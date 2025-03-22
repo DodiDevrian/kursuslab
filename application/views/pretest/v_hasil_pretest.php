@@ -40,7 +40,7 @@ foreach ($hasil_pretest as $key => $value) {
                 <?php if ($hasil <70) { ?>
                     <p class="lead">Jika Nilai Anda Dibawah 70, Maka Anda Tidak Bisa Lanjut Ke Materi Pertemuan Ini</p>
                     <hr class="my-4">
-                    <a class="btn btn-info btn-lg" href="<?= base_url('pretest/re_pretest/' . $id_dopretest) ?>" role="button">Coba Lagi</a>
+                    <a class="btn btn-danger btn-lg" href="<?= base_url('pretest/re_pretest/' . $id_dopretest) ?>" role="button">Coba Lagi</a>
                 <?php } else { ?>
                     <p class="lead">Silahkan Lanjut Untuk Melihat Materi</p>
                     <hr class="my-4">

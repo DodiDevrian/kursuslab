@@ -1,3 +1,5 @@
+
+
 <div class="main-container">
     <div class="pd-ltr-20 xs-pd-20-10">
         <div class="min-height-200px">
@@ -43,6 +45,19 @@
                                 <td><?= $value->nama_kursus?></td>
                                 <td>
                                     <a class="btn btn-info" href="<?= base_url('admin/posttest/soal_posttest/' . $value->id_kursus) ?>" >Lihat Soal Post-Test</a>
+                                    <?php
+                                    $count=0;
+                                    foreach ($posttest as $key => $post) {
+                                        if ($value->id_kursus == $post->id_kursus) {
+                                            $count++;
+                                        }
+                                    }
+                                    ?>
+                                    <?php if ($count == 30) { ?>
+                                        <span class="ml-3">Total soal : <b style="color: #00de00;"><?= $count; ?></b></span>
+                                    <?php } else { ?>
+                                        <span class="ml-3">Total soal : <b style="color: red;"><?= $count; ?></b></span>
+                                    <?php } ?>
                                 </td>
                             </tr>
                             <?php } ?>

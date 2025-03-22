@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12">
                         <div class="title">
-                            <h4>Data Kursus</h4>
+                            <h4>Data Praktikum Yang Diampu</h4>
                         </div>
                         <nav aria-label="breadcrumb" role="navigation">
                             <ol class="breadcrumb">
@@ -19,7 +19,7 @@
             <!-- Isi Tabel Kursus -->
             <div class="card-box mb-30">
                 <div class="mb-30 pd-20 d-flex justify-content-between">
-                    <h4 class="text-blue h4">Data Kursus</h4>
+                    <h4 class="text-blue h4">Data Praktikum Yang Diampu</h4>
                 </div>
                 <div class="pb-20">
                 <?php
@@ -34,27 +34,31 @@
                         <thead>
                             <tr>
                                 <th>Mata Kuliah</th>
-                                <th>Dosen</th>
                                 <th>Keterangan</th>
                                 <th>Cover</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Mulai Foreach -->
                             <?php foreach ($kursus as $key => $value) {
                                 if ($value->id_admin == $this->session->userdata('id_admin')) { ?>
                             <tr>
                                 <td><?= $value->nama_kursus?></td>
-                                <td><?= $value->nama_dosen?></td>
                                 <td><?= substr(strip_tags($value->ket_kursus), 0, 80) ?>...</td>
                                 <td><img width="100px" src="<?= base_url('upload/cover_kursus/') . $value->cover_kursus ?>" alt=""></td>
                                 <td>
-                                    <a class="dropdown-item" href="<?= base_url('dosen/kursus/list_materi/' . $value->id_kursus) ?>"><i class="dw dw-eye"></i> Lihat Materi</a>
+                                    <div class="dropdown">
+                                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                            <i class="dw dw-more"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                        <a class="dropdown-item" href="<?= base_url('dosen/kursus/list_materi/' . $value->id_kursus) ?>"><i class="dw dw-eye"></i> Lihat Materi</a>
+                                            <a class="dropdown-item" href="<?= base_url('dosen/posttest/soal/' . $value->id_kursus) ?>"><i class="icon-copy dw dw-list"></i> Lihat Soal Post Test</a>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             <?php }} ?>
-                            <!-- End Foreach -->
                         </tbody>
                     </table>
                 </div>

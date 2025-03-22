@@ -59,6 +59,14 @@
 							</select>
                             <?= form_error('id_asprak', '<div class="text-danger small">', '</div>') ?>
 						</div>
+
+                        <div class="form-group">
+							<label>Batas Kesempatan Mengerjakan Post Test</label>
+							<select class="form-control" name="batas_posttest">                                   
+                                    <option value="3">3</option>
+							</select>
+                            <?= form_error('batas_posttest', '<div class="text-danger small">', '</div>') ?>
+						</div>
 						
 						<div class="form-group">
 							<label>Upload Cover Kursus</label>

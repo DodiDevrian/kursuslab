@@ -1,5 +1,6 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/styles/course.css">
 <link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/styles/course_responsive.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> -->
 
 <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
 <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
@@ -94,7 +95,7 @@
 						<div class="d-flex justify-content-between" style="margin-top: 25px;">
 							<h3 class="mb-2 mt-2"><?= $materi -> nama_materi ?></h3>
 							<?php if ($materi -> status == 2) { ?>
-							<a target="_blank" class="btn btn-warning" href="<?= base_url('upload/doc_materi/' . $materi->doc_materi) ?>"><i style="font-size: 25px; margin-right: 10px;" class="fa fa-file-pdf-o"></i> Download Modul</a>
+								<a class="btn btn-warning" type="button" data-toggle="modal" data-target="#viewMateri" style="color: black;"><i style="font-size: 25px; margin-right: 10px; color:black;" class="fa fa-file-pdf-o"></i> Lihat Modul</a>
 							<?php } ?>
 						</div>
 					<?php } ?>
@@ -130,7 +131,7 @@
 								<a href="<?= base_url('posttest/do/' . $materi->id_kursus) ?>" class="btn btn-primary">Kerjakan Post-Test</a>
 							<?php } ?>
 							<?php if ($materi -> status == 2) { ?>
-							<a target="_blank" class="btn btn-warning" href="<?= base_url('upload/doc_materi/' . $materi->doc_materi) ?>"><i style="font-size: 25px; margin-right: 10px;" class="fa fa-file-pdf-o"></i> Download Modul</a>
+							<a class="btn btn-warning" type="button" data-toggle="modal" data-target="#viewMateri" style="color: black;"><i style="font-size: 25px; margin-right: 10px;" class="fa fa-file-pdf-o"></i> Lihat Modul</a>
 							<?php } ?>
 						</div>
 					<?php } ?>
@@ -138,5 +139,21 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="modal fade" id="viewMateri" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modul <?= $materi->nama_materi?></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe src="<?= base_url('upload/doc_materi/' . $materi->doc_materi)?>" width="100%" height="750"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 
 	<script src="<?= base_url() ?>assets/js/script.js"></script>

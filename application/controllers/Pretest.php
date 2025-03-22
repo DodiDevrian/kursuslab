@@ -285,6 +285,13 @@ class Pretest extends CI_Controller
             'isi'           => 'pretest/v_hasil_pretest'
         );
         $this->load->view('layout/v_wrapper', $data, FALSE);
+
+        if ($this->session->userdata('role')=='') {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				Anda Belum Melakukan <strong>Login Sebagai User!</strong>
+				</div>');
+			redirect('auth/login');
+		}
     }
 
 

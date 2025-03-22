@@ -86,12 +86,12 @@
     <div class="menu-block customscroll">
         <div class="sidebar-menu">
             <ul id="accordion-menu">
-                <li>
+                <!-- <li>
                     <a href="<?= base_url('dosen/dashboard')?>" class="dropdown-toggle no-arrow <?php echo menuAktif('dashboard') ?>">
                         <span class="micon dw dw-analytics-19"></span><span class="mtext">Dashboard</span>
                     </a>
-                </li>
-                <li class="dropdown">
+                </li> -->
+                <!-- <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-book1"></span><span class="mtext">Menu</span>
                     </a>
@@ -99,7 +99,7 @@
                         <li><a href="<?= base_url('dosen/kursus')?>" class="<?= menuAktif('kursus') ?>">Praktikum</a></li>
                         <li><a href="<?= base_url('dosen/materi')?>" class="<?= menuAktif('materi') ?>">Materi</a></li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>

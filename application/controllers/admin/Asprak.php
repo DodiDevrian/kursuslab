@@ -35,14 +35,14 @@ class Asprak extends CI_Controller
     public function add()
     {
         $this->form_validation->set_rules('no_hp', 'Nomor Handphone', 'required', array('required'=>'Nomor Handphone Harus Diisi!'));
-        $this->form_validation->set_rules(
-            'nama_asprak', 'Asprak', 
-            'required|is_unique[tbl_asprak.nama_asprak]',
-            array(
-                'required'      => 'Harus Pilih Akun!',
-                'is_unique'     => 'Akun Sudah Menjadi Asprak. Silahkan Pilih Akun Lain!'
-            )
-        );
+        // $this->form_validation->set_rules(
+        //     'nama_asprak', 'Asprak', 
+        //     'required|is_unique[tbl_asprak.nama_asprak]',
+        //     array(
+        //         'required'      => 'Harus Pilih Akun!',
+        //         'is_unique'     => 'Akun Sudah Menjadi Asprak. Silahkan Pilih Akun Lain!'
+        //     )
+        // );
         $this->form_validation->set_rules(
             'id_user', 'Email',
             'required|is_unique[tbl_asprak.id_user]',
@@ -63,12 +63,18 @@ class Asprak extends CI_Controller
             );
             $this->load->view('admin/layout/v_wrapper', $data, FALSE);
         } else {
-
+            
+            $asprak = $this->m_praktikan->lists();
+            foreach ($asprak as $key => $value) {
+                if ($this->input->post('id_user') == $value->id_user) {
+                    $nama_asprak = $value->nama_user;
+                }
+            }
 
             $data = array(
                 'id_user'          => $this->input->post('id_user'),
                 'id_asprak'        => $this->input->post('id_user'),
-                'nama_asprak'      => $this->input->post('nama_asprak'),
+                'nama_asprak'      => $nama_asprak,
                 'no_hp'            => $this->input->post('no_hp'),
             );
 

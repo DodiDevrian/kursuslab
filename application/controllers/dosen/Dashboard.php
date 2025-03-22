@@ -9,6 +9,9 @@ class Dashboard extends CI_Controller
 		$this->load->helpers(['menuAktif']);
 		$this->load->helpers('text');
 
+        $this->load->model('m_kursus');
+        $this->load->model('m_materi');
+
         if ($this->session->userdata('role') != 2 ) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
 				Anda Belum Melakukan <strong>Login Sebagai Dosen!</strong>
@@ -22,7 +25,8 @@ class Dashboard extends CI_Controller
         $data = array(
             'title' => 'Dosen',
             'title2' => 'Dashboard',
-            'isi'   => 'dosen/v_dashboard'
+            'kursus'   => $this->m_kursus->lists(),
+            'isi'   => 'dosen/kursus/v_list'
         );
         $this->load->view('dosen/layout/v_wrapper', $data, FALSE);
     }

@@ -50,13 +50,22 @@ class Posttest extends CI_Controller
             $data = array(
                 'title'         => 'Post-Test',
                 'title2'        => 'Laboratorium Teknik Informatika',
+                'materi_button' => $this->m_kursus->lists_materi_button(),
                 'list_kursus'   => $this->m_kursus->lists(),
                 'kursus'        => $this->m_kursus->detail_kursus($id_kursus),
+                'do_posttest'    => $this->m_posttest->do_posttest(),
                 'posttest'       => $this->m_posttest->lists_soal(),
                 'id'            => $this->uri->segment(3),
                 'isi'           => 'posttest/v_do_posttest'
             );
             $this->load->view('layout/v_wrapper', $data, FALSE);
+
+            if ($this->session->userdata('role')=='') {
+                $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    Anda Belum Melakukan <strong>Login Sebagai User!</strong>
+                    </div>');
+                redirect('auth/login');
+            }
         } else {
             $kunci=$this->m_posttest->detail_kunci($id_kursus);
 
@@ -186,42 +195,9 @@ class Posttest extends CI_Controller
                 'jawab_28'     => $this->input->post('jawab_28'),
                 'jawab_29'     => $this->input->post('jawab_29'),
                 'jawab_30'    => $this->input->post('jawab_30'),
-                // 'poin_1'      => $poin_1,
-                // 'poin_2'      => $poin_2,
-                // 'poin_3'      => $poin_3,
-                // 'poin_4'      => $poin_4,
-                // 'poin_5'      => $poin_5,
-                // 'poin_6'      => $poin_6,
-                // 'poin_7'      => $poin_7,
-                // 'poin_8'      => $poin_8,
-                // 'poin_9'      => $poin_9,
-                // 'poin_10'     => $poin_10,
-                // 'poin_11'      => $poin_11,
-                // 'poin_12'      => $poin_12,
-                // 'poin_13'      => $poin_13,
-                // 'poin_14'      => $poin_14,
-                // 'poin_15'      => $poin_15,
-                // 'poin_16'      => $poin_16,
-                // 'poin_17'      => $poin_17,
-                // 'poin_18'      => $poin_18,
-                // 'poin_19'      => $poin_19,
-                // 'poin_20'      => $poin_20,
-                // 'poin_21'      => $poin_21,
-                // 'poin_22'      => $poin_22,
-                // 'poin_23'      => $poin_23,
-                // 'poin_24'      => $poin_24,
-                // 'poin_25'      => $poin_25,
-                // 'poin_26'      => $poin_26,
-                // 'poin_27'      => $poin_27,
-                // 'poin_28'      => $poin_28,
-                // 'poin_29'      => $poin_29,
-                // 'poin_30'     => $poin_30,
                 'sum'          => ($poin_1 + $poin_2 + $poin_3 + $poin_4 + $poin_5 + $poin_6 + $poin_7 + $poin_8 + $poin_9 + $poin_10 +
                                     $poin_11 + $poin_12 + $poin_13 + $poin_14 + $poin_15 + $poin_16 + $poin_17 + $poin_18 + $poin_19 + $poin_20 +
                                     $poin_21 + $poin_22 + $poin_23 + $poin_24 + $poin_25 + $poin_26 + $poin_27 + $poin_28 + $poin_29 + $poin_30)/3
-                // 'poin_1'     => $this->input->post('poin_1'),
-
-
             );
 
             $this->m_posttest->submit($data);
@@ -250,6 +226,7 @@ class Posttest extends CI_Controller
                 'title2'        => 'Laboratorium Teknik Informatika',
                 'list_kursus'   => $this->m_kursus->lists(),
                 'materi'        => $this->m_kursus->detail_materi($id_dopretest),
+                'do_posttest'    => $this->m_posttest->do_posttest(),
                 'do_pretest'    => $this->m_pretest->detail_do($id_dopretest),
                 'pretest'       => $this->m_pretest->lists_soal(),
                 // 'id'            => $this->uri->segment(3),
@@ -378,6 +355,13 @@ class Posttest extends CI_Controller
             'isi'           => 'posttest/v_hasil_posttest'
         );
         $this->load->view('layout/v_wrapper', $data, FALSE);
+
+        if ($this->session->userdata('role')=='') {
+			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				Anda Belum Melakukan <strong>Login Sebagai User!</strong>
+				</div>');
+			redirect('auth/login');
+		}
     }
 
 

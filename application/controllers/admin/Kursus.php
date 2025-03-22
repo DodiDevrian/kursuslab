@@ -86,6 +86,7 @@ class Kursus extends CI_Controller
             'title'     => 'Kursus',
             'title2'    => 'Tambah Data Kursus',
             'dosen'     => $this->m_dosen->lists(),
+            'count_new'     => $this->m_praktikan->lists(),
             'asprak'    => $this->m_asprak->lists_asprak(),
             'isi'       => 'admin/kursus/v_add'
         );
@@ -109,6 +110,7 @@ class Kursus extends CI_Controller
                     'title'     => 'Kursus',
                     'title2'    => 'Ubah Data Kursus',
                     'error'     => $this->upload->display_errors(),
+                    'count_new'     => $this->m_praktikan->lists(),
                     'kursus'     => $this->m_kursus->detail_kursus($id_kursus),
                     'dosen'     => $this->m_dosen->lists(),
                     'asprak'    => $this->m_asprak->lists_asprak(),
@@ -206,7 +208,7 @@ class Kursus extends CI_Controller
 
         if ($this->form_validation->run() == TRUE) {
             $config['upload_path']      = './upload/doc_materi/';
-            $config['allowed_types']    = 'pdf|docx';
+            $config['allowed_types']    = 'pdf';
             $config['max_size']         = 200000;
             $this->upload->initialize($config);
 
@@ -264,7 +266,7 @@ class Kursus extends CI_Controller
         
         if ($this->form_validation->run() == TRUE) {
             $config['upload_path']      = './upload/doc_materi/';
-            $config['allowed_types']    = 'pdf|docx|doc';
+            $config['allowed_types']    = 'pdf';
             $config['max_size']         = 200000000000;
             $this->upload->initialize($config);
 

@@ -12,7 +12,7 @@
                         <nav aria-label="breadcrumb" role="navigation">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Kursus</a></li>
+                                <li class="breadcrumb-item"><a href="<?= base_url('dosen/kursus') ?>">Kursus</a></li>
                                 <li class="breadcrumb-item active" aria-current="page"><?= $kursus->nama_kursus ?></li>
                             </ol>
                         </nav>
@@ -37,11 +37,11 @@
                         <thead>
                             <tr>
                                 <th>Nama Materi</th>
-                                <th>Keterangan</th>
                                 <th>Id Youtube</th>
                                 <th>File</th>
                                 <th>Catatan</th>
                                 <th class="datatable-nosort">Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,10 +50,13 @@
                                 if ($value->id_kursus == $id) { ?>
                             <tr>
                                 <td><?= $value->nama_materi?></td>
-                                <td><?= substr(strip_tags($value->ket_materi), 0, 80) ?>...</td>
-                                <td><?= $value->id_yt?><br> <a class="mr-auto" target="_blank" href="https://youtu.be/<?= $value->id_yt?>"><i style="font-size: 25px;" class="icon-copy fi-play-video"></i></a></td>
-                                <td><?= substr(strip_tags($value->doc_materi), 0, 30) ?>...</td>
-                                <td><?= $value->note?></td>
+                                <td><a class="dropdown-item" type="button" data-toggle="modal" data-target="#viewVideo<?= $value->id_materi?>"><i class="icon-copy dw dw-video-player"></i> Lihat Video Materi</a></td>
+                                <td><a class="dropdown-item" type="button" data-toggle="modal" data-target="#viewMateri<?= $value->id_materi?>"><i class="icon-copy dw dw-file"></i> Lihat Modul</a></td>
+                                <td>
+                                    <?php if ($value->note != '') { ?>
+                                        <?= wordwrap($value->note,35,"<br>\n");?>
+                                    <?php } ?>
+                                </td>
                                 <td class="status">
                                     <div>
                                         <?php if ($value->status == 1) { ?>
@@ -62,8 +65,16 @@
                                             <span class="badge badge-pill badge-success">Diterima</span>
                                         <?php }  ?>
                                     </div>
-                                    <div>
-                                        <a class="dropdown-item" type="button" data-toggle="modal" data-target="#exampleModal<?= $value->id_materi?>"><i class="dw dw-edit2"></i> Edit Status dan Catatan</a>
+                                </td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                            <i class="dw dw-more"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                            <a class="dropdown-item" type="button" data-toggle="modal" data-target="#exampleModal<?= $value->id_materi?>"><i class="dw dw-edit2"></i> Edit Status dan Catatan</a>
+                                            <a class="dropdown-item" href="<?= base_url('dosen/pretest/soal/' . $value->id_materi) ?>"><i class="dw dw-eye"></i> Lihat Soal Pretest</a>
+                                        </div>
                                     </div>
                                 </td>
                             </tr>
@@ -116,4 +127,43 @@
                 </div>
             </div>
         </div>
+
+    <div class="modal fade" id="viewMateri<?= $value->id_materi?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modul <?= $value->nama_materi?></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe src="<?= base_url('upload/doc_materi/' . $value->doc_materi)?>" width="100%" height="750"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
         <?php } ?>
+
+        <?php $no=1; foreach ($materi as $key => $value) {
+            if ($value->id_kursus == $id) { ?>
+        <div class="modal fade" id="viewVideo<?= $value->id_materi?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe style="aspect-ratio: 16/9; width: 100%;" src="https://www.youtube.com/embed/<?= $value -> id_yt ?>" title="<?= $value -> nama_materi ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <?php }} ?>
+

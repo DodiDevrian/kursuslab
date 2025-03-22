@@ -94,7 +94,7 @@
                         </div>
 
                         <div class="form-group">
-							<label>Upload File Materi (<span style="color: red;">*File Harus Berupa PDF atau DOCX</span>)</label>
+							<label>Upload File Materi (<span style="color: red;">*File Harus Berupa PDF</span>)</label>
 							<input name="doc_materi" type="file" class="form-control-file form-control height-auto">
 						</div>
 

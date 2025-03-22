@@ -32,6 +32,7 @@ class Posttest extends CI_Controller
             'title'   => 'Post-Test',
             'title2'  => 'Laboratorium Teknik Informatika',
             'kursus'   => $this->m_kursus->lists(),
+            'posttest'       => $this->m_posttest->lists_soal(),
             'count_new'     => $this->m_praktikan->lists(),
             'isi'     => 'admin/posttest/v_list'
         );
@@ -68,6 +69,7 @@ class Posttest extends CI_Controller
             $data = array(
                 'title'         => 'Soal',
                 'title2'        => 'Tambah Data Soal',
+                'count_new'     => $this->m_praktikan->lists(),
                 'kursus'     => $this->m_kursus->detail_kursus($id_kursus),
                 'posttest'       => $this->m_posttest->lists_soal(),
                 'id'            => $this->uri->segment(4),
@@ -110,6 +112,7 @@ class Posttest extends CI_Controller
             $data = array(
                 'title'         => 'Soal',
                 'title2'        => 'Edit Data Soal',
+                'count_new'     => $this->m_praktikan->lists(),
                 'count_new'     => $this->m_praktikan->lists(),
                 'posttest'       => $this->m_posttest->lists_soal(),
                 'detail'        => $this->m_posttest->detail($id_posttest),
@@ -205,6 +208,57 @@ class Posttest extends CI_Controller
 
             $this->m_posttest->add_kunci($data);
             $this->session->set_flashdata('pesan', 'Kunci Jawaban Berhasil Dibuat!');
+
+            $referred_from = $this->session->userdata('halaman_soal');
+            redirect($referred_from, 'refresh');
+        }
+	}
+
+    public function edit_kunci($id_kursus)
+	{
+        $this->form_validation->set_rules('kunci_1', 'Soal 1', 'required');
+        $this->form_validation->set_rules('kunci_2', 'Soal 2', 'required');
+        $this->form_validation->set_rules('kunci_3', 'Soal 3', 'required');
+        $this->form_validation->set_rules('kunci_4', 'Soal 4', 'required');
+        $this->form_validation->set_rules('kunci_5', 'Soal 5', 'required');
+        $this->form_validation->set_rules('kunci_6', 'Soal 6', 'required');
+        $this->form_validation->set_rules('kunci_7', 'Soal 7', 'required');
+        $this->form_validation->set_rules('kunci_8', 'Soal 8', 'required');
+        $this->form_validation->set_rules('kunci_9', 'Soal 9', 'required');
+        $this->form_validation->set_rules('kunci_10', 'Soal 10', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $data = array(
+                'title'         => 'Soal',
+                'title2'        => 'Tambah Data Soal',
+                'count_new'     => $this->m_praktikan->lists(),
+                'posttest'       => $this->m_posttest->lists_soal(),
+                'kursus'        => $this->m_kursus->detail_kursus($id_kursus),
+                'kunci'       => $this->m_posttest->kunci($id_kursus),
+                'id'            => $this->uri->segment(4),
+                'isi'           => 'admin/posttest/v_edit_kunci'
+            );
+            $this->load->view('admin/layout/v_wrapper', $data, FALSE);
+        } else {
+
+
+            $data = array(
+                'id_kursus'     => $id_kursus,
+                'kunci_1'       => $this->input->post('kunci_1'),
+                'kunci_2'       => $this->input->post('kunci_2'),
+                'kunci_3'       => $this->input->post('kunci_3'),
+                'kunci_4'       => $this->input->post('kunci_4'),
+                'kunci_5'       => $this->input->post('kunci_5'),
+                'kunci_6'       => $this->input->post('kunci_6'),
+                'kunci_7'       => $this->input->post('kunci_7'),
+                'kunci_8'       => $this->input->post('kunci_8'),
+                'kunci_9'       => $this->input->post('kunci_9'),
+                'kunci_10'      => $this->input->post('kunci_10'),
+
+            );
+
+            $this->m_posttest->edit_kunci($data);
+            $this->session->set_flashdata('pesan', 'Kunci Jawaban Berhasil Diubah!');
 
             $referred_from = $this->session->userdata('halaman_soal');
             redirect($referred_from, 'refresh');

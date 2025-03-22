@@ -66,7 +66,7 @@ class Kursus extends CI_Controller
 
         if ($this->session->userdata('role')=='') {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-				Anda Belum Melakukan <strong>Login Sebagai Admin!</strong>
+				Anda Belum Melakukan <strong>Login Sebagai User!</strong>
 				</div>');
 			redirect('auth/login');
 		}

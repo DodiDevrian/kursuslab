@@ -21,6 +21,12 @@
 	
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/backend/src/plugins/fancybox/dist/jquery.fancybox.css">
 
+	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/backend/src/plugins/switchery/switchery.min.css">
+	<!-- bootstrap-tagsinput css -->
+	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/backend/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css">
+	<!-- bootstrap-touchspin css -->
+	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/backend/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css">
+
 	<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/css/style.css">
 
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
