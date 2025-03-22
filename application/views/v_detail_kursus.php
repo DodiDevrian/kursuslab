@@ -38,6 +38,36 @@
 	}
 ?>
 
+<?php 
+	$counts=0;
+	foreach ($do_posttest as $key => $value) {
+		if ($value->id_user == $this->session->userdata('id_user')) {
+			if ($value->id_kursus == $materi->id_kursus) {
+				$counts++;
+			}
+		}
+	}
+?>
+
+<?php 
+    $sisapost = $materi->batas_posttest - $counts;
+?>
+
+<?php
+$nilaiTerbaru = null;
+$nilaiTertinggi = null;
+foreach ($nilai as $key => $value) {
+    if ($value->id_user == $this->session->userdata('id_user')) {
+        if ($value->id_kursus == $materi->id_kursus) {
+            $nilaiTerbaru = $value->sum;
+        }
+        if ($value->sum > $nilaiTertinggi) {
+            $nilaiTertinggi = $value->sum;
+        }
+    }
+}
+?>
+
 	<div class="container">
 		<div class="wrapper">
 			<aside id="sidebar">
@@ -127,13 +157,56 @@
 						</div>
 						<div class="d-flex justify-content-between" style="margin-top: 25px;">
 							<h3 class="mb-2 mt-2"><?= $materi -> nama_materi ?></h3>
-							<?php if ($materi->cek_last == 'Yes') { ?>
-								<a href="<?= base_url('posttest/do/' . $materi->id_kursus) ?>" class="btn btn-primary">Kerjakan Post-Test</a>
-							<?php } ?>
+							
 							<?php if ($materi -> status == 2) { ?>
 							<a class="btn btn-warning" type="button" data-toggle="modal" data-target="#viewMateri" style="color: black;"><i style="font-size: 25px; margin-right: 10px;" class="fa fa-file-pdf-o"></i> Lihat Modul</a>
 							<?php } ?>
 						</div>
+						<?php if ($materi->cek_last == 'Yes') { ?>
+							<?php if ($counts == 0) { ?>
+								<div class="posttest text-center">
+									<p>Anda belum melakukan post test!</p>
+									<a href="<?= base_url('posttest/do/' . $materi->id_kursus) ?>" class="btn btn-primary">Kerjakan Post-Test</a>
+								</div>
+							<?php }elseif ($counts == 1) { ?>
+								<?php foreach ($do_posttest as $key => $value) { ?>
+									<?php if ($value->id_kursus == $materi->id_kursus) { ?>
+										<?php if ($value->id_user == $this->session->userdata('id_user')) { ?>
+											<div class="posttest text-center">
+												<?php if ($value->sum < 70) { ?>
+													<p>Nilai Post Test : <b style="color: red;"><?= $value->sum ?></b></p>
+													<a href="<?= base_url('posttest/do/' . $materi->id_kursus) ?>" class="btn btn-primary">Kerjakan Post-Test</a>
+												<?php }else { ?>
+													<p style="margin-bottom: 3px ;">Nilai Post Test : <b style="color: blue;"><?= $value->sum ?></b></p>
+													<p style="color: blue;"><b>LULUS</b></p>
+												<?php } ?>
+											</div>
+										<?php } ?>
+									<?php } ?>
+								<?php } ?>
+							<?php }else { ?>
+								<div class="posttest text-center mt-5">
+									<?php $no=1; foreach ($do_posttest as $key => $value) { ?>
+										<?php if ($value->id_kursus == $materi->id_kursus) { ?>
+											<?php if ($value->id_user == $this->session->userdata('id_user')) { ?>
+												<?php if ($value->sum < 70) { ?>
+													<p style="margin-bottom: 0px;">Nilai Post Test Percobaan <?= $no++ ?> : <b style="color: red;"><?= $value->sum ?></b></p>
+												<?php } else { ?>
+													<p style="margin-bottom: 0px;">Nilai Post Test Percobaan <?= $no++ ?> : <b style="color: blue;"><?= $value->sum ?></b></p>
+												<?php } ?>
+											<?php } ?>
+										<?php } ?>
+									<?php } ?>
+									<?php if ($sisapost != 0) { ?>
+										<div class="button-posttest mt-4">
+											<a href="<?= base_url('posttest/do/' . $materi->id_kursus) ?>" class="btn btn-primary">Kerjakan Post-Test</a>
+											<p style="margin-bottom: 0px; margin-top: 20px;">Kesempatan : <b><?= $sisapost ?></b></p>
+											<p>Nilai Tertinggi : <b><?= $nilaiTertinggi ?></b></p>
+										</div>
+									<?php } ?>
+								</div>
+							<?php } ?>
+						<?php } ?>
 					<?php } ?>
 				<?php } ?>
 			</div>

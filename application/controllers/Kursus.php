@@ -10,6 +10,7 @@ class Kursus extends CI_Controller
 
         $this->load->model('m_kursus');
         $this->load->model('m_pretest');
+        $this->load->model('m_posttest');
         $this->load->model('M_auth');
 
         
@@ -57,7 +58,9 @@ class Kursus extends CI_Controller
             'title2'        => 'Laboratorium Teknik Informatika',
             'materi'        => $this->m_kursus->detail_materi($id_materi),
             'lists_materi'  => $this->m_kursus->lists_materi(),
+            'do_posttest'    => $this->m_posttest->do_posttest(),
             'do_pretest'    => $this->m_pretest->do_pretest(),
+            'nilai'         => $this->m_posttest->nilai(),
             'id'            => $this->uri->segment(4),
             'cek_id'        => $this->uri->segment(3),
             'isi'           => 'v_detail_kursus'

@@ -13,7 +13,7 @@
 ?>
 
 <?php 
-$sisapost = $kursus->batas_posttest - $count;
+    $sisapost = $kursus->batas_posttest - $count;
 ?>
 
 <div class="home">

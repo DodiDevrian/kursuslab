@@ -335,6 +335,7 @@ class Kursus extends CI_Controller
         $data = array(
             'title'     => 'Materi',
             'title2'    => 'Ubah Data Materi',
+            'count_new'     => $this->m_praktikan->lists(),
             'materi'    =>  $this->m_materi->detail($id_materi),
             'isi'       => 'admin/kursus/v_edit_materi'
         );
