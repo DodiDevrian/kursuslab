@@ -35,6 +35,23 @@ class M_auth extends CI_Model{
 			return array();
 		}
 	}
+	
+	public function cek_login_admin(){
+
+		$email		= set_value('email');
+		$password	= md5(set_value('password'));
+
+		$result 	= $this->db->where('email', $email)
+							   ->where('password', $password)
+							   ->limit(1)
+							   ->get('tbl_admin');
+
+		if ($result->num_rows() > 0) {
+			return $result->row();
+		}else {
+			return array();
+		}
+	}
 
 	// public function cek_login_dosen(){
 
@@ -70,20 +87,4 @@ class M_auth extends CI_Model{
 	// 	}
 	// }
 
-	public function cek_login_admin(){
-
-		$username	= set_value('username');
-		$password	= set_value('password');
-
-		$result 	= $this->db->where('username', $username)
-							   ->where('password', $password)
-							   ->limit(1)
-							   ->get('tbl_admin');
-
-		if ($result->num_rows() > 0) {
-			return $result->row();
-		}else {
-			return array();
-		}
-	}
 }

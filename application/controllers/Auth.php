@@ -105,8 +105,8 @@ class Auth extends CI_Controller {
 	}
 
 	public function login_admin(){
-		$this->form_validation->set_rules('username', 'Username', 'required',[
-			'required' => 'Username wajib diisi!']);
+		$this->form_validation->set_rules('email', 'Email', 'required',[
+			'required' => 'Email wajib diisi!']);
 		$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]',[
 			'required' => 'Password wajib diisi!']);
 
@@ -120,11 +120,10 @@ class Auth extends CI_Controller {
 
 			if ($auth == FALSE) {
 				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-				<strong>Username atau Password</strong> Salah!
+				<strong>Email atau Password</strong> Salah!
 				</div>');
 				redirect('auth/login_admin');
 			}else {
-				$this->session->set_userdata('username', $auth->username);
 				$this->session->set_userdata('id_admin', $auth->id_admin);
 				$this->session->set_userdata('role', $auth->role);
 				$this->session->set_userdata('nama_dosen', $auth->nama_dosen);

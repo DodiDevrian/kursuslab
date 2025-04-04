@@ -62,7 +62,7 @@ class Dosen extends CI_Controller
 
                 $data = array(
                     'username'     => $this->input->post('username'),
-                    'password'     => $this->input->post('password'),
+                    'password'     => md5($this->input->post('password')),
                     'role'         => 2,
                     'nama_dosen'    => $this->input->post('nama_dosen'),
                     'nip'          => $this->input->post('nip'),
@@ -123,7 +123,7 @@ class Dosen extends CI_Controller
                 $data = array(
                     'id_admin'      => $id_admin,
                     'username'     => $this->input->post('username'),
-                    'password'     => $this->input->post('password'),
+                    'password'     => md5($this->input->post('password')),
                     'role'         => 2,
                     'nama_dosen'    => $this->input->post('nama_dosen'),
                     'nip'          => $this->input->post('nip'),
@@ -143,7 +143,7 @@ class Dosen extends CI_Controller
             $data = array(
                 'id_admin'     => $id_admin,
                 'username'     => $this->input->post('username'),
-                'password'     => $this->input->post('password'),
+                'password'     => md5($this->input->post('password')),
                 'role'         => 2,
                 'nama_dosen'   => $this->input->post('nama_dosen'),
                 'nip'          => $this->input->post('nip'),

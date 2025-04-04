@@ -55,9 +55,9 @@
                                 }
                             ?>
                                 <div class="form-group mb-3">
-                                    <label class="label">Username</label>
-                                    <input type="text" class="form-control" name="username" placeholder="Username" required>
-                                    <?php echo form_error('username', '<div class="text-danger small ml-2">', '</div>') ?>
+                                    <label class="label">Email</label>
+                                    <input type="text" class="form-control" name="email" placeholder="Email" required>
+                                    <?php echo form_error('email', '<div class="text-danger small ml-2">', '</div>') ?>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="label">Password</label>

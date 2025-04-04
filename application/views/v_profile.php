@@ -203,51 +203,51 @@
 <div class="modal fade" id="editData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Edit Data dan Password</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <?php
-                if (isset($error_upload)) {
-                    echo '<div class="alert alert-danger alert-dismissible">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
-                }
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Data dan Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <?php
+                    if (isset($error_upload)) {
+                        echo '<div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
+                    }
+                    
+                    echo form_open_multipart('profile/edit_data/' . $profile->slug_user);
+                ?>
+                <div class="form-group">
+                    <label>Nama Lengkap Mahasiswa</label>
+                    <input class="form-control" name="nama_user" type="text" value="<?= $profile->nama_user ?>" style="color: black;">
+                    <?php echo form_error('nama_user', '<div class="text-danger small">', '</div>') ?>
+                </div>
+
+                <div class="form-group" style="margin-top: 35px;">
+                    <label>NIM</label>
+                    <input class="form-control" name="nim" type="text" value="<?= $profile->nim ?>" style="color: black;">
+                    <?php echo form_error('nim', '<div class="text-danger small">', '</div>') ?>
+                </div>
+
+                <div class="form-group" style="margin-top: 35px;">
+                    <label>Email</label>
+                    <input class="form-control" name="email" type="text" value="<?= $profile->email ?>" style="color: black;">
+                    <?php echo form_error('email', '<div class="text-danger small">', '</div>') ?>
+                </div>
+
+                <div class="form-group" style="margin-top: 35px;">
+                    <label>Password <b style="color: red;">*Optional</b></label>
+                    <input class="form-control" name="password" type="password" style="color: black;">
+                    <?php echo form_error('password', '<div class="text-danger small">', '</div>') ?>
+                </div>
                 
-                echo form_open_multipart('profile/edit_data/' . $profile->slug_user);
-            ?>
-            <div class="form-group">
-                <label>Nama Lengkap Mahasiswa</label>
-                <input class="form-control" name="nama_user" type="text" value="<?= $profile->nama_user ?>" style="color: black;">
-                <?php echo form_error('nama_user', '<div class="text-danger small">', '</div>') ?>
             </div>
-
-            <div class="form-group" style="margin-top: 35px;">
-                <label>NIM</label>
-                <input class="form-control" name="nim" type="text" value="<?= $profile->nim ?>" style="color: black;">
-                <?php echo form_error('nim', '<div class="text-danger small">', '</div>') ?>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </div>
-
-            <div class="form-group" style="margin-top: 35px;">
-                <label>Email</label>
-                <input class="form-control" name="email" type="text" value="<?= $profile->email ?>" style="color: black;">
-                <?php echo form_error('email', '<div class="text-danger small">', '</div>') ?>
-            </div>
-
-            <div class="form-group" style="margin-top: 35px;">
-                <label>Password <b style="color: red;">*Optional</b></label>
-                <input class="form-control" name="password" type="password" style="color: black;">
-                <?php echo form_error('password', '<div class="text-danger small">', '</div>') ?>
-            </div>
-            
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Update</button>
-        </div>
-        <?php echo form_close(); ?>
+            <?php echo form_close(); ?>
         </div>
     </div>
 </div>

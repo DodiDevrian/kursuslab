@@ -39,7 +39,7 @@
 						<span class="user-name"><?= $this->session->userdata('username') ?></span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-						<a class="dropdown-item" href="<?= base_url('dosen/profile/' . $this->session->userdata('id_admin')) ?>"><i class="dw dw-user1"></i> Profile</a>
+						<!-- <a class="dropdown-item" href="<?= base_url('dosen/profile/' . $this->session->userdata('id_admin')) ?>"><i class="dw dw-user1"></i> Profile</a> -->
 						<a class="dropdown-item" href="<?= base_url()?>auth/logout"><i class="dw dw-logout"></i> Log Out</a>
 					</div>
 				</div>

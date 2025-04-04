@@ -20,7 +20,7 @@
                 <div class="col-lg-3 mb-30">
                         <div class="card-box" style="height: 100%;">
                         <div class="profile-photo">
-                            <a href="modal" data-toggle="modal" data-target="#modal" class="edit-avatar" style="margin-top: 20px;"><i class="fa fa-pencil"></i></a>
+                            <a href="modal" data-toggle="modal" data-target="#editFoto" class="edit-avatar" style="margin-top: 20px;"><i class="fa fa-pencil"></i></a>
                             <img src="<?= base_url('upload/foto_dosen/' . $this->session->userdata('foto_dosen')) ?>" alt="" class="avatar-photo">
                             <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -41,6 +41,9 @@
                         <h5 class="text-center h5 mb-0 mt-5"><?= $this->session->userdata('nama_dosen') ?></h5>
                         <p class="text-center text-muted font-14" style="margin-bottom: 0px;"><?= $this->session->userdata('nip') ?></p>
                         <p class="text-center text-muted font-14"><?= $this->session->userdata('email') ?></p>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-warning mb-5" data-toggle="modal" data-target="#editData"><i class="fa fa-edit" aria-hidden="true"></i> Ubah Data dan Password</button>
+                        </div>
                     </div>
                 </div>
 
@@ -92,8 +95,90 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
-
-
         </div>
+
+        <div class="modal fade" id="editData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Data dan Password</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <?php
+                            if (isset($error_upload)) {
+                                echo '<div class="alert alert-danger alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
+                            }
+                            
+                            echo form_open_multipart('dosen/profile/edit_data/' . $this->session->userdata('id_admin'));
+                        ?>
+                        <div class="form-group">
+                            <label>Nama Lengkap Mahasiswa</label>
+                            <input class="form-control" name="nama_user" type="text" value="<?= $this->session->userdata('nama_dosen') ?>" style="color: black;">
+                            <?php echo form_error('nama_user', '<div class="text-danger small">', '</div>') ?>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 35px;">
+                            <label>NIP</label>
+                            <input class="form-control" name="nip" type="text" value="<?= $this->session->userdata('nip') ?>" style="color: black;">
+                            <?php echo form_error('nip', '<div class="text-danger small">', '</div>') ?>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 35px;">
+                            <label>Email</label>
+                            <input class="form-control" name="email" type="text" value="<?= $this->session->userdata('email') ?>" style="color: black;">
+                            <?php echo form_error('email', '<div class="text-danger small">', '</div>') ?>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 35px;">
+                            <label>Password <b style="color: red;">*Optional</b></label>
+                            <input class="form-control" name="password" type="password" style="color: black;">
+                            <?php echo form_error('password', '<div class="text-danger small">', '</div>') ?>
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                    <?php echo form_close(); ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="editFoto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit Foto Profile</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <?php
+                if (isset($error_upload)) {
+                    echo '<div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
+                }
+                
+                echo form_open_multipart('profile/edit/' . $this->session->userdata('id_admin'));
+            ?>
+            <div class="form-group">
+                <label>Edit Foto Profile</label>
+                <input type="file" class="form-control-file form-control height-auto" name="foto_user">
+            </div>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </div>
+        <?php echo form_close(); ?>
+        </div>
+    </div>
+</div>
