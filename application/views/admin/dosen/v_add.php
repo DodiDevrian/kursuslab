@@ -34,12 +34,12 @@
                         echo form_open_multipart('admin/dosen/add');
                         ?>
 						<div class="form-group">
-							<label>Username Dosen</label>
-							<input class="form-control" name="username" type="text" placeholder="Masukkan Username Dosen">
-                            <?php echo form_error('username', '<div class="text-danger small">', '</div>') ?>
+							<label>Email Dosen</label>
+							<input class="form-control" name="email" type="text" placeholder="Masukkan Email Dosen">
+                            <?php echo form_error('email', '<div class="text-danger small">', '</div>') ?>
 						</div>
                         <div class="form-group">
-							<label>Password Akun Dosen</label>
+							<label>Password</label>
 							<input class="form-control" name="password" type="password" placeholder="Masukkan Password">
                             <?php echo form_error('password', '<div class="text-danger small">', '</div>') ?>
 						</div>
@@ -48,11 +48,7 @@
 							<input class="form-control" name="nama_dosen" type="text" placeholder="Masukkan Nama Dosen">
                             <?php echo form_error('nama_dosen', '<div class="text-danger small">', '</div>') ?>
 						</div>
-                        <div class="form-group">
-							<label>Email Dosen</label>
-							<input class="form-control" name="email" type="text" placeholder="Masukkan Email Dosen">
-                            <?php echo form_error('email', '<div class="text-danger small">', '</div>') ?>
-						</div>
+                        
                         <div class="form-group">
 							<label>NIP Dosen</label>
 							<input class="form-control" name="nip" type="text" placeholder="Masukkan NIP Dosen">

@@ -32,7 +32,6 @@ class Dosen extends CI_Controller
 
     public function add()
     {
-        $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('nama_dosen', 'Nama Dosen', 'required');
         $this->form_validation->set_rules('nip', 'NIP', 'required');
@@ -61,7 +60,6 @@ class Dosen extends CI_Controller
                 $this->load->library('image_lib', $config);
 
                 $data = array(
-                    'username'     => $this->input->post('username'),
                     'password'     => md5($this->input->post('password')),
                     'role'         => 2,
                     'nama_dosen'    => $this->input->post('nama_dosen'),
@@ -78,6 +76,7 @@ class Dosen extends CI_Controller
         $data = array(
             'title'     => 'Dosen',
             'title2'    => 'Tambah Data Dosen',
+            'count_new'     => $this->m_praktikan->lists(),
             'isi'       => 'admin/dosen/v_add'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -85,8 +84,6 @@ class Dosen extends CI_Controller
 
     public function edit($id_admin)
     {
-        $this->form_validation->set_rules('username', 'Username', 'required');
-        $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('nama_dosen', 'Nama Dosen', 'required');
         $this->form_validation->set_rules('nip', 'NIP', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required');
@@ -120,18 +117,36 @@ class Dosen extends CI_Controller
                     unlink('./upload/foto_dosen/' . $dosen->foto_dosen);
                 }
 
-                $data = array(
-                    'id_admin'      => $id_admin,
-                    'username'     => $this->input->post('username'),
-                    'password'     => md5($this->input->post('password')),
-                    'role'         => 2,
-                    'nama_dosen'    => $this->input->post('nama_dosen'),
-                    'nip'          => $this->input->post('nip'),
-                    'email'        => $this->input->post('email'),
-                    'foto_dosen'    => $upload_data['uploads']['file_name']
-                );
+                // $data = array(
+                //     'id_admin'      => $id_admin,
+                //     'password'     => md5($this->input->post('password')),
+                //     'role'         => 2,
+                //     'nama_dosen'    => $this->input->post('nama_dosen'),
+                //     'nip'          => $this->input->post('nip'),
+                //     'email'        => $this->input->post('email'),
+                //     'foto_dosen'    => $upload_data['uploads']['file_name']
+                // );
 
-                $this->m_asprak->edit($data);
+                if ($this->input->post('password')=='') {
+                    $data = array(
+                        'id_admin'      => $id_admin,
+                        'nama_dosen'    => $this->input->post('nama_dosen'),
+                        'nip'          => $this->input->post('nip'),
+                        'email'        => $this->input->post('email'),
+                        'foto_dosen'    => $upload_data['uploads']['file_name']
+                    );
+                }else {
+                    $data = array(
+                        'id_admin'      => $id_admin,
+                        'password'     => md5($this->input->post('password')),
+                        'nama_dosen'    => $this->input->post('nama_dosen'),
+                        'nip'          => $this->input->post('nip'),
+                        'email'        => $this->input->post('email'),
+                        'foto_dosen'    => $upload_data['uploads']['file_name']
+                    );
+                }
+
+                $this->m_dosen->edit($data);
                 $this->session->set_flashdata('pesan', 'Data Berhasil Diubah!');
                 redirect('admin/dosen');
             }
@@ -140,15 +155,31 @@ class Dosen extends CI_Controller
             $config['source_image'] = './upload/foto_dosen/' . $upload_data['uploads']['file_name'];
             $this->load->library('image_lib', $config);
 
-            $data = array(
-                'id_admin'     => $id_admin,
-                'username'     => $this->input->post('username'),
-                'password'     => md5($this->input->post('password')),
-                'role'         => 2,
-                'nama_dosen'   => $this->input->post('nama_dosen'),
-                'nip'          => $this->input->post('nip'),
-                'email'        => $this->input->post('email')
-            );
+            // $data = array(
+            //     'id_admin'     => $id_admin,
+            //     'password'     => md5($this->input->post('password')),
+            //     'role'         => 2,
+            //     'nama_dosen'   => $this->input->post('nama_dosen'),
+            //     'nip'          => $this->input->post('nip'),
+            //     'email'        => $this->input->post('email')
+            // );
+
+            if ($this->input->post('password')=='') {
+                $data = array(
+                    'id_admin'     => $id_admin,
+                    'nama_dosen'   => $this->input->post('nama_dosen'),
+                    'nip'          => $this->input->post('nip'),
+                    'email'        => $this->input->post('email')
+                );
+            }else {
+                $data = array(
+                    'id_admin'     => $id_admin,
+                    'password'     => md5($this->input->post('password')),
+                    'nama_dosen'   => $this->input->post('nama_dosen'),
+                    'nip'          => $this->input->post('nip'),
+                    'email'        => $this->input->post('email')
+                );
+            }
 
             $this->m_dosen->edit($data);
             $this->session->set_flashdata('pesan', 'Data Berhasil Diubah!');

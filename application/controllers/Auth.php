@@ -135,7 +135,7 @@ class Auth extends CI_Controller {
 					case 1 : redirect('admin/dashboard');
 							break;
 
-					case 2 : redirect('dosen/dashboard');
+					case 2 : redirect('dosen/dashboard/profile/' . $this->session->userdata('id_admin'));
 							break;
 
 					default : break;

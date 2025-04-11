@@ -31,6 +31,7 @@ class Pretest extends CI_Controller
         $data = array(
             'title'   => 'Pre-Test',
             'title2'  => 'Laboratorium Teknik Informatika',
+            'dosen'        => $this->m_dosen->lists(),
             'count_new'     => $this->m_praktikan->lists(),
             'pretest'   => $this->m_pretest->lists(),
             'materi'   => $this->m_materi->lists(),
@@ -44,6 +45,7 @@ class Pretest extends CI_Controller
         $data = array(
             'title'         => 'Soal Pre-Test',
             'title2'        => 'Laboratorium Teknik Informatika',
+            'dosen'        => $this->m_dosen->lists(),
             'count_new'     => $this->m_praktikan->lists(),
             'materi'        => $this->m_kursus->detail_materi($id_materi),
             'pretest'       => $this->m_pretest->lists_soal(),

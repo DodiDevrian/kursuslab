@@ -35,7 +35,7 @@
                         echo form_open_multipart('admin/kursus/add');
                         ?>
 						<div class="form-group">
-							<label>Nama Kursus atau Mata Kuliah</label>
+							<label>Nama Mata Kuliah Praktikum</label>
 							<input class="form-control" name="nama_kursus" type="text" placeholder="Masukkan Mata Kuliah">
                             <?= form_error('nama_kursus', '<div class="text-danger small">', '</div>') ?>
 						</div>
@@ -69,7 +69,7 @@
 						</div>
 						
 						<div class="form-group">
-							<label>Upload Cover Kursus</label>
+							<label>Upload Cover</label>
 							<input type="file" class="form-control-file form-control height-auto" name="cover_kursus">
 						</div>
                         

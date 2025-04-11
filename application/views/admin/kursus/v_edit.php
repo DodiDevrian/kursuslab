@@ -34,7 +34,7 @@
                         echo form_open_multipart('admin/kursus/edit/' . $kursus->id_kursus);
                         ?>
 						<div class="form-group">
-							<label>Nama Kursus atau Mata Kuliah</label>
+							<label>Nama Mata Kuliah Praktikum</label>
 							<input value="<?= $kursus->nama_kursus ?>" class="form-control" name="nama_kursus" type="text" placeholder="Masukkan Mata Kuliah">
                             <?= form_error('nama_kursus', '<div class="text-danger small">', '</div>') ?>
 						</div>
@@ -64,7 +64,7 @@
                             <img src="<?= base_url('upload/cover_kursus/' . $kursus->cover_kursus) ?>" alt="" width="600px">
                         </div>
 						<div class="form-group">
-							<label>Upload Cover Kursus</label>
+							<label>Upload Cover</label>
 							<div class="custom-file">
 								<input type="file" class="custom-file-input" name="cover_kursus">
 								<label class="custom-file-label">Choose file</label>

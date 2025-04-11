@@ -31,16 +31,16 @@
                             echo '<div class="alert alert-danger alert-dismissible">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
                         }
-                        echo form_open_multipart('admin/dosen/edit/' . $dosen->id_dosen);
+                        echo form_open_multipart('admin/dosen/edit/' . $dosen->id_admin);
                         ?>
-						<div class="form-group">
-							<label>Username Dosen</label>
-							<input class="form-control" name="username" type="text" value="<?= $dosen->username ?>" placeholder="Masukkan Username Dosen">
-                            <?php echo form_error('username', '<div class="text-danger small">', '</div>') ?>
+                        <div class="form-group">
+							<label>Email Dosen</label>
+							<input class="form-control" name="email" type="text" value="<?= $dosen->email ?>" placeholder="Masukkan Email Dosen">
+                            <?php echo form_error('email', '<div class="text-danger small">', '</div>') ?>
 						</div>
                         <div class="form-group">
-							<label>Password Akun Dosen</label>
-							<input class="form-control" name="password" type="password" value="<?= $dosen->password ?>" placeholder="Masukkan Password">
+							<label>Password <b style="color: red;">*Optional</b></label>
+							<input class="form-control" name="password" type="password" placeholder="Masukkan Password Jika Ingin Mengubah Password">
                             <?php echo form_error('password', '<div class="text-danger small">', '</div>') ?>
 						</div>
                         <div class="form-group">
@@ -48,11 +48,7 @@
 							<input class="form-control" name="nama_dosen" type="text" value="<?= $dosen->nama_dosen ?>" placeholder="Masukkan Nama Dosen">
                             <?php echo form_error('nama_dosen', '<div class="text-danger small">', '</div>') ?>
 						</div>
-                        <div class="form-group">
-							<label>Email Dosen</label>
-							<input class="form-control" name="email" type="text" value="<?= $dosen->email ?>" placeholder="Masukkan Email Dosen">
-                            <?php echo form_error('email', '<div class="text-danger small">', '</div>') ?>
-						</div>
+                        
                         <div class="form-group">
 							<label>NIP Dosen</label>
 							<input class="form-control" name="nip" type="text" value="<?= $dosen->nip ?>" placeholder="Masukkan NIP Dosen">

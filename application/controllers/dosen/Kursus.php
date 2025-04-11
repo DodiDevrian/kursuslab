@@ -10,6 +10,7 @@ class Kursus extends CI_Controller
 
         $this->load->model('m_kursus');
         $this->load->model('m_materi');
+        $this->load->model('m_dosen');
 
         if ($this->session->userdata('role')!=2) {
 			$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -24,6 +25,7 @@ class Kursus extends CI_Controller
         $data = array(
             'title'   => 'Kursus',
             'title2'  => 'Laboratorium Teknik Informatika',
+            'dosen'        => $this->m_dosen->lists(),
             'kursus'   => $this->m_kursus->lists(),
             'isi'     => 'dosen/kursus/v_list'
         );
@@ -46,6 +48,7 @@ class Kursus extends CI_Controller
                 $data = array(
                     'title'     => 'Kursus',
                     'title2'    => 'Tambah Data Kursus',
+                    'dosen'        => $this->m_dosen->lists(),
                     'error'     => $this->upload->display_errors(),
                     'isi'       => 'admin/kursus/v_add'
                 );
@@ -71,6 +74,7 @@ class Kursus extends CI_Controller
         $data = array(
             'title'     => 'Kursus',
             'title2'    => 'Tambah Data Kursus',
+            'dosen'        => $this->m_dosen->lists(),
             'isi'       => 'admin/kursus/v_add'
         );
         $this->load->view('admin/layout/v_wrapper', $data, FALSE);
@@ -92,6 +96,7 @@ class Kursus extends CI_Controller
                 $data = array(
                     'title'     => 'Kursus',
                     'title2'    => 'Ubah Data Kursus',
+                    'dosen'        => $this->m_dosen->lists(),
                     'error'     => $this->upload->display_errors(),
                     'kursus'     => $this->m_kursus->detail_kursus($id_kursus),
                     'isi'       => 'admin/kursus/v_edit'
@@ -138,6 +143,7 @@ class Kursus extends CI_Controller
         $data = array(
             'title'     => 'kursus',
             'title2'    => 'Ubah Data kursus',
+            'dosen'        => $this->m_dosen->lists(),
             'kursus'     => $this->m_kursus->detail_kursus($id_kursus),
             'isi'       => 'admin/kursus/v_edit'
         );
@@ -164,6 +170,7 @@ class Kursus extends CI_Controller
         $data = array(
             'title'         => 'Materi',
             'title2'        => 'Laboratorium Teknik Informatika',
+            'dosen'        => $this->m_dosen->lists(),
             'kursus'        => $this->m_kursus->detail_kursus($id_kursus),
             'materi'        => $this->m_kursus->lists_materi(),
             'id'            => $this->uri->segment(4),
@@ -189,6 +196,7 @@ class Kursus extends CI_Controller
                 $data = array(
                     'title'     => 'Materi',
                     'title2'    => 'Tambah Data Materi',
+                    'dosen'        => $this->m_dosen->lists(),
                     'error'     => $this->upload->display_errors(),
                     'isi'       => 'admin/kursus/v_add_materi'
                 );
@@ -215,6 +223,8 @@ class Kursus extends CI_Controller
         $data = array(
             'title'     => 'Kursus',
             'title2'    => 'Tambah Data Kursus',
+            'dosen'        => $this->m_dosen->lists(),
+            'dosen'        => $this->m_dosen->lists(),
             'kursus'     => $this->m_kursus->detail_kursus($id_kursus),
             'isi'       => 'admin/kursus/v_add_materi'
         );
@@ -243,6 +253,7 @@ class Kursus extends CI_Controller
         $data = array(
             'title'         => 'Kursus',
             'title2'        => 'Laboratorium Teknik Informatika',
+            'dosen'        => $this->m_dosen->lists(),
             'materi'        => $this->m_kursus->detail_materi($id_materi),
             'lists_materi'  => $this->m_kursus->lists_materi(),
             'id'            => $this->uri->segment(4),

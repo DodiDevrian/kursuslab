@@ -59,13 +59,30 @@ class Profile extends CI_Controller
 
     public function edit_data($slug_user)
 	{
-		$data = array(
-			'slug_user'	   => $slug_user,
-			'password'     => md5($this->input->post('password')),
-            'nama_user'    => $this->input->post('nama_user'),
-            'nim'          => $this->input->post('nim'),
-            'email'        => $this->input->post('email'),
-		);
+		// $data = array(
+		// 	'slug_user'	   => $slug_user,
+		// 	'password'     => md5($this->input->post('password')),
+        //     'nama_user'    => $this->input->post('nama_user'),
+        //     'nim'          => $this->input->post('nim'),
+        //     'email'        => $this->input->post('email'),
+		// );
+
+        if ($this->input->post('password')=='') {
+            $data = array(
+                'slug_user'	   => $slug_user,
+                'nama_user'    => $this->input->post('nama_user'),
+                'nim'          => $this->input->post('nim'),
+                'email'        => $this->input->post('email'),
+            );
+        }else {
+            $data = array(
+                'slug_user'	   => $slug_user,
+                'password'     => md5($this->input->post('password')),
+                'nama_user'    => $this->input->post('nama_user'),
+                'nim'          => $this->input->post('nim'),
+                'email'        => $this->input->post('email'),
+            );
+        }
 
 		$this->m_profile->edit($data);
 		$this->session->set_flashdata('pesan_data', 'Data Berhasil Diubah!');

@@ -36,4 +36,13 @@ class M_dosen extends CI_Model
         $this->db->where('id_admin', $data['id_admin']);
         $this->db->delete('tbl_admin', $data);
     }
+
+    public function profile($id_admin)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_admin');
+        $this->db->where('id_admin', $id_admin);
+
+        return $this->db->get()->row();
+    }
 }

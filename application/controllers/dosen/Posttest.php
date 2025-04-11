@@ -31,6 +31,7 @@ class Posttest extends CI_Controller
         $data = array(
             'title'   => 'Post-Test',
             'title2'  => 'Laboratorium Teknik Informatika',
+            'dosen'        => $this->m_dosen->lists(),
             'kursus'   => $this->m_kursus->lists(),
             'count_new'     => $this->m_praktikan->lists(),
             'isi'     => 'admin/posttest/v_list'
@@ -43,6 +44,7 @@ class Posttest extends CI_Controller
         $data = array(
             'title'         => 'Soal Post-Test',
             'title2'        => 'Laboratorium Teknik Informatika',
+            'dosen'        => $this->m_dosen->lists(),
             'count_new'     => $this->m_praktikan->lists(),
             'kursus'     => $this->m_kursus->detail_kursus($id_kursus),
             'posttest'       => $this->m_posttest->lists_soal(),

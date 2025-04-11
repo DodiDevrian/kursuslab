@@ -11,7 +11,13 @@
 			</div>
 		</div>
 	</div> -->
-
+	<?php 
+		foreach ($dosen as $key => $value) {
+			if ($this->session->userdata('id_admin') == $value->id_admin) {
+				# code...
+			}
+		}
+	?>
 	<div class="header">
 		<div class="header-left">
 			<div class="menu-icon dw dw-menu"></div>
