@@ -67,13 +67,15 @@
                             <tr>
                                 <td><?= $no++?></td>
                                 <td><?= wordwrap($value->nama_materi,35,"<br>\n");?></td>
-                                <td><?= $value->id_yt?><br>
-                                    <a class="mr-auto" type="button" data-toggle="modal" data-target="#exampleModal<?= $value->id_materi?>">
-                                        <i style="font-size: 25px;" class="icon-copy fi-play-video"></i>
-                                    </a>
+                                <td>id Youtube : <?= $value->id_yt?><br>
+                                <a class="dropdown-item" type="button" data-toggle="modal" data-target="#viewVideo<?= $value->id_materi?>"><i class="icon-copy dw dw-video-player"></i> Lihat Video Materi</a>
                                 </td>
-                                <td><?= substr(strip_tags($value->doc_materi), 0, 30) ?>...</td>
-                                <td><?= $value->note?></td>
+                                <td><a class="dropdown-item" type="button" data-toggle="modal" data-target="#viewMateri<?= $value->id_materi?>"><i class="icon-copy dw dw-file"></i> Lihat Modul</a></td>
+                                <td>
+                                    <?php if ($value->note != '') { ?>
+                                        <?= wordwrap($value->note,35,"<br>\n");?>
+                                    <?php } ?> 
+                                </td>
                                 <td>
                                     <?php if ($value->status == 1) { ?>
                                         <span class="badge badge-pill badge-danger">Belum Diterima Dosen</span>
@@ -101,10 +103,46 @@
             </div>
 
         </div>
+
         
         <?php $no=1; foreach ($materi as $key => $value) {
             if ($value->id_kursus == $id) { ?>
-        <div class="modal fade" id="exampleModal<?= $value->id_materi?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal<?= $value->id_materi?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <iframe style="aspect-ratio: 16/9; width: 100%;" src="https://www.youtube.com/embed/<?= $value -> id_yt ?>" title="<?= $value -> nama_materi ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="viewMateri<?= $value->id_materi?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modul <?= $value->nama_materi?></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <iframe src="<?= base_url('upload/doc_materi/' . $value->doc_materi)?>" width="100%" height="750"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="viewVideo<?= $value->id_materi?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content">
                 <div class="modal-header">

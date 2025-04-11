@@ -55,7 +55,7 @@
                                 <td>
                                     <?php if ($value->note != '') { ?>
                                         <?= wordwrap($value->note,35,"<br>\n");?>
-                                    <?php } ?>
+                                    <?php } ?> 
                                 </td>
                                 <td class="status">
                                     <div>
@@ -128,22 +128,22 @@
             </div>
         </div>
 
-    <div class="modal fade" id="viewMateri<?= $value->id_materi?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modul <?= $value->nama_materi?></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <iframe src="<?= base_url('upload/doc_materi/' . $value->doc_materi)?>" width="100%" height="750"></iframe>
+        <div class="modal fade" id="viewMateri<?= $value->id_materi?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modul <?= $value->nama_materi?></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <iframe src="<?= base_url('upload/doc_materi/' . $value->doc_materi)?>" width="100%" height="750"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-        <?php } ?>
+    <?php } ?>
 
         <?php $no=1; foreach ($materi as $key => $value) {
             if ($value->id_kursus == $id) { ?>

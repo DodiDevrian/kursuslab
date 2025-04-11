@@ -14,7 +14,7 @@
 	<?php 
 		foreach ($dosen as $key => $value) {
 			if ($this->session->userdata('id_admin') == $value->id_admin) {
-				# code...
+				$foto_dosen = $value->foto_dosen;
 			}
 		}
 	?>
@@ -38,14 +38,14 @@
 							<?php if ($this->session->userdata('foto_dosen')==NULL) { ?>
 								<img src="<?= base_url('assets/img/profil.png') ?>">
 							<?php } else { ?>
-								<img src="<?= base_url('upload/foto_dosen/') . $this->session->userdata('foto_dosen') ?>" style="width: 100%; height: 52px; object-fit: cover; object-position: 20% 10%;">
+								<img src="<?= base_url('upload/foto_dosen/') . $foto_dosen ?>" style="width: 100%; height: 52px; object-fit: cover; object-position: 20% 10%;">
 							<?php } ?>
 							
 						</span>
 						<span class="user-name"><?= $this->session->userdata('username') ?></span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-						<!-- <a class="dropdown-item" href="<?= base_url('dosen/profile/' . $this->session->userdata('id_admin')) ?>"><i class="dw dw-user1"></i> Profile</a> -->
+						<a class="dropdown-item" href="<?= base_url('dosen/dashboard/profile/' . $this->session->userdata('id_admin')) ?>"><i class="dw dw-user1"></i> Profile</a>
 						<a class="dropdown-item" href="<?= base_url()?>auth/logout"><i class="dw dw-logout"></i> Log Out</a>
 					</div>
 				</div>
