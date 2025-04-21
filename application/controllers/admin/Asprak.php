@@ -164,12 +164,6 @@ class Asprak extends CI_Controller
 
     public function delete($id_asprak)
     {
-        // Hapus foto yang lama
-        $asprak = $this->m_asprak->detail_asprak($id_asprak);
-        if ($asprak->foto_asprak != "") {
-            unlink('./upload/foto_asprak/' . $asprak->foto_asprak);
-        }
-
         $data = array('id_asprak' => $id_asprak);
         $this->m_asprak->delete($data);
         $this->session->set_flashdata('pesan', 'Data Guru Berhasil Dihapus!');

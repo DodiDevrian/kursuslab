@@ -117,16 +117,6 @@ class Dosen extends CI_Controller
                     unlink('./upload/foto_dosen/' . $dosen->foto_dosen);
                 }
 
-                // $data = array(
-                //     'id_admin'      => $id_admin,
-                //     'password'     => md5($this->input->post('password')),
-                //     'role'         => 2,
-                //     'nama_dosen'    => $this->input->post('nama_dosen'),
-                //     'nip'          => $this->input->post('nip'),
-                //     'email'        => $this->input->post('email'),
-                //     'foto_dosen'    => $upload_data['uploads']['file_name']
-                // );
-
                 if ($this->input->post('password')=='') {
                     $data = array(
                         'id_admin'      => $id_admin,
@@ -154,15 +144,6 @@ class Dosen extends CI_Controller
             $config['image_library'] = 'gd2';
             $config['source_image'] = './upload/foto_dosen/' . $upload_data['uploads']['file_name'];
             $this->load->library('image_lib', $config);
-
-            // $data = array(
-            //     'id_admin'     => $id_admin,
-            //     'password'     => md5($this->input->post('password')),
-            //     'role'         => 2,
-            //     'nama_dosen'   => $this->input->post('nama_dosen'),
-            //     'nip'          => $this->input->post('nip'),
-            //     'email'        => $this->input->post('email')
-            // );
 
             if ($this->input->post('password')=='') {
                 $data = array(

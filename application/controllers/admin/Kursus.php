@@ -54,8 +54,8 @@ class Kursus extends CI_Controller
             if (!$this->upload->do_upload('cover_kursus')) {
 
                 $data = array(
-                    'title'     => 'Kursus',
-                    'title2'    => 'Tambah Data Kursus',
+                    'title'     => 'Praktikum',
+                    'title2'    => 'Tambah Data Praktikum',
                     'error'     => $this->upload->display_errors(),
                     'count_new'     => $this->m_praktikan->lists(),
                     'isi'       => 'admin/kursus/v_add'
@@ -83,8 +83,8 @@ class Kursus extends CI_Controller
         }
         
         $data = array(
-            'title'     => 'Kursus',
-            'title2'    => 'Tambah Data Kursus',
+            'title'     => 'Praktikum',
+            'title2'    => 'Tambah Data Praktikum',
             'dosen'     => $this->m_dosen->lists(),
             'count_new'     => $this->m_praktikan->lists(),
             'asprak'    => $this->m_asprak->lists_asprak(),
@@ -345,7 +345,6 @@ class Kursus extends CI_Controller
 
     public function delete_materi($id_materi)
     {
-        // Hapus foto yang lama
         $kursus = $this->m_materi->detail($id_materi);
         if ($kursus->doc_materi != "") {
             unlink('./upload/doc_materi/' . $kursus->doc_materi);

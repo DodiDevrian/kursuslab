@@ -28,7 +28,7 @@ class Auth extends CI_Controller {
 
 			if ($auth == FALSE) {
 				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Username atau Password</strong> Salah!
+                <strong>Email atau Password</strong> Salah!
 				</div>');
 				redirect('auth/login');
 			}else {
@@ -74,7 +74,7 @@ class Auth extends CI_Controller {
 
 			if ($auth == FALSE) {
 				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-				<strong>Username atau Password</strong> Salah!
+				<strong>Email atau Password</strong> Salah!
 				</div>');
 				redirect('auth/login');
 			}else {
@@ -159,13 +159,16 @@ class Auth extends CI_Controller {
 
             if (!$this->upload->do_upload('foto_user')) {
 
-                $data = array(
-                    'title'     => 'Register',
-                    'title2'    => 'Buat Akun',
-                    'error'     => $this->upload->display_errors(),
-					'clogin'    => $this->m_clogin->lists(),
-                );
-                $this->load->view('login/v_register', $data, FALSE);
+                // $data = array(
+                //     'title'     => 'Register',
+                //     'title2'    => 'Buat Akun',
+                //     'error'     => $this->upload->display_errors(),
+				// 	'clogin'    => $this->m_clogin->lists(),
+                // );
+                // $this->load->view('login/v_register', $data, FALSE);
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<strong>Email atau Password</strong> Salah!
+				</div>');
             } else {
                 $upload_data = array('uploads' => $this->upload->data());
                 $config['image_library'] = 'gd2';

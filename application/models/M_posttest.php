@@ -26,7 +26,11 @@ class M_posttest extends CI_Model
         $this->db->insert('tbl_posttest', $data);
     }
 
-
+    public function delete($data)
+    {
+        $this->db->where('id_posttest', $data['id_posttest']);
+        $this->db->delete('tbl_posttest', $data);
+    }
 
     public function detail($id_posttest)
     {

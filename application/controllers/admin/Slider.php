@@ -105,7 +105,6 @@ class Slider extends CI_Controller
                 $config['source_image'] = './upload/foto_slider/' . $upload_data['uploads']['file_name'];
                 $this->load->library('image_lib', $config);
 
-                // Hapus file foto yang lama
                 $kursus = $this->m_slider->detail($id_slider);
                 if ($kursus->foto_slider != "") {
                     unlink('./upload/foto_slider/' . $kursus->foto_slider);
@@ -147,7 +146,6 @@ class Slider extends CI_Controller
 
     public function delete($id_slider)
     {
-        // Hapus foto yang lama
         $slider = $this->m_slider->detail($id_slider);
         if ($slider->foto_slider != "") {
             unlink('./upload/foto_slider/' . $slider->foto_slider);

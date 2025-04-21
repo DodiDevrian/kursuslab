@@ -61,7 +61,7 @@
 						</div>
                         <div class="form-group">
                             <label>Gambar Saat Ini</label><br>
-                            <img src="<?= base_url('upload/cover_kursus/' . $kursus->cover_kursus) ?>" alt="" width="600px">
+                            <img src="<?= base_url('upload/cover_kursus/' . $kursus->cover_kursus) ?>" alt="" width="300px">
                         </div>
 						<div class="form-group">
 							<label>Upload Cover</label>

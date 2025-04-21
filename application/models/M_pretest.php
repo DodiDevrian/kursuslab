@@ -21,6 +21,12 @@ class M_pretest extends CI_Model
         return $this->db->get()->result();
     }
 
+    public function delete($data)
+    {
+        $this->db->where('id_pretest', $data['id_pretest']);
+        $this->db->delete('tbl_pretest', $data);
+    }
+
     public function list_kunci()
     {
         $this->db->select('*');

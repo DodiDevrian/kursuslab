@@ -77,8 +77,6 @@ class Pretest extends CI_Controller
             );
             $this->load->view('admin/layout/v_wrapper', $data, FALSE);
         } else {
-
-
             $data = array(
                 'soal'          => $this->input->post('soal'),
                 'nomor_soal'          => $this->input->post('nomor_soal'),
@@ -88,12 +86,9 @@ class Pretest extends CI_Controller
                 'jawaban_c'     => $this->input->post('jawaban_c'),
                 'jawaban_d'     => $this->input->post('jawaban_d'),
                 'jawaban_e'     => $this->input->post('jawaban_e'),
-
             );
-
             $this->m_pretest->add($data);
             $this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan!');
-            
             $referred_from = $this->session->userdata('halaman_soal');
             redirect($referred_from, 'refresh');
         }
@@ -120,8 +115,6 @@ class Pretest extends CI_Controller
             );
             $this->load->view('admin/layout/v_wrapper', $data, FALSE);
         } else {
-
-
             $data = array(
                 'id_pretest'          => $id_pretest,
                 'soal'          => $this->input->post('soal'),
@@ -132,9 +125,7 @@ class Pretest extends CI_Controller
                 'jawaban_d'     => $this->input->post('jawaban_d'),
                 'jawaban_e'     => $this->input->post('jawaban_e'),
                 'nomor_soal'     => $this->input->post('nomor_soal'),
-
             );
-
             $this->m_pretest->edit($data);
             $this->session->set_flashdata('pesan', 'Data Berhasil Diubah!');
             
@@ -186,8 +177,6 @@ class Pretest extends CI_Controller
             );
             $this->load->view('admin/layout/v_wrapper', $data, FALSE);
         } else {
-
-
             $data = array(
                 'id_materi'     => $id_materi,
                 'kunci_1'       => $this->input->post('kunci_1'),
@@ -200,9 +189,7 @@ class Pretest extends CI_Controller
                 'kunci_8'       => $this->input->post('kunci_8'),
                 'kunci_9'       => $this->input->post('kunci_9'),
                 'kunci_10'      => $this->input->post('kunci_10'),
-
             );
-
             $this->m_pretest->add_kunci($data);
             $this->session->set_flashdata('pesan', 'Kunci Jawaban Berhasil Dibuat!');
 
@@ -279,6 +266,16 @@ class Pretest extends CI_Controller
 		$referred_from = $this->session->userdata('halaman_soal');
         redirect($referred_from, 'refresh');
 	}
+
+    public function delete($id_pretest)
+    {
+        $data = array('id_pretest' => $id_pretest);
+        $this->m_pretest->delete($data);
+        $this->session->set_flashdata('pesan', 'Soal Berhasil Dihapus!');
+        
+        $referred_from = $this->session->userdata('halaman_soal');
+        redirect($referred_from, 'refresh');
+    }
     
 
 }

@@ -265,4 +265,14 @@ class Posttest extends CI_Controller
         }
 	}
 
+    public function delete($id_posttest)
+    {
+        $data = array('id_posttest' => $id_posttest);
+        $this->m_posttest->delete($data);
+        $this->session->set_flashdata('pesan', 'Soal Berhasil Dihapus!');
+        
+        $referred_from = $this->session->userdata('halaman_soal');
+        redirect($referred_from, 'refresh');
+    }
+
 }

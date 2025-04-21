@@ -90,7 +90,7 @@
         <!-- Modal -->
         <?php foreach ($materi as $key => $value) { ?>
         <div class="modal fade" id="exampleModal<?= $value->id_materi?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Ubah Status Materi</h5>
@@ -102,7 +102,7 @@
                         <?php echo form_open_multipart('dosen/kursus/edit_status/'. $value->id_materi); ?>
                         <div class="form-group">
 							<label>Catatan</label>
-							<input class="form-control" value="<?= $value->note ?>" name="note" type="text" placeholder="Masukkan Catatan" required>
+                            <textarea class="form-control" name="note" id="exampleFormControlTextarea1"><?= $value->note ?></textarea>
                             <?php echo form_error('note', '<div class="text-danger small">', '</div>') ?>
 						</div>
 

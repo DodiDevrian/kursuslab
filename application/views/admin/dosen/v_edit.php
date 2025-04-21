@@ -23,7 +23,7 @@
 				<div class="pd-20 card-box mb-30">
 					<div class="clearfix mb-30">
 						<div class="pull-left">
-							<h4 class="text-blue h4">Form Tambah Data Dosen</h4>
+							<h4 class="text-blue h4">Form Ubah Data Dosen</h4>
 						</div>
 					</div>
 					<?php

@@ -259,9 +259,6 @@ class Pretest extends CI_Controller
                                 $poin_4 + $poin_5 + $poin_6 + 
                                 $poin_7 + $poin_8 + $poin_9 + 
                                 $poin_10
-                // 'poin_1'     => $this->input->post('poin_1'),
-
-
             );
 
             $this->m_pretest->repretest($data);

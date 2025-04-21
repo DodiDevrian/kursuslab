@@ -137,7 +137,7 @@
                 </div>
             </div>
 
-            <?php if ($this->session->userdata('username')) { ?>
+            <?php if ($this->session->userdata('email')) { ?>
             <div class="diskusi mb-4">
                 <div class="chat-diskusi">
                     <?php

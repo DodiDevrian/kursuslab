@@ -87,8 +87,6 @@ class Praktikan extends CI_Controller
 
     public function edit($id_user)
     {
-        $this->form_validation->set_rules('username', 'Username', 'required');
-        $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('nama_user', 'Nama Dosen', 'required');
         $this->form_validation->set_rules('nim', 'NIM', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required');
@@ -121,17 +119,25 @@ class Praktikan extends CI_Controller
                 if ($praktikan->foto_user != "") {
                     unlink('./upload/foto_user/' . $praktikan->foto_user);
                 }
-
-                $data = array(
-                    'id_user'      => $id_user,
-                    'username'     => $this->input->post('username'),
-                    'password'     => $this->input->post('password'),
-                    'nama_user'    => $this->input->post('nama_user'),
-                    'nim'          => $this->input->post('nim'),
-                    'email'        => $this->input->post('email'),
-                    'slug_user'   => url_title($this->input->post('nama_user'), 'dash', TRUE),
-                    'foto_user'    => $upload_data['uploads']['file_name']
-                );
+                
+                if ($this->input->post('password')=='') {
+                    $data = array(
+                        'id_user'      => $id_user,
+                        'nama_user'    => $this->input->post('nama_user'),
+                        'nim'          => $this->input->post('nim'),
+                        'email'        => $this->input->post('email'),
+                        'foto_user'    => $upload_data['uploads']['file_name']
+                    );
+                }else {
+                    $data = array(
+                        'id_user'      => $id_user,
+                        'password'     => md5($this->input->post('password')),
+                        'nama_user'    => $this->input->post('nama_user'),
+                        'nim'          => $this->input->post('nim'),
+                        'email'        => $this->input->post('email'),
+                        'foto_user'    => $upload_data['uploads']['file_name']
+                    );
+                }
 
                 $this->m_praktikan->edit($data);
                 $this->session->set_flashdata('pesan', 'Data Berhasil Diubah!');
@@ -142,14 +148,22 @@ class Praktikan extends CI_Controller
             $config['source_image'] = './upload/foto_user/' . $upload_data['uploads']['file_name'];
             $this->load->library('image_lib', $config);
 
-            $data = array(
-                'id_user'      => $id_user,
-                'username'     => $this->input->post('username'),
-                'password'     => $this->input->post('password'),
-                'nama_user'    => $this->input->post('nama_user'),
-                'nim'          => $this->input->post('nim'),
-                'email'        => $this->input->post('email')
-            );
+            if ($this->input->post('password')=='') {
+                $data = array(
+                    'id_user'      => $id_user,
+                    'nama_user'    => $this->input->post('nama_user'),
+                    'nim'          => $this->input->post('nim'),
+                    'email'        => $this->input->post('email'),
+                );
+            }else {
+                $data = array(
+                    'id_user'      => $id_user,
+                    'password'     => md5($this->input->post('password')),
+                    'nama_user'    => $this->input->post('nama_user'),
+                    'nim'          => $this->input->post('nim'),
+                    'email'        => $this->input->post('email'),
+                );
+            }
 
             $this->m_praktikan->edit($data);
             $this->session->set_flashdata('pesan', 'Data Berhasil Diubah!');
