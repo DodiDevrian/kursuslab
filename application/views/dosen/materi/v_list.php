@@ -74,6 +74,7 @@
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                             <a class="dropdown-item" type="button" data-toggle="modal" data-target="#exampleModal<?= $value->id_materi?>"><i class="dw dw-edit2"></i> Edit Status dan Catatan</a>
                                             <a class="dropdown-item" href="<?= base_url('dosen/pretest/soal/' . $value->id_materi) ?>"><i class="dw dw-eye"></i> Lihat Soal Pretest</a>
+                                            <a class="dropdown-item" href="<?= base_url('dosen/pretest/hasil/' . $value->id_materi) ?>"><i class="icon-copy dw dw-list"></i> Lihat Hasil Pretest</a>
                                         </div>
                                     </div>
                                 </td>

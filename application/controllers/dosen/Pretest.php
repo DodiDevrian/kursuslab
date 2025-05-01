@@ -65,11 +65,10 @@ class Pretest extends CI_Controller
             'title2' => 'Dashboard',
             'count_new'     => $this->m_praktikan->lists(),
             'dosen'        => $this->m_dosen->lists(),
-            'posttest'     => $this->m_posttest->do_posttest(),
             'id'            => $this->uri->segment(5),
-            'isi'   => 'dosen/posttest/v_hasil'
+            'isi'   => 'dosen/pretest/v_hasil'
         );
-        $this->load->view('admin/layout/v_wrapper', $data, FALSE);
+        $this->load->view('dosen/layout/v_wrapper', $data, FALSE);
     }
 
 }
