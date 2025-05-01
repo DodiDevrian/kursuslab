@@ -30,6 +30,9 @@ class Auth extends CI_Controller {
 				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <strong>Email atau Password</strong> Salah!
 				</div>');
+				$this->session->set_flashdata('pesan_regis', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Email atau Password</strong> Salah!
+				</div>');
 				redirect('auth/login');
 			}else {
 				$this->session->set_userdata('id_user', $auth->id_user);
@@ -187,7 +190,9 @@ class Auth extends CI_Controller {
                 );
 
                 $this->m_praktikan->add($data);
-                $this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan!');
+                $this->session->set_flashdata('pesan_regis', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                Akun berhasil ditambahkan, <strong>Silahkan login!</strong>
+				</div>');
                 redirect('auth/login');
             }
         }

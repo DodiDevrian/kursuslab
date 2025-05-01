@@ -57,4 +57,18 @@ class Posttest extends CI_Controller
         $this->load->view('dosen/layout/v_wrapper', $data, FALSE);
     }
 
+    public function hasil()
+    {
+        $data = array(
+            'title' => 'Admin',
+            'title2' => 'Dashboard',
+            'count_new'     => $this->m_praktikan->lists(),
+            'dosen'        => $this->m_dosen->lists(),
+            'posttest'     => $this->m_posttest->do_posttest(),
+            'id'            => $this->uri->segment(4),
+            'isi'   => 'dosen/posttest/v_hasil'
+        );
+        $this->load->view('dosen/layout/v_wrapper', $data, FALSE);
+    }
+
 }

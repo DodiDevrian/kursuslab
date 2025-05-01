@@ -127,6 +127,7 @@ class M_posttest extends CI_Model
             $nama_user = $row['nama_user'];
             $nim = $row['nim'];
             $nama_kursus = $row['nama_kursus'];
+            $id_kursus = $row['id_kursus'];
             $sum = $row['sum'];
 
             // Jika ID belum ada di highestValues, atau nilai saat ini lebih tinggi, simpan nilai tertinggi
@@ -135,6 +136,7 @@ class M_posttest extends CI_Model
                     'nama_user' => $nama_user,
                     'nim' => $nim,
                     'nama_kursus' => $nama_kursus,
+                    'id_kursus' => $id_kursus,
                     'sum' => $sum,
                 ];
             }

@@ -319,7 +319,7 @@ foreach ($kunci_list as $key => $value) {
                                         </table>
                                     </span>
                                 </div>
-                                <a href="<?= base_url('admin/posttest/edit_kunci/' . $id) ?>" class="btn btn-info mt-2">Edit Kunci Jawaban</a>
+                                <!-- <a href="<?= base_url('admin/posttest/edit_kunci/' . $id) ?>" class="btn btn-info mt-2">Edit Kunci Jawaban</a> -->
                             <?php } ?>
                         <?php } ?>
                     <?php } ?>

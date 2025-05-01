@@ -53,6 +53,9 @@
                                 if ($this->session->flashdata('pesan')) {
                                     echo $this->session->flashdata('pesan');
                                 }
+                                if ($this->session->flashdata('pesan_regis')) {
+                                    echo $this->session->flashdata('pesan_regis');
+                                }
                             ?>
                                 <div class="form-group mb-3">
                                     <label class="label">Email</label>

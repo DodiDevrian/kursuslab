@@ -93,8 +93,9 @@
                                                     <i class="dw dw-more"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                <a class="dropdown-item" href="<?= base_url('dosen/kursus/list_materi/' . $value->id_kursus) ?>"><i class="dw dw-eye"></i> Lihat Materi</a>
+                                                    <a class="dropdown-item" href="<?= base_url('dosen/kursus/list_materi/' . $value->id_kursus) ?>"><i class="dw dw-eye"></i> Lihat Materi</a>
                                                     <a class="dropdown-item" href="<?= base_url('dosen/posttest/soal/' . $value->id_kursus) ?>"><i class="icon-copy dw dw-list"></i> Lihat Soal Post Test</a>
+                                                    <a class="dropdown-item" href="<?= base_url('dosen/posttest/hasil/' . $value->id_kursus) ?>"><i class="icon-copy dw dw-list"></i> Lihat Hasil Post Test</a>
                                                 </div>
                                             </div>
                                         </td>
