@@ -22,6 +22,8 @@ class Kursus extends CI_Controller
             'title'   => 'Kursus',
             'title2'  => 'Laboratorium Teknik Informatika',
             'kursus'   => $this->m_kursus->lists(),
+            'materi'        => $this->m_kursus->lists_materi(),
+            'materi_button' => $this->m_kursus->lists_materi_button(),
             'isi'     => 'v_kursus'
         );
         $this->load->view('layout/v_wrapper', $data, FALSE);

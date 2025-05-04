@@ -52,7 +52,6 @@ class Kursus extends CI_Controller
             $this->upload->initialize($config);
 
             if (!$this->upload->do_upload('cover_kursus')) {
-
                 $data = array(
                     'title'     => 'Praktikum',
                     'title2'    => 'Tambah Data Praktikum',

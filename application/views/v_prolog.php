@@ -39,47 +39,47 @@
 						</div>
 
 						<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel">Materi <?= $kursus->nama_kursus ?></h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<?php $no=1; foreach ($materi as $key => $value) { 
-										if ($value->id_kursus == $id) {
-										?>
-										<p><?= $no++ . '. ' . $value->nama_materi ?> </p>
-									<?php  }} ?>
-								</div>
-
-								<?php if($this->session->userdata('id_user')) { ?>
-									<?php if ($this->session->userdata('status_if') == 'Yes' ) { ?>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-											<?php $no=1; foreach ($materi_button as $key => $value) { 
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">Materi <?= $kursus->nama_kursus ?></h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<?php $no=1; foreach ($materi as $key => $value) { 
 											if ($value->id_kursus == $id) {
-												?>
-												<?php if ($no == 1) { $no++; ?>
-											<a href="<?= base_url('kursus/detail_materi/' . $value->id_materi) ?>" class="btn btn-primary">Mulai Belajar</a>
-											<?php }}} ?>
+											?>
+											<p><?= $no++ . '. ' . $value->nama_materi ?> </p>
+										<?php  }} ?>
+									</div>
+
+									<?php if($this->session->userdata('id_user')) { ?>
+										<?php if ($this->session->userdata('status_if') == 'Yes' ) { ?>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+												<?php $no=1; foreach ($materi_button as $key => $value) { 
+												if ($value->id_kursus == $id) {
+													?>
+													<?php if ($no == 1) { $no++; ?>
+												<a href="<?= base_url('kursus/detail_materi/' . $value->id_materi) ?>" class="btn btn-primary">Mulai Belajar</a>
+												<?php }}} ?>
+											</div>
+										<?php } else { ?>
+											<div class="modal-footer">
+											<div class="text-center mb-2"> <i style="color: red; margin-right: 5px;">*</i> Akun anda sedang diperiksa status mahasiwa Teknik Informatika atau bukan, tunggu sampai akun anda diterima</div>
+											<!-- <div><a href="<?= base_url('auth/login') ?>" class="ml-3 btn btn-warning text-white">Login</a></div> -->
 										</div>
-									<?php } else { ?>
+										<?php } ?>
+									<?php } else{ ?>
 										<div class="modal-footer">
-										<div class="text-center mb-2"> <i style="color: red; margin-right: 5px;">*</i> Akun anda sedang diperiksa status mahasiwa Teknik Informatika atau bukan, tunggu sampai akun anda diterima</div>
-										<!-- <div><a href="<?= base_url('auth/login') ?>" class="ml-3 btn btn-warning text-white">Login</a></div> -->
-									</div>
+											<div class="text-center mb-2"> <i style="color: red; margin-right: 5px;">*</i> Silahkan Login terlebih dahulu untuk melihat materi</div>
+											<div><a href="<?= base_url('auth/login') ?>" class="ml-3 btn btn-warning text-white">Login</a></div>
+										</div>
 									<?php } ?>
-								<?php } else{ ?>
-									<div class="modal-footer">
-										<div class="text-center mb-2"> <i style="color: red; margin-right: 5px;">*</i> Silahkan Login terlebih dahulu untuk melihat materi</div>
-										<div><a href="<?= base_url('auth/login') ?>" class="ml-3 btn btn-warning text-white">Login</a></div>
-									</div>
-								<?php } ?>
+								</div>
 							</div>
-						</div>
 						</div>
 					</div>
 				</div>
