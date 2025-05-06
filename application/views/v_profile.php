@@ -86,8 +86,13 @@
                     <td></td>
                 </tr>
             </table>
-            <div class="text-center">
-                <button type="button" class="btn btn-warning mb-5" data-toggle="modal" data-target="#editData"><i class="fa fa-edit" aria-hidden="true"></i> Ubah Data dan Password</button>
+            <div class="button-data text-center">
+                <span class="text-center">
+                    <button type="button" class="btn btn-warning mb-3" data-toggle="modal" data-target="#editData"><i class="fa fa-edit" aria-hidden="true"></i> Ubah Data dan Password</button>
+                </span>
+                <span class="text-center">
+                    <button type="button" class="btn btn-info mb-3" data-toggle="modal" data-target="#editKtm"><i class="fa fa-id-card" aria-hidden="true"></i> Kartu Mahasiswa</button>
+                </span>
             </div>
         </div>
     </div>
@@ -215,7 +220,6 @@
                         echo '<div class="alert alert-danger alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
                     }
-                    
                     echo form_open_multipart('profile/edit_data/' . $profile->slug_user);
                 ?>
                 <div class="form-group">
@@ -252,56 +256,42 @@
     </div>
 </div>
 
-<!-- <div class="contact_info_container mt-5 mb-3">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="contact_form">
-							<div class="contact_info_title">Contact Form</div>
-							<form action="#" class="comment_form" method="POST">
-								<div>
-									<div class="form_title">Name</div>
-									<input type="text" class="comment_input" required="required">
-								</div>
-								<div>
-									<div class="form_title">Email</div>
-									<input type="text" class="comment_input" required="required">
-								</div>
-								<div>
-									<div class="form_title">Message</div>
-									<textarea class="comment_input comment_textarea" required="required"></textarea>
-								</div>
-								<div>
-									<button type="submit" class="comment_button trans_200">Kirim</button>
-								</div>
-							</form>
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="contact_info">
-							<div class="contact_info_title">Contact Info</div>
-							<div class="contact_info_location">
-								<div class="contact_info_location_title">Laboran</div>
-								<ul class="location_list">
-									<li>Gedung Laboratorium Teknik 3 ITERA (GLT 3)</li>
-									<li>+62 896 - 2874 - 4896</li>
-									<li>dodi.119140023@student.itera.ac.id</li>
-								</ul>
-							</div>
-							<div class="contact_info_location mt-5">
-								<div class="contact_info_location_title">Koordinator Asprak</div>
-								<ul class="location_list">
-									<li>Way Huwi, Lampung Selatan, Lampung</li>
-									<li>0876-2873-2983</li>
-									<li>dodidev@gmail.com</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
+<div class="modal fade" id="editKtm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Kartu Mahasiswa</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="text-center">
+                <img class="mb-3" src="<?= base_url('upload/foto_ktm/' ) . $profile->foto_ktm ?>" alt="" width="100%">
+            </div>
+
+            <?php
+                if (isset($error_upload)) {
+                    echo '<div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
+                }
+                
+                echo form_open_multipart('profile/edit_ktm/' . $profile->slug_user);
+            ?>
+            <div class="form-group">
+                <label>Edit Foto KTM</label>
+                <input type="file" class="form-control-file form-control height-auto" name="foto_ktm">
+            </div>
+            
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </div>
+        <?php echo form_close(); ?>
+        </div>
+    </div>
+</div>
     
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>

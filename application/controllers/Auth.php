@@ -266,6 +266,7 @@ class Auth extends CI_Controller {
 		$data = array(
 			'title'     => 'Register',
 			'title2'    => 'Buat Akun',
+			'error'     => $this->upload->display_errors(),
 			'clogin'    => $this->m_clogin->lists(),
 		);
 		$this->load->view('login/v_register', $data, FALSE);

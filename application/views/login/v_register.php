@@ -40,12 +40,17 @@
                                     <h3>Register</h3>
                                 </div>
                             </div>
+                            <?php if ($this->session->flashdata('pesan')) : ?>
+                                <div class="mt-2">
+                                    <?= $this->session->flashdata('pesan'); ?>
+                                </div>
+                            <?php endif; ?>
 
 							<?php
-                                if (isset($error_upload)) {
-                                    echo '<div class="alert alert-danger alert-dismissible">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
-                                }
+                                // if (isset($error_upload)) {
+                                //     echo '<div class="alert alert-danger alert-dismissible">
+                                //         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
+                                // }
                                 echo form_open_multipart('auth/register');
                             ?>
                                 <div class="form-group mb-3">

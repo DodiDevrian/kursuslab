@@ -75,11 +75,13 @@
 									<div class="footer_links_container">
 										<ul>
 											<li><a href="<?= base_url() ?>">Home</a></li>
-											<li><a href="about.html">Praktikum</a></li>
-											<li><a href="contact.html">Asprak</a></li>
-											<li><a href="#">Forum Diskusi</a></li>
-											<li><a href="#">About</a></li>
-											<li><a href="#">Login</a></li>
+											<li><a href="<?= base_url('kursus') ?>">Praktikum</a></li>
+											<li><a href="<?= base_url('asprak') ?>">Asprak</a></li>
+											<li><a href="<?= base_url('diskusi') ?>">Forum Diskusi</a></li>
+											<li><a href="<?= base_url('about') ?>">About</a></li>
+											<?php if($this->session->userdata('id_user')) { ?>
+												<li><a href="<?= base_url('profile/mahasiswa/' . $this->session->userdata('slug_user')) ?>">Profile</a></li>
+											<?php } ?>
 										</ul>
 									</div>
 								</div>

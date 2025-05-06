@@ -24,6 +24,7 @@
             <h2 class="text-center mb-3" style="color: red;">Akun anda masih diperiksa!</h2>
             <p class="lead">Untuk saat ini anda tidak dapat menggunakan beberapa fitur penting pada website ini.</p>
             <p class="lead">Tunggu sampai laboran menerima akun anda!</p>
+            <p class="lead">Jika terdapet kesalahan anda dapat mengubah pada halaman <a href="<?= base_url('profile/mahasiswa/' . $this->session->userdata('slug_user')) ?>" style="color: blue;">profile</a>!</p>
         </div>
     </div>
 	

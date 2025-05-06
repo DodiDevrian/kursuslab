@@ -122,10 +122,12 @@ foreach ($nilai as $key => $value) {
 								<?php } ?>
 							</div>
 						</div>
-						<div class="d-flex justify-content-between" style="margin-top: 25px;">
+						<div class="d-flex justify-content-between" style="margin-top: 25px; align-items: center;">
 							<h3 class="mb-2 mt-2"><?= $materi -> nama_materi ?></h3>
 							<?php if ($materi -> status == 2) { ?>
-								<a class="btn btn-warning" type="button" data-toggle="modal" data-target="#viewMateri" style="color: black;"><i style="font-size: 25px; margin-right: 10px; color:black;" class="fa fa-file-pdf-o"></i> Lihat Modul</a>
+								<div class="modul">
+									<a class="btn btn-warning" type="button" data-toggle="modal" data-target="#viewMateri" style="color: black;"><i style="font-size: 25px; margin-right: 10px; color:black;" class="fa fa-file-pdf-o"></i> Lihat Modul</a>
+								</div>
 							<?php } ?>
 						</div>
 					<?php } ?>
@@ -155,11 +157,13 @@ foreach ($nilai as $key => $value) {
 								<?php } ?>
 							</div>
 						</div>
-						<div class="d-flex justify-content-between" style="margin-top: 25px;">
+						<div class="d-flex justify-content-between" style="margin-top: 25px; align-items: center;">
 							<h3 class="mb-2 mt-2"><?= $materi -> nama_materi ?></h3>
 							
 							<?php if ($materi -> status == 2) { ?>
-							<a class="btn btn-warning" type="button" data-toggle="modal" data-target="#viewMateri" style="color: black;"><i style="font-size: 25px; margin-right: 10px;" class="fa fa-file-pdf-o"></i> Lihat Modul</a>
+								<div class="modul">
+									<a class="btn btn-warning" type="button" data-toggle="modal" data-target="#viewMateri" style="color: black;"><i style="font-size: 25px; margin-right: 10px;" class="fa fa-file-pdf-o"></i> Lihat Modul</a>
+								</div>
 							<?php } ?>
 						</div>
 						<?php if ($materi->cek_last == 'Yes') { ?>

@@ -89,5 +89,36 @@ class Profile extends CI_Controller
         redirect('profile/mahasiswa/' . $slug_user);
 	}
 
+    public function edit_ktm($slug_user)
+    {
+        $config['upload_path']      = './upload/foto_ktm/';
+        $config['allowed_types']    = 'jpg|png|jpeg|gif';
+        $config['max_size']         = 20000;
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('foto_ktm')) {
+            echo "Data Gagal Ditambah";
+        } else {
+            $upload_data = array('uploads' => $this->upload->data());
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './upload/foto_ktm/' . $upload_data['uploads']['file_name'];
+            $this->load->library('image_lib', $config);
+
+            $profile = $this->m_profile->profile($slug_user);
+            if ($profile->foto_ktm != "") {
+                unlink('./upload/foto_ktm/' . $profile->foto_ktm);
+            }
+
+            $data = array(
+                'slug_user'    => $slug_user,
+                'foto_ktm'    => $upload_data['uploads']['file_name']
+            );
+
+            $this->m_profile->edit($data);
+            $this->session->set_flashdata('pesan', 'Gambar Kartu Mahasiswa Berhasil Diubah!');
+            redirect('profile/mahasiswa/' . $slug_user);
+        }
+    }
+
 
 }
