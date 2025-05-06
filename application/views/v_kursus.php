@@ -60,7 +60,6 @@
 
 	<?php foreach ($kursus as $key => $value) { ?>
 		
-	
 	<div class="modal fade" id="exampleModal<?= $value->id_kursus ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">

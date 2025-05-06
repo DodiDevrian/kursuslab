@@ -187,6 +187,10 @@ class Praktikan extends CI_Controller
             unlink('./upload/foto_user/' . $user->foto_user);
         }
 
+        if ($user->foto_ktm != "") {
+            unlink('./upload/foto_ktm/' . $user->foto_ktm);
+        }
+
         $data = array('id_user' => $id_user);
         $this->m_praktikan->delete($data);
         $this->session->set_flashdata('pesan', 'Data Berhasil Dihapus!');

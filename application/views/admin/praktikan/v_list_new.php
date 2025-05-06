@@ -37,7 +37,6 @@
                                 <th>Nama</th>
                                 <th>NIM</th>
                                 <th>Email</th>
-                                <!-- <th>Asprak ?</th> -->
                                 <th>Foto</th>
                                 <th class="datatable-nosort">Action</th>
                             </tr>
@@ -50,20 +49,13 @@
                                     <td><?= $value->nama_user?></td>
                                     <td><?= $value->nim?></td>
                                     <td><?= $value->email?></td>
-                                    <!-- <td>
-                                        <div>
-                                            <?php if ($value->role == 4) { ?>
-                                                <a type="button" data-toggle="modal" data-target="#UbahRoleYes<?= $value->id_user?>">
-                                                    <span class="notif-role badge badge-pill badge-success"><p class="label-role">Ya</p> <li class="fa fa-caret-down"></li></span>
-                                                </a>
-                                                <?php }else { ?>
-                                                    <a type="button" data-toggle="modal" data-target="#UbahRoleNo<?= $value->id_user?>">
-                                                        <span class="notif-role badge badge-pill badge-danger"><p class="label-role">Tidak</p> <li class="fa fa-caret-down"></li></span>
-                                                    </a>
-                                            <?php }  ?>
-                                        </div>
-                                    </td> -->
-                                    <td><img src="<?= base_url()?>/upload/foto_user/<?= $value->foto_user?>" alt="" width="100px"></td>
+                                    <td>
+                                        <a class="dropdown-item" type="button" data-toggle="modal" data-target="#viewFoto<?= $value->id_user?>"><img src="<?= base_url()?>/upload/foto_user/<?= $value->foto_user?>" alt="" width="100px"></a>
+                                        
+                                    </td>
+                                    <td>
+                                        <a class="dropdown-item" type="button" data-toggle="modal" data-target="#viewKtm<?= $value->id_user?>"><img src="<?= base_url()?>/upload/foto_ktm/<?= $value->foto_ktm?>" alt="" width="100px"></a>
+                                    </td>
                                     <td>
                                         <span>
                                             <a type="button" data-toggle="modal" data-target="#UbahRoleNo<?= $value->id_user?>">
@@ -139,3 +131,47 @@
             </div>
         </div>
         <?php } ?>
+
+        <?php $no=1; foreach ($praktikan as $key => $value) {
+            if ($value->status_if == 'No') { ?>
+        <div class="modal fade" id="viewFoto<?= $value->id_user?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <img src="<?= base_url()?>/upload/foto_user/<?= $value->foto_user?>" alt="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <?php }} ?>
+
+        <?php $no=1; foreach ($praktikan as $key => $value) {
+            if ($value->status_if == 'No') { ?>
+        <div class="modal fade" id="viewKtm<?= $value->id_user?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <img src="<?= base_url()?>/upload/foto_ktm/<?= $value->foto_ktm?>" alt="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <?php }} ?>

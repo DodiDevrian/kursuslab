@@ -147,7 +147,7 @@ class Auth extends CI_Controller {
 		}
 	}
 
-	public function register()
+	public function register1()
 	{
 		$this->form_validation->set_rules('nama_user', 'Nama Praktikan', 'required');
         $this->form_validation->set_rules('nim', 'NIM', 'required');
@@ -203,6 +203,75 @@ class Auth extends CI_Controller {
         );
         $this->load->view('login/v_register', $data, FALSE);
     }
+
+	public function register()
+	{
+		$this->form_validation->set_rules('nama_user', 'Nama Praktikan', 'required');
+		$this->form_validation->set_rules('nim', 'NIM', 'required');
+		$this->form_validation->set_rules('email', 'Email', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
+
+		if ($this->form_validation->run() == TRUE) {
+			$this->load->library('upload');
+
+			// === Upload foto_user ke ./upload/foto_user/ ===
+			$config_foto['upload_path']   = './upload/foto_user/';
+			$config_foto['allowed_types'] = 'jpg|png|jpeg|gif';
+			$config_foto['max_size']      = 20000;
+
+			$this->upload->initialize($config_foto);
+			if (!$this->upload->do_upload('foto_user')) {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<strong>Upload foto gagal:</strong> ' . $this->upload->display_errors() . '
+				</div>');
+				redirect('auth/register');
+			}
+			$foto_user_data = $this->upload->data();
+
+			// === Upload foto_ktm ke ./upload/foto_ktm/ ===
+			$config_ktm['upload_path']    = './upload/foto_ktm/';
+			$config_ktm['allowed_types']  = 'jpg|png|jpeg|gif';
+			$config_ktm['max_size']       = 20000;
+
+			$this->upload->initialize($config_ktm);
+			if (!$this->upload->do_upload('foto_ktm')) {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				<strong>Upload KTM gagal:</strong> ' . $this->upload->display_errors() . '
+				</div>');
+				redirect('auth/register');
+			}
+			$ktm_data = $this->upload->data();
+
+			// Simpan ke database
+			$data = array(
+				'password'     => md5($this->input->post('password')),
+				'spassword'    => 'b398b8a18ef4f69811a32cf169946bac',
+				'role'         => 3,
+				'nama_user'    => $this->input->post('nama_user'),
+				'nim'          => $this->input->post('nim'),
+				'email'        => $this->input->post('email'),
+				'slug_user'    => url_title($this->input->post('nama_user'), 'dash', TRUE),
+				'foto_user'    => $foto_user_data['file_name'],
+				'foto_ktm'      => $ktm_data['file_name'],
+			);
+
+			$this->m_praktikan->add($data);
+			$this->session->set_flashdata('pesan_regis', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+			Akun berhasil ditambahkan, <strong>Silahkan login!</strong>
+			</div>');
+			redirect('auth/login');
+		}
+
+		// Tampilkan halaman register jika gagal validasi atau pertama kali dibuka
+		$data = array(
+			'title'     => 'Register',
+			'title2'    => 'Buat Akun',
+			'clogin'    => $this->m_clogin->lists(),
+		);
+		$this->load->view('login/v_register', $data, FALSE);
+	}
+
+
 
 	public function logout(){
 

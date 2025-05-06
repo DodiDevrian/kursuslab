@@ -77,6 +77,11 @@
                                     <input name="foto_user" type="file" class="form-control-file form-control" style="height: 44px;">
                                 </div>
 
+                                <div class="form-group">
+                                    <label class="label">Upload KTM (Kartu Mahasiswa)</label>
+                                    <input name="foto_ktm" type="file" class="form-control-file form-control" style="height: 44px;">
+                                </div>
+
                                 <div class="form-group mt-5">
                                     <button type="submit" class="form-control btn btn-primary rounded submit px-3">Register &nbsp;&nbsp;<i class="fa fa-sign-in"></i></button>
                                 </div>

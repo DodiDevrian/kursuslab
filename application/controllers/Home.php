@@ -21,6 +21,8 @@ class Home extends CI_Controller
             'kursus_terakhir'       => $this->m_home->kursus_terakhir(),
             'asprak_terakhir'       => $this->m_home->asprak_terakhir(),
             'slider_terakhir'       => $this->m_home->slider_terakhir(),
+            'materi'        => $this->m_kursus->lists_materi(),
+            'materi_button' => $this->m_kursus->lists_materi_button(),
             'isi'                   => 'v_home'
         );
         $this->load->view('layout/v_wrapper', $data, FALSE);

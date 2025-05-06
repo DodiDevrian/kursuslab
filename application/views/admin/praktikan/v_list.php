@@ -89,6 +89,7 @@
                                             <i class="dw dw-more"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                            <a class="dropdown-item" type="button" data-toggle="modal" data-target="#viewKtm<?= $value->id_user?>"><i class="icon-copy dw dw-id-card2"></i> Lihat KTM</a>
                                             <a class="dropdown-item" href="<?= base_url('admin/praktikan/edit/' . $value->id_user) ?>"><i class="dw dw-edit2"></i> Edit</a>
                                             <a class="dropdown-item" href="<?= base_url('admin/praktikan/delete/' . $value->id_user) ?>"><i class="dw dw-delete-3"></i> Delete</a>
                                         </div>
@@ -157,3 +158,25 @@
             </div>
         </div>
         <?php } ?>
+
+        <?php $no=1; foreach ($praktikan as $key => $value) {
+            if ($value->status_if == 'Yes') { ?>
+        <div class="modal fade" id="viewKtm<?= $value->id_user?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <img src="<?= base_url()?>/upload/foto_ktm/<?= $value->foto_ktm?>" alt="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <?php }} ?>
