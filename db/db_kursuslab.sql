@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2025 at 02:02 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: May 06, 2025 at 04:17 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.3.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,7 +38,7 @@ CREATE TABLE `tbl_admin` (
   `foto_dosen` text DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_admin`
@@ -65,7 +65,7 @@ CREATE TABLE `tbl_asprak` (
   `no_hp` bigint(255) DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_asprak`
@@ -81,7 +81,8 @@ INSERT INTO `tbl_asprak` (`id_asprak`, `id_user`, `nama_asprak`, `no_hp`, `creat
 (13, 13, 'Dwi Ananda Rizky', 89628744896, '2024-12-04 06:22:35', NULL),
 (14, 14, 'Edo Sani', 89628744896, '2024-12-04 06:22:35', NULL),
 (16, 16, 'Punky Wijayanto Muda', 89628744896, '2025-03-08 08:57:18', NULL),
-(17, 17, 'Amanda Rawles', 89628744896, '2025-03-12 10:41:54', NULL);
+(17, 17, 'Amanda Rawles', 89628744896, '2025-03-12 10:41:54', NULL),
+(28, 28, 'Sharla Rizqillah Kusuma', 904803980398, '2025-05-02 10:15:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -94,7 +95,7 @@ CREATE TABLE `tbl_asset` (
   `foto_asset` text NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_asset`
@@ -125,7 +126,7 @@ CREATE TABLE `tbl_banksoalpretest` (
   `nomor_soal` varchar(255) DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -136,7 +137,7 @@ CREATE TABLE `tbl_banksoalpretest` (
 CREATE TABLE `tbl_clogin` (
   `id_clogin` int(255) NOT NULL,
   `foto_login` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_clogin`
@@ -162,7 +163,7 @@ CREATE TABLE `tbl_diskusi` (
   `foto_diskusi_asprak` text DEFAULT NULL,
   `created_diskusi` datetime NOT NULL DEFAULT current_timestamp(),
   `modified_diskusi` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_diskusi`
@@ -227,7 +228,7 @@ CREATE TABLE `tbl_do_posttest` (
   `jawab_29` varchar(255) NOT NULL,
   `jawab_30` varchar(255) NOT NULL,
   `sum` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_do_posttest`
@@ -235,7 +236,8 @@ CREATE TABLE `tbl_do_posttest` (
 
 INSERT INTO `tbl_do_posttest` (`id_doposttest`, `id_user`, `id_kursus`, `jawab_1`, `jawab_2`, `jawab_3`, `jawab_4`, `jawab_5`, `jawab_6`, `jawab_7`, `jawab_8`, `jawab_9`, `jawab_10`, `jawab_11`, `jawab_12`, `jawab_13`, `jawab_14`, `jawab_15`, `jawab_16`, `jawab_17`, `jawab_18`, `jawab_19`, `jawab_20`, `jawab_21`, `jawab_22`, `jawab_23`, `jawab_24`, `jawab_25`, `jawab_26`, `jawab_27`, `jawab_28`, `jawab_29`, `jawab_30`, `sum`) VALUES
 (4, 15, 1, 'B', 'A', 'C', 'B', 'B', 'C', 'A', 'C', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 70),
-(5, 1, 1, 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 87);
+(5, 1, 1, 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 50),
+(6, 1, 1, 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 87);
 
 -- --------------------------------------------------------
 
@@ -269,7 +271,7 @@ CREATE TABLE `tbl_do_pretest` (
   `poin_9` int(255) DEFAULT NULL,
   `poin_10` int(255) DEFAULT NULL,
   `sum` int(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_do_pretest`
@@ -321,7 +323,7 @@ CREATE TABLE `tbl_kunci_posttest` (
   `kunci_28` text NOT NULL,
   `kunci_29` text NOT NULL,
   `kunci_30` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_kunci_posttest`
@@ -349,7 +351,7 @@ CREATE TABLE `tbl_kunci_pretest` (
   `kunci_8` varchar(255) NOT NULL,
   `kunci_9` varchar(255) NOT NULL,
   `kunci_10` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_kunci_pretest`
@@ -377,7 +379,7 @@ CREATE TABLE `tbl_kursus` (
   `cover_kursus` text DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_kursus`
@@ -413,7 +415,7 @@ CREATE TABLE `tbl_materi` (
   `cek_last` varchar(255) DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_materi`
@@ -456,7 +458,7 @@ CREATE TABLE `tbl_posttest` (
   `jawaban_e` text NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_posttest`
@@ -512,7 +514,7 @@ CREATE TABLE `tbl_pretest` (
   `jawaban_e` text NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_pretest`
@@ -553,7 +555,7 @@ CREATE TABLE `tbl_slider` (
   `foto_slider` text NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_slider`
@@ -582,30 +584,31 @@ CREATE TABLE `tbl_user` (
   `nim` bigint(255) DEFAULT NULL,
   `status_if` varchar(255) NOT NULL DEFAULT 'No',
   `foto_user` text DEFAULT NULL,
+  `foto_ktm` varchar(500) NOT NULL,
   `slug_user` text NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`id_user`, `username`, `email`, `password`, `spassword`, `role`, `nama_user`, `nim`, `status_if`, `foto_user`, `slug_user`, `created`, `modified`) VALUES
-(1, 'dodi.119140023', 'dodi.119140023@student.itera.ac.id', 'bcfeb3c97660cbaabb9fc3a345465f3f', 'b398b8a18ef4f69811a32cf169946bac', 3, 'Dodi Devrian Andrianto', 119140023, 'Yes', 'foto_(2)9.jpg', 'dodi-devrian-andrianto', '2024-12-03 22:19:02', '2025-04-10 10:53:27'),
-(7, 'ahmad.119140293', 'ahmad.119140293@student.itera.ac.id', '8de13959395270bf9d6819f818ab1a00', 'b398b8a18ef4f69811a32cf169946bac', 4, 'Ahmad Akbar', 119140293, 'Yes', 'user2.png', 'ahmad-akbar', '2024-12-03 22:34:23', '2025-04-11 15:55:36'),
-(8, 'nurdana.1191402394', 'nurdana.1191402394@student.itera.ac.id', 'nurdana123', '', 4, 'Nurdana Jaya', 119140394, 'Yes', 'WhatsApp_Image_2024-07-29_at_00_22_25.jpeg', '', '2024-12-03 23:06:30', '2025-02-28 11:39:34'),
-(9, 'wili.119140025', 'wili.119140025@student.itera.ac.id', 'wili123', '', 4, 'Wili Jonatan', 119140025, 'Yes', 'avatar-design.png', '', '2024-12-03 23:10:11', '2025-02-28 11:39:37'),
-(10, 'michael.123140101', 'michael.123140101@student.itera.ac.id', 'michael123', '', 4, 'Michael Mathew', 123140101, 'Yes', 'WhatsApp_Image_2024-07-03_at_00_54_371.jpeg', '', '2024-12-04 06:05:18', '2025-02-28 11:39:40'),
-(11, 'dila.121140075', 'dila.121140075@student.itera.ac.id', 'dila123', '', 4, 'Dila Ayu Prastita', 121140075, 'Yes', 'images.jpeg', '', '2024-12-04 06:11:56', '2025-02-28 11:39:43'),
-(12, 'dimas.121140135', 'dimas.121140135@student.itera.ac.id', '51947e3cf64ee746b6f2c73d174d525a', '', 4, 'Dimas Azi Rajab Aizar', 121140135, 'Yes', '5d4b8207341479b8729b9480b98c791a.jpg', '', '2024-12-04 06:11:56', '2025-04-18 00:48:18'),
-(13, 'dwi.120140027', 'dwi.120140027@student.ac.id', '6c8802fe5ad2bc2330d382e8ad6c52ca', '', 4, 'Dwi Ananda Rizky', 120140027, 'Yes', 'g_h_a_hasil_editan_15_pas_foto_buku_nikah_sederet_aktor_ganteng_korea_bikin_makin_halu_-_manifesting_dulu_siapa_tahu_jadi_beneran_p_pas_foto_buku_nikah_aktor_korea-20220317-015-non_fotografer_kly.jpg', 'dwi-ananda-rizky', '2024-12-04 06:19:59', '2025-03-22 21:18:18'),
-(14, 'edo.120140179', 'edo.120140179@student.itera.ac.id', 'edo123', '', 4, 'Edo Sani', 120140179, 'Yes', 'S6b6ca25df9c94414ad3c596b38b3094dw.jpg', '', '2024-12-04 06:19:59', '2025-02-28 11:39:52'),
-(15, 'khairunnisa.123450071', 'khairunnisa.123450071@student.itera.ac.id', '927870d176e364d40306658f82e92fc0', '', 3, 'Khairunnisa Maharani', 123450071, 'Yes', 'images1.jpeg', 'khairunnisa-maharani', '2024-12-05 23:03:11', '2025-03-08 15:05:50'),
-(16, 'punky.119140048', 'punky.119140048@student.itera.ac.id', 'punky123', '', 4, 'Punky Wijayanto Muda', 119140048, 'Yes', 'foto_(2).jpg', '', '2025-02-04 23:07:54', '2025-02-28 11:39:59'),
-(17, 'amanda.119140472', 'amanda.119140472@student.itera.ac.id', '0f4004e836509904e0005999a4fadc48', '', 4, 'Amanda Rawles', 119140472, 'Yes', 'images2.jpeg', 'amanda-rawles', '2025-03-06 08:50:37', '2025-03-12 10:11:55'),
-(19, NULL, 'haland.119140294@student.itera.ac.id', '462a4b51a0e0457e02aa056d86d73817', '', 3, 'Haland Budi Kusuma 3', 119140294, 'Yes', '5d4b8207341479b8729b9480b98c791a3.jpg', 'haland-budi-kusuma', '2025-03-06 10:15:54', '2025-04-15 06:51:52'),
-(22, NULL, 'sharla.119140023@student.itera.ac.id', '3fcf0c2ecc4b25ea2bea21eeca6f814b', 'b398b8a18ef4f69811a32cf169946bac', 3, 'Sharla Rizqillah Kusuma', 119140023, 'Yes', 'WhatsApp_Image_2024-07-03_at_00_54_374.jpeg', 'sharla-rizqillah-kusuma', '2025-03-10 14:43:15', '2025-03-12 10:11:24');
+INSERT INTO `tbl_user` (`id_user`, `username`, `email`, `password`, `spassword`, `role`, `nama_user`, `nim`, `status_if`, `foto_user`, `foto_ktm`, `slug_user`, `created`, `modified`) VALUES
+(1, 'dodi.119140023', 'dodi.119140023@student.itera.ac.id', 'bcfeb3c97660cbaabb9fc3a345465f3f', 'b398b8a18ef4f69811a32cf169946bac', 3, 'Dodi Devrian Andrianto', 119140023, 'Yes', 'foto_(2)9.jpg', 'ceabfb7bc8400b06918437837d63b68e.png', 'dodi-devrian-andrianto', '2024-12-03 22:19:02', '2025-05-06 21:07:09'),
+(7, 'ahmad.119140293', 'ahmad.119140293@student.itera.ac.id', '8de13959395270bf9d6819f818ab1a00', 'b398b8a18ef4f69811a32cf169946bac', 4, 'Ahmad Akbar', 119140293, 'Yes', 'user2.png', '', 'ahmad-akbar', '2024-12-03 22:34:23', '2025-04-11 15:55:36'),
+(8, 'nurdana.1191402394', 'nurdana.1191402394@student.itera.ac.id', 'nurdana123', '', 4, 'Nurdana Jaya', 119140394, 'Yes', 'WhatsApp_Image_2024-07-29_at_00_22_25.jpeg', '', '', '2024-12-03 23:06:30', '2025-02-28 11:39:34'),
+(9, 'wili.119140025', 'wili.119140025@student.itera.ac.id', 'wili123', '', 4, 'Wili Jonatan', 119140025, 'Yes', 'avatar-design.png', '', '', '2024-12-03 23:10:11', '2025-02-28 11:39:37'),
+(10, 'michael.123140101', 'michael.123140101@student.itera.ac.id', 'michael123', '', 4, 'Michael Mathew', 123140101, 'Yes', 'WhatsApp_Image_2024-07-03_at_00_54_371.jpeg', '', '', '2024-12-04 06:05:18', '2025-02-28 11:39:40'),
+(11, 'dila.121140075', 'dila.121140075@student.itera.ac.id', 'dila123', '', 4, 'Dila Ayu Prastita', 121140075, 'Yes', 'images.jpeg', '', '', '2024-12-04 06:11:56', '2025-02-28 11:39:43'),
+(12, 'dimas.121140135', 'dimas.121140135@student.itera.ac.id', '51947e3cf64ee746b6f2c73d174d525a', '', 4, 'Dimas Azi Rajab Aizar', 121140135, 'Yes', '5d4b8207341479b8729b9480b98c791a.jpg', '', '', '2024-12-04 06:11:56', '2025-04-18 00:48:18'),
+(13, 'dwi.120140027', 'dwi.120140027@student.ac.id', '6c8802fe5ad2bc2330d382e8ad6c52ca', '', 4, 'Dwi Ananda Rizky', 120140027, 'Yes', 'g_h_a_hasil_editan_15_pas_foto_buku_nikah_sederet_aktor_ganteng_korea_bikin_makin_halu_-_manifesting_dulu_siapa_tahu_jadi_beneran_p_pas_foto_buku_nikah_aktor_korea-20220317-015-non_fotografer_kly.jpg', '', 'dwi-ananda-rizky', '2024-12-04 06:19:59', '2025-03-22 21:18:18'),
+(14, 'edo.120140179', 'edo.120140179@student.itera.ac.id', 'edo123', '', 4, 'Edo Sani', 120140179, 'Yes', 'S6b6ca25df9c94414ad3c596b38b3094dw.jpg', '', '', '2024-12-04 06:19:59', '2025-02-28 11:39:52'),
+(15, 'khairunnisa.123450071', 'khairunnisa.123450071@student.itera.ac.id', '927870d176e364d40306658f82e92fc0', '', 3, 'Khairunnisa Maharani', 123450071, 'Yes', 'images1.jpeg', '', 'khairunnisa-maharani', '2024-12-05 23:03:11', '2025-03-08 15:05:50'),
+(16, 'punky.119140048', 'punky.119140048@student.itera.ac.id', 'punky123', '', 4, 'Punky Wijayanto Muda', 119140048, 'Yes', 'foto_(2).jpg', '', '', '2025-02-04 23:07:54', '2025-02-28 11:39:59'),
+(17, 'amanda.119140472', 'amanda.119140472@student.itera.ac.id', '0f4004e836509904e0005999a4fadc48', '', 4, 'Amanda Rawles', 119140472, 'Yes', 'images2.jpeg', '', 'amanda-rawles', '2025-03-06 08:50:37', '2025-03-12 10:11:55'),
+(19, NULL, 'haland.119140294@student.itera.ac.id', '462a4b51a0e0457e02aa056d86d73817', '', 3, 'Haland Budi Kusuma 3', 119140294, 'Yes', '5d4b8207341479b8729b9480b98c791a3.jpg', '', 'haland-budi-kusuma', '2025-03-06 10:15:54', '2025-04-15 06:51:52'),
+(30, NULL, 'sharla.119140023@student.itera.ac.id', '3fcf0c2ecc4b25ea2bea21eeca6f814b', 'b398b8a18ef4f69811a32cf169946bac', 3, 'Sharla Rizqillah Kusuma', 119140023, 'No', '300559800.jpg', 'Pengertian-jaringan-komputer.png', 'sharla-rizqillah-kusuma', '2025-05-06 00:01:21', NULL);
 
 --
 -- Indexes for dumped tables
@@ -745,7 +748,7 @@ ALTER TABLE `tbl_diskusi`
 -- AUTO_INCREMENT for table `tbl_do_posttest`
 --
 ALTER TABLE `tbl_do_posttest`
-  MODIFY `id_doposttest` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_doposttest` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_do_pretest`
@@ -799,7 +802,7 @@ ALTER TABLE `tbl_slider`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
