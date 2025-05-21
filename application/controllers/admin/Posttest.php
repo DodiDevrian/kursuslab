@@ -49,7 +49,6 @@ class Posttest extends CI_Controller
             'posttest'       => $this->m_posttest->lists_soal(),
             'kunci_list'    => $this->m_posttest->list_kunci(),
             'kunci'       => $this->m_posttest->kunci($id_kursus),
-            // 'keypretest'    => $this->m_pretest->keypretest(),
             'id'            => $this->uri->segment(4),
             'isi'           => 'admin/posttest/v_list_posttest'
         );
@@ -124,7 +123,7 @@ class Posttest extends CI_Controller
 
 
             $data = array(
-                'id_pretest'          => $id_posttest,
+                'id_posttest'          => $id_posttest,
                 'soal'          => $this->input->post('soal'),
                 'id_kursus'     => $this->input->post('id_kursus'),
                 'jawaban_a'     => $this->input->post('jawaban_a'),

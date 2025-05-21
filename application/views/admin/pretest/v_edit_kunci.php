@@ -357,36 +357,36 @@
                                     <?= form_error('kunci_' . $num, '<div class="text-danger small mb-2" style="font-size: 15px;">', '</div>') ?>
                                     <div class="jawaban ml-4">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="A" <?= $checked_1a ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1<?= $num ?>" value="A" <?= $checked_1a ?>>
+                                            <label class="form-check-label" for="exampleRadios1<?= $num ?>" style="color: black;">
                                                 A. <?= $value->jawaban_a?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="B" <?= $checked_1b ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios2<?= $num ?>" value="B" <?= $checked_1b ?>>
+                                            <label class="form-check-label" for="exampleRadios2<?= $num ?>" style="color: black;">
                                                 B. <?= $value->jawaban_b?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="C" <?= $checked_1c ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios3<?= $num ?>" value="C" <?= $checked_1c ?>>
+                                            <label class="form-check-label" for="exampleRadios3<?= $num ?>" style="color: black;">
                                                 C. <?= $value->jawaban_c?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="D" <?= $checked_1d ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios4<?= $num ?>" value="D" <?= $checked_1d ?>>
+                                            <label class="form-check-label" for="exampleRadios4<?= $num ?>" style="color: black;">
                                                 D. <?= $value->jawaban_d?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="E" <?= $checked_1e ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios5<?= $num ?>" value="E" <?= $checked_1e ?>>
+                                            <label class="form-check-label" for="exampleRadios5<?= $num ?>" style="color: black;">
                                                 E. <?= $value->jawaban_e?>
                                             </label>
                                         </div>
@@ -404,36 +404,36 @@
                                     <?= form_error('kunci_' . $num, '<div class="text-danger small mb-2" style="font-size: 15px;">', '</div>') ?>
                                     <div class="jawaban ml-4">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="A" <?= $checked_2a ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1<?= $num ?>" value="A" <?= $checked_2a ?>>
+                                            <label class="form-check-label" for="exampleRadios1<?= $num ?>" style="color: black;">
                                                 A. <?= $value->jawaban_a?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="B" <?= $checked_2b ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios2<?= $num ?>" value="B" <?= $checked_2b ?>>
+                                            <label class="form-check-label" for="exampleRadios2<?= $num ?>" style="color: black;">
                                                 B. <?= $value->jawaban_b?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="C" <?= $checked_2c ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios3<?= $num ?>" value="C" <?= $checked_2c ?>>
+                                            <label class="form-check-label" for="exampleRadios3<?= $num ?>" style="color: black;">
                                                 C. <?= $value->jawaban_c?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="D" <?= $checked_2d ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios4<?= $num ?>" value="D" <?= $checked_2d ?>>
+                                            <label class="form-check-label" for="exampleRadios4<?= $num ?>" style="color: black;">
                                                 D. <?= $value->jawaban_d?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="E" <?= $checked_2e ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios5<?= $num ?>" value="E" <?= $checked_2e ?>>
+                                            <label class="form-check-label" for="exampleRadios5<?= $num ?>" style="color: black;">
                                                 E. <?= $value->jawaban_e?>
                                             </label>
                                         </div>
@@ -451,36 +451,36 @@
                                     <?= form_error('kunci_' . $num, '<div class="text-danger small mb-2" style="font-size: 15px;">', '</div>') ?>
                                     <div class="jawaban ml-4">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="A" <?= $checked_3a ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1<?= $num ?>" value="A" <?= $checked_3a ?>>
+                                            <label class="form-check-label" for="exampleRadios1<?= $num ?>" style="color: black;">
                                                 A. <?= $value->jawaban_a?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="B" <?= $checked_3b ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios2<?= $num ?>" value="B" <?= $checked_3b ?>>
+                                            <label class="form-check-label" for="exampleRadios2<?= $num ?>" style="color: black;">
                                                 B. <?= $value->jawaban_b?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="C" <?= $checked_3c ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios3<?= $num ?>" value="C" <?= $checked_3c ?>>
+                                            <label class="form-check-label" for="exampleRadios3<?= $num ?>" style="color: black;">
                                                 C. <?= $value->jawaban_c?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="D" <?= $checked_3d ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios4<?= $num ?>" value="D" <?= $checked_3d ?>>
+                                            <label class="form-check-label" for="exampleRadios4<?= $num ?>" style="color: black;">
                                                 D. <?= $value->jawaban_d?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="E" <?= $checked_3e ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios5<?= $num ?>" value="E" <?= $checked_3e ?>>
+                                            <label class="form-check-label" for="exampleRadios5<?= $num ?>" style="color: black;">
                                                 E. <?= $value->jawaban_e?>
                                             </label>
                                         </div>
@@ -498,36 +498,36 @@
                                     <?= form_error('kunci_' . $num, '<div class="text-danger small mb-2" style="font-size: 15px;">', '</div>') ?>
                                     <div class="jawaban ml-4">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="A" <?= $checked_4a ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1<?= $num ?>" value="A" <?= $checked_4a ?>>
+                                            <label class="form-check-label" for="exampleRadios1<?= $num ?>" style="color: black;">
                                                 A. <?= $value->jawaban_a?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="B" <?= $checked_4b ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios2<?= $num ?>" value="B" <?= $checked_4b ?>>
+                                            <label class="form-check-label" for="exampleRadios2<?= $num ?>" style="color: black;">
                                                 B. <?= $value->jawaban_b?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="C" <?= $checked_4c ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios3<?= $num ?>" value="C" <?= $checked_4c ?>>
+                                            <label class="form-check-label" for="exampleRadios3<?= $num ?>" style="color: black;">
                                                 C. <?= $value->jawaban_c?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="D" <?= $checked_4d ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios4<?= $num ?>" value="D" <?= $checked_4d ?>>
+                                            <label class="form-check-label" for="exampleRadios4<?= $num ?>" style="color: black;">
                                                 D. <?= $value->jawaban_d?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="E" <?= $checked_4e ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios5<?= $num ?>" value="E" <?= $checked_4e ?>>
+                                            <label class="form-check-label" for="exampleRadios5<?= $num ?>" style="color: black;">
                                                 E. <?= $value->jawaban_e?>
                                             </label>
                                         </div>
@@ -545,36 +545,36 @@
                                     <?= form_error('kunci_' . $num, '<div class="text-danger small mb-2" style="font-size: 15px;">', '</div>') ?>
                                     <div class="jawaban ml-4">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="A" <?= $checked_5a ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1<?= $num ?>" value="A" <?= $checked_5a ?>>
+                                            <label class="form-check-label" for="exampleRadios1<?= $num ?>" style="color: black;">
                                                 A. <?= $value->jawaban_a?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="B" <?= $checked_5b ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios2<?= $num ?>" value="B" <?= $checked_5b ?>>
+                                            <label class="form-check-label" for="exampleRadios2<?= $num ?>" style="color: black;">
                                                 B. <?= $value->jawaban_b?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="C" <?= $checked_5c ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios3<?= $num ?>" value="C" <?= $checked_5c ?>>
+                                            <label class="form-check-label" for="exampleRadios3<?= $num ?>" style="color: black;">
                                                 C. <?= $value->jawaban_c?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="D" <?= $checked_5d ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios4<?= $num ?>" value="D" <?= $checked_5d ?>>
+                                            <label class="form-check-label" for="exampleRadios4<?= $num ?>" style="color: black;">
                                                 D. <?= $value->jawaban_d?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="E" <?= $checked_5e ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios5<?= $num ?>" value="E" <?= $checked_5e ?>>
+                                            <label class="form-check-label" for="exampleRadios5<?= $num ?>" style="color: black;">
                                                 E. <?= $value->jawaban_e?>
                                             </label>
                                         </div>
@@ -592,36 +592,36 @@
                                     <?= form_error('kunci_' . $num, '<div class="text-danger small mb-2" style="font-size: 15px;">', '</div>') ?>
                                     <div class="jawaban ml-4">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="A" <?= $checked_6a ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1<?= $num ?>" value="A" <?= $checked_6a ?>>
+                                            <label class="form-check-label" for="exampleRadios1<?= $num ?>" style="color: black;">
                                                 A. <?= $value->jawaban_a?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="B" <?= $checked_6b ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios2<?= $num ?>" value="B" <?= $checked_6b ?>>
+                                            <label class="form-check-label" for="exampleRadios2<?= $num ?>" style="color: black;">
                                                 B. <?= $value->jawaban_b?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="C" <?= $checked_6c ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios3<?= $num ?>" value="C" <?= $checked_6c ?>>
+                                            <label class="form-check-label" for="exampleRadios3<?= $num ?>" style="color: black;">
                                                 C. <?= $value->jawaban_c?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="D" <?= $checked_6d ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios4<?= $num ?>" value="D" <?= $checked_6d ?>>
+                                            <label class="form-check-label" for="exampleRadios4<?= $num ?>" style="color: black;">
                                                 D. <?= $value->jawaban_d?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="E" <?= $checked_6e ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios5<?= $num ?>" value="E" <?= $checked_6e ?>>
+                                            <label class="form-check-label" for="exampleRadios5<?= $num ?>" style="color: black;">
                                                 E. <?= $value->jawaban_e?>
                                             </label>
                                         </div>
@@ -639,36 +639,36 @@
                                     <?= form_error('kunci_' . $num, '<div class="text-danger small mb-2" style="font-size: 15px;">', '</div>') ?>
                                     <div class="jawaban ml-4">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="A" <?= $checked_7a ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1<?= $num ?>" value="A" <?= $checked_7a ?>>
+                                            <label class="form-check-label" for="exampleRadios1<?= $num ?>" style="color: black;">
                                                 A. <?= $value->jawaban_a?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="B" <?= $checked_7b ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios2<?= $num ?>" value="B" <?= $checked_7b ?>>
+                                            <label class="form-check-label" for="exampleRadios2<?= $num ?>" style="color: black;">
                                                 B. <?= $value->jawaban_b?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="C" <?= $checked_7c ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios3<?= $num ?>" value="C" <?= $checked_7c ?>>
+                                            <label class="form-check-label" for="exampleRadios3<?= $num ?>" style="color: black;">
                                                 C. <?= $value->jawaban_c?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="D" <?= $checked_7d ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios4<?= $num ?>" value="D" <?= $checked_7d ?>>
+                                            <label class="form-check-label" for="exampleRadios4<?= $num ?>" style="color: black;">
                                                 D. <?= $value->jawaban_d?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="E" <?= $checked_7e ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios5<?= $num ?>" value="E" <?= $checked_7e ?>>
+                                            <label class="form-check-label" for="exampleRadios5<?= $num ?>" style="color: black;">
                                                 E. <?= $value->jawaban_e?>
                                             </label>
                                         </div>
@@ -686,36 +686,36 @@
                                     <?= form_error('kunci_' . $num, '<div class="text-danger small mb-2" style="font-size: 15px;">', '</div>') ?>
                                     <div class="jawaban ml-4">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="A" <?= $checked_8a ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1<?= $num ?>" value="A" <?= $checked_8a ?>>
+                                            <label class="form-check-label" for="exampleRadios1<?= $num ?>" style="color: black;">
                                                 A. <?= $value->jawaban_a?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="B" <?= $checked_8b ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios2<?= $num ?>" value="B" <?= $checked_8b ?>>
+                                            <label class="form-check-label" for="exampleRadios2<?= $num ?>" style="color: black;">
                                                 B. <?= $value->jawaban_b?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="C" <?= $checked_8c ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios3<?= $num ?>" value="C" <?= $checked_8c ?>>
+                                            <label class="form-check-label" for="exampleRadios3<?= $num ?>" style="color: black;">
                                                 C. <?= $value->jawaban_c?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="D" <?= $checked_8d ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios4<?= $num ?>" value="D" <?= $checked_8d ?>>
+                                            <label class="form-check-label" for="exampleRadios4<?= $num ?>" style="color: black;">
                                                 D. <?= $value->jawaban_d?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="E" <?= $checked_8e ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios5<?= $num ?>" value="E" <?= $checked_8e ?>>
+                                            <label class="form-check-label" for="exampleRadios5<?= $num ?>" style="color: black;">
                                                 E. <?= $value->jawaban_e?>
                                             </label>
                                         </div>
@@ -733,36 +733,36 @@
                                     <?= form_error('kunci_' . $num, '<div class="text-danger small mb-2" style="font-size: 15px;">', '</div>') ?>
                                     <div class="jawaban ml-4">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="A" <?= $checked_9a ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1<?= $num ?>" value="A" <?= $checked_9a ?>>
+                                            <label class="form-check-label" for="exampleRadios1<?= $num ?>" style="color: black;">
                                                 A. <?= $value->jawaban_a?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="B" <?= $checked_9b ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios2<?= $num ?>" value="B" <?= $checked_9b ?>>
+                                            <label class="form-check-label" for="exampleRadios2<?= $num ?>" style="color: black;">
                                                 B. <?= $value->jawaban_b?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="C" <?= $checked_9c ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios3<?= $num ?>" value="C" <?= $checked_9c ?>>
+                                            <label class="form-check-label" for="exampleRadios3<?= $num ?>" style="color: black;">
                                                 C. <?= $value->jawaban_c?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="D" <?= $checked_9d ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios4<?= $num ?>" value="D" <?= $checked_9d ?>>
+                                            <label class="form-check-label" for="exampleRadios4<?= $num ?>" style="color: black;">
                                                 D. <?= $value->jawaban_d?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="E" <?= $checked_9e ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios5<?= $num ?>" value="E" <?= $checked_9e ?>>
+                                            <label class="form-check-label" for="exampleRadios5<?= $num ?>" style="color: black;">
                                                 E. <?= $value->jawaban_e?>
                                             </label>
                                         </div>
@@ -780,36 +780,36 @@
                                     <?= form_error('kunci_' . $num, '<div class="text-danger small mb-2" style="font-size: 15px;">', '</div>') ?>
                                     <div class="jawaban ml-4">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="A" <?= $checked_10a ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1<?= $num ?>" value="A" <?= $checked_10a ?>>
+                                            <label class="form-check-label" for="exampleRadios1<?= $num ?>" style="color: black;">
                                                 A. <?= $value->jawaban_a?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="B" <?= $checked_10b ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios2<?= $num ?>" value="B" <?= $checked_10b ?>>
+                                            <label class="form-check-label" for="exampleRadios2<?= $num ?>" style="color: black;">
                                                 B. <?= $value->jawaban_b?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="C" <?= $checked_10c ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios3<?= $num ?>" value="C" <?= $checked_10c ?>>
+                                            <label class="form-check-label" for="exampleRadios3<?= $num ?>" style="color: black;">
                                                 C. <?= $value->jawaban_c?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="D" <?= $checked_10d ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios4<?= $num ?>" value="D" <?= $checked_10d ?>>
+                                            <label class="form-check-label" for="exampleRadios4<?= $num ?>" style="color: black;">
                                                 D. <?= $value->jawaban_d?>
                                             </label>
                                         </div>
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios1" value="E" <?= $checked_10e ?>>
-                                            <label class="form-check-label" for="exampleRadios1" style="color: black;">
+                                            <input class="form-check-input" type="radio" name="kunci_<?= $num ?>" id="exampleRadios5<?= $num ?>" value="E" <?= $checked_10e ?>>
+                                            <label class="form-check-label" for="exampleRadios5<?= $num ?>" style="color: black;">
                                                 E. <?= $value->jawaban_e?>
                                             </label>
                                         </div>

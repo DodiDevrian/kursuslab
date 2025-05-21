@@ -172,6 +172,7 @@ foreach ($kunci_list as $key => $value) {
             </div>
             <div class="card-box mb-30 pd-20">
                 <h5 class="text-blue h5">Kunci Jawaban</h5>
+                <p><?= $count_kunci ?></p>
                 <?php if ($count < 30) { ?>
                     <p class="mt-3" style="color: red;">Buat 30 soal untuk menambahkan kunci jawaban</p>
                 <?php } else { ?>

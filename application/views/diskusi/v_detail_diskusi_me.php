@@ -40,6 +40,9 @@
             </div>
             <a href="<?= base_url('diskusi/detail_diskusi/' . $detail_kursus->id_kursus) ?>" class="btn btn-success ml-3">All Question</a>
         </div>
+    <?php if ($this->session->flashdata('error')): ?>
+        <?= $this->session->flashdata('error'); ?>
+    <?php endif; ?>
     <div class="wrapper">
         <!-- <aside id="sidebar">
             <div class="d-flex">

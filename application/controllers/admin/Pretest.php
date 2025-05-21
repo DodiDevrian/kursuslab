@@ -49,7 +49,6 @@ class Pretest extends CI_Controller
             'pretest'       => $this->m_pretest->lists_soal(),
             'kunci_list'    => $this->m_pretest->list_kunci(),
             'kunci'       => $this->m_pretest->kunci($id_materi),
-            // 'keypretest'    => $this->m_pretest->keypretest(),
             'id'            => $this->uri->segment(4),
             'isi'           => 'admin/pretest/v_list_pretest'
         );

@@ -42,6 +42,9 @@
                 <a href="<?= base_url('diskusi/detail_diskusi_me/' . $detail_kursus->id_kursus) ?>" class="btn btn-info ml-3">My Question</a>
             <?php } ?>
         </div>
+    <?php if ($this->session->flashdata('error')): ?>
+        <?= $this->session->flashdata('error'); ?>
+    <?php endif; ?>
     <div class="wrapper">
         <!-- <aside id="sidebar">
             <div class="d-flex">
@@ -141,11 +144,6 @@
             <div class="diskusi mb-4">
                 <div class="chat-diskusi">
                     <?php
-                        if (isset($error_upload)) {
-                            echo '<div class="alert alert-danger alert-dismissible">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
-                        }
-
                         echo form_open_multipart('diskusi/add_chat_user');
                     ?>
                         <div class="form-group">

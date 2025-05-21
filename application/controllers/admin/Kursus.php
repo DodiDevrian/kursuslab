@@ -29,7 +29,7 @@ class Kursus extends CI_Controller
     public function index()
     {
         $data = array(
-            'title'   => 'Kursus',
+            'title'   => 'Praktikum',
             'title2'  => 'Laboratorium Teknik Informatika',
             'kursus'   => $this->m_kursus->lists(),
             'count_new'     => $this->m_praktikan->lists(),
@@ -173,7 +173,6 @@ class Kursus extends CI_Controller
 
     public function delete($id_kursus)
     {
-        // Hapus foto yang lama
         $kursus = $this->m_kursus->detail_kursus($id_kursus);
         if ($kursus->cover_kursus != "") {
             unlink('./upload/cover_kursus/' . $kursus->cover_kursus);
