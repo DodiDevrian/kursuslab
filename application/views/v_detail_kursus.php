@@ -60,9 +60,9 @@ foreach ($nilai as $key => $value) {
     if ($value->id_user == $this->session->userdata('id_user')) {
         if ($value->id_kursus == $materi->id_kursus) {
             $nilaiTerbaru = $value->sum;
-        }
-        if ($value->sum > $nilaiTertinggi) {
-            $nilaiTertinggi = $value->sum;
+			if ($value->sum > $nilaiTertinggi) {
+				$nilaiTertinggi = $value->sum;
+			}
         }
     }
 }
