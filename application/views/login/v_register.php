@@ -67,7 +67,7 @@
 
                                 <div class="form-group mb-3">
                                     <label class="label">Email</label>
-                                    <input type="text" class="form-control" name="email" placeholder="Email" required>
+                                    <input type="email" class="form-control" name="email" placeholder="Email" required>
                                     <?php echo form_error('username', '<div class="text-danger small ml-2">', '</div>') ?>
                                 </div>
 

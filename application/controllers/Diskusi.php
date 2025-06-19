@@ -259,67 +259,130 @@ class Diskusi extends CI_Controller
         }
     }
 
-    public function add_chat_user()
-{
-    // Load library form_validation
-    $this->load->library('form_validation');
+    public function add_chat_user(){
+        // Load library form_validation
+        $this->load->library('form_validation');
 
-    $this->form_validation->set_rules('diskusi_user', 'Diskusi', 'required', [
-        'required'    => 'Mohon untuk mengisi kolom diskusi'
-    ]);
+        $this->form_validation->set_rules('diskusi_user', 'Diskusi', 'required', [
+            'required'    => 'Mohon untuk mengisi kolom diskusi'
+        ]);
 
-    if ($this->form_validation->run() == FALSE) {
-        // Jika validasi gagal
-        $this->session->set_flashdata('error', validation_errors('<div class="alert alert-danger">', '</div>'));
-        $referred_from = $this->session->userdata('chat_diskusi');
-        redirect($referred_from, 'refresh');
-        return;
-    }
-
-    if ($this->form_validation->run() == TRUE) {
-        
-        $config['upload_path']      = './upload/foto_diskusi/';
-        $config['allowed_types']    = 'jpg|png|jpeg|gif';
-        $config['max_size']         = 20000;
-        $this->upload->initialize($config);
-
-        if (!$this->upload->do_upload('foto_diskusi')) {
-            $data = array(
-                'id_user'           => $this->input->post('id_user'),
-                'id_kursus'         => $this->input->post('id_kursus'),
-                'id_asprak'         => $this->input->post('id_asprak'),
-                'diskusi_user'      => $this->input->post('diskusi_user')
-            );
-
-            $this->m_diskusi->add_chat_user($data);
-            $this->session->set_flashdata('pesan', 'Diskusi Berhasil Ditambahkan!');
-
+        if ($this->form_validation->run() == FALSE) {
+            // Jika validasi gagal
+            $this->session->set_flashdata('error', validation_errors('<div class="alert alert-danger">', '</div>'));
             $referred_from = $this->session->userdata('chat_diskusi');
             redirect($referred_from, 'refresh');
-        } else {
-            $upload_data = array('uploads' => $this->upload->data());
-            $config['image_library'] = 'gd2';
-            $config['source_image'] = './upload/foto_diskusi/' . $upload_data['uploads']['file_name'];
-            $this->load->library('image_lib', $config);
+            return;
+        }
 
-            $data = array(
-                'id_user'   => $this->input->post('id_user'),
-                'id_kursus'     => $this->input->post('id_kursus'),
-                'id_asprak'     => $this->input->post('id_asprak'),
-                'diskusi_user'     => $this->input->post('diskusi_user'),
-                'foto_diskusi'    => $upload_data['uploads']['file_name']
-            );
+        if ($this->form_validation->run() == TRUE) {
+            
+            $config['upload_path']      = './upload/foto_diskusi/';
+            $config['allowed_types']    = 'jpg|png|jpeg|gif';
+            $config['max_size']         = 20000;
+            $this->upload->initialize($config);
 
-            $this->m_diskusi->add_chat_user($data);
-            $this->session->set_flashdata('pesan', 'Diskusi Berhasil Ditambahkan!');
+            if (!$this->upload->do_upload('foto_diskusi')) {
+                $data = array(
+                    'id_user'           => $this->input->post('id_user'),
+                    'id_kursus'         => $this->input->post('id_kursus'),
+                    'id_asprak'         => $this->input->post('id_asprak'),
+                    'diskusi_user'      => $this->input->post('diskusi_user')
+                );
 
-            $referred_from = $this->session->userdata('chat_diskusi');
-            redirect($referred_from, 'refresh');
+                $this->m_diskusi->add_chat_user($data);
+                $this->session->set_flashdata('pesan', 'Diskusi Berhasil Ditambahkan!');
+
+                $referred_from = $this->session->userdata('chat_diskusi');
+                redirect($referred_from, 'refresh');
+            } else {
+                $upload_data = array('uploads' => $this->upload->data());
+                $config['image_library'] = 'gd2';
+                $config['source_image'] = './upload/foto_diskusi/' . $upload_data['uploads']['file_name'];
+                $this->load->library('image_lib', $config);
+
+                $data = array(
+                    'id_user'   => $this->input->post('id_user'),
+                    'id_kursus'     => $this->input->post('id_kursus'),
+                    'id_asprak'     => $this->input->post('id_asprak'),
+                    'diskusi_user'     => $this->input->post('diskusi_user'),
+                    'foto_diskusi'    => $upload_data['uploads']['file_name']
+                );
+
+                $this->m_diskusi->add_chat_user($data);
+                $this->session->set_flashdata('pesan', 'Diskusi Berhasil Ditambahkan!');
+
+                $referred_from = $this->session->userdata('chat_diskusi');
+                redirect($referred_from, 'refresh');
+            }
         }
     }
 
+    public function edit_chat_user($id_diskusi){
+        // Load library form_validation
+        $this->load->library('form_validation');
 
-}
+        $this->form_validation->set_rules('diskusi_user', 'Diskusi', 'required', [
+            'required'    => 'Mohon untuk mengisi kolom diskusi'
+        ]);
+
+        if ($this->form_validation->run() == FALSE) {
+            // Jika validasi gagal
+            $this->session->set_flashdata('error', validation_errors('<div class="alert alert-danger">', '</div>'));
+            $referred_from = $this->session->userdata('chat_diskusi');
+            redirect($referred_from, 'refresh');
+            return;
+        }
+
+        if ($this->form_validation->run() == TRUE) {
+            
+            $config['upload_path']      = './upload/foto_diskusi/';
+            $config['allowed_types']    = 'jpg|png|jpeg|gif';
+            $config['max_size']         = 20000;
+            $this->upload->initialize($config);
+
+            if (!$this->upload->do_upload('foto_diskusi')) {
+                $data = array(
+                    'id_diskusi'        => $id_diskusi,
+                    'id_user'           => $this->input->post('id_user'),
+                    'id_kursus'         => $this->input->post('id_kursus'),
+                    'id_asprak'         => $this->input->post('id_asprak'),
+                    'diskusi_user'      => $this->input->post('diskusi_user')
+                );
+
+                $this->m_diskusi->edit($data);
+                $this->session->set_flashdata('pesan', 'Diskusi Berhasil Ditambahkan!');
+
+                $referred_from = $this->session->userdata('chat_diskusi');
+                redirect($referred_from, 'refresh');
+            } else {
+                $upload_data = array('uploads' => $this->upload->data());
+                $config['image_library'] = 'gd2';
+                $config['source_image'] = './upload/foto_diskusi/' . $upload_data['uploads']['file_name'];
+                $this->load->library('image_lib', $config);
+
+                $diskusi = $this->m_diskusi->detail($id_diskusi);
+                if ($diskusi->foto_diskusi != "") {
+                    unlink('./upload/foto_diskusi/' . $diskusi->foto_diskusi);
+                }
+
+                $data = array(
+                    'id_diskusi'        => $id_diskusi,
+                    'id_user'   => $this->input->post('id_user'),
+                    'id_kursus'     => $this->input->post('id_kursus'),
+                    'id_asprak'     => $this->input->post('id_asprak'),
+                    'diskusi_user'     => $this->input->post('diskusi_user'),
+                    'foto_diskusi'    => $upload_data['uploads']['file_name']
+                );
+
+                $this->m_diskusi->edit($data);
+                $this->session->set_flashdata('pesan', 'Pertanyaan Diskusi Berhasil Diubah!');
+
+                $referred_from = $this->session->userdata('chat_diskusi');
+                redirect($referred_from, 'refresh');
+            }
+        }
+    }
 
     public function delete($id_diskusi)
     {

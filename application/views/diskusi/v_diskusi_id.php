@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="<?= base_url() ?>assets/css/chat.css">
 <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
 
+<?php $this->session->set_userdata('chat_diskusi', current_url()); ?>
 <?php $this->session->set_userdata('referred_from', current_url()); ?>
 
 <div class="home">
@@ -95,7 +96,7 @@
                                         </div>
                                         <?php if ($value->foto_diskusi != NULL) { ?>
                                             <div class="img-diskusi">
-                                                <img class="foto-diskusi" id="myImg<?= $value->id_diskusi ?>" src="<?= base_url('upload/foto_diskusi/' . $value->foto_diskusi) ?>" style="width:100%;">
+                                                <a type="button" data-toggle="modal" data-target="#exampleModalFoto<?=$value->id_diskusi?>"><img class="foto-diskusi" src="<?= base_url('upload/foto_diskusi/' . $value->foto_diskusi) ?>" style="width:100%;"></a>
                                             </div>
                                         <?php } ?>
                                         <div class="message-data action-chat-button <?php if ($value->foto_diskusi != NULL) {
@@ -107,7 +108,7 @@
                                             </a>
                                             <div class="dropdown-menu">
                                                 <?php if ($value->diskusi_asprak == NULL) { ?>
-                                                    <a class="dropdown-item" href="<?= base_url('diskusi/edit/' . $value->id_diskusi) ?>">Edit</a>
+                                                    <a class="dropdown-item" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<?=$value->id_diskusi?>">Edit</a>
                                                 <?php } ?>
                                                 <a class="dropdown-item" href="<?= base_url('diskusi/delete/' . $value->id_diskusi) ?>">Hapus</a>
                                             </div>
@@ -115,6 +116,50 @@
                                     </li>
                                 </div>
                             </div>
+
+                            <?php foreach ($diskusi as $key => $row) { ?>
+                            <div class="modal fade" id="exampleModal<?=$value->id_diskusi?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Edit Pertanyaan Diskusi</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <?php
+                                                if (isset($error_upload)) {
+                                                    echo '<div class="alert alert-danger alert-dismissible">
+                                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' . $error_upload . '</div>';
+                                                }
+
+                                                echo form_open_multipart('diskusi/edit_chat_user/'. $value->id_diskusi);
+                                            ?>
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlFile1" style="color: #ff6300;">** Gambar Optional</label>
+                                                    <input name="foto_diskusi" type="file" class="form-control-file" id="exampleFormControlFile1" >
+                                                    
+                                                    <input type="hidden" name="id_kursus" value="<?=$value->id_kursus?>">
+                                                    <input type="hidden" name="id_asprak" value="<?=$value->id_asprak?>">
+                                                    <input type="hidden" name="id_user" value="<?=$this->session->userdata('id_user')?>">
+                                                    <p class="mt-2" style="color: black;">Gambar Saat Ini</p>
+                                                    <img src="<?= base_url('upload/foto_diskusi/' . $value->foto_diskusi) ?>" alt="">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <textarea style="height: 150px;" name="diskusi_user" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Masukkan Diskusi Anda!"><?=$value->diskusi_user?></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                            <?php echo form_close(); ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php } ?>
 
                             <div class="col-lg-6">
                                 <?php if ($value->diskusi_asprak != NULL) { ?>
@@ -131,7 +176,7 @@
                                             </div>
                                             <?php if ($value->foto_diskusi_asprak != NULL) { ?>
                                                 <div class="img-diskusi">
-                                                    <img class="foto-diskusi" id="asImg<?= $value->id_diskusi ?>" src="<?= base_url('upload/foto_diskusi_asprak/' . $value->foto_diskusi_asprak) ?>" style="width:100%;">
+                                                    <a type="button" data-toggle="modal" data-target="#exampleModalFotoAsprak<?=$value->id_diskusi?>"><img class="foto-diskusi" src="<?= base_url('upload/foto_diskusi_asprak/' . $value->foto_diskusi_asprak) ?>" style="width:100%;"></a>
                                                 </div>
                                             <?php } ?>
                                         </li>
@@ -157,61 +202,43 @@
 </div>
 
 <?php foreach ($diskusi as $key => $value) { ?>
-<div id="myModal" class="modal-ps">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="img01">
-    <div id="caption"></div>
+<div class="modal fade" id="exampleModalFoto<?=$value->id_diskusi?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><?=$value->diskusi_user?></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="<?= base_url('upload/foto_diskusi/' . $value->foto_diskusi) ?>" alt="" width="100%">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
-
-<script>
-    var modal = document.getElementById("myModal");
-
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("myImg<?= $value->id_diskusi ?>");
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
-img.onclick = function(){
-  modal.style.display = "block";
-  modalImg.src = this.src;
-  captionText.innerHTML = this.alt;
-}
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-</script>
 <?php } ?>
 
 <?php foreach ($diskusi as $key => $value) { ?>
-<div id="myModal" class="modal-ps">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="img01">
-    <div id="caption"></div>
+<div class="modal fade" id="exampleModalFotoAsprak<?=$value->id_diskusi?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><?=$value->diskusi_user?></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="<?= base_url('upload/foto_diskusi_asprak/' . $value->foto_diskusi_asprak) ?>" alt="" width="100%">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
-
-<script>
-    var modal = document.getElementById("myModal");
-
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var as = document.getElementById("asImg<?= $value->id_diskusi ?>");
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
-as.onclick = function(){
-  modal.style.display = "block";
-  modalImg.src = this.src;
-  captionText.innerHTML = this.alt;
-}
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-</script>
 <?php } ?>
