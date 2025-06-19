@@ -107,7 +107,7 @@
                                             </a>
                                             <div class="dropdown-menu">
                                                 <?php if ($value->diskusi_asprak == NULL) { ?>
-                                                    <a class="dropdown-item" href="#">Edit</a>
+                                                    <a class="dropdown-item" href="<?= base_url('diskusi/edit/' . $value->id_diskusi) ?>">Edit</a>
                                                 <?php } ?>
                                                 <a class="dropdown-item" href="<?= base_url('diskusi/delete/' . $value->id_diskusi) ?>">Hapus</a>
                                             </div>

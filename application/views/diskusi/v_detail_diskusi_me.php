@@ -109,7 +109,10 @@
                                             </a>
                                             <div class="dropdown-menu">
                                                 <?php if ($value->diskusi_asprak == NULL) { ?>
-                                                    <a class="dropdown-item" href="#">Edit</a>
+                                                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<?=$value->id_diskusi?>">
+                                                        Launch demo modal
+                                                    </button> -->
+                                                    <a class="dropdown-item" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<?=$value->id_diskusi?>">Edit</a>
                                                 <?php } ?>
                                                 <a class="dropdown-item" href="<?= base_url('diskusi/delete/' . $value->id_diskusi) ?>">Hapus</a>
                                             </div>
@@ -117,6 +120,28 @@
                                     </li>
                                 </div>
                             </div>
+                            <!-- Modal Edit Diskusi -->
+                            <?php foreach ($diskusi as $key => $row) { ?>
+                            <div class="modal fade" id="exampleModal<?=$value->id_diskusi?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Edit Pertanyaan</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ...
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php } ?>
 
                             <div class="col-lg-6">
                                 <?php if ($value->diskusi_asprak != NULL) { ?>
@@ -180,63 +205,3 @@
     </div>
     <!-- <div class="col mt-5 mb-3"><?php echo $pagination; ?></div> -->
 </div>
-
-<?php foreach ($diskusi as $key => $value) { ?>
-<div id="myModal" class="modal-ps">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="img01">
-    <div id="caption"></div>
-</div>
-
-<script>
-    var modal = document.getElementById("myModal");
-
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById("myImg<?= $value->id_diskusi ?>");
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
-img.onclick = function(){
-  modal.style.display = "block";
-  modalImg.src = this.src;
-  captionText.innerHTML = this.alt;
-}
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-</script>
-<?php } ?>
-
-<?php foreach ($diskusi as $key => $value) { ?>
-<div id="myModal" class="modal-ps">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="img01">
-    <div id="caption"></div>
-</div>
-
-<script>
-    var modal = document.getElementById("myModal");
-
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var as = document.getElementById("asImg<?= $value->id_diskusi ?>");
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
-as.onclick = function(){
-  modal.style.display = "block";
-  modalImg.src = this.src;
-  captionText.innerHTML = this.alt;
-}
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-</script>
-<?php } ?>
