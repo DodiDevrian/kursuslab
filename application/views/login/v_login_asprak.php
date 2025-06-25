@@ -51,7 +51,7 @@
 									</p>
 								</div>
                             </div>
-
+                            <!-- Oke -->
 							<?php
                                 echo form_open('auth/login_asprak');
                                 if ($this->session->flashdata('pesan')) {
