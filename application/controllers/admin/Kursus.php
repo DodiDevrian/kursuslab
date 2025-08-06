@@ -141,10 +141,10 @@ class Kursus extends CI_Controller
                 $this->session->set_flashdata('pesan', 'Data kursus Berhasil Diubah!');
                 redirect('admin/kursus');
             }
-            $upload_data = array('uploads' => $this->upload->data());
-            $config['image_library'] = 'gd2';
-            $config['source_image'] = './upload/cover_kursus/' . $upload_data['uploads']['file_name'];
-            $this->load->library('image_lib', $config);
+            // $upload_data = array('uploads' => $this->upload->data());
+            // $config['image_library'] = 'gd2';
+            // $config['source_image'] = './upload/cover_kursus/' . $upload_data['uploads']['file_name'];
+            // $this->load->library('image_lib', $config);
 
             $data = array(
                 'id_kursus'      => $id_kursus,
@@ -309,10 +309,10 @@ class Kursus extends CI_Controller
                 redirect($referred_from, 'refresh');
             }
 
-            $upload_data = array('uploads' => $this->upload->data());
-            $config['image_library'] = 'gd2';
-            $config['source_image'] = './upload/doc_materi/' . $upload_data['uploads']['file_name'];
-            $this->load->library('image_lib', $config);
+            // $upload_data = array('uploads' => $this->upload->data());
+            // $config['image_library'] = 'gd2';
+            // $config['source_image'] = './upload/doc_materi/' . $upload_data['uploads']['file_name'];
+            // $this->load->library('image_lib', $config);
 
             $data = array(
                 'id_materi'       => $id_materi,

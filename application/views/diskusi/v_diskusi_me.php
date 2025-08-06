@@ -26,32 +26,28 @@
 
 
 <div class="container">
-    <h3 class="text-center mt-4 mb-4">Forum Diskusi <?= $detail_kursus->nama_kursus ?></h3>
+    <h3 class="text-center mt-4 mb-4">Forum Diskusi</h3>
     <div class="action-ask">
         <div class="right-ask">
-            <span class="mr-3">
-                <a href="<?= base_url('diskusi') ?>"><i class="back_button fa fa-arrow-left" aria-hidden="true"></i></a>
-            </span>
             <div class="btn-group mb-2">
                 <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-expanded="false">
                     Pilih Praktikum
                 </button>
                 <div class="dropdown-menu dropdown-menu-lg-right">
                     <?php foreach ($kursus as $key => $value) { ?>
-                        <a class="dropdown-item" href="<?= base_url('diskusi/detail_diskusi/' . $value->id_kursus) ?>"><?= wordwrap($value->nama_kursus,35,"<br>\n");?></a>
+                        <a class="dropdown-item" href="<?= base_url('diskusi/detail_diskusi_me/' . $value->id_kursus) ?>"><?= wordwrap($value->nama_kursus,35,"<br>\n");?></a>
                     <?php } ?>
                 </div>
                 <?php if ($this->session->userdata('id_user')) { ?>
-                    <a href="<?= base_url('diskusi/detail_diskusi_me/' . $detail_kursus->id_kursus) ?>" class="btn btn-info ml-3">My Question</a>
+                    <a href="<?= base_url('diskusi') ?>" class="btn btn-success ml-3">All Question</a>
                 <?php } ?>
             </div>
         </div>
-        
-        <?php if ($this->session->userdata('id_user')) { ?>
-            <div class="left-ask">
+        <div class="left-ask">
+            <?php if ($this->session->userdata('id_user')) { ?>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> Buat Pertanyaan</button>
-            </div>
-        <?php } ?>
+            <?php } ?>
+        </div>
     </div>
     
     <?php foreach ($diskusi as $key => $value) { ?>
@@ -59,8 +55,7 @@
         $tanggal_kirim = $value->created; 
         $tanggal_jawab = $value->modified;
     ?>
-    <?php if ($id == $value->id_kursus) { ?>
-
+    
     <div class="card mb-3 d-flex flex-row" style="width: 100%; margin: auto;">
         <?php if ($value->foto_tanya != '') { ?>
         <div class="cover-image" style="flex: 0 0 200px;">
@@ -71,18 +66,22 @@
         <?php } ?>
         <div class="" style="display: flex; flex-direction: column; flex: 1;">
             <div class="card-body card-ask">
-                <a href="<?= base_url('diskusi/jawab/' . $value->id_ask) ?>">
-                    <h5 class="card-title" style="color: #0062d4;"><?= $value->tanya ?></h5>
-                </a>
+                <div class="tanya-area">
+                    <a href="" class="" role="button" data-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-bars" style="color: #ed9532; font: 20px;" aria-hidden="true"></i>
+                    </a>
+                    <a href="<?= base_url('diskusi/jawab/' . $value->id_ask) ?>">
+                        <h5 class="ml-2" style="color: #0062d4;"><?= $value->tanya ?></h5>
+                    </a>
+                </div>
             </div>
             <div class="footer-ask" style="padding: 1.25rem 1.25rem 1.25rem 1.25rem; ">
                 <li class="ml-2"><i class="fa fa-user" aria-hidden="true"></i> <?= $value->nama_user?></li>
-                <li class="ml-2" style="color: #2389ff;"><i class="fa fa-book" aria-hidden="true"></i><a href="<?= base_url('diskusi/detail_diskusi/' . $value->id_kursus)?>"> <?= $value->nama_kursus?></a></li>
+                <li class="ml-2" style="color: #2389ff;"><i class="fa fa-book" aria-hidden="true"></i><a href="<?= base_url('diskusi/detail_diskusi_me/' . $value->id_kursus)?>"> <?= $value->nama_kursus?></a></li>
                 <li class="ml-2"><i class="fa fa-calendar" aria-hidden="true"></i> <?= date('d-m-Y', strtotime($tanggal_kirim)) ?></li>
             </div>
         </div>
     </div>
-    <?php } ?>
     <?php } ?>
 </div>
 
@@ -101,7 +100,10 @@
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Pilih Mata Kuliah</label>
                     <select class="form-control" id="exampleFormControlSelect1" name="kursus" style="color: black;">
-                        <option value="<?=$id . '|' . $detail_kursus->id_asprak?>"><?=$detail_kursus->nama_kursus?></option>
+                        <option selected disabled value >--Pilih Mata Kuliah--</option>
+                        <?php foreach ($kursus as $key => $value) { ?>
+                            <option value="<?=$value->id_kursus . '|' . $value->id_asprak?>"><?=$value->nama_kursus?></option>
+                        <?php } ?>
                     </select>
                 </div>
                 
@@ -132,7 +134,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Buat Pertanyaan</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Foto Kendala <?= $value->id_ask?></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>

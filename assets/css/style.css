@@ -184,3 +184,108 @@ a.link-profile {
     padding: 5px;
     text-align: center;
 }
+
+.footer-ask {display: flex;justify-content: flex-end;flex-wrap: wrap;}
+
+.action-ask {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.left-ask {
+    margin-bottom: 10px;
+}
+
+.tanya-area {
+    display: flex;
+    align-items: center;
+}
+
+.img-res img {
+    width: 100%;
+}
+
+.footer-judul-tanya {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-jawab {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.user-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.right-user-info {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.b-hapus {
+    color: #df2a2a;
+}
+
+.b-hapus:hover {
+    color: #e47777;
+}
+
+.b-ubah {
+    color: #2599d7;
+}
+
+@media (max-width: 600px) {
+    .img-ask {
+        display: none;
+    }
+
+    .cover-image {
+        display: none;
+    }
+
+    .card-ask{
+        padding-bottom: 0;
+    }
+
+    .footer-ask{
+        padding-right: 1.25rem;
+        padding-bottom: 1.25rem;
+    }
+    .left-ask {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .right-ask {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .img-tanya-judul {
+        display: none;
+    }
+
+    .footer-judul-tanya {
+        margin-top: 10px;
+        justify-content: center;
+    }
+
+    .tombol-jawab {
+        justify-content: center;
+    }
+
+}
+
+
+@media (min-width: 600px) {
+    .img-res {
+        display: none;
+    }
+}

@@ -53,9 +53,11 @@
                                 <td>
                                 <?php foreach ($materi as $key => $valuemateri) {
                                     if ($value->id_kursus == $valuemateri->id_kursus) { ?>
-                                        <div class="mt-4 mb-4">
-                                            <a href="<?= base_url('admin/pretest/list_soal/' . $valuemateri->id_materi) ?>" class="btn btn-success"><?= $valuemateri->nama_materi?></a>
-                                        </div>
+                                        <?php if ($valuemateri->status_pretest == 'Yes') { ?>
+                                            <div class="mt-4 mb-4">
+                                                <a href="<?= base_url('admin/pretest/list_soal/' . $valuemateri->id_materi) ?>" class="btn btn-success"><?= $valuemateri->nama_materi?></a>
+                                            </div>
+                                        <?php } ?>
                                     <?php }} ?>
                                 </td>
                             </tr>
