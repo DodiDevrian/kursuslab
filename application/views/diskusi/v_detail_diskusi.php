@@ -78,7 +78,7 @@
             <div class="footer-ask" style="padding: 1.25rem 1.25rem 1.25rem 1.25rem; ">
                 <li class="ml-2"><i class="fa fa-user" aria-hidden="true"></i> <?= $value->nama_user?></li>
                 <li class="ml-2" style="color: #2389ff;"><i class="fa fa-book" aria-hidden="true"></i><a href="<?= base_url('diskusi/detail_diskusi/' . $value->id_kursus)?>"> <?= $value->nama_kursus?></a></li>
-                <li class="ml-2"><i class="fa fa-calendar" aria-hidden="true"></i> <?= date('d-m-Y', strtotime($tanggal_kirim)) ?></li>
+                <li class="ml-2"><i class="fa fa-calendar" aria-hidden="true"></i> <?= date('d-m-Y', strtotime($value->created_ask)) ?></li>
             </div>
         </div>
     </div>
@@ -128,7 +128,7 @@
 </div>
 
 <?php foreach ($diskusi as $key => $value) { ?>
-<div class="modal fade" id="viewImage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="viewImage<?=$value->id_ask?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">

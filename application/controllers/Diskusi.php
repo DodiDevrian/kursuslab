@@ -119,7 +119,7 @@ class Diskusi extends CI_Controller
     public function detail_diskusi($id_kursus)
     {
         $data = array(
-            'title'         => 'Kursus',
+            'title'         => 'Forum Diskusi',
             'title2'        => 'Laboratorium Teknik Informatika',
             'kursus'        => $this->m_kursus->lists(),
             'detail_asprak' => $this->m_asprak->detail_asprak($id_kursus),
@@ -213,12 +213,13 @@ class Diskusi extends CI_Controller
 
     public function jawab($id_ask){
         $data = array(
-            'title'         => 'Kursus',
+            'title'         => 'Forum Diskusi',
             'title2'        => 'Laboratorium Teknik Informatika',
             'kursus'        => $this->m_kursus->lists(),
             'detail_ask'    => $this->m_diskusi->detail_ask($id_ask),
             'diskusi'       => $this->m_diskusi->list(),
             'jawab'         => $this->m_diskusi->list_jawab(),
+            'like'          => $this->m_diskusi->list_like(),
             'id'            => $id_ask,
             'isi'           => 'diskusi/v_jawab'
         );
@@ -252,6 +253,7 @@ class Diskusi extends CI_Controller
                 $data = array(
                     'id_user'           => $this->input->post('id_user'),
                     'id_ask'            => $this->input->post('id_ask'),
+                    'asprak_jawab'      => 'no',
                     'jawab'             => html_escape($this->input->post('jawab'))
                 );
 
@@ -270,6 +272,7 @@ class Diskusi extends CI_Controller
                 $data = array(
                     'id_user'       => $this->input->post('id_user'),
                     'id_ask'            => $this->input->post('id_ask'),
+                    'asprak_jawab'      => 'no',
                     'jawab'             => html_escape($this->input->post('jawab')),
                     'foto_jawab'    => $upload_data['uploads']['file_name']
                 );
@@ -281,5 +284,45 @@ class Diskusi extends CI_Controller
                 redirect($referred_from, 'refresh');
             }
         }
+    }
+
+    public function like_jawab ($id_ans)
+    {
+        $data = array(
+            'like_dislike'  => 'like',
+            'id_ans'        => $id_ans,
+            'id_user_like'       => $this->session->userdata('id_user')
+        );
+
+        $this->m_diskusi->like_jawab($data);
+        $this->session->set_flashdata('pesan', 'Berhasil Memenyukai jawaban!');
+
+        $referred_from = $this->session->userdata('chat_diskusi');
+        redirect($referred_from, 'refresh');
+    }
+
+    public function unlike($id_like)
+    {
+        $data = array('id_like' => $id_like);
+        $this->m_diskusi->unlike($data);
+        $this->session->set_flashdata('pesan', 'Soal Berhasil Dihapus!');
+        
+        $referred_from = $this->session->userdata('chat_diskusi');
+        redirect($referred_from, 'refresh');
+    }
+
+    public function report ($id_ans)
+    {
+        $data = array(
+            'id_ans'        => $id_ans,
+            'report'        => $this->input->post('report'),
+            'id_user_report'  => $this->session->userdata('id_user')
+        );
+
+        $this->m_diskusi->report($data);
+        $this->session->set_flashdata('pesan', 'Berhasil Melakukan Report!');
+
+        $referred_from = $this->session->userdata('chat_diskusi');
+        redirect($referred_from, 'refresh');
     }
 }

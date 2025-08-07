@@ -55,33 +55,34 @@
         $tanggal_kirim = $value->created; 
         $tanggal_jawab = $value->modified;
     ?>
-    
-    <div class="card mb-3 d-flex flex-row" style="width: 100%; margin: auto;">
-        <?php if ($value->foto_tanya != '') { ?>
-        <div class="cover-image" style="flex: 0 0 200px;">
-            <a data-toggle="modal" data-target="#viewImage<?=$value->id_ask?>">
-                <img class="img-ask" src="<?= base_url('upload/foto_tanya/'). $value->foto_tanya ?>" width="100%" style="object-fit: cover; height: 134px;">
-            </a>
-        </div>
-        <?php } ?>
-        <div class="" style="display: flex; flex-direction: column; flex: 1;">
-            <div class="card-body card-ask">
-                <div class="tanya-area">
-                    <a href="" class="" role="button" data-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-bars" style="color: #ed9532; font: 20px;" aria-hidden="true"></i>
-                    </a>
-                    <a href="<?= base_url('diskusi/jawab/' . $value->id_ask) ?>">
-                        <h5 class="ml-2" style="color: #0062d4;"><?= $value->tanya ?></h5>
-                    </a>
+    <?php if ($value->id_user == $this->session->userdata('id_user')) { ?>
+        <div class="card mb-3 d-flex flex-row" style="width: 100%; margin: auto;">
+            <?php if ($value->foto_tanya != '') { ?>
+            <div class="cover-image" style="flex: 0 0 200px;">
+                <a data-toggle="modal" data-target="#viewImage<?=$value->id_ask?>">
+                    <img class="img-ask" src="<?= base_url('upload/foto_tanya/'). $value->foto_tanya ?>" width="100%" style="object-fit: cover; height: 134px;">
+                </a>
+            </div>
+            <?php } ?>
+            <div class="" style="display: flex; flex-direction: column; flex: 1;">
+                <div class="card-body card-ask">
+                    <div class="tanya-area">
+                        <a href="" class="" role="button" data-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-bars" style="color: #ed9532; font: 20px;" aria-hidden="true"></i>
+                        </a>
+                        <a href="<?= base_url('diskusi/jawab/' . $value->id_ask) ?>">
+                            <h5 class="ml-2" style="color: #0062d4;"><?= $value->tanya ?></h5>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-ask" style="padding: 1.25rem 1.25rem 1.25rem 1.25rem; ">
+                    <li class="ml-2"><i class="fa fa-user" aria-hidden="true"></i> <?= $value->nama_user?></li>
+                    <li class="ml-2" style="color: #2389ff;"><i class="fa fa-book" aria-hidden="true"></i><a href="<?= base_url('diskusi/detail_diskusi_me/' . $value->id_kursus)?>"> <?= $value->nama_kursus?></a></li>
+                    <li class="ml-2"><i class="fa fa-calendar" aria-hidden="true"></i> <?= date('d-m-Y', strtotime($value->created_ask)) ?></li>
                 </div>
             </div>
-            <div class="footer-ask" style="padding: 1.25rem 1.25rem 1.25rem 1.25rem; ">
-                <li class="ml-2"><i class="fa fa-user" aria-hidden="true"></i> <?= $value->nama_user?></li>
-                <li class="ml-2" style="color: #2389ff;"><i class="fa fa-book" aria-hidden="true"></i><a href="<?= base_url('diskusi/detail_diskusi_me/' . $value->id_kursus)?>"> <?= $value->nama_kursus?></a></li>
-                <li class="ml-2"><i class="fa fa-calendar" aria-hidden="true"></i> <?= date('d-m-Y', strtotime($tanggal_kirim)) ?></li>
-            </div>
         </div>
-    </div>
+    <?php } ?>
     <?php } ?>
 </div>
 
@@ -130,7 +131,7 @@
 </div>
 
 <?php foreach ($diskusi as $key => $value) { ?>
-<div class="modal fade" id="viewImage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="viewImage<?=$value->id_ask?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">

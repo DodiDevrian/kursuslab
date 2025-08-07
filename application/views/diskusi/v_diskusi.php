@@ -52,7 +52,7 @@
     
     <?php foreach ($diskusi as $key => $value) { ?>
     <?php 
-        $tanggal_kirim = $value->created; 
+        $tanggal_kirim = $value->created_ask; 
         $tanggal_jawab = $value->modified;
     ?>
     <div class="card mb-3 d-flex flex-row" style="width: 100%; margin: auto;">
@@ -72,7 +72,7 @@
             <div class="footer-ask" style="padding: 1.25rem 1.25rem 1.25rem 1.25rem; ">
                 <li class="ml-2"><i class="fa fa-user" aria-hidden="true"></i> <?= $value->nama_user?></li>
                 <li class="ml-2" style="color: #2389ff;"><i class="fa fa-book" aria-hidden="true"></i><a href="<?= base_url('diskusi/detail_diskusi/' . $value->id_kursus)?>"> <?= $value->nama_kursus?></a></li>
-                <li class="ml-2"><i class="fa fa-calendar" aria-hidden="true"></i> <?= date('d-m-Y', strtotime($tanggal_kirim)) ?></li>
+                <li class="ml-2"><i class="fa fa-calendar" aria-hidden="true"></i> <?= date('d-m-Y', strtotime($value->created_ask)) ?></li>
             </div>
         </div>
     </div>

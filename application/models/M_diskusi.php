@@ -23,6 +23,17 @@ class M_diskusi extends CI_Model
 
         return $this->db->get()->result();
     }
+
+    public function list_like()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_like');
+        $this->db->join('tbl_user', 'tbl_user.id_user = tbl_like.id_user_like', 'left');
+        $this->db->join('tbl_ans', 'tbl_ans.id_ans = tbl_like.id_ans', 'left');
+        $this->db->order_by('id_like', 'DESC');
+
+        return $this->db->get()->result();
+    }
     
     public function lists($limit, $start)
     {
@@ -48,18 +59,6 @@ class M_diskusi extends CI_Model
 
     }
 
-
-    // public function detail_diskusi($id_kursus)
-    // {
-    //     $this->db->select('*');
-    //     $this->db->from('tbl_kursus');
-    //     $this->db->join('tbl_admin', 'tbl_admin.id_admin = tbl_kursus.id_admin', 'left');
-    //     // $this->db->join('tbl_asprak', 'tbl_asprak.id_asprak = tbl_kursus.id_asprak', 'left');
-    //     $this->db->where('id_kursus', $id_kursus);
-
-    //     return $this->db->get()->row();
-    // }
-
     public function add_chat_user($data)
     {
         $this->db->insert('tbl_ask', $data);
@@ -80,6 +79,22 @@ class M_diskusi extends CI_Model
         $this->db->where('id_ask', $id_ask);
 
         return $this->db->get()->row();
+    }
+
+    public function like_jawab($data)
+    {
+        $this->db->insert('tbl_like', $data);
+    }
+
+    public function unlike($data)
+    {
+        $this->db->where('id_like', $data['id_like']);
+        $this->db->delete('tbl_like', $data);
+    }
+
+    public function report($data)
+    {
+        $this->db->insert('tbl_report', $data);
     }
 
     public function edit($data)
